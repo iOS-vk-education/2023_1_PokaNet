@@ -19,5 +19,5 @@
 - **Фреймворки:** Combine 🔄, Moya 🌐, UIKit 📱
 
 ## 🎨 Макет:
-[Ссылка на макет](#) (тут будет ссылка)
+[https://www.figma.com/file/vkhtOTqfJ1EPt50zf3cwEW/POKA-NET?type=design&node-id=0%3A1&mode=design&t=hZ0X0FNka6CWFL7h-1](#) 
 
