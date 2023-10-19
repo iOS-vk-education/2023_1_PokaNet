@@ -1,5 +1,13 @@
-# Created by https://www.toptal.com/developers/gitignore/api/swift,xcode
-# Edit at https://www.toptal.com/developers/gitignore?templates=swift,xcode
+# Created by https://www.toptal.com/developers/gitignore/api/swift,cocoapods
+# Edit at https://www.toptal.com/developers/gitignore?templates=swift,cocoapods
+
+### CocoaPods ###
+## CocoaPods GitIgnore Template
+
+# CocoaPods - Only use to conserve bandwidth / Save time on Pushing
+#           - Also handy if you have a large number of dependant pods
+#           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
+Pods/
 
 ### Swift ###
 # Xcode
@@ -25,7 +33,6 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-.DS_Store
 
 ## Obj-C/Swift specific
 *.hmap
@@ -68,7 +75,7 @@ Carthage/Build/
 # Accio dependency management
 Dependencies/
 .accio/
-
+.DS_Store
 # fastlane
 # It is recommended to not store the screenshots in the git repo.
 # Instead, use fastlane to re-generate the screenshots whenever they are needed.
@@ -86,17 +93,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-### Xcode ###
-
-## Xcode 8 and earlier
-
-### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcodeproj/project.xcworkspace/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-**/xcshareddata/WorkspaceSettings.xcsettings
-
-# End of https://www.toptal.com/developers/gitignore/api/swift,xcode
+# End of https://www.toptal.com/developers/gitignore/api/swift,cocoapods
