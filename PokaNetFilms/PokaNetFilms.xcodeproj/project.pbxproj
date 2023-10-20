@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4919076D5536482C88D79C47 /* Pods_PokaNetFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8A9022B0129AE27E6E9A8 /* Pods_PokaNetFilms.framework */; };
 		7404BE642ADE9DBB00A59B4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404BE632ADE9DBB00A59B4D /* AppDelegate.swift */; };
 		7404BE662ADE9DBB00A59B4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404BE652ADE9DBB00A59B4D /* SceneDelegate.swift */; };
 		7404BE682ADE9DBB00A59B4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404BE672ADE9DBB00A59B4D /* ViewController.swift */; };
-		7404BE6B2ADE9DBB00A59B4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7404BE692ADE9DBB00A59B4D /* Main.storyboard */; };
 		7404BE6E2ADE9DBB00A59B4D /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7404BE6C2ADE9DBB00A59B4D /* PokaNetFilms.xcdatamodeld */; };
 		7404BE702ADE9DBD00A59B4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7404BE6F2ADE9DBD00A59B4D /* Assets.xcassets */; };
 		7404BE732ADE9DBD00A59B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7404BE712ADE9DBD00A59B4D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AF4EFAEF4E156A610AF9EE6 /* Pods-PokaNetFilms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokaNetFilms.debug.xcconfig"; path = "Target Support Files/Pods-PokaNetFilms/Pods-PokaNetFilms.debug.xcconfig"; sourceTree = "<group>"; };
+		6FC8A9022B0129AE27E6E9A8 /* Pods_PokaNetFilms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokaNetFilms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7404BE602ADE9DBB00A59B4D /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7404BE632ADE9DBB00A59B4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7404BE652ADE9DBB00A59B4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7404BE672ADE9DBB00A59B4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7404BE6A2ADE9DBB00A59B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7404BE6D2ADE9DBB00A59B4D /* PokaNetFilms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokaNetFilms.xcdatamodel; sourceTree = "<group>"; };
 		7404BE6F2ADE9DBD00A59B4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7404BE722ADE9DBD00A59B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7404BE742ADE9DBD00A59B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2C072E773A8A615790F0069 /* Pods-PokaNetFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokaNetFilms.release.xcconfig"; path = "Target Support Files/Pods-PokaNetFilms/Pods-PokaNetFilms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4919076D5536482C88D79C47 /* Pods_PokaNetFilms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,8 @@
 			children = (
 				7404BE622ADE9DBB00A59B4D /* PokaNetFilms */,
 				7404BE612ADE9DBB00A59B4D /* Products */,
+				76CD7A45A45EAF26AB4F40A0 /* Pods */,
+				CC53E03D53F0D1196DC767CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,13 +66,29 @@
 				7404BE632ADE9DBB00A59B4D /* AppDelegate.swift */,
 				7404BE652ADE9DBB00A59B4D /* SceneDelegate.swift */,
 				7404BE672ADE9DBB00A59B4D /* ViewController.swift */,
-				7404BE692ADE9DBB00A59B4D /* Main.storyboard */,
 				7404BE6F2ADE9DBD00A59B4D /* Assets.xcassets */,
 				7404BE712ADE9DBD00A59B4D /* LaunchScreen.storyboard */,
 				7404BE742ADE9DBD00A59B4D /* Info.plist */,
 				7404BE6C2ADE9DBB00A59B4D /* PokaNetFilms.xcdatamodeld */,
 			);
 			path = PokaNetFilms;
+			sourceTree = "<group>";
+		};
+		76CD7A45A45EAF26AB4F40A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AF4EFAEF4E156A610AF9EE6 /* Pods-PokaNetFilms.debug.xcconfig */,
+				A2C072E773A8A615790F0069 /* Pods-PokaNetFilms.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC53E03D53F0D1196DC767CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FC8A9022B0129AE27E6E9A8 /* Pods_PokaNetFilms.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7404BE772ADE9DBD00A59B4D /* Build configuration list for PBXNativeTarget "PokaNetFilms" */;
 			buildPhases = (
+				5DE5A4D21B1799BBE9B22A2A /* [CP] Check Pods Manifest.lock */,
 				7404BE5C2ADE9DBB00A59B4D /* Sources */,
 				7404BE5D2ADE9DBB00A59B4D /* Frameworks */,
 				7404BE5E2ADE9DBB00A59B4D /* Resources */,
+				F988E597781246CA79101FB6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +153,52 @@
 			files = (
 				7404BE732ADE9DBD00A59B4D /* LaunchScreen.storyboard in Resources */,
 				7404BE702ADE9DBD00A59B4D /* Assets.xcassets in Resources */,
-				7404BE6B2ADE9DBB00A59B4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DE5A4D21B1799BBE9B22A2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokaNetFilms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F988E597781246CA79101FB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokaNetFilms/Pods-PokaNetFilms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokaNetFilms/Pods-PokaNetFilms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokaNetFilms/Pods-PokaNetFilms-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7404BE5C2ADE9DBB00A59B4D /* Sources */ = {
@@ -151,14 +215,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7404BE692ADE9DBB00A59B4D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7404BE6A2ADE9DBB00A59B4D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7404BE712ADE9DBD00A59B4D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -207,7 +263,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -270,7 +326,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -291,16 +347,17 @@
 		};
 		7404BE782ADE9DBD00A59B4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AF4EFAEF4E156A610AF9EE6 /* Pods-PokaNetFilms.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AJ8B22PL56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokaNetFilms/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,16 +378,17 @@
 		};
 		7404BE792ADE9DBD00A59B4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2C072E773A8A615790F0069 /* Pods-PokaNetFilms.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AJ8B22PL56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokaNetFilms/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
