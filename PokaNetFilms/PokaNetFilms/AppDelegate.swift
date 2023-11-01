@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  PokaNetFilms
 //
-//  Created by Grigory Don on 17.10.2023.
+//  Created by Grigory Don on 02.11.2023.
 //
 
 import UIKit
@@ -13,15 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-    var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = ViewController()
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
-        
+        // Override point for customization after application launch.
         return true
     }
 
