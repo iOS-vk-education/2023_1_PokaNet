@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
 		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
+		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
+		743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418282B06CC2D008390D7 /* ProfileProtocols.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
 		747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC52AF31594003AC739 /* TabBarController.swift */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		743418282B06CC2D008390D7 /* ProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747BBFC32AF31594003AC739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			children = (
 				743418222B06C66E008390D7 /* ProfileAssembly.swift */,
 				743418242B06C685008390D7 /* ProfileViewController.swift */,
+				743418262B06CC23008390D7 /* ProfilePresenter.swift */,
+				743418282B06CC2D008390D7 /* ProfileProtocols.swift */,
 			);
 			path = ProfileScene;
 			sourceTree = "<group>";
@@ -98,8 +104,8 @@
 			children = (
 				7434181E2B06C5BD008390D7 /* Application */,
 				743418202B06C62F008390D7 /* TabBar */,
-				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				743418212B06C64A008390D7 /* ProfileScene */,
+				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
 			);
 			path = PokaNetFilms;
@@ -178,9 +184,11 @@
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
+				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
+				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
