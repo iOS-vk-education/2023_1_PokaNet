@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
+		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
-		747BBFC62AF31594003AC739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC52AF31594003AC739 /* ViewController.swift */; };
+		747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC52AF31594003AC739 /* TabBarController.swift */; };
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
+		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747BBFC32AF31594003AC739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		747BBFC52AF31594003AC739 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		747BBFC52AF31594003AC739 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		747BBFCB2AF31594003AC739 /* PokaNetFilms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokaNetFilms.xcdatamodel; sourceTree = "<group>"; };
 		747BBFCD2AF31595003AC739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747BBFD02AF31595003AC739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7434181E2B06C5BD008390D7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				747BBFC12AF31594003AC739 /* AppDelegate.swift */,
+				747BBFC32AF31594003AC739 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7434181F2B06C5D1008390D7 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				747BBFCD2AF31595003AC739 /* Assets.xcassets */,
+				747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */,
+				747BBFD22AF31595003AC739 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		743418202B06C62F008390D7 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				747BBFC52AF31594003AC739 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		743418212B06C64A008390D7 /* ProfileScene */ = {
+			isa = PBXGroup;
+			children = (
+				743418222B06C66E008390D7 /* ProfileAssembly.swift */,
+				743418242B06C685008390D7 /* ProfileViewController.swift */,
+			);
+			path = ProfileScene;
+			sourceTree = "<group>";
+		};
 		747BBFB52AF31594003AC739 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +96,10 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
-				747BBFC12AF31594003AC739 /* AppDelegate.swift */,
-				747BBFC32AF31594003AC739 /* SceneDelegate.swift */,
-				747BBFC52AF31594003AC739 /* ViewController.swift */,
-				747BBFCD2AF31595003AC739 /* Assets.xcassets */,
-				747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */,
-				747BBFD22AF31595003AC739 /* Info.plist */,
+				7434181E2B06C5BD008390D7 /* Application */,
+				743418202B06C62F008390D7 /* TabBar */,
+				7434181F2B06C5D1008390D7 /* SupportingFiles */,
+				743418212B06C64A008390D7 /* ProfileScene */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
 			);
 			path = PokaNetFilms;
@@ -137,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
+				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
+				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
+				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
@@ -285,7 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PokaNetFilms/Info.plist;
+				INFOPLIST_FILE = PokaNetFilms/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -316,7 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PokaNetFilms/Info.plist;
+				INFOPLIST_FILE = PokaNetFilms/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
