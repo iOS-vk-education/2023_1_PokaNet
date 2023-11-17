@@ -14,7 +14,7 @@ protocol ProfileModuleInput {
 protocol ProfileModuleOutput: AnyObject {
 }
 
-protocol ProfileViewInput: class {
+protocol ProfileViewInput: AnyObject {
     func configure(with models: ProfileViewModel)
 }
 

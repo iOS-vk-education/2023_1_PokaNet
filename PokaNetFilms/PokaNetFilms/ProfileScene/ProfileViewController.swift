@@ -11,7 +11,7 @@ import UIKit
 final class ProfileViewController: UIViewController {
     
     private let output: ProfileViewOutput
-    private var model = ProfileUnitModel(userName: "", email: "", avatar: "")
+    private var model: ProfileUnitModel! // я не уверен, что так можно, но мне кажется что так лучше
     
     //MARK: - UI elements
     private let settingsButton = UIButton()
