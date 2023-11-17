@@ -19,6 +19,9 @@ final class ProfileViewController: UIViewController {
     private let userNameLabel = UILabel()
     private let emailLabel = UILabel()
     private let avatar = UIImageView()
+    private let filmsLayer = UIView()
+    private let favLabel = UILabel()
+    private let moreButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +38,13 @@ final class ProfileViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
+//MARK: - Settings for UI
 private extension ProfileViewController {
     func setupUI() {
         setupViewLayer()
@@ -47,6 +52,9 @@ private extension ProfileViewController {
         setupEmailLabel()
         setupUserNameLabel()
         setupAvatar()
+        setupFilmsLayer()
+        setupFavouritesLabel()
+        setupMoreButton()
     }
     
     func setupViewLayer() {
@@ -160,8 +168,69 @@ private extension ProfileViewController {
             avatar.bottomAnchor.constraint(equalTo: userNameLabel.topAnchor, constant: -16)
         ])
     }
+    
+    func setupFilmsLayer() {
+        view.addSubview(filmsLayer)
+        
+        filmsLayer.layer.cornerRadius = 25
+        filmsLayer.backgroundColor = .white
+        
+        makeConstraintsFilmsLayer()
+    }
+    
+    func makeConstraintsFilmsLayer() {
+        filmsLayer.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            filmsLayer.topAnchor.constraint(equalTo: viewLayer.bottomAnchor, constant: 16),
+            filmsLayer.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            filmsLayer.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            filmsLayer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ])
+    }
+    
+    func setupFavouritesLabel() {
+        filmsLayer.addSubview(favLabel)
+        
+        favLabel.text = "Избранные фильмы"
+        favLabel.font = UIFont.systemFont(ofSize: 22)
+        favLabel.textColor = .systemBlue
+        
+        makeConstraintsfavLabel()
+    }
+    
+    func makeConstraintsfavLabel() {
+        favLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            favLabel.topAnchor.constraint(equalTo: filmsLayer.topAnchor, constant: 20),
+            favLabel.leftAnchor.constraint(equalTo: filmsLayer.leftAnchor, constant: 20)
+        ])
+    }
+    
+    func setupMoreButton() {
+        filmsLayer.addSubview(moreButton)
+        
+        moreButton.setTitle(" Смотреть все", for: .normal)
+        moreButton.setTitleColor(.systemBlue, for: .normal)
+        moreButton.backgroundColor = .clear
+        
+        makeConstraintsMoreButton()
+    }
+    
+    func makeConstraintsMoreButton() {
+        moreButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            moreButton.topAnchor.constraint(equalTo: filmsLayer.bottomAnchor, constant: -55),
+            moreButton.leftAnchor.constraint(equalTo: filmsLayer.leftAnchor),
+            moreButton.rightAnchor.constraint(equalTo: filmsLayer.rightAnchor),
+            moreButton.bottomAnchor.constraint(equalTo: filmsLayer.bottomAnchor)
+        ])
+    }
 }
 
+//MARK: - ProfileViewInput
 extension ProfileViewController: ProfileViewInput {
     func configure(with model: ProfileViewModel) {
         self.model = model.units
