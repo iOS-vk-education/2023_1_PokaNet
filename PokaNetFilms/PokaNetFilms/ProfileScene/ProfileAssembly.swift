@@ -18,6 +18,7 @@ final class ProfileAssembly {
         presenter.view = viewController
         presenter.moduleOutput = moduleOutput
 
+        print(#function)
         return viewController
     }
 }

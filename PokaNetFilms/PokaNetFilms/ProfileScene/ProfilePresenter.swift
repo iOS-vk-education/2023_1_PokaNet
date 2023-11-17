@@ -19,9 +19,20 @@ extension ProfilePresenter: ProfileModuleInput {}
 extension ProfilePresenter: ProfileViewOutput {
     func didLoadView() {
         print(#function)
+        mock()
     }
     
     func didTapActionButton() {
         print(#function)
+    }
+}
+
+private extension ProfilePresenter {
+    func mock() {
+        print(#function)
+        let units: [ProfileUnitModel] = [
+            .init(userName: "primmapola")
+        ]
+        view?.configure(with: .init(units: units))
     }
 }

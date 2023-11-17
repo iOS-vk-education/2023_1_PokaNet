@@ -12,16 +12,18 @@ final class ProfileViewController: UIViewController {
     
     
     private let output: ProfileViewOutput
+    private var models: [ProfileUnitModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        output.didLoadView()
+        view.backgroundColor = .systemGray
+        print(models.count)
     }
     
     init(output: ProfileViewOutput) {
         self.output = output
-        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,7 +33,10 @@ final class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: ProfileViewInput {
-    func configure(with models: ProfileViewModel) {
+    func configure(with model: ProfileViewModel) {
+        print(1)
+        self.models = model.units
         print(#function)
+        print(model)
     }
 }

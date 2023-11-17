@@ -34,8 +34,7 @@ private extension TabBarController {
     
     func setupTabs() {
         
-        let presenter = ProfilePresenter()
-        let profileVC = ProfileViewController(output: presenter)
+        let profileVC = ProfileAssembly.assembly()
         
         profileVC.tabBarItem.title = "Профиль"
         profileVC.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
