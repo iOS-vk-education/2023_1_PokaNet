@@ -14,15 +14,12 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        generateTabBar()
         setupTabBar()
+        setupTabs()
     }
 }
 
-extension TabBarController {
-    func generateTabBar() {
-        viewControllers = []
-    }
+private extension TabBarController {
     
     func generateVC(viewController: UIViewController, title: String) -> UIViewController {
         viewController.tabBarItem.title = title
@@ -32,6 +29,17 @@ extension TabBarController {
     
     func setupTabBar() {
         tabBar.backgroundColor = .white
-        tabBar.tintColor = .black
+        tabBar.tintColor = .systemBlue
+    }
+    
+    func setupTabs() {
+        
+        let presenter = ProfilePresenter()
+        let profileVC = ProfileViewController(output: presenter)
+        
+        profileVC.tabBarItem.title = "Профиль"
+        profileVC.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
+        
+        viewControllers = [profileVC]
     }
 }
