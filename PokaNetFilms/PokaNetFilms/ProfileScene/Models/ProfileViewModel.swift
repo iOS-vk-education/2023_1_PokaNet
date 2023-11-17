@@ -8,5 +8,5 @@
 import Foundation
 
 struct ProfileViewModel {
-    let units: [ProfileUnitModel]
+    let units: ProfileUnitModel
 }

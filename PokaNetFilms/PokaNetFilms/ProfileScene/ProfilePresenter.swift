@@ -30,9 +30,7 @@ extension ProfilePresenter: ProfileViewOutput {
 private extension ProfilePresenter {
     func mock() {
         print(#function)
-        let units: [ProfileUnitModel] = [
-            .init(userName: "primmapola")
-        ]
+        let units: ProfileUnitModel = .init(userName: "primmapola", email: "dongrigory29@gmail.com", avatar: "avatar")
         view?.configure(with: .init(units: units))
     }
 }
