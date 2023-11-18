@@ -15,7 +15,7 @@ protocol ProfileModuleOutput: AnyObject {
 }
 
 protocol ProfileViewInput: AnyObject {
-    func configure(with models: ProfileViewModel)
+    func configure(with models: ProfileViewModel?)
 }
 
 protocol ProfileViewOutput: AnyObject {

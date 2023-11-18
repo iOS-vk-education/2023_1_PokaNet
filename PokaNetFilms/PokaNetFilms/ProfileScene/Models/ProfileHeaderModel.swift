@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ProfileUnitModel {
+struct ProfileHeaderModel {
     
     let userName: String
     let email: String

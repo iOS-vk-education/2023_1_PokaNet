@@ -12,7 +12,7 @@
 		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
 		743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418282B06CC2D008390D7 /* ProfileProtocols.swift */; };
 		7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */; };
-		7434182D2B06CF6D008390D7 /* ProfileUnitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182C2B06CF6D008390D7 /* ProfileUnitModel.swift */; };
+		7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */; };
 		743418302B06D275008390D7 /* ProfileScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182F2B06D275008390D7 /* ProfileScreenState.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
@@ -20,6 +20,8 @@
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
+		74FC586F2B0956A8004EBC81 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */; };
+		74FC58712B0971F3004EBC81 /* ProfileFilmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +30,7 @@
 		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		743418282B06CC2D008390D7 /* ProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
 		7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		7434182C2B06CF6D008390D7 /* ProfileUnitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUnitModel.swift; sourceTree = "<group>"; };
+		7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderModel.swift; sourceTree = "<group>"; };
 		7434182F2B06D275008390D7 /* ProfileScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenState.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		747BBFCD2AF31595003AC739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747BBFD02AF31595003AC739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		747BBFD22AF31595003AC739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilmsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				743418282B06CC2D008390D7 /* ProfileProtocols.swift */,
 				7434182E2B06CF71008390D7 /* Models */,
 				7434182F2B06D275008390D7 /* ProfileScreenState.swift */,
+				74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */,
+				74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */,
 			);
 			path = ProfileScene;
 			sourceTree = "<group>";
@@ -95,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */,
-				7434182C2B06CF6D008390D7 /* ProfileUnitModel.swift */,
+				7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,11 +206,13 @@
 			files = (
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
+				74FC58712B0971F3004EBC81 /* ProfileFilmsView.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
-				7434182D2B06CF6D008390D7 /* ProfileUnitModel.swift in Sources */,
+				7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */,
 				7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */,
 				743418302B06D275008390D7 /* ProfileScreenState.swift in Sources */,
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
+				74FC586F2B0956A8004EBC81 /* ProfileHeaderView.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
