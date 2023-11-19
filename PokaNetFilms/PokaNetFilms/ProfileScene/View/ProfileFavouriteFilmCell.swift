@@ -23,11 +23,6 @@ final class ProfileFavouriteFilmCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func configure(with model: ProfileViewModel, by indexPath: IndexPath) {
-        title.text = model.favoriteFilms[indexPath.row].title
-        imageView.image = model.favoriteFilms[indexPath.row].image
-    }
 }
 
 //MARK: - SetupUI
@@ -79,5 +74,13 @@ extension ProfileFavouriteFilmCell {
             title.rightAnchor.constraint(equalTo: rightAnchor),
             title.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+}
+
+//MARK: - Configure model
+extension ProfileFavouriteFilmCell {
+    func configure(with model: ProfileViewModel, by indexPath: IndexPath) {
+        title.text = model.favoriteFilms[indexPath.row].title
+        imageView.image = model.favoriteFilms[indexPath.row].image
     }
 }

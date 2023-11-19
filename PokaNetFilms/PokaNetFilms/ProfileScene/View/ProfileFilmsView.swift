@@ -32,10 +32,6 @@ final class ProfileFilmsView: UIView {
         setupMoreButton()
         setupFilmsCollectionView()
     }
-    
-    func configure(_ model: ProfileViewModel) {
-        self.model = model
-    }
 }
 
 //MARK: - SetupUI
@@ -145,4 +141,11 @@ extension ProfileFilmsView: UICollectionViewDelegate, UICollectionViewDataSource
         return 80
     }
     
+}
+
+//MARK: - Configure model
+extension ProfileFilmsView {
+    func configure(_ model: ProfileViewModel) {
+        self.model = model
+    }
 }

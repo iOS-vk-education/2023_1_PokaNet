@@ -14,8 +14,8 @@ final class ProfileViewController: UIViewController {
     private var model: ProfileViewModel?
     
     //MARK: - UI elements
-    private let viewLayer = ProfileHeaderView()
-    private let filmsLayer = ProfileFilmsView()
+    private let headerView = ProfileHeaderView()
+    private let filmsView = ProfileFilmsView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,41 +45,41 @@ private extension ProfileViewController {
     }
     
     func setupViewLayer() {
-        view.addSubview(viewLayer)
+        view.addSubview(headerView)
         
-        viewLayer.layer.cornerRadius = 25
+        headerView.layer.cornerRadius = 25
         
         makeConstraintsViewLayer()
     }
     
     func makeConstraintsViewLayer() {
-        viewLayer.translatesAutoresizingMaskIntoConstraints = false
+        headerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            viewLayer.topAnchor.constraint(equalTo: view.topAnchor),
-            viewLayer.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            viewLayer.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            viewLayer.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -110)
+            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            headerView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            headerView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -110)
         ])
     }
     
     func setupFilmsLayer() {
-        view.addSubview(filmsLayer)
+        view.addSubview(filmsView)
         
-        filmsLayer.layer.cornerRadius = 25
-        filmsLayer.backgroundColor = .white
+        filmsView.layer.cornerRadius = 25
+        filmsView.backgroundColor = .white
         
         makeConstraintsFilmsLayer()
     }
     
     func makeConstraintsFilmsLayer() {
-        filmsLayer.translatesAutoresizingMaskIntoConstraints = false
+        filmsView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            filmsLayer.topAnchor.constraint(equalTo: viewLayer.bottomAnchor, constant: 16),
-            filmsLayer.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            filmsLayer.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            filmsLayer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            filmsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 16),
+            filmsView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            filmsView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            filmsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
 }
@@ -88,11 +88,11 @@ private extension ProfileViewController {
 extension ProfileViewController: ProfileViewInput {
     func configureProfile(with model: ProfileViewModel?) {
         if let newModel = model {
-            viewLayer.emailLabel.text = newModel.profile.email
-            viewLayer.avatar.image = newModel.profile.avatar
-            viewLayer.userNameLabel.text = newModel.profile.userName
+            headerView.emailLabel.text = newModel.profile.email
+            headerView.avatar.image = newModel.profile.avatar
+            headerView.userNameLabel.text = newModel.profile.userName
             
-            filmsLayer.configure(newModel)
+            filmsView.configure(newModel)
         } else {
             print("!!!")
         }

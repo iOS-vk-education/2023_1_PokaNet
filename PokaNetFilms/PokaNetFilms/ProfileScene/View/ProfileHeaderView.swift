@@ -38,7 +38,7 @@ class ProfileHeaderView: UIView {
         
         if let symbolImage = UIImage(systemName: "pencil")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 23)) {
             settingsButton.setImage(symbolImage, for: .normal)
-            settingsButton.tintColor = .systemBlue  // Установка цвета символа
+            settingsButton.tintColor = .systemBlue
         }
         
         settingsButton.setTitle(" Редактировать", for: .normal)
