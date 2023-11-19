@@ -19,21 +19,31 @@ extension ProfilePresenter: ProfileModuleInput {}
 
 extension ProfilePresenter: ProfileViewOutput {
     func didLoadView() {
-        print(#function)
         mock()
     }
     
     func didTapActionButton() {
-        print(#function)
     }
 }
 
 private extension ProfilePresenter {
     func mock() {
-        print(#function)
         let avatarImage = UIImage(named: "avatar") ?? UIImage(named: "defaultImage")!
-        let units: ProfileHeaderModel = .init(userName: "primmapola", email: "dongrigory29@gmail.com", avatar: avatarImage)
-        view?.configure(with: .init(units: units))
+        
+        let profileModel: ProfileHeaderModel = .init(userName: "primmapola", email: "dongrigory29@gmail.com", avatar: avatarImage)
+        
+        let filmImage = UIImage(named: "nilName") ?? UIImage(named: "defaultImage")!
+        
+        let filmsModel: [ProfileFavouriteFilmsModel] = [
+            .init(title: "1", image: filmImage),
+            .init(title: "1", image: filmImage),
+            .init(title: "1", image: filmImage),
+            .init(title: "1", image: filmImage),
+            .init(title: "1", image: filmImage),
+            .init(title: "1", image: filmImage)
+        ]
+        
+        view?.configureProfile(with: .init(profile: profileModel, favoriteFilms: filmsModel))
     }
 }
 

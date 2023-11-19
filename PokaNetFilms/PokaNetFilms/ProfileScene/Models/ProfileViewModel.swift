@@ -8,5 +8,6 @@
 import Foundation
 
 struct ProfileViewModel {
-    let units: ProfileHeaderModel
+    let profile: ProfileHeaderModel
+    let favoriteFilms: [ProfileFavouriteFilmsModel]
 }

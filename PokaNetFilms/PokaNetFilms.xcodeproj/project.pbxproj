@@ -20,7 +20,8 @@
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
-		748A3BEF2B09B9F6007F5154 /* FavouriteFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BEE2B09B9F6007F5154 /* FavouriteFilmCell.swift */; };
+		748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */; };
+		748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */; };
 		74FC586F2B0956A8004EBC81 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */; };
 		74FC58712B0971F3004EBC81 /* ProfileFilmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +42,8 @@
 		747BBFCD2AF31595003AC739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747BBFD02AF31595003AC739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		747BBFD22AF31595003AC739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		748A3BEE2B09B9F6007F5154 /* FavouriteFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFilmCell.swift; sourceTree = "<group>"; };
+		748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmCell.swift; sourceTree = "<group>"; };
+		748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmsModel.swift; sourceTree = "<group>"; };
 		74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilmsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				7434182F2B06D275008390D7 /* ProfileScreenState.swift */,
 				7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */,
 				7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */,
+				748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,7 +151,7 @@
 				743418242B06C685008390D7 /* ProfileViewController.swift */,
 				74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */,
 				74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */,
-				748A3BEE2B09B9F6007F5154 /* FavouriteFilmCell.swift */,
+				748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -234,7 +237,8 @@
 				74FC586F2B0956A8004EBC81 /* ProfileHeaderView.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
-				748A3BEF2B09B9F6007F5154 /* FavouriteFilmCell.swift in Sources */,
+				748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */,
+				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class FavouriteFilmCell: UICollectionViewCell {
+final class ProfileFavouriteFilmCell: UICollectionViewCell {
     
     var imageView = UIImageView()
     var title = UILabel()
@@ -21,10 +21,15 @@ final class FavouriteFilmCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configure(with film: ProfileFavouriteFilmsModel) {
+        title.text = film.title
+        imageView.image = film.image
+    }
 }
 
 //MARK: - SetupUI
-extension FavouriteFilmCell {
+extension ProfileFavouriteFilmCell {
     func setupUI() {
         
         layer.cornerRadius = 10
@@ -37,9 +42,8 @@ extension FavouriteFilmCell {
         addSubview(imageView)
         
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "fakeFilm")
         imageView.layer.cornerRadius = 10
-        
+        imageView.image = UIImage(named: "fakeFilm")
         
         makeConstraintsImageView()
     }
@@ -61,7 +65,7 @@ extension FavouriteFilmCell {
         title.font = UIFont.systemFont(ofSize: 16)
         title.textColor = .systemBlue
         title.textAlignment = .center
-        title.text = "Film"
+        title.text = "Time to Die"
         
         makeConstraintsTitle()
     }

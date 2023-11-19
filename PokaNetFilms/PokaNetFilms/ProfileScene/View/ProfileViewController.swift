@@ -62,7 +62,7 @@ private extension ProfileViewController {
             viewLayer.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -110)
         ])
     }
-
+    
     func setupFilmsLayer() {
         view.addSubview(filmsLayer)
         
@@ -86,11 +86,13 @@ private extension ProfileViewController {
 
 //MARK: - ProfileViewInput
 extension ProfileViewController: ProfileViewInput {
-    func configure(with model: ProfileViewModel?) {
+    func configureProfile(with model: ProfileViewModel?) {
         if let newModel = model {
-            viewLayer.emailLabel.text = newModel.units.email
-            viewLayer.avatar.image = newModel.units.avatar
-            viewLayer.userNameLabel.text = newModel.units.userName
+            viewLayer.emailLabel.text = newModel.profile.email
+            viewLayer.avatar.image = newModel.profile.avatar
+            viewLayer.userNameLabel.text = newModel.profile.userName
+            
+            print(newModel.favoriteFilms)
         } else {
             print("!!!")
         }

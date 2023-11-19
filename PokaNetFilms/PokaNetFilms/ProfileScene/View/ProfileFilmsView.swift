@@ -14,6 +14,8 @@ final class ProfileFilmsView: UIView {
     var moreButton = UIButton()
     var filmsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    var favoriteFilms: [ProfileFavouriteFilmsModel] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -22,6 +24,8 @@ final class ProfileFilmsView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+        
+        print(favoriteFilms)
     }
     
     func setup() {
@@ -76,7 +80,7 @@ extension ProfileFilmsView {
     }
     
     func setupFilmsCollectionView() {
-        filmsCollectionView.register(FavouriteFilmCell.self, forCellWithReuseIdentifier: "cell")
+        filmsCollectionView.register(ProfileFavouriteFilmCell.self, forCellWithReuseIdentifier: "cell")
         
         filmsCollectionView.dataSource = self
         filmsCollectionView.delegate = self
@@ -112,7 +116,18 @@ extension ProfileFilmsView: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavouriteFilmCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProfileFavouriteFilmCell else {
+            return UICollectionViewCell()
+        }
+        
+        if indexPath.item < favoriteFilms.count { // Проверка на длину массива
+            let film = favoriteFilms[indexPath.item] // Используйте indexPath.item, а не indexPath.row
+            
+            print(indexPath.item)
+            
+            cell.title.text = film.title
+            cell.imageView.image = film.image
+        }
         
         return cell
     }
@@ -135,4 +150,13 @@ extension ProfileFilmsView: UICollectionViewDelegate, UICollectionViewDataSource
         return 80
     }
     
+}
+
+extension ProfileFilmsView: ProfileViewInput {
+    func configureProfile(with model: ProfileViewModel?) {
+        if let favoriteFilms = model?.favoriteFilms {
+            self.favoriteFilms = favoriteFilms
+            print(#function)
+        }
+    }
 }
