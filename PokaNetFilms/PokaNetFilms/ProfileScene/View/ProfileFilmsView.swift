@@ -14,7 +14,7 @@ final class ProfileFilmsView: UIView {
     var moreButton = UIButton()
     var filmsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    var favoriteFilms: [ProfileFavouriteFilmsModel] = []
+    var model: ProfileViewModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,8 +24,6 @@ final class ProfileFilmsView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
-        
-        print(favoriteFilms)
     }
     
     func setup() {
@@ -33,6 +31,10 @@ final class ProfileFilmsView: UIView {
         setupFavouritesLabel()
         setupMoreButton()
         setupFilmsCollectionView()
+    }
+    
+    func configure(_ model: ProfileViewModel) {
+        self.model = model
     }
 }
 
@@ -120,14 +122,7 @@ extension ProfileFilmsView: UICollectionViewDelegate, UICollectionViewDataSource
             return UICollectionViewCell()
         }
         
-        if indexPath.item < favoriteFilms.count { // Проверка на длину массива
-            let film = favoriteFilms[indexPath.item] // Используйте indexPath.item, а не indexPath.row
-            
-            print(indexPath.item)
-            
-            cell.title.text = film.title
-            cell.imageView.image = film.image
-        }
+        cell.configure(with: model!, by: indexPath)
         
         return cell
     }
@@ -150,13 +145,4 @@ extension ProfileFilmsView: UICollectionViewDelegate, UICollectionViewDataSource
         return 80
     }
     
-}
-
-extension ProfileFilmsView: ProfileViewInput {
-    func configureProfile(with model: ProfileViewModel?) {
-        if let favoriteFilms = model?.favoriteFilms {
-            self.favoriteFilms = favoriteFilms
-            print(#function)
-        }
-    }
 }

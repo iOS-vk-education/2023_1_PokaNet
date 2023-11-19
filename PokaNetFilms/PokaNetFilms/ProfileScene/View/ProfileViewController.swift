@@ -92,7 +92,7 @@ extension ProfileViewController: ProfileViewInput {
             viewLayer.avatar.image = newModel.profile.avatar
             viewLayer.userNameLabel.text = newModel.profile.userName
             
-            print(newModel.favoriteFilms)
+            filmsLayer.configure(newModel)
         } else {
             print("!!!")
         }

@@ -13,6 +13,8 @@ final class ProfileFavouriteFilmCell: UICollectionViewCell {
     var imageView = UIImageView()
     var title = UILabel()
     
+    var model: ProfileViewModel?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -22,9 +24,9 @@ final class ProfileFavouriteFilmCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with film: ProfileFavouriteFilmsModel) {
-        title.text = film.title
-        imageView.image = film.image
+    func configure(with model: ProfileViewModel, by indexPath: IndexPath) {
+        title.text = model.favoriteFilms[indexPath.row].title
+        imageView.image = model.favoriteFilms[indexPath.row].image
     }
 }
 
@@ -43,7 +45,6 @@ extension ProfileFavouriteFilmCell {
         
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-        imageView.image = UIImage(named: "fakeFilm")
         
         makeConstraintsImageView()
     }
@@ -65,7 +66,6 @@ extension ProfileFavouriteFilmCell {
         title.font = UIFont.systemFont(ofSize: 16)
         title.textColor = .systemBlue
         title.textAlignment = .center
-        title.text = "Time to Die"
         
         makeConstraintsTitle()
     }
