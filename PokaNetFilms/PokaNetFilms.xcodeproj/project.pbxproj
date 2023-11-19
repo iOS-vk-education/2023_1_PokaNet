@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409BE3C2B09EE04008DEA7D /* TabBarController.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
 		747BBFC62AF31594003AC739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC52AF31594003AC739 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7409BE3C2B09EE04008DEA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747BBFC32AF31594003AC739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7409BE3E2B09EF2B008DEA7D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7409BE3C2B09EE04008DEA7D /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		747BBFB52AF31594003AC739 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +73,7 @@
 				747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */,
 				747BBFD22AF31595003AC739 /* Info.plist */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
+				7409BE3E2B09EF2B008DEA7D /* TabBar */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
@@ -140,6 +151,7 @@
 				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
+				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
