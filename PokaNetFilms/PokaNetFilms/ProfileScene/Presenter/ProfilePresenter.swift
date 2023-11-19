@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class ProfilePresenter {
     
@@ -30,7 +31,9 @@ extension ProfilePresenter: ProfileViewOutput {
 private extension ProfilePresenter {
     func mock() {
         print(#function)
-        let units: ProfileHeaderModel = .init(userName: "primmapola", email: "dongrigory29@gmail.com", avatar: "avatar")
+        let avatarImage = UIImage(named: "avatar") ?? UIImage(named: "defaultImage")!
+        let units: ProfileHeaderModel = .init(userName: "primmapola", email: "dongrigory29@gmail.com", avatar: avatarImage)
         view?.configure(with: .init(units: units))
     }
 }
+

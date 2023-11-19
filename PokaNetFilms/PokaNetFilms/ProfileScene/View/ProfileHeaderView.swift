@@ -101,11 +101,10 @@ class ProfileHeaderView: UIView {
     
     func setupAvatar() {
         
-        avatar.frame = CGRectMake(0, 0, 135, 135)
+        avatar.frame = CGRectMake(0, 0, 105, 105)
         
         addSubview(avatar)
         
-        avatar.image = UIImage(named: "avatar")
         avatar.layer.cornerRadius = avatar.frame.size.width / 2
         avatar.clipsToBounds = true
         makeConstraintsAvatar()

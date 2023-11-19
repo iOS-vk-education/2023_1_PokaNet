@@ -59,7 +59,7 @@ private extension ProfileViewController {
             viewLayer.topAnchor.constraint(equalTo: view.topAnchor),
             viewLayer.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             viewLayer.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            viewLayer.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -80)
+            viewLayer.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -110)
         ])
     }
 
@@ -89,7 +89,7 @@ extension ProfileViewController: ProfileViewInput {
     func configure(with model: ProfileViewModel?) {
         if let newModel = model {
             viewLayer.emailLabel.text = newModel.units.email
-            viewLayer.avatar.image = UIImage(named: newModel.units.avatar)
+            viewLayer.avatar.image = newModel.units.avatar
             viewLayer.userNameLabel.text = newModel.units.userName
         } else {
             print("!!!")
