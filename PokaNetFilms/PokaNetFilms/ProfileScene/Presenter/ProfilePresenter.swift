@@ -21,9 +21,6 @@ extension ProfilePresenter: ProfileViewOutput {
     func didLoadView() {
         mock()
     }
-    
-    func didTapActionButton() {
-    }
 }
 
 private extension ProfilePresenter {

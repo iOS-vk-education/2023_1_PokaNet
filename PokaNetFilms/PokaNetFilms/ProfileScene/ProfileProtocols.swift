@@ -20,5 +20,4 @@ protocol ProfileViewInput: AnyObject {
 
 protocol ProfileViewOutput: AnyObject {
     func didLoadView()
-    func didTapActionButton()
 }
