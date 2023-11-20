@@ -133,6 +133,7 @@
 				743418212B06C64A008390D7 /* ProfileScene */,
 				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
+				7409BE3E2B09EF2B008DEA7D /* TabBar */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
