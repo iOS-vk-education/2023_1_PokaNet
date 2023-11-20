@@ -36,11 +36,11 @@ private extension ProfilePresenter {
         
         let filmsModel: [ProfileFavouriteFilmsModel] = [
             .init(title: "1", image: filmImage),
-            .init(title: "1", image: filmImage),
-            .init(title: "1", image: filmImage),
-            .init(title: "1", image: filmImage),
-            .init(title: "1", image: filmImage),
-            .init(title: "1", image: filmImage)
+            .init(title: "2", image: filmImage),
+            .init(title: "3", image: filmImage),
+            .init(title: "4", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "6", image: filmImage)
         ]
         
         view?.configureProfile(with: .init(profile: profileModel, favoriteFilms: filmsModel))

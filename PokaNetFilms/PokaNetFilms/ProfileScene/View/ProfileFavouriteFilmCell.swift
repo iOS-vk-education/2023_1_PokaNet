@@ -80,7 +80,14 @@ extension ProfileFavouriteFilmCell {
 //MARK: - Configure model
 extension ProfileFavouriteFilmCell {
     func configure(with model: ProfileViewModel, by indexPath: IndexPath) {
-        title.text = model.favoriteFilms[indexPath.row].title
-        imageView.image = model.favoriteFilms[indexPath.row].image
+        let section = indexPath.section
+        var item = indexPath.row
+
+        if section == 1 {
+            item += 3
+        }
+
+        title.text = model.favoriteFilms[item].title
+        imageView.image = model.favoriteFilms[item].image
     }
 }
