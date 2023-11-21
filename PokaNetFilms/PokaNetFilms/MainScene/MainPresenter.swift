@@ -17,19 +17,16 @@ final class MainPresenter {
 extension MainPresenter: MainModuleInput {}
 
 extension MainPresenter: MainViewOutput {
+    
     func didLoadView() {
-        print(#function)
-        mock()
     }
 
     func didTapActionButton() {
-        print(#function)
     }
 }
 
 private extension MainPresenter {
     func mock() {
-        print(#function)
         let units: MainUnitModel = .init(title: "Сегодня в кино", reuseIdentifier: "Cell Identifier", cellText: "aboba")
         view?.configure(with: .init(units: units))
     }

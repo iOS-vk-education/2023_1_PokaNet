@@ -30,6 +30,7 @@ final class MainCell: UICollectionViewCell { // ячейка для коллек
 private extension MainCell {
     func setup() {
         setupLabel()
+        layer.cornerRadius = 20
         backgroundColor = .white
         setupLayout()
     }
@@ -48,6 +49,8 @@ private extension MainCell {
     func setupLabel() {
         addSubview(textLabel)
         textLabel.text = "aboba"
+        textLabel.textAlignment = .center
+        textLabel.font = .systemFont(ofSize: 30)
         textLabel.textColor = .black
     }
 }

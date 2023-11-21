@@ -64,12 +64,6 @@ private extension MainViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: "CellId")
-        //        collectionView.contentInset = UIEdgeInsets(
-        //            top: 58,
-        //            left: 0,
-        //            bottom: 30,
-        //            right: 0
-        //        )
         collectionView.backgroundColor = .yellow
         collectionView.showsVerticalScrollIndicator = false
         
@@ -80,7 +74,7 @@ private extension MainViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.centerYAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -118,12 +112,12 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegateFlowLayout { // наследуемся для реализации методов коллекции
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
-        let cellWidth = (collectionViewWidth - 60) / 3
-        return CGSize(width: cellWidth, height: cellWidth * 1.36)
+        let cellWidth = (collectionViewWidth - 20)
+        return CGSize(width: cellWidth, height: cellWidth * 0.35)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15, left: 15, bottom: 0, right: 15)
+    return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // задаем отступы сверху, слева, снизу и справа
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -131,7 +125,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout { // насле
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 80
+        return 30
     }
 }
 

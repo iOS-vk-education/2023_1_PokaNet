@@ -18,7 +18,6 @@ final class MainAssembly {
         presenter.view = viewController
         presenter.moduleOutput = moduleOutput
 
-        print(#function)
         return viewController
     }
 }
