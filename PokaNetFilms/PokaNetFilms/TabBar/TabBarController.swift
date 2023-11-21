@@ -5,7 +5,6 @@
 //  Created by Grigory Don on 19.11.2023.
 //
 
-import Foundation
 import UIKit
 
 final class TabBarController: UITabBarController {
@@ -34,6 +33,13 @@ private extension TabBarController {
     }
 
     func setupTabs() {
+
+        let mainVC = MainAssembly.assembly()
+
+        mainVC.tabBarItem.title = "Профиль"
+        mainVC.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
+
+        viewControllers = [mainVC]
     }
 }
 
