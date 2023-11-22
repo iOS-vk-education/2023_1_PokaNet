@@ -10,10 +10,13 @@
 		7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409BE3C2B09EE04008DEA7D /* TabBarController.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
-		747BBFC62AF31594003AC739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC52AF31594003AC739 /* ViewController.swift */; };
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
+		B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767602B0E5FB9000FEB4D /* FilmViewController.swift */; };
+		B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767622B0E64F6000FEB4D /* FilmAssembly.swift */; };
+		B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767642B0E6636000FEB4D /* FilmProtocols.swift */; };
+		B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767662B0E66FB000FEB4D /* FilmPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +24,14 @@
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747BBFC32AF31594003AC739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		747BBFC52AF31594003AC739 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		747BBFCB2AF31594003AC739 /* PokaNetFilms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokaNetFilms.xcdatamodel; sourceTree = "<group>"; };
 		747BBFCD2AF31595003AC739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747BBFD02AF31595003AC739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		747BBFD22AF31595003AC739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B42767602B0E5FB9000FEB4D /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
+		B42767622B0E64F6000FEB4D /* FilmAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmAssembly.swift; sourceTree = "<group>"; };
+		B42767642B0E6636000FEB4D /* FilmProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmProtocols.swift; sourceTree = "<group>"; };
+		B42767662B0E66FB000FEB4D /* FilmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +72,9 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
+				B427675F2B0E5F83000FEB4D /* FilmScene */,
 				747BBFC12AF31594003AC739 /* AppDelegate.swift */,
 				747BBFC32AF31594003AC739 /* SceneDelegate.swift */,
-				747BBFC52AF31594003AC739 /* ViewController.swift */,
 				747BBFCD2AF31595003AC739 /* Assets.xcassets */,
 				747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */,
 				747BBFD22AF31595003AC739 /* Info.plist */,
@@ -76,6 +82,17 @@
 				7409BE3E2B09EF2B008DEA7D /* TabBar */,
 			);
 			path = PokaNetFilms;
+			sourceTree = "<group>";
+		};
+		B427675F2B0E5F83000FEB4D /* FilmScene */ = {
+			isa = PBXGroup;
+			children = (
+				B42767602B0E5FB9000FEB4D /* FilmViewController.swift */,
+				B42767622B0E64F6000FEB4D /* FilmAssembly.swift */,
+				B42767642B0E6636000FEB4D /* FilmProtocols.swift */,
+				B42767662B0E66FB000FEB4D /* FilmPresenter.swift */,
+			);
+			path = FilmScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
+				B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
+				B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */,
+				B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */,
+				B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

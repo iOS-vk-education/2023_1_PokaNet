@@ -34,6 +34,11 @@ private extension TabBarController {
     }
 
     func setupTabs() {
+        let FilmViewController = FilmAssembly.assembly()
+        FilmViewController.tabBarItem.title = "Film"
+        FilmViewController.tabBarItem.image = UIImage(systemName: "gear")
+        
+        viewControllers = [FilmViewController]
     }
 }
 
