@@ -10,9 +10,10 @@ import UIKit
 
 final class MainViewController: UIViewController {
     private let output: MainViewOutput
-    
-    
     private var model: MainUnitModel!
+    
+    private let header = MainHeaderView()
+    
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -46,11 +47,12 @@ private extension MainViewController {
     func setup() {
         setupAppearance()
         setupLayout()
+        setupHeader()
         setupCollectionView()
     }
     
     func setupAppearance() {
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         
     }
     
@@ -64,7 +66,7 @@ private extension MainViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: "CellId")
-        collectionView.backgroundColor = .yellow
+        collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
         
         constraintsCollectionView()
@@ -78,6 +80,16 @@ private extension MainViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func setupHeader() {
+        view.addSubview(header)
+        header.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
     }
     
@@ -113,11 +125,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout { // насле
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
         let cellWidth = (collectionViewWidth - 20)
-        return CGSize(width: cellWidth, height: cellWidth * 0.35)
+        return CGSize(width: cellWidth, height: cellWidth * 0.44)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // задаем отступы сверху, слева, снизу и справа
+        return UIEdgeInsets(top: 45, left: 10, bottom: 10, right: 10) // задаем отступы сверху, слева, снизу и справа
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -125,7 +137,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout { // насле
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 30
+        return 10
     }
 }
 
