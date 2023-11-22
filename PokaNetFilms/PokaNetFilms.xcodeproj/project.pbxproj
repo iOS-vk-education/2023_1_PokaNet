@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7409BE422B0DBBD0008DEA7D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409BE412B0DBBD0008DEA7D /* HeaderView.swift */; };
 		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
 		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
 		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
@@ -21,11 +22,12 @@
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
 		748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */; };
 		748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */; };
-		74FC586F2B0956A8004EBC81 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */; };
+		74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */; };
 		74FC58712B0971F3004EBC81 /* ProfileFilmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7409BE412B0DBBD0008DEA7D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -42,7 +44,7 @@
 		747BBFD22AF31595003AC739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmCell.swift; sourceTree = "<group>"; };
 		748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmsModel.swift; sourceTree = "<group>"; };
-		74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 		74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilmsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				743418242B06C685008390D7 /* ProfileViewController.swift */,
-				74FC586E2B0956A8004EBC81 /* ProfileHeaderView.swift */,
+				7409BE412B0DBBD0008DEA7D /* HeaderView.swift */,
+				74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */,
 				74FC58702B0971F3004EBC81 /* ProfileFilmsView.swift */,
 				748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */,
 			);
@@ -230,9 +233,10 @@
 				7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */,
 				7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */,
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
-				74FC586F2B0956A8004EBC81 /* ProfileHeaderView.swift in Sources */,
+				74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
+				7409BE422B0DBBD0008DEA7D /* HeaderView.swift in Sources */,
 				748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */,
 				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
