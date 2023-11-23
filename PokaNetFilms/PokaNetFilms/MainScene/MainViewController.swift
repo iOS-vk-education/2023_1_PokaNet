@@ -10,10 +10,9 @@ import UIKit
 
 final class MainViewController: UIViewController {
     private let output: MainViewOutput
-    private var model: MainUnitModel!
+    private var model: MainMovieCellModel?
     
     private let header = MainHeaderView()
-    
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -21,7 +20,7 @@ final class MainViewController: UIViewController {
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
-    private var models: [MainUnitModel] = []
+    private var models: [MainMovieCellModel] = []
     
     init(output: MainViewOutput) {
         self.output = output
@@ -65,7 +64,7 @@ private extension MainViewController {
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(MainCell.self, forCellWithReuseIdentifier: "CellId")
+        collectionView.register(MainMovieCell.self, forCellWithReuseIdentifier: "CellId")
         collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
         
@@ -108,7 +107,7 @@ private extension MainViewController {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath) as! MainCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath) as! MainMovieCell
         // Настройка ячейки с данными
         return cell
     }
@@ -121,7 +120,8 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
-extension MainViewController: UICollectionViewDelegateFlowLayout { // наследуемся для реализации методов коллекции
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
         let cellWidth = (collectionViewWidth - 20)

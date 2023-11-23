@@ -27,7 +27,7 @@ extension MainPresenter: MainViewOutput {
 
 private extension MainPresenter {
     func mock() {
-        let units: MainUnitModel = .init(title: "Сегодня в кино", reuseIdentifier: "Cell Identifier", cellText: "aboba")
+        let units: MainMovieCellModel = .init(title: "Сегодня в кино", reuseIdentifier: "Cell Identifier", cellText: "aboba")
         view?.configure(with: .init(units: units))
     }
 }

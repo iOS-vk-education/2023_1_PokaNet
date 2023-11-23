@@ -7,13 +7,14 @@
 
 import UIKit
 
-final class MainCell: UICollectionViewCell {
+final class MainMovieCell: UICollectionViewCell {
     
     let filmNameLabel = UILabel()
     let actorsLabel = UILabel()
     let ageLabel = UILabel()
     let dateLabel = UILabel()
     let genreLabel = UILabel()
+    let priceLabel = UILabel()
     
     let filmImage = UIImageView()
 
@@ -31,11 +32,11 @@ final class MainCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: MainUnitModel) {
+    func configure(with model: MainMovieCellModel) {
     }
 }
 
-private extension MainCell {
+private extension MainMovieCell {
     func setup() {
         setupFilmImage()
         setupFilmNameLabel()
@@ -43,6 +44,7 @@ private extension MainCell {
         setupAgeLabel()
         setupDateLabel()
         setupGenreLabel()
+        setupPriceLabel()
         layer.cornerRadius = 25
         layer.masksToBounds = true // картинка не вылезает за пределы ячейки
         backgroundColor = UIColor(red: 0.79, green: 0.75, blue: 0.52, alpha: 1.00)
@@ -67,7 +69,7 @@ private extension MainCell {
         NSLayoutConstraint.activate([
             filmNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             // textLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            filmNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            filmNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             //textLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -98,7 +100,7 @@ private extension MainCell {
     
     func setupAgeLabel() {
         addSubview(ageLabel)
-        ageLabel.text = "18 +"
+        ageLabel.text = "18+"
         ageLabel.textAlignment = .left
         ageLabel.font = UIFont(name: "Helvetica Neue", size: 12)
         ageLabel.textColor = .white
@@ -162,26 +164,51 @@ private extension MainCell {
         ])
     }
     
+    func setupPriceLabel() {
+        addSubview(priceLabel)
+        priceLabel.text = "от 200 ₽"
+        priceLabel.textAlignment = .center
+        priceLabel.font = UIFont(name: "Helvetica Neue", size: 8)
+        priceLabel.textColor = .white
+        priceLabel.backgroundColor = .black
+        priceLabel.alpha = 0.7 // делаем Лейбл полупрозрачным
+        priceLabel.layer.masksToBounds = true
+        priceLabel.layer.cornerRadius = 7
+        
+        makeConstraintsPriceLabel()
+    }
+    
+    func makeConstraintsPriceLabel() {
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            priceLabel.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -65),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            priceLabel.topAnchor.constraint(equalTo: bottomAnchor, constant: -31),
+            priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
+        ])
+    }
+    
     func setupFilmImage() {
         addSubview(filmImage)
         
         filmImage.clipsToBounds = true
+        filmImage.contentMode = .scaleAspectFill
         filmImage.image = UIImage(named: "moneyImage")
         makeConstraitsFilmImage()
     }
     
     
     func makeConstraitsFilmImage() {
-    
+        filmImage.translatesAutoresizingMaskIntoConstraints = false
         
-        filmImage.frame = CGRect(x: 140, y: 0, width: 250, height: 170)
-        //filmImage.translatesAutoresizingMaskIntoConstraints = false
-        //NSLayoutConstraint.activate([
-            //filmImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            //filmImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 140),
-            //filmImage.topAnchor.constraint(equalTo: filmNameLabel.bottomAnchor),
-            //filmImage.bottomAnchor.constraint(equalTo: dateLabel.topAnchor)
-        //])
+        NSLayoutConstraint.activate([
+            filmImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 140),
+            filmImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            filmImage.topAnchor.constraint(equalTo: topAnchor),
+            filmImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+           // filmImage.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 }
 

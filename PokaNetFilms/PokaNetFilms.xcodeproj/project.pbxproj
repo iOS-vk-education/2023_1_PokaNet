@@ -18,8 +18,7 @@
 		BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D72B09F61400FC388C /* MainPresenter.swift */; };
 		BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D92B09F65600FC388C /* MainViewModel.swift */; };
 		BCD408DE2B0A612300FC388C /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408DD2B0A612300FC388C /* MainProtocols.swift */; };
-		BCD408E02B0A61F200FC388C /* MainUnitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408DF2B0A61F200FC388C /* MainUnitModel.swift */; };
-		BCD408E52B0A63A700FC388C /* MainScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408E42B0A63A700FC388C /* MainScreenState.swift */; };
+		BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408DF2B0A61F200FC388C /* MainMovieCellModel.swift */; };
 		BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408E92B0BDD2000FC388C /* UnitCells.swift */; };
 		BCD4090D2B0E91AF00FC388C /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD4090C2B0E91AF00FC388C /* MainHeaderView.swift */; };
 		BCD4090F2B0E91CC00FC388C /* MainHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD4090E2B0E91CC00FC388C /* MainHeaderModel.swift */; };
@@ -39,8 +38,7 @@
 		BCD408D72B09F61400FC388C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		BCD408D92B09F65600FC388C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		BCD408DD2B0A612300FC388C /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
-		BCD408DF2B0A61F200FC388C /* MainUnitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnitModel.swift; sourceTree = "<group>"; };
-		BCD408E42B0A63A700FC388C /* MainScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenState.swift; sourceTree = "<group>"; };
+		BCD408DF2B0A61F200FC388C /* MainMovieCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMovieCellModel.swift; sourceTree = "<group>"; };
 		BCD408E92B0BDD2000FC388C /* UnitCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCells.swift; sourceTree = "<group>"; };
 		BCD4090C2B0E91AF00FC388C /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		BCD4090E2B0E91CC00FC388C /* MainHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderModel.swift; sourceTree = "<group>"; };
@@ -98,7 +96,7 @@
 		BCD408DB2B0A57DB00FC388C /* MainModels */ = {
 			isa = PBXGroup;
 			children = (
-				BCD408DF2B0A61F200FC388C /* MainUnitModel.swift */,
+				BCD408DF2B0A61F200FC388C /* MainMovieCellModel.swift */,
 				BCD408D92B09F65600FC388C /* MainViewModel.swift */,
 				BCD4090E2B0E91CC00FC388C /* MainHeaderModel.swift */,
 			);
@@ -121,7 +119,6 @@
 				BCD408D32B09F00800FC388C /* MainAssembly.swift */,
 				BCD408D72B09F61400FC388C /* MainPresenter.swift */,
 				BCD408DD2B0A612300FC388C /* MainProtocols.swift */,
-				BCD408E42B0A63A700FC388C /* MainScreenState.swift */,
 				BCD4090C2B0E91AF00FC388C /* MainHeaderView.swift */,
 				BCD408D52B09F5CC00FC388C /* MainViewController.swift */,
 				BCD408E82B0BDCFD00FC388C /* Cells */,
@@ -209,13 +206,12 @@
 			files = (
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
-				BCD408E02B0A61F200FC388C /* MainUnitModel.swift in Sources */,
+				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
 				BCD4090D2B0E91AF00FC388C /* MainHeaderView.swift in Sources */,
 				BCD4090F2B0E91CC00FC388C /* MainHeaderModel.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */,
-				BCD408E52B0A63A700FC388C /* MainScreenState.swift in Sources */,
 				BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
 				BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */,

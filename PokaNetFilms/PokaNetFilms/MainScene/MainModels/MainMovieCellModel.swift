@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct MainUnitModel {
+struct MainMovieCellModel {
 
     let title: String
     let reuseIdentifier: String
