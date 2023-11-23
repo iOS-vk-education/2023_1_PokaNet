@@ -9,13 +9,13 @@ import UIKit
 
 struct MainMovieCellModel {
 
-    let title: String
-    let reuseIdentifier: String
+    let filmNameLabel = UILabel()
+    let actorsLabel = UILabel()
+    let ageLabel = UILabel()
+    let dateLabel = UILabel()
+    let genreLabel = UILabel()
+    let priceLabel = UILabel()
+    let filmImage = UIImageView()
 
-    init(title: String, reuseIdentifier: String, cellText: String) {
-        self.reuseIdentifier = reuseIdentifier
-        self.title = title
-        
     }
-}
 

@@ -16,7 +16,6 @@ final class MainViewController: UIViewController {
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = Constants.minimumLineSpacing
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
@@ -38,6 +37,7 @@ final class MainViewController: UIViewController {
         
         setup()
         output.didLoadView()
+        collectionView.register(MainHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainHeaderView.identifier)
     }
 }
 
@@ -46,7 +46,7 @@ private extension MainViewController {
     func setup() {
         setupAppearance()
         setupLayout()
-        setupHeader()
+        //setupHeader()
         setupCollectionView()
     }
     
@@ -82,36 +82,31 @@ private extension MainViewController {
         ])
     }
     
-    func setupHeader() {
-        view.addSubview(header)
-        header.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        ])
-    }
-    
     func numberOfCells(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Возвращаем количество ячеек
         return 4
     }
 }
 
-private extension MainViewController {
-    enum Constants {
-        static let horizontalInset: CGFloat = 32
-        static let minimumLineSpacing: CGFloat = 16
-    }
-}
-
 extension MainViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath) as! MainMovieCell
         // Настройка ячейки с данными
         return cell
     }
-    // наследуемся для реализации методов коллекции
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainHeaderView.identifier, for: indexPath) as! MainHeaderView
+        // настройка хедера
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection: Int) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: 30)
+    }
+
+    
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -121,7 +116,6 @@ extension MainViewController: UICollectionViewDataSource {
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
         let cellWidth = (collectionViewWidth - 20)
@@ -129,7 +123,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 45, left: 10, bottom: 10, right: 10) // задаем отступы сверху, слева, снизу и справа
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        // задаем отступы сверху, слева, снизу и справа
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

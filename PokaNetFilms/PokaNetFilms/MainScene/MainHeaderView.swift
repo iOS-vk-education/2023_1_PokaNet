@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class MainHeaderView: UIView {
+class MainHeaderView: UICollectionReusableView {
     
     var headerLabel = UILabel()
-    
+    static let identifier = "Header"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +23,7 @@ class MainHeaderView: UIView {
         setupMainHeaderView()
     }
     
-    func setupMainHeaderView() {
+    public func setupMainHeaderView() {
         
         backgroundColor = .white
         setupHeaderLabel()
@@ -46,10 +46,10 @@ class MainHeaderView: UIView {
         
         NSLayoutConstraint.activate([
             headerLabel.topAnchor.constraint(equalTo: topAnchor),
-            headerLabel.leftAnchor.constraint(equalTo: leftAnchor),
+            headerLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             headerLabel.rightAnchor.constraint(equalTo: rightAnchor),
             headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
 }
+
