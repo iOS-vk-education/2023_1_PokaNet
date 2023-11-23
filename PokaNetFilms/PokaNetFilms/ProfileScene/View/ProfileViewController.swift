@@ -42,7 +42,7 @@ final class ProfileViewController: UIViewController {
 }
 
 //MARK: -
-extension ProfileViewController {
+private extension ProfileViewController {
     func setupUI() {
         view.backgroundColor = .white
         setupProfileCollectionView()
@@ -53,8 +53,11 @@ extension ProfileViewController {
         
         profileCollectionView.delegate = self
         profileCollectionView.dataSource = self
-        profileCollectionView.register(ProfileHeaderCell.self, forCellWithReuseIdentifier: "cell")
+        
+        profileCollectionView.register(ProfileHeaderCell.self, forCellWithReuseIdentifier: "ProfileHeaderCell")
+        profileCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
         profileCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
+        
         profileCollectionView.backgroundColor = .systemGray4
         
         profileCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,16 +89,19 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
-        return cell
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileHeaderCell", for: indexPath) as! ProfileHeaderCell
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader && indexPath.section == 1 {
-            // Создание и настройка заголовка второй секции
             if let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView", for: indexPath) as? HeaderView {
-                headerView.configure(with: "Название секции")
+                headerView.configure(with: "Избранные фильмы")
                 return headerView
             } else {
                 return UICollectionReusableView()
@@ -109,9 +115,9 @@ extension ProfileViewController: UICollectionViewDataSource {
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 3)
+            CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 3)
         } else {
-            return CGSize(width: (collectionView.bounds.width) / 3 - 24, height: 160)
+            CGSize(width: (collectionView.bounds.width) / 3 - 24, height: 160)
         }
     }
     
@@ -139,7 +145,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
             if section == 1 {
                 return 16
             } else {
-                return 0 
+                return 0
             }
         }
     
@@ -152,9 +158,9 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
 //MARK: - ProfileViewInput
 extension ProfileViewController: ProfileViewInput {
     func configureProfile(with model: ProfileViewModel?) {
+        
     }
 }

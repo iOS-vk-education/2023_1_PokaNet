@@ -11,7 +11,7 @@ import UIKit
 final class ProfileHeaderCell: UICollectionViewCell {
     
     private let profileImage = UIImageView()
-    private let prfileEmail = UILabel()
+    private let profileEmail = UILabel()
     private let profileName = UILabel()
     private let settingsButton = UIButton()
     
@@ -23,26 +23,30 @@ final class ProfileHeaderCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.layer.masksToBounds = true
+    }
 }
 
 //MARK: - SetupUI
 extension ProfileHeaderCell {
     func setupUI() {
         backgroundColor = .white
-//        makeCellConstraint()
-    }
-    
-    func makeCellConstraint() {
-        if let superview = self.superview {
-            translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                self.topAnchor.constraint(equalTo: superview.topAnchor),
-                self.leftAnchor.constraint(equalTo: superview.leftAnchor),
-                self.rightAnchor.constraint(equalTo: superview.rightAnchor),
-                self.bottomAnchor.constraint(equalTo: superview.centerYAnchor)
-            ])
-        }
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: bounds,
+                                      byRoundingCorners: [.bottomLeft, .bottomRight],
+                                      cornerRadii: CGSize(width: 50, height: 50)).cgPath
+        layer.mask = maskLayer
+        
+        setupSettingsButton()
+        setupProfileEmail()
+        setupProfileName()
+        setupProfileImage()
     }
     
     func setupSettingsButton(){
@@ -71,4 +75,69 @@ extension ProfileHeaderCell {
         ])
     }
     
+    func setupProfileEmail() {
+        addSubview(profileEmail)
+        
+        profileEmail.text = "dongrigory29@gmail.com"
+        profileEmail.textAlignment = .center
+        profileEmail.textColor = .systemGray2
+        
+        makeConstraintProfileEmail()
+    }
+    
+    func makeConstraintProfileEmail() {
+        profileEmail.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            profileEmail.bottomAnchor.constraint(equalTo: settingsButton.topAnchor),
+            profileEmail.leftAnchor.constraint(equalTo: leftAnchor),
+            profileEmail.rightAnchor.constraint(equalTo: rightAnchor),
+            profileEmail.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    func setupProfileName() {
+        addSubview(profileName)
+        
+        profileName.text = "Дон Григорий"
+        profileName.textAlignment = .center
+        profileName.textColor = .black
+        profileName.font = UIFont.systemFont(ofSize: 30)
+        
+        makeConstraintProfileName()
+    }
+    
+    func makeConstraintProfileName() {
+        profileName.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            profileName.bottomAnchor.constraint(equalTo: profileEmail.topAnchor),
+            profileName.leftAnchor.constraint(equalTo: leftAnchor),
+            profileName.rightAnchor.constraint(equalTo: rightAnchor),
+            profileName.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    func setupProfileImage() {
+        addSubview(profileImage)
+        
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.clipsToBounds = true
+        profileImage.image = UIImage(named: "avatar")
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.layer.masksToBounds = true
+        
+        makeConstraintProfileImage()
+    }
+    
+    func makeConstraintProfileImage() {
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            profileImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            profileImage.bottomAnchor.constraint(equalTo: profileName.topAnchor, constant: -5),
+            profileImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            profileImage.widthAnchor.constraint(equalTo: profileImage.heightAnchor)
+        ])
+    }
 }
