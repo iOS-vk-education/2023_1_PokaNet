@@ -11,8 +11,8 @@ import UIKit
 final class ProfileFavouriteFilmCell: UICollectionViewCell {
     
     // MARK: - Properties
-    var imageView = UIImageView()
-    var title = UILabel()
+    private var imageView = UIImageView()
+    private var title = UILabel()
     
     // MARK: - Initializers
     override init(frame: CGRect) {

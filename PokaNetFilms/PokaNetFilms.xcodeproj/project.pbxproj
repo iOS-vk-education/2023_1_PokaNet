@@ -150,8 +150,8 @@
 				743418242B06C685008390D7 /* ProfileViewController.swift */,
 				74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */,
 				748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */,
-				74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */,
 				74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */,
+				74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
