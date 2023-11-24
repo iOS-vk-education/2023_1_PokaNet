@@ -10,11 +10,13 @@ import UIKit
 
 final class ProfileFavouriteFilmCell: UICollectionViewCell {
     
+    // MARK: - Properties
     var imageView = UIImageView()
     var title = UILabel()
     
     var model: ProfileViewModel?
     
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -30,6 +32,7 @@ extension ProfileFavouriteFilmCell {
     func setupUI() {
         
         layer.cornerRadius = 10
+        backgroundColor = .white
         
         setupTitle()
         setupImage()
@@ -40,6 +43,7 @@ extension ProfileFavouriteFilmCell {
         
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
+        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         makeConstraintsImageView()
     }
@@ -51,7 +55,7 @@ extension ProfileFavouriteFilmCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leftAnchor.constraint(equalTo: leftAnchor),
             imageView.rightAnchor.constraint(equalTo: rightAnchor),
-            imageView.bottomAnchor.constraint(equalTo: title.topAnchor, constant: -5)
+            imageView.bottomAnchor.constraint(equalTo: title.topAnchor, constant: -3)
         ])
     }
     
@@ -59,7 +63,7 @@ extension ProfileFavouriteFilmCell {
         addSubview(title)
         
         title.font = UIFont.systemFont(ofSize: 16)
-        title.textColor = .systemBlue
+        title.textColor = .black
         title.textAlignment = .center
         
         makeConstraintsTitle()
@@ -69,25 +73,21 @@ extension ProfileFavouriteFilmCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            title.heightAnchor.constraint(equalToConstant: 20),
             title.leftAnchor.constraint(equalTo: leftAnchor),
             title.rightAnchor.constraint(equalTo: rightAnchor),
-            title.bottomAnchor.constraint(equalTo: bottomAnchor)
+            title.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -3)
         ])
     }
+   
 }
 
 //MARK: - Configure model
 extension ProfileFavouriteFilmCell {
     func configure(with model: ProfileViewModel, by indexPath: IndexPath) {
-        let section = indexPath.section
-        var item = indexPath.row
-
-        if section == 1 {
-            item += 3
+        if indexPath.section == 1 {
+            title.text = model.favoriteFilms[indexPath.item].title
+            imageView.image = model.favoriteFilms[indexPath.item].image
         }
-
-        title.text = model.favoriteFilms[item].title
-        imageView.image = model.favoriteFilms[item].image
     }
 }

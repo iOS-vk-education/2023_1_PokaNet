@@ -10,11 +10,13 @@ import UIKit
 
 final class ProfileHeaderCell: UICollectionViewCell {
     
+    // MARK: - Properties
     private let profileImage = UIImageView()
     private let profileEmail = UILabel()
     private let profileName = UILabel()
     private let settingsButton = UIButton()
     
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -78,7 +80,6 @@ extension ProfileHeaderCell {
     func setupProfileEmail() {
         addSubview(profileEmail)
         
-        profileEmail.text = "dongrigory29@gmail.com"
         profileEmail.textAlignment = .center
         profileEmail.textColor = .systemGray2
         
@@ -99,7 +100,6 @@ extension ProfileHeaderCell {
     func setupProfileName() {
         addSubview(profileName)
         
-        profileName.text = "Дон Григорий"
         profileName.textAlignment = .center
         profileName.textColor = .black
         profileName.font = UIFont.systemFont(ofSize: 30)
@@ -123,7 +123,6 @@ extension ProfileHeaderCell {
         
         profileImage.contentMode = .scaleAspectFill
         profileImage.clipsToBounds = true
-        profileImage.image = UIImage(named: "avatar")
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.layer.masksToBounds = true
         
@@ -139,5 +138,13 @@ extension ProfileHeaderCell {
             profileImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             profileImage.widthAnchor.constraint(equalTo: profileImage.heightAnchor)
         ])
+    }
+}
+
+extension ProfileHeaderCell {
+    func configure(_ model: ProfileViewModel) {
+        profileImage.image = model.profile.avatar
+        profileName.text = model.profile.userName
+        profileEmail.text = model.profile.email
     }
 }

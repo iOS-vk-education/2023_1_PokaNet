@@ -1,5 +1,5 @@
 //
-//  HeaderView.swift
+//  ProfileHeaderView.swift
 //  PokaNetFilms
 //
 //  Created by Grigory Don on 22.11.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderView: UICollectionReusableView {
+class ProfileHeaderView: UICollectionReusableView {
 
     // MARK: - Properties
     private let titleLabel: UILabel = {
@@ -49,8 +49,9 @@ class HeaderView: UICollectionReusableView {
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
     }
+}
 
-    // MARK: - Public Methods
+extension ProfileHeaderView {
     func configure(with title: String) {
         titleLabel.text = title
     }

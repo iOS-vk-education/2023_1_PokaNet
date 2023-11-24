@@ -10,10 +10,10 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    // MARK: - Properties
     private let output: ProfileViewOutput
-    private var model: ProfileViewModel?
+    private var model: ProfileViewModel!
     
-    //MARK: - UI elements
     private let profileCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
@@ -23,6 +23,7 @@ final class ProfileViewController: UIViewController {
         setupUI()
     }
     
+    // MARK: - Initializers
     init(output: ProfileViewOutput) {
         self.output = output
         
@@ -41,7 +42,7 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-//MARK: -
+//MARK: - setupUI
 private extension ProfileViewController {
     func setupUI() {
         view.backgroundColor = .white
@@ -55,8 +56,9 @@ private extension ProfileViewController {
         profileCollectionView.dataSource = self
         
         profileCollectionView.register(ProfileHeaderCell.self, forCellWithReuseIdentifier: "ProfileHeaderCell")
-        profileCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        profileCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
+        profileCollectionView.register(ProfileFavouriteFilmCell.self, forCellWithReuseIdentifier: "ProfileFavouriteFilmCell")
+        profileCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView")
+        profileCollectionView.register(ProfileMessageCell.self, forCellWithReuseIdentifier: "ProfileMessageCell")
         
         profileCollectionView.backgroundColor = .systemGray4
         
@@ -71,16 +73,14 @@ private extension ProfileViewController {
     }
 }
 
-extension ProfileViewController: UICollectionViewDelegate {
-    
-}
+extension ProfileViewController: UICollectionViewDelegate {}
 
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
-            return 20
+            return model.favoriteFilms.isEmpty ? 1 : model.favoriteFilms.count
         }
     }
     
@@ -91,16 +91,24 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileHeaderCell", for: indexPath) as! ProfileHeaderCell
+            cell.configure(model)
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
-            return cell
+            if model.favoriteFilms.isEmpty {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileMessageCell", for: indexPath) as! ProfileMessageCell
+                cell.configure(with: "У пользователя пока что нет избранных фильмов")
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavouriteFilmCell", for: indexPath) as! ProfileFavouriteFilmCell
+                cell.configure(with: model, by: indexPath)
+                return cell
+            }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader && indexPath.section == 1 {
-            if let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView", for: indexPath) as? HeaderView {
+            if let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as? ProfileHeaderView {
                 headerView.configure(with: "Избранные фильмы")
                 return headerView
             } else {
@@ -135,19 +143,19 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         } else {
-            return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+            return UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            if section == 1 {
-                return 16
-            } else {
-                return 0
-            }
+        if section == 1 {
+            return 16
+        } else {
+            return 0
         }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if section == 1 {
@@ -160,7 +168,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: - ProfileViewInput
 extension ProfileViewController: ProfileViewInput {
-    func configureProfile(with model: ProfileViewModel?) {
-        
+    func configureProfile(with model: ProfileViewModel) {
+        self.model = model
     }
 }
