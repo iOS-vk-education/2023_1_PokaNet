@@ -10,13 +10,16 @@ import UIKit
 
 final class FilmViewController: UIViewController {
     
-    let FilmTitle = UILabel()
+    let filmTitle = UILabel()
+    let filmImage = UIImageView()
+    
     private let output : FilmViewOutput
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
         
         setupFilmLabel()
+        setupFilmImage()
     }
     
     
@@ -32,20 +35,36 @@ final class FilmViewController: UIViewController {
 
 extension FilmViewController{
     func setupFilmLabel() {
-        view.addSubview(FilmTitle)
-        FilmTitle.text = "Дурные деньги"
-        FilmTitle.font = UIFont.systemFont(ofSize: 30)
-        FilmTitle.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        FilmTitle.textAlignment = .center //текст по центру
-        FilmTitle.textColor = .systemBlue
+        view.addSubview(filmTitle)
+        filmTitle.text = "Дурные деньги"
+        filmTitle.font = UIFont.systemFont(ofSize: 30)
+        filmTitle.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
+        filmTitle.textAlignment = .center //текст по центру
+        filmTitle.textColor = .systemBlue
         
         NSLayoutConstraint.activate([
-            FilmTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            FilmTitle.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
-            FilmTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
-            FilmTitle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            filmTitle.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            filmTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+            filmTitle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
         ])
     }
+    func setupFilmImage() {
+        view.addSubview(filmImage)
+        filmImage.image = UIImage(named: "filmImage")
+        filmImage.contentMode = .scaleAspectFill
+        
+        
+        let filmHeight: CGFloat = UIScreen.main.bounds.height/3
+        filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
+        NSLayoutConstraint.activate([
+            filmImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            filmImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: filmHeight),
+            filmImage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+            filmImage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+        ])
+    }
+    
 }
 
 extension FilmViewController: FilmViewInput{
