@@ -14,8 +14,6 @@ final class ProfileFavouriteFilmCell: UICollectionViewCell {
     var imageView = UIImageView()
     var title = UILabel()
     
-    var model: ProfileViewModel?
-    
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,10 +82,10 @@ extension ProfileFavouriteFilmCell {
 
 //MARK: - Configure model
 extension ProfileFavouriteFilmCell {
-    func configure(with model: ProfileViewModel, by indexPath: IndexPath) {
+    func configure(_ favoriteFilms: [ProfileFavouriteFilmsModel], _ indexPath: IndexPath) {
         if indexPath.section == 1 {
-            title.text = model.favoriteFilms[indexPath.item].title
-            imageView.image = model.favoriteFilms[indexPath.item].image
+            title.text = favoriteFilms[indexPath.item].title
+            imageView.image = favoriteFilms[indexPath.item].image
         }
     }
 }

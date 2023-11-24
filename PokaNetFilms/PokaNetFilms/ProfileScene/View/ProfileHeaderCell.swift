@@ -142,9 +142,9 @@ extension ProfileHeaderCell {
 }
 
 extension ProfileHeaderCell {
-    func configure(_ model: ProfileViewModel) {
-        profileImage.image = model.profile.avatar
-        profileName.text = model.profile.userName
-        profileEmail.text = model.profile.email
+    func configure(_ header: ProfileHeaderModel) {
+        profileImage.image = header.avatar
+        profileName.text = header.userName
+        profileEmail.text = header.email
     }
 }

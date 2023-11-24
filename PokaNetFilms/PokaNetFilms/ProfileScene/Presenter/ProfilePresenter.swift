@@ -32,19 +32,19 @@ private extension ProfilePresenter {
         let filmImage = UIImage(named: "nilName") ?? UIImage(named: "defaultImage")!
         
         let filmsModel: [ProfileFavouriteFilmsModel] = [
-//            .init(title: "1", image: filmImage),
-//            .init(title: "2", image: filmImage),
-//            .init(title: "3", image: filmImage),
-//            .init(title: "4", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage),
-//            .init(title: "5", image: filmImage)
+            .init(title: "1", image: filmImage),
+            .init(title: "2", image: filmImage),
+            .init(title: "3", image: filmImage),
+            .init(title: "4", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage),
+            .init(title: "5", image: filmImage)
         ]
         
         view?.configureProfile(with: .init(profile: profileModel, favoriteFilms: filmsModel))

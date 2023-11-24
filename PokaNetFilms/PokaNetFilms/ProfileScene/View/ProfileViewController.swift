@@ -91,7 +91,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileHeaderCell", for: indexPath) as! ProfileHeaderCell
-            cell.configure(model)
+            cell.configure(model.profile)
             return cell
         } else {
             if model.favoriteFilms.isEmpty {
@@ -100,7 +100,7 @@ extension ProfileViewController: UICollectionViewDataSource {
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavouriteFilmCell", for: indexPath) as! ProfileFavouriteFilmCell
-                cell.configure(with: model, by: indexPath)
+                cell.configure(model.favoriteFilms, indexPath)
                 return cell
             }
         }
