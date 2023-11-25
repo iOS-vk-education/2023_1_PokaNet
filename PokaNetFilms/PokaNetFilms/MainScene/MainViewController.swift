@@ -9,17 +9,16 @@ import Foundation
 import UIKit
 
 final class MainViewController: UIViewController {
-    private let output: MainViewOutput
-    private var model: MainMovieCellModel?
     
+    private let output: MainViewOutput
+    private var model: MainViewModel!
+    private var films: [MainMovieCellModel] = []
     private let header = MainHeaderView()
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
-    
-    private var models: [MainMovieCellModel] = []
     
     init(output: MainViewOutput) {
         self.output = output
@@ -46,7 +45,6 @@ private extension MainViewController {
     func setup() {
         setupAppearance()
         setupLayout()
-        //setupHeader()
         setupCollectionView()
     }
     
@@ -64,7 +62,7 @@ private extension MainViewController {
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(MainMovieCell.self, forCellWithReuseIdentifier: "CellId")
+        collectionView.register(MainMovieCell.self, forCellWithReuseIdentifier: "MainFilmCell")
         collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
         
@@ -81,20 +79,16 @@ private extension MainViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-    func numberOfCells(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // Возвращаем количество ячеек
-        return 4
-    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath) as! MainMovieCell
-        // Настройка ячейки с данными
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainFilmCell", for: indexPath) as! MainMovieCell
+        cell.configure(with: films[indexPath.row])
         return cell
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainHeaderView.identifier, for: indexPath) as! MainHeaderView
@@ -138,7 +132,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 
 extension MainViewController: MainViewInput { // настройка вью контроллера из презентера
     func configure(with model: MainViewModel) {
-        //self.models = model.units
+        self.model = model
+        self.films = model.films
         collectionView.reloadData()
     }
 }

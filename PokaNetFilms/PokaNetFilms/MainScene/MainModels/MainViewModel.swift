@@ -8,6 +8,6 @@
 import Foundation
 
 struct MainViewModel {
-    let units: MainMovieCellModel
+    let films: [MainMovieCellModel]
     
 }
