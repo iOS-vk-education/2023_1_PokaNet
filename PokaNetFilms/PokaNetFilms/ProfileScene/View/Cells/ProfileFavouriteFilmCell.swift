@@ -20,20 +20,21 @@ final class ProfileFavouriteFilmCell: UICollectionViewCell {
         setupUI()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 //MARK: - SetupUI
-extension ProfileFavouriteFilmCell {
+private extension ProfileFavouriteFilmCell {
     func setupUI() {
         
         layer.cornerRadius = 10
         backgroundColor = .white
         
-        setupTitle()
         setupImage()
+        setupTitle()
     }
     
     func setupImage() {
@@ -52,8 +53,7 @@ extension ProfileFavouriteFilmCell {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leftAnchor.constraint(equalTo: leftAnchor),
-            imageView.rightAnchor.constraint(equalTo: rightAnchor),
-            imageView.bottomAnchor.constraint(equalTo: title.topAnchor, constant: -3)
+            imageView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
     }
     
@@ -72,20 +72,19 @@ extension ProfileFavouriteFilmCell {
         
         NSLayoutConstraint.activate([
             title.heightAnchor.constraint(equalToConstant: 20),
+            title.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 3),
             title.leftAnchor.constraint(equalTo: leftAnchor),
             title.rightAnchor.constraint(equalTo: rightAnchor),
             title.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -3)
         ])
     }
-   
+    
 }
 
 //MARK: - Configure model
 extension ProfileFavouriteFilmCell {
-    func configure(_ favoriteFilms: [ProfileFavouriteFilmsModel], _ indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            title.text = favoriteFilms[indexPath.item].title
-            imageView.image = favoriteFilms[indexPath.item].image
-        }
+    func configure(_ favoriteFilms: ProfileFavouriteFilmsModel) {
+        title.text = favoriteFilms.title
+        imageView.image = favoriteFilms.image
     }
 }

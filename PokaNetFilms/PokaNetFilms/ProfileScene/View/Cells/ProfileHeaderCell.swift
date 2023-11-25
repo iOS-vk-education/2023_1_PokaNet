@@ -22,6 +22,7 @@ final class ProfileHeaderCell: UICollectionViewCell {
         setupUI()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,7 +36,7 @@ final class ProfileHeaderCell: UICollectionViewCell {
 }
 
 //MARK: - SetupUI
-extension ProfileHeaderCell {
+private extension ProfileHeaderCell {
     func setupUI() {
         backgroundColor = .white
         
@@ -54,9 +55,16 @@ extension ProfileHeaderCell {
     func setupSettingsButton(){
         addSubview(settingsButton)
         
-        if let symbolImage = UIImage(systemName: "pencil")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 23)) {
+        let pencilImageName = "pencil"
+        let symbolPointSize: CGFloat = 23
+        let buttonColor = UIColor.systemBlue
+
+        if let originalImage = UIImage(systemName: pencilImageName) {
+            let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: symbolPointSize)
+            let symbolImage = originalImage.withConfiguration(symbolConfiguration)
+            
             settingsButton.setImage(symbolImage, for: .normal)
-            settingsButton.tintColor = .systemBlue
+            settingsButton.tintColor = buttonColor
         }
         
         settingsButton.setTitle(" Редактировать", for: .normal)

@@ -47,6 +47,6 @@ private extension ProfilePresenter {
             .init(title: "5", image: filmImage)
         ]
         
-        view?.configureProfile(with: .init(profile: profileModel, favoriteFilms: filmsModel))
+        view?.configureProfile(with: .init(profile: profileModel, favouriteFilms: filmsModel))
     }
 }

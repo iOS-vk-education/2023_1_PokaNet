@@ -8,11 +8,17 @@
 import Foundation
 import UIKit
 
+enum Section: Int {
+    case profile = 0
+    case favouriteFilms = 1
+}
+
 final class ProfileViewController: UIViewController {
     
     // MARK: - Properties
     private let output: ProfileViewOutput
-    private var model: ProfileViewModel!
+    private var profileModel = ProfileHeaderModel(userName: "", email: "", avatar: UIImage())
+    private var favouriteFilms: [ProfileFavouriteFilmsModel] = []
     
     private let profileCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -80,7 +86,7 @@ extension ProfileViewController: UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return model.favoriteFilms.isEmpty ? 1 : model.favoriteFilms.count
+            return favouriteFilms.isEmpty ? 1 : favouriteFilms.count
         }
     }
     
@@ -89,18 +95,33 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileHeaderCell", for: indexPath) as! ProfileHeaderCell
-            cell.configure(model.profile)
+        guard let section = Section(rawValue: indexPath.section) else {
+            assertionFailure("Unexpected section")
+            return UICollectionViewCell()
+        }
+        
+        switch section {
+        case .profile:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileHeaderCell", for: indexPath) as? ProfileHeaderCell else {
+                assertionFailure("The dequeued cell is not an instance of ProfileHeaderCell.")
+                return UICollectionViewCell()
+            }
+            cell.configure(profileModel)
             return cell
-        } else {
-            if model.favoriteFilms.isEmpty {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileMessageCell", for: indexPath) as! ProfileMessageCell
+        case .favouriteFilms:
+            if favouriteFilms.isEmpty {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileMessageCell", for: indexPath) as? ProfileMessageCell else {
+                    assertionFailure("The dequeued cell is not an instance of ProfileMessageCell.")
+                    return UICollectionViewCell()
+                }
                 cell.configure(with: "У пользователя пока что нет избранных фильмов")
                 return cell
             } else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavouriteFilmCell", for: indexPath) as! ProfileFavouriteFilmCell
-                cell.configure(model.favoriteFilms, indexPath)
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavouriteFilmCell", for: indexPath) as? ProfileFavouriteFilmCell else {
+                    assertionFailure("The dequeued cell is not an instance of ProfileFavouriteFilmCell.")
+                    return UICollectionViewCell()
+                }
+                cell.configure(favouriteFilms[indexPath.row])
                 return cell
             }
         }
@@ -169,6 +190,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - ProfileViewInput
 extension ProfileViewController: ProfileViewInput {
     func configureProfile(with model: ProfileViewModel) {
-        self.model = model
+        self.profileModel = model.profile
+        self.favouriteFilms = model.favouriteFilms
     }
 }

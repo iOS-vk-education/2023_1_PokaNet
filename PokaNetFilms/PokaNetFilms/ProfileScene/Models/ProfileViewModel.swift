@@ -9,5 +9,5 @@ import Foundation
 
 struct ProfileViewModel {
     let profile: ProfileHeaderModel
-    let favoriteFilms: [ProfileFavouriteFilmsModel]
+    let favouriteFilms: [ProfileFavouriteFilmsModel]
 }
