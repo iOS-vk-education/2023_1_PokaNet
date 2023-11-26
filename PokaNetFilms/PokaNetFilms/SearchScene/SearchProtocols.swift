@@ -15,9 +15,10 @@ protocol SearchModuleOutput: AnyObject {
 }
 
 protocol SearchViewInput: AnyObject {
-    func configureSearch(with model: SearchFilmsModel)
+    func configureSearch(with model: [SearchFilmsModel])
 }
 
 protocol SearchViewOutput: AnyObject {
     func didLoadView()
+    func didChangeSearchText(_ searchText: String)
 }

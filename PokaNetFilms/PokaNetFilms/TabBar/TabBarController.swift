@@ -34,6 +34,12 @@ private extension TabBarController {
     }
 
     func setupTabs() {
+        let searchVC = SearchAssembly.assembly()
+        
+        searchVC.tabBarItem.title = "Поиск"
+        searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        
+        viewControllers = [searchVC]
     }
 }
 
