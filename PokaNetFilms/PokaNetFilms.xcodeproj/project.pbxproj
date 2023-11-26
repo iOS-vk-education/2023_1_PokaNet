@@ -14,6 +14,11 @@
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
+		74BC82B42B1323B100B53E34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B32B1323B100B53E34 /* SearchViewController.swift */; };
+		74BC82B62B13241200B53E34 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B52B13241200B53E34 /* SearchAssembly.swift */; };
+		74BC82B92B13247400B53E34 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B82B13247400B53E34 /* SearchPresenter.swift */; };
+		74BC82BB2B1324C500B53E34 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82BA2B1324C500B53E34 /* SearchProtocols.swift */; };
+		74BC82BD2B13259E00B53E34 /* SearchFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82BC2B13259E00B53E34 /* SearchFilmsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		747BBFCD2AF31595003AC739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747BBFD02AF31595003AC739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		747BBFD22AF31595003AC739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74BC82B32B1323B100B53E34 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		74BC82B52B13241200B53E34 /* SearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
+		74BC82B82B13247400B53E34 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		74BC82BA2B1324C500B53E34 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		74BC82BC2B13259E00B53E34 /* SearchFilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +84,45 @@
 				747BBFD22AF31595003AC739 /* Info.plist */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
 				7409BE3E2B09EF2B008DEA7D /* TabBar */,
+				74BC82B72B13241600B53E34 /* SearchScene */,
 			);
 			path = PokaNetFilms;
+			sourceTree = "<group>";
+		};
+		74BC82B72B13241600B53E34 /* SearchScene */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82B52B13241200B53E34 /* SearchAssembly.swift */,
+				74BC82BA2B1324C500B53E34 /* SearchProtocols.swift */,
+				74BC82C02B13275E00B53E34 /* View */,
+				74BC82BF2B13275500B53E34 /* Presenter */,
+				74BC82BE2B13274B00B53E34 /* Model */,
+			);
+			path = SearchScene;
+			sourceTree = "<group>";
+		};
+		74BC82BE2B13274B00B53E34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82BC2B13259E00B53E34 /* SearchFilmsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		74BC82BF2B13275500B53E34 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82B82B13247400B53E34 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		74BC82C02B13275E00B53E34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82B32B1323B100B53E34 /* SearchViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +197,13 @@
 			files = (
 				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
+				74BC82B42B1323B100B53E34 /* SearchViewController.swift in Sources */,
+				74BC82BB2B1324C500B53E34 /* SearchProtocols.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
+				74BC82B62B13241200B53E34 /* SearchAssembly.swift in Sources */,
+				74BC82BD2B13259E00B53E34 /* SearchFilmsModel.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
+				74BC82B92B13247400B53E34 /* SearchPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
