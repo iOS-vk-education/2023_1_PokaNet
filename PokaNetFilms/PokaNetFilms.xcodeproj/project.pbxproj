@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */; };
+		0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */; };
+		0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */; };
+		065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */; };
+		06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */; };
 		7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409BE3C2B09EE04008DEA7D /* TabBarController.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
-		747BBFC62AF31594003AC739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC52AF31594003AC739 /* ViewController.swift */; };
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneAssembly.swift; sourceTree = "<group>"; };
+		0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScenePresenter.swift; sourceTree = "<group>"; };
+		0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneViewController.swift; sourceTree = "<group>"; };
+		0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneProtocol.swift; sourceTree = "<group>"; };
+		06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationImageButton.swift; sourceTree = "<group>"; };
 		7409BE3C2B09EE04008DEA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747BBFC32AF31594003AC739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		747BBFC52AF31594003AC739 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		747BBFCB2AF31594003AC739 /* PokaNetFilms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokaNetFilms.xcdatamodel; sourceTree = "<group>"; };
 		747BBFCD2AF31595003AC739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747BBFD02AF31595003AC739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +47,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		065557282B0D0767001AB86A /* AutorizationScene */ = {
+			isa = PBXGroup;
+			children = (
+				065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */,
+				0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */,
+				0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */,
+				0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */,
+				06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */,
+			);
+			path = AutorizationScene;
+			sourceTree = "<group>";
+		};
 		7409BE3E2B09EF2B008DEA7D /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,9 +86,9 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
+				065557282B0D0767001AB86A /* AutorizationScene */,
 				747BBFC12AF31594003AC739 /* AppDelegate.swift */,
 				747BBFC32AF31594003AC739 /* SceneDelegate.swift */,
-				747BBFC52AF31594003AC739 /* ViewController.swift */,
 				747BBFCD2AF31595003AC739 /* Assets.xcassets */,
 				747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */,
 				747BBFD22AF31595003AC739 /* Info.plist */,
@@ -148,11 +168,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
+				06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */,
+				065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */,
+				0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
+				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
+				0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

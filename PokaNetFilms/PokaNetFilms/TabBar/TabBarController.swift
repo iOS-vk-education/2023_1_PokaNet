@@ -34,6 +34,12 @@ private extension TabBarController {
     }
 
     func setupTabs() {
+        
+        let authorizationVC = AuthorizationAssembly.assembly()
+        
+        authorizationVC.tabBarItem.title = "Authorization"
+        
+        viewControllers = [authorizationVC]
     }
 }
 
