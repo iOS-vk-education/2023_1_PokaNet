@@ -14,6 +14,7 @@ final class SearchViewController: UIViewController {
     
     var titleLable: UILabel!
     var searchBar: UISearchBar!
+    var genreTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +44,11 @@ private extension SearchViewController {
         searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.delegate = self
-        searchBar.placeholder = "Search Films"
+        searchBar.placeholder = "Поиск..."
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(UIImage(systemName: "wand.and.rays.inverse"), for: .bookmark, state: .normal)
         view.addSubview(searchBar)
-
+        
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: titleLable.bottomAnchor),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -68,11 +71,49 @@ private extension SearchViewController {
             titleLable.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    
+    func setupGenreTable() {
+        genreTable = UITableView()
+        genreTable.translatesAutoresizingMaskIntoConstraints = false
+        genreTable.delegate = self
+        genreTable.dataSource = self
+        genreTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        view.addSubview(genreTable)
+        
+        NSLayoutConstraint.activate([
+            genreTable.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            genreTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            genreTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            genreTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
+    
+}
+
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        Genre.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = Genre.allCases[indexPath.row].rawValue
+        return cell
+    }
+    
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         output.didChangeSearchText(searchText)
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        setupGenreTable()
     }
 }
 

@@ -19,7 +19,7 @@ struct SearchFilmsModel {
     }
 }
 
-enum Genre: String {
+enum Genre: String, CaseIterable {
     case comedy = "Комедии"
     case animation = "Мультфильмы"
     case horror = "Ужасы"
