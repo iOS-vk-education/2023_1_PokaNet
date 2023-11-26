@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */; };
+		06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */; };
+		06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */; };
+		06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */; };
 		7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409BE3C2B09EE04008DEA7D /* TabBarController.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAssembly.swift; sourceTree = "<group>"; };
+		06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
 		7409BE3C2B09EE04008DEA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06C5C2A22B13BF8B009E418E /* RegistrationScene */ = {
+			isa = PBXGroup;
+			children = (
+				06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */,
+				06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */,
+				06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */,
+				06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */,
+			);
+			path = RegistrationScene;
+			sourceTree = "<group>";
+		};
 		7409BE3E2B09EF2B008DEA7D /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +93,7 @@
 				747BBFD22AF31595003AC739 /* Info.plist */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
 				7409BE3E2B09EF2B008DEA7D /* TabBar */,
+				06C5C2A22B13BF8B009E418E /* RegistrationScene */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
@@ -148,11 +168,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */,
+				06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */,
+				06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */,
 				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
+				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
