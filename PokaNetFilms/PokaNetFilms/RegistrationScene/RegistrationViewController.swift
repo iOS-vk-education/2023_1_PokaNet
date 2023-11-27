@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+final class RegistrationViewController: UIViewController {
+    
+    private let output: RegistrationViewOutput
+}
+
+extension RegistrationViewController: RegistrationViewInput {
+    
+}

@@ -6,3 +6,28 @@
 //
 
 import Foundation
+import UIKit
+
+final class RegistrationPresenter {
+    weak var view: RegistrationViewInput?
+    weak var moduleOutput: RegistrationModuleOutput?
+}
+
+extension RegistrationPresenter: RegistrationModuleInput {
+}
+
+extension RegistrationPresenter: RegistrationViewOutput {
+    func didLoadView() {
+    }
+
+    func didTapActionButton() {
+    }
+}
+
+private extension RegistrationPresenter {
+    func fetchUnits() {
+    }
+
+    func mock() {
+    }
+}

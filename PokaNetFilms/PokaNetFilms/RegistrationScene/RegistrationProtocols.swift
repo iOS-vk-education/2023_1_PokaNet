@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+protocol RegistrationModuleInput {
+    var moduleInput: RegistrationModuleOutput? { get }
+}
+
+protocol RegistrationModuleOutput: AnyObject {}
+
+protocol RegistrationViewInput: AnyObject {}
+
+protocol RegistrationViewOutput: AnyObject {
+    func didLoadView()
+}
