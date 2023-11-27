@@ -16,6 +16,7 @@ final class SearchViewController: UIViewController {
     var searchBar: UISearchBar!
     var genreTable: UITableView!
     var messageLabel: UILabel!
+    var foundedFilmsCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ private extension SearchViewController {
         setupSearchBar()
         setupGenreTable()
         setupMessageLabel()
+        setupFundedFilmsCV()
     }
     
     func setupSearchBar() {
@@ -110,13 +112,33 @@ private extension SearchViewController {
         ])
     }
     
+    func setupFundedFilmsCV() {
+        foundedFilmsCV.delegate = self
+        foundedFilmsCV.dataSource = self
+        foundedFilmsCV.translatesAutoresizingMaskIntoConstraints = false
+        foundedFilmsCV.register(FoundedFilmCell.self, forCellWithReuseIdentifier: "CellForFilm")
+        foundedFilmsCV.isHidden = true
+        view.addSubview(foundedFilmsCV)
+        
+        NSLayoutConstraint.activate([
+            foundedFilmsCV.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            foundedFilmsCV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            foundedFilmsCV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            foundedFilmsCV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
     func updateUI() {
         let showMessageLabel = genreTable.isHidden && searchBar.text?.count == 0
         messageLabel.isHidden = !showMessageLabel
-
+        
+        let showFoundedCollectionView = searchBar.text?.count == 0
+        foundedFilmsCV.isHidden = showFoundedCollectionView
     }
 }
 
+
+//MARK: - TableView
 extension SearchViewController: UITableViewDelegate {
     
 }
@@ -131,10 +153,34 @@ extension SearchViewController: UITableViewDataSource {
         cell.textLabel?.text = Genre.allCases[indexPath.row].rawValue
         return cell
     }
-    
+}
+
+//MARK: - CollectionView
+extension SearchViewController: UICollectionViewDelegate {
     
 }
 
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellForFilm", for: indexPath) as? FoundedFilmCell else {
+            assertionFailure("The dequeued cell is not an instance of ProfileMessageCell.")
+            return UICollectionViewCell()
+        }
+        return cell
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.width, height: 160)
+    }
+}
+
+//MARK: - SearchBar
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         output.didChangeSearchText(searchText)

@@ -28,6 +28,7 @@
 		74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */; };
 		74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CA2B14747500B53E34 /* SearchViewController.swift */; };
 		74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CB2B14747500B53E34 /* SearchProtocols.swift */; };
+		74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */; };
 		74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilmsModel.swift; sourceTree = "<group>"; };
 		74BC82CA2B14747500B53E34 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		74BC82CB2B14747500B53E34 /* SearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundedFilmCell.swift; sourceTree = "<group>"; };
 		74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,9 +103,9 @@
 			children = (
 				743418222B06C66E008390D7 /* ProfileAssembly.swift */,
 				743418282B06CC2D008390D7 /* ProfileProtocols.swift */,
-				748A3BF02B09BA10007F5154 /* Presenter */,
-				748A3BF12B09BA2D007F5154 /* View */,
 				7434182E2B06CF71008390D7 /* Models */,
+				748A3BF12B09BA2D007F5154 /* View */,
+				748A3BF02B09BA10007F5154 /* Presenter */,
 			);
 			path = ProfileScene;
 			sourceTree = "<group>";
@@ -179,10 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				74BC82C42B14747500B53E34 /* SearchAssembly.swift */,
-				74BC82C52B14747500B53E34 /* Presenter */,
+				74BC82CB2B14747500B53E34 /* SearchProtocols.swift */,
 				74BC82C72B14747500B53E34 /* Model */,
 				74BC82C92B14747500B53E34 /* View */,
-				74BC82CB2B14747500B53E34 /* SearchProtocols.swift */,
+				74BC82C52B14747500B53E34 /* Presenter */,
 			);
 			name = SearchScene;
 			path = PokaNetFilms/SearchScene;
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				74BC82CA2B14747500B53E34 /* SearchViewController.swift */,
+				74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
+				74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
 				74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */,
 				74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */,
