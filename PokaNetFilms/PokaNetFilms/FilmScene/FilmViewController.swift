@@ -36,7 +36,6 @@ final class FilmViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
-        
         setupScrollView()
         setupTicketsButton()
         setupContainerView()
@@ -108,7 +107,7 @@ extension FilmViewController{
         containerView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: view.safeAreaInsets.top + 8),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             containerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             containerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor)
@@ -283,7 +282,7 @@ extension FilmViewController{
         
         NSLayoutConstraint.activate([
             filmDescriptionTextLabel.topAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor, constant: 0),
-            filmDescriptionTextLabel.heightAnchor.constraint(equalToConstant: 100),
+           // filmDescriptionTextLabel.heightAnchor.constraint(equalToConstant: 100),
             filmDescriptionTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             filmDescriptionTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
@@ -297,10 +296,10 @@ extension FilmViewController{
         filmShowLabel.font = UIFont.systemFont(ofSize: 12)
         
         NSLayoutConstraint.activate([
-            filmShowLabel.topAnchor.constraint(equalTo: filmDescriptionTextLabel.bottomAnchor, constant: 0),
+            filmShowLabel.topAnchor.constraint(equalTo: filmDescriptionTextLabel.bottomAnchor, constant: 10),
             filmShowLabel.heightAnchor.constraint(equalToConstant: 20),
-            filmShowLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            filmShowLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmShowLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            filmShowLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -369,7 +368,7 @@ extension FilmViewController{
         containerView.addSubview(filmCastTextLabel)
         filmCastTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmCastTextLabel.text = "Джейсон Флеминг, Декстер Флетчер, Ник Моран, Джейсон Стэйтем"
-        filmCastTextLabel.font = UIFont.systemFont(ofSize: 16)
+        filmCastTextLabel.font = UIFont.systemFont(ofSize: 14)
         filmCastTextLabel.numberOfLines = 0
         
         NSLayoutConstraint.activate([
