@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RegistrationModuleInput {
-    var moduleInput: RegistrationModuleOutput? { get }
+    var moduleOutput: RegistrationModuleOutput? { get }
 }
 
 protocol RegistrationModuleOutput: AnyObject {}

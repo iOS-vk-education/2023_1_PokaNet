@@ -18,16 +18,9 @@ extension RegistrationPresenter: RegistrationModuleInput {
 
 extension RegistrationPresenter: RegistrationViewOutput {
     func didLoadView() {
-    }
-
-    func didTapActionButton() {
+        print(#function)
     }
 }
 
 private extension RegistrationPresenter {
-    func fetchUnits() {
-    }
-
-    func mock() {
-    }
 }
