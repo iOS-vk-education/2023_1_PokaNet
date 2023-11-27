@@ -14,9 +14,9 @@
 
 ## 🛠 Стек:
 - **Язык:** Swift 🍏
-- **Архитектура:** MVVM 🏛️
+- **Архитектура:** MVP🏛️
 - **БД:** Core Data 💽
-- **Фреймворки:** Combine 🔄, Moya 🌐, UIKit 📱, SnapKit 🦾
+- **Фреймворки:** Combine 🔄, Moya 🌐, UIKit 📱, Firebase 🔥
 
 ## 🎨 Макет:
 [Фигма](https://www.figma.com/file/vkhtOTqfJ1EPt50zf3cwEW/POKA-NET?type=design&node-id=0%3A1&mode=design&t=hZ0X0FNka6CWFL7h-1) 
