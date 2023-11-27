@@ -14,7 +14,7 @@ final class AuthorizationImageButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         setup()
     }
     
@@ -29,16 +29,36 @@ final class AuthorizationImageButton: UIButton {
 
 private extension AuthorizationImageButton {
     func setup() {
-        setupLayout()
-        setupAppearance()
+        setupIcon()
+        setupLabel()
     }
     
-    func setupLayout() {
+    func setupIcon() {
+        self.addSubview(iconView)
+        iconView.clipsToBounds = true
+        iconView.contentMode = .scaleAspectFill
+        iconView.frame = CGRect(x: 16, y: 14, width: 30, height: 30)
         
-        //контейнерами прибиваешь слева картинку а по центру лейбл
+        iconView.translatesAutoresizingMaskIntoConstraints = false // для активации верстки кодом
+        NSLayoutConstraint.activate([
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            iconView.widthAnchor.constraint(equalToConstant: 25),
+            iconView.heightAnchor.constraint(equalToConstant: 25),
+            iconView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
     
-    func setupAppearance() {
-        
+    func setupLabel() {
+        self.addSubview(textLabel)
+        textLabel.font = UIFont.systemFont(ofSize: 20)
+        textLabel.textAlignment = .center
+        textLabel.textColor = .gray
+        textLabel.translatesAutoresizingMaskIntoConstraints = false // для активации верстки кодом
+        NSLayoutConstraint.activate([
+            textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),
+            textLabel.topAnchor.constraint(equalTo: topAnchor),
+            textLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 }

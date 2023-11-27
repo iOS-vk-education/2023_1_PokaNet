@@ -16,7 +16,9 @@ final class AuthorizationViewController: UIViewController {
     private let mailTextField = UITextField()
     private let enterButton = UIButton()
     private let labelOr = UILabel()
-    private let firebaseButon = UIButton()
+//    private let firebaseButton = AuthorizationImageButton()
+    private let vkButton = AuthorizationImageButton()
+    private let regButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,9 @@ final class AuthorizationViewController: UIViewController {
         setupEnterButton()
         setupLableOr()
 //        setupFirebaseButton()
+        setupVkButton()
+        setupRegButton()
+        
     }
     
     init(output: AuthorizationViewOutput) {
@@ -47,7 +52,15 @@ final class AuthorizationViewController: UIViewController {
         imagePK.clipsToBounds = true
         imagePK.contentMode = .scaleAspectFill
         imagePK.image = UIImage(named: "PNImage")
-        imagePK.frame = CGRect(x: 165, y: 140, width: 60, height: 60)
+        imagePK.sizeToFit()
+//        imagePK.frame = CGRect(x: 165, y: 140, width: 60, height: 60)
+        imagePK.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imagePK.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+            imagePK.widthAnchor.constraint(equalToConstant: 60),
+            imagePK.heightAnchor.constraint(equalToConstant: 60),
+            imagePK.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     func setupLabelEnter() {
@@ -114,20 +127,52 @@ final class AuthorizationViewController: UIViewController {
     }
     
 //    func setupFirebaseButton() {
-//        self.view.addSubview(firebaseButon)
-//        firebaseButon.setTitle("Войти через Firebase", for: .normal)
-//        firebaseButon.layer.cornerRadius = 10
-//        firebaseButon.backgroundColor = .lightGray
-//        firebaseButon.translatesAutoresizingMaskIntoConstraints = false
+//        self.view.addSubview(firebaseButton)
+//        firebaseButton.configure(icon: "FirebaseImage", title: "Войти через Firebase")
+//        firebaseButton.layer.cornerRadius = 10
+//        firebaseButton.backgroundColor = .clear
+//        firebaseButton.layer.borderWidth = 1
+//        firebaseButton.layer.borderColor = UIColor.gray.cgColor
+//        firebaseButton.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
-//            firebaseButon.topAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 20),
-//            firebaseButon.bottomAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 65),
-//            firebaseButon.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
-//            firebaseButon.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
+//            firebaseButton.topAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 20),
+//            firebaseButton.bottomAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 65),
+//            firebaseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+//            firebaseButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
 //
 //        ])
 //    }
     
+    func setupVkButton() {
+        self.view.addSubview(vkButton)
+        vkButton.configure(icon: "VKImage", title: "Войти через VK")
+        vkButton.layer.cornerRadius = 10
+        vkButton.backgroundColor = .clear
+        vkButton.layer.borderWidth = 1
+        vkButton.layer.borderColor = UIColor.gray.cgColor
+        vkButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            vkButton.topAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 20),
+            vkButton.bottomAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 65),
+            vkButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            vkButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
+        ])
+    }
+    
+    func setupRegButton() {
+        self.view.addSubview(regButton)
+        regButton.setTitle("Зарегистироваться", for: .normal)
+        regButton.layer.cornerRadius = 10
+        regButton.backgroundColor = UIColor(red: 0.33, green: 0.78, blue: 0.30, alpha: 1.00)
+        regButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            regButton.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -145),
+            regButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            regButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            regButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
+
+        ])
+    }
 }
 
 extension AuthorizationViewController: AuthorizationViewInput {
