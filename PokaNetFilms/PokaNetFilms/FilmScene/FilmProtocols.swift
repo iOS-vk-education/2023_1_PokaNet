@@ -16,7 +16,7 @@ protocol FilmModuleOutput: AnyObject {
 }
 
 protocol FilmViewInput: AnyObject {
-//    func configureAuthorization(with model: AuthorizationViewModel?)
+    func configure(with model: FilmViewModel)
 }
 
 protocol FilmViewOutput: AnyObject {

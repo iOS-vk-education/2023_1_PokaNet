@@ -2,7 +2,7 @@
 //  FilmViewController.swift
 //  PokaNetFilms
 //
-//  Created by Mike Ulanov on 22.11.2023.
+//  Created by Mikhail Ulanov on 27.11.2023.
 //
 
 import Foundation
@@ -10,30 +10,33 @@ import UIKit
 
 final class FilmViewController: UIViewController {
     
+    let output: FilmViewOutput
+    var model: FilmViewModel?
+    
     let scrollView = UIScrollView()
     let ticketsButton = UIButton()
     let containerView = UIView()
+    let filmShowLabel = UILabel()
+    let kinopoiskLabel = UILabel()
+    let filmDescriptionLabel = UILabel()
+    let filmAuthorLabel = UILabel()
+    let filmCastLabel = UILabel()
     
     let filmImage = UIImageView()
     let filmTitle = UILabel()
     let scoreLabel = UILabel()
     let movieDetailsLabel = UILabel()
-    let kinopoiskLabel = UILabel()
     let kinopoiskScoreLabel = UILabel()
     let filmCountryLabel = UILabel()
     let filmYearLabel = UILabel()
-    let filmDescriptionLabel = UILabel()
     let filmDescriptionTextLabel = UILabel()
-    let filmShowLabel = UILabel()
     let filmShowDateLabel = UILabel()
-    let filmAuthorLabel = UILabel()
     let filmAuthorNameLabel = UILabel()
-    let filmCastLabel = UILabel()
     let filmCastTextLabel = UILabel()
     
-    private let output : FilmViewOutput
     override func viewDidLoad() {
         super.viewDidLoad()
+        output.didLoadView()
         view.backgroundColor = UIColor.white
         
         setupScrollView()
@@ -63,6 +66,7 @@ final class FilmViewController: UIViewController {
     
     init(output: FilmViewOutput) {
         self.output = output
+        
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder: NSCoder) {
@@ -109,19 +113,18 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: view.safeAreaInsets.top + 8),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            containerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            containerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor)
+            containerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -40),
+            containerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 40)
         ])
     }
     
     
     func setupFilmImage() {
         containerView.addSubview(filmImage)
-        filmImage.image = UIImage(named: "filmImage")
+        filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmImage.contentMode = .scaleAspectFill
         
         let filmHeight: CGFloat = UIScreen.main.bounds.height/3.5
-        filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         NSLayoutConstraint.activate([
             filmImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             filmImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: filmHeight),
@@ -130,13 +133,11 @@ extension FilmViewController{
         ])
     }
     
-    
+
     func setupFilmLabel() {
         containerView.addSubview(filmTitle)
         filmTitle.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmTitle.textAlignment = .center //текст по центру
-        
-        filmTitle.text = "Дурные деньги"
         filmTitle.textColor = UIColor(red: 0.77, green: 0.00, blue: 0.00, alpha: 1.00)
         filmTitle.font = UIFont.systemFont(ofSize: 40)
         
@@ -149,16 +150,11 @@ extension FilmViewController{
         ])
     }
     
-    
+
     func setupScoreLabel() {
         containerView.addSubview(scoreLabel)
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         scoreLabel.textAlignment = .center //текст по центру
-        
-        let score:String = "7.7"
-        let color:UIColor = UIColor(red: 0.46, green: 0.82, blue: 0.00, alpha: 1.00)
-        scoreLabel.text = score
-        scoreLabel.backgroundColor = color
         scoreLabel.font = UIFont.systemFont(ofSize: 40)
         scoreLabel.layer.masksToBounds = true
         scoreLabel.layer.cornerRadius = 5
@@ -188,13 +184,11 @@ extension FilmViewController{
         ])
     }
     
-    
+  
     func setupKinopoiskScoreLabel() {
         containerView.addSubview(kinopoiskScoreLabel)
         kinopoiskScoreLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         kinopoiskScoreLabel.textAlignment = .center //текст по центру
-        let kinopoiskScore:String = "1603 оценки"
-        kinopoiskScoreLabel.text = kinopoiskScore
         kinopoiskScoreLabel.font = UIFont.systemFont(ofSize: 16)
         
         NSLayoutConstraint.activate([
@@ -209,8 +203,6 @@ extension FilmViewController{
     func setupFilmCountryLabel() {
         containerView.addSubview(filmCountryLabel)
         filmCountryLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        let filmCountry:String = "США"
-        filmCountryLabel.text = filmCountry
         filmCountryLabel.font = UIFont.systemFont(ofSize: 20)
         filmCountryLabel.textAlignment = .center
         
@@ -226,8 +218,6 @@ extension FilmViewController{
     func setupFilmYearLabel() {
         containerView.addSubview(filmYearLabel)
         filmYearLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        let filmYear:String = "2023"
-        filmYearLabel.text = filmYear
         filmYearLabel.font = UIFont.systemFont(ofSize: 20)
         
         NSLayoutConstraint.activate([
@@ -242,10 +232,6 @@ extension FilmViewController{
     
     func setupMovieDetailsLabel() {
         containerView.addSubview(movieDetailsLabel)
-        let movieDetailsLabelTime = "1ч 45мин"
-        let movieDetailsLabelGenre = "биография комедия"
-        let movieDetailsLabelAge = "18+"
-        movieDetailsLabel.text = movieDetailsLabelTime + " • " + movieDetailsLabelGenre + " • " + movieDetailsLabelAge
         movieDetailsLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         movieDetailsLabel.font = UIFont.systemFont(ofSize: 18)
         
@@ -276,13 +262,12 @@ extension FilmViewController{
     func setupFilmDescriptionTextLabel() {
         containerView.addSubview(filmDescriptionTextLabel)
         filmDescriptionTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmDescriptionTextLabel.text = "Говорят, что миром правят деньги. А деньгами распоряжается Уолл-Стрит. И если на самом верху решили, что небольшая сеть магазинов видеоигр должна обанкротиться, то под это можно брать кредит в банке. Но однажды обычные люди сказали..."
         filmDescriptionTextLabel.font = UIFont.systemFont(ofSize: 14)
         filmDescriptionTextLabel.numberOfLines = 0
         
         NSLayoutConstraint.activate([
             filmDescriptionTextLabel.topAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor, constant: 0),
-           // filmDescriptionTextLabel.heightAnchor.constraint(equalToConstant: 100),
+            // Тут мог быть ваш якорь
             filmDescriptionTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             filmDescriptionTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
@@ -307,7 +292,6 @@ extension FilmViewController{
     func setupFilmShowDateLabel() {
         containerView.addSubview(filmShowDateLabel)
         filmShowDateLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmShowDateLabel.text = "20 ноября"
         filmShowDateLabel.font = UIFont.systemFont(ofSize: 14)
         
         NSLayoutConstraint.activate([
@@ -337,7 +321,6 @@ extension FilmViewController{
     func setupFilmAuthorNameLabel() {
         containerView.addSubview(filmAuthorNameLabel)
         filmAuthorNameLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmAuthorNameLabel.text = "Фёдор Бондарчук"
         filmAuthorNameLabel.font = UIFont.systemFont(ofSize: 14)
         
         NSLayoutConstraint.activate([
@@ -367,7 +350,6 @@ extension FilmViewController{
     func setupFilmCastTextLabel() {
         containerView.addSubview(filmCastTextLabel)
         filmCastTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmCastTextLabel.text = "Джейсон Флеминг, Декстер Флетчер, Ник Моран, Джейсон Стэйтем"
         filmCastTextLabel.font = UIFont.systemFont(ofSize: 14)
         filmCastTextLabel.numberOfLines = 0
         
@@ -381,5 +363,23 @@ extension FilmViewController{
 }
 
 extension FilmViewController: FilmViewInput{
-    
+    func configure(with model: FilmViewModel) {
+        filmImage.image = model.filmImage
+        filmCastTextLabel.text = model.filmCastTextLabel
+        filmTitle.text = model.filmTitle
+        filmAuthorNameLabel.text = model.filmAuthorNameLabel
+        filmShowDateLabel.text = model.filmShowDateLabel
+        filmDescriptionTextLabel.text = model.filmDescriptionTextLabel
+        
+        let movieDetailsLabelTime = model.movieDetailsLabelTime
+        let movieDetailsLabelGenre = model.movieDetailsLabelGenre
+        let movieDetailsLabelAge = model.movieDetailsLabelAge
+        movieDetailsLabel.text = movieDetailsLabelTime + " • " + movieDetailsLabelGenre + " • " + movieDetailsLabelAge
+        
+        filmYearLabel.text = model.filmYearLabel
+        filmCountryLabel.text = model.filmCountryLabel
+        kinopoiskScoreLabel.text = model.kinopoiskScoreLabel
+        scoreLabel.text = model.scoreLabel
+        scoreLabel.backgroundColor = model.scoreColor
+    }
 }

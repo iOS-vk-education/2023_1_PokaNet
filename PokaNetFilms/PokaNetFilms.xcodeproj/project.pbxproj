@@ -17,6 +17,7 @@
 		B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767622B0E64F6000FEB4D /* FilmAssembly.swift */; };
 		B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767642B0E6636000FEB4D /* FilmProtocols.swift */; };
 		B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767662B0E66FB000FEB4D /* FilmPresenter.swift */; };
+		B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767682B14FE17000FEB4D /* FilmViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B42767622B0E64F6000FEB4D /* FilmAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmAssembly.swift; sourceTree = "<group>"; };
 		B42767642B0E6636000FEB4D /* FilmProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmProtocols.swift; sourceTree = "<group>"; };
 		B42767662B0E66FB000FEB4D /* FilmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmPresenter.swift; sourceTree = "<group>"; };
+		B42767682B14FE17000FEB4D /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				B42767622B0E64F6000FEB4D /* FilmAssembly.swift */,
 				B42767642B0E6636000FEB4D /* FilmProtocols.swift */,
 				B42767662B0E66FB000FEB4D /* FilmPresenter.swift */,
+				B42767682B14FE17000FEB4D /* FilmViewModel.swift */,
 			);
 			path = FilmScene;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
+				B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
 				B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */,
 				B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */,
