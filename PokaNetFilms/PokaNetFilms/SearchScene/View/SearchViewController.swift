@@ -15,6 +15,7 @@ final class SearchViewController: UIViewController {
     var titleLable: UILabel!
     var searchBar: UISearchBar!
     var genreTable: UITableView!
+    var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,8 @@ private extension SearchViewController {
         view.backgroundColor = .white
         setupTitle()
         setupSearchBar()
+        setupGenreTable()
+        setupMessageLabel()
     }
     
     func setupSearchBar() {
@@ -78,6 +81,7 @@ private extension SearchViewController {
         genreTable.delegate = self
         genreTable.dataSource = self
         genreTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        genreTable.isHidden = true
         view.addSubview(genreTable)
         
         NSLayoutConstraint.activate([
@@ -86,6 +90,30 @@ private extension SearchViewController {
             genreTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             genreTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    func setupMessageLabel() {
+        messageLabel = UILabel()
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.text = "Ищите фильмы по любимому жанру!"
+        messageLabel.textColor = .systemBlue
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont.systemFont(ofSize: 30)
+        messageLabel.numberOfLines = 0
+        messageLabel.isHidden = false
+        view.addSubview(messageLabel)
+        
+        NSLayoutConstraint.activate([
+            messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            messageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            messageLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+        ])
+    }
+    
+    func updateUI() {
+        let showMessageLabel = genreTable.isHidden && searchBar.text?.count == 0
+        messageLabel.isHidden = !showMessageLabel
+
     }
 }
 
@@ -110,10 +138,16 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         output.didChangeSearchText(searchText)
+        updateUI()
     }
     
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        setupGenreTable()
+        let isUsingDefaultIcon = searchBar.image(for: .bookmark, state: .normal) == UIImage(systemName: "wand.and.rays.inverse")
+        let newIcon = isUsingDefaultIcon ? UIImage(systemName: "xmark.circle") : UIImage(systemName: "wand.and.rays.inverse")
+        searchBar.setImage(newIcon, for: .bookmark, state: .normal)
+        genreTable.isHidden = !genreTable.isHidden
+        
+        updateUI()
     }
 }
 
