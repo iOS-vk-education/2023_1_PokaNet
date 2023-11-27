@@ -14,6 +14,11 @@ final class RegistrationViewController: UIViewController {
     
     private let imagePK = UIImageView()
     private let labelReg = UILabel()
+    private let nameTextField = UITextField()
+    private let mailTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private let passConfirmTextField = UITextField()
+    private let regButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,11 @@ final class RegistrationViewController: UIViewController {
         
         setupImagePK()
         setupLabelReg()
+        setupNameTextField()
+        setupMailTextField()
+        setupPasswordTextField()
+        setupPassConfirmTextField()
+        setupRegButton()
     }
     
     init(output: RegistrationViewOutput) {
@@ -39,11 +49,12 @@ final class RegistrationViewController: UIViewController {
         imagePK.clipsToBounds = true
         imagePK.contentMode = .scaleAspectFill
         imagePK.image = UIImage(named: "PNImage")
+        imagePK.layer.cornerRadius = 10
         imagePK.sizeToFit()
 //        imagePK.frame = CGRect(x: 165, y: 140, width: 60, height: 60)
         imagePK.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imagePK.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+            imagePK.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             imagePK.widthAnchor.constraint(equalToConstant: 60),
             imagePK.heightAnchor.constraint(equalToConstant: 60),
             imagePK.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -57,12 +68,111 @@ final class RegistrationViewController: UIViewController {
         labelReg.textAlignment = .center
         labelReg.translatesAutoresizingMaskIntoConstraints = false // для активации верстки кодом
         NSLayoutConstraint.activate([
-            labelReg.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            labelReg.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 180),
             labelReg.leftAnchor.constraint(equalTo: view.leftAnchor),
             labelReg.rightAnchor.constraint(equalTo: view.rightAnchor),
-            labelReg.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 400)
+            labelReg.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 250)
         ])
     }
+    
+    func setupNameTextField() {
+        self.view.addSubview(nameTextField)
+        nameTextField.text = "  Ваше имя"
+        nameTextField.textColor = .gray
+//        nameTextField.layer.borderWidth = 1
+//        nameTextField.layer.borderColor = UIColor.gray.cgColor
+        nameTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
+        nameTextField.font = UIFont.systemFont(ofSize: 20)
+        nameTextField.layer.cornerRadius = 10
+        nameTextField.backgroundColor = .placeholderText
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nameTextField.topAnchor.constraint(equalTo: labelReg.bottomAnchor, constant: 20),
+            nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            nameTextField.bottomAnchor.constraint(equalTo: labelReg.bottomAnchor, constant: 65)
+            
+        ])
+    }
+    
+    func setupMailTextField() {
+        self.view.addSubview(mailTextField)
+        mailTextField.text = "  Email"
+        mailTextField.textColor = .gray
+//        mailTextField.layer.borderWidth = 1
+//        mailTextField.layer.borderColor = UIColor.gray.cgColor
+        mailTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
+        mailTextField.font = UIFont.systemFont(ofSize: 20)
+        mailTextField.layer.cornerRadius = 10
+        mailTextField.backgroundColor = .placeholderText
+        mailTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
+            mailTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            mailTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            mailTextField.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 65)
+            
+        ])
+    }
+    
+    func setupPasswordTextField() {
+        self.view.addSubview(passwordTextField)
+        passwordTextField.text = "  Пароль"
+        passwordTextField.textColor = .gray
+//        passwordTextField.layer.borderWidth = 1
+//        passwordTextField.layer.borderColor = UIColor.gray.cgColor
+        passwordTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
+        passwordTextField.font = UIFont.systemFont(ofSize: 20)
+        passwordTextField.layer.cornerRadius = 10
+        passwordTextField.backgroundColor = .placeholderText
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passwordTextField.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 20),
+            passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            passwordTextField.bottomAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 65)
+            
+        ])
+    }
+    
+    func setupPassConfirmTextField() {
+        self.view.addSubview(passConfirmTextField)
+        passConfirmTextField.text = "  Подтвердите пароль"
+        passConfirmTextField.textColor = .gray
+//        passConfirmTextField.layer.borderWidth = 1
+//        passConfirmTextField.layer.borderColor = UIColor.gray.cgColor
+        passConfirmTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
+        passConfirmTextField.font = UIFont.systemFont(ofSize: 20)
+        passConfirmTextField.layer.cornerRadius = 10
+        passConfirmTextField.backgroundColor = .placeholderText
+        passConfirmTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passConfirmTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            passConfirmTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            passConfirmTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            passConfirmTextField.bottomAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 65)
+            
+        ])
+    }
+    
+    func setupRegButton() {
+          self.view.addSubview(regButton)
+          regButton.setTitle("Зарегистироваться", for: .normal)
+//        regButton.tintColor = .blue
+//          regButton.layer.borderWidth = 1
+//          regButton.layer.borderColor = UIColor.blue.cgColor
+          regButton.layer.cornerRadius = 10
+          regButton.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
+          regButton.translatesAutoresizingMaskIntoConstraints = false
+          NSLayoutConstraint.activate([
+            regButton.topAnchor.constraint(equalTo: passConfirmTextField.bottomAnchor, constant: 60),
+              regButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+              regButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+              regButton.bottomAnchor.constraint(equalTo: passConfirmTextField.bottomAnchor, constant: 105)
+            
+
+          ])
+      }
 }
 
 extension RegistrationViewController: RegistrationViewInput {

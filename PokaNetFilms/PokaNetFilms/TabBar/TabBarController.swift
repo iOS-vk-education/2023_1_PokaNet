@@ -34,6 +34,12 @@ private extension TabBarController {
     }
 
     func setupTabs() {
+        let registrationVC = RegistrationAssembly.assembly()
+        
+        registrationVC.tabBarItem.title = "Registration"
+        
+        viewControllers = [registrationVC]
     }
 }
+
 
