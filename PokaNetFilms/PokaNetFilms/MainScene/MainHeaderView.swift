@@ -11,7 +11,7 @@ import UIKit
 class MainHeaderView: UICollectionReusableView {
     
     var headerLabel = UILabel()
-    static let identifier = "Header"
+    static let identifier = "MainViewHeader"
     
     override init(frame: CGRect) {
         super.init(frame: frame)

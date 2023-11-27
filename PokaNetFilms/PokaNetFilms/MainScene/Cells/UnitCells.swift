@@ -15,15 +15,10 @@ final class MainMovieCell: UICollectionViewCell {
     let dateLabel = UILabel()
     let genreLabel = UILabel()
     let priceLabel = UILabel()
-    
     let filmImage = UIImageView()
 
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
         setup()
     }
     

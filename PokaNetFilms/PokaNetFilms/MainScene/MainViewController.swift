@@ -11,7 +11,7 @@ import UIKit
 final class MainViewController: UIViewController {
     
     private let output: MainViewOutput
-    private var model: MainViewModel!
+    private var model: MainViewModel?
     private var films: [MainMovieCellModel] = []
     private let header = MainHeaderView()
     
@@ -36,7 +36,6 @@ final class MainViewController: UIViewController {
         
         setup()
         output.didLoadView()
-        collectionView.register(MainHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainHeaderView.identifier)
     }
 }
 
@@ -63,6 +62,7 @@ private extension MainViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MainMovieCell.self, forCellWithReuseIdentifier: "MainFilmCell")
+        collectionView.register(MainHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainHeaderView.identifier)
         collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
         
