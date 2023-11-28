@@ -33,6 +33,14 @@
 		74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */; };
 		74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */; };
 		74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */; };
+		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
+		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
+		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
+		B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767602B0E5FB9000FEB4D /* FilmViewController.swift */; };
+		B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767622B0E64F6000FEB4D /* FilmAssembly.swift */; };
+		B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767642B0E6636000FEB4D /* FilmProtocols.swift */; };
+		B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767662B0E66FB000FEB4D /* FilmPresenter.swift */; };
+		B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767682B14FE17000FEB4D /* FilmViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +72,11 @@
 		74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMessageCell.swift; sourceTree = "<group>"; };
 		74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
+		B42767602B0E5FB9000FEB4D /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
+		B42767622B0E64F6000FEB4D /* FilmAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmAssembly.swift; sourceTree = "<group>"; };
+		B42767642B0E6636000FEB4D /* FilmProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmProtocols.swift; sourceTree = "<group>"; };
+		B42767662B0E66FB000FEB4D /* FilmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmPresenter.swift; sourceTree = "<group>"; };
+		B42767682B14FE17000FEB4D /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +164,7 @@
 				743418212B06C64A008390D7 /* ProfileScene */,
 				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
+				B427675F2B0E5F83000FEB4D /* FilmScene */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
@@ -222,6 +236,18 @@
 				74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B427675F2B0E5F83000FEB4D /* FilmScene */ = {
+			isa = PBXGroup;
+			children = (
+				B42767602B0E5FB9000FEB4D /* FilmViewController.swift */,
+				B42767622B0E64F6000FEB4D /* FilmAssembly.swift */,
+				B42767642B0E6636000FEB4D /* FilmProtocols.swift */,
+				B42767662B0E66FB000FEB4D /* FilmPresenter.swift */,
+				B42767682B14FE17000FEB4D /* FilmViewModel.swift */,
+			);
+			path = FilmScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +343,11 @@
 				BCD408DE2B0A612300FC388C /* MainProtocols.swift in Sources */,
 				748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */,
 				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
+				B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */,
+				B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */,
+				B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */,
+				B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */,
+				B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
 			);
