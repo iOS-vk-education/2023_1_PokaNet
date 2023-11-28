@@ -13,6 +13,11 @@
 		743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418282B06CC2D008390D7 /* ProfileProtocols.swift */; };
 		7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */; };
 		7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */; };
+		06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */; };
+		06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */; };
+		06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */; };
+		06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */; };
+		7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409BE3C2B09EE04008DEA7D /* TabBarController.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
 		BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D32B09F00800FC388C /* MainAssembly.swift */; };
@@ -50,6 +55,10 @@
 		743418282B06CC2D008390D7 /* ProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
 		7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderModel.swift; sourceTree = "<group>"; };
+		06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAssembly.swift; sourceTree = "<group>"; };
+		06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747BBFC32AF31594003AC739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +99,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7434181E2B06C5BD008390D7 /* Application */ = {
+			06C5C2A22B13BF8B009E418E /* RegistrationScene */ = {
+			isa = PBXGroup;
+			children = (
+				06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */,
+				06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */,
+				06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */,
+				06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */,
+			);
+			path = RegistrationScene;
+			sourceTree = "<group>";
+		};
+			7434181E2B06C5BD008390D7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				747BBFC12AF31594003AC739 /* AppDelegate.swift */,
@@ -165,6 +185,7 @@
 				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
 				B427675F2B0E5F83000FEB4D /* FilmScene */,
+				06C5C2A22B13BF8B009E418E /* RegistrationScene */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
@@ -330,6 +351,10 @@
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
 				74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */,
 				74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */,
+				06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */,
+				06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */,
+				06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */,
+				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
@@ -350,6 +375,7 @@
 				B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
+				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
