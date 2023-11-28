@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */; };
+		0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */; };
+		0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */; };
+		065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */; };
+		06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */; };
 		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
 		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
 		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
@@ -49,6 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneAssembly.swift; sourceTree = "<group>"; };
+		0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScenePresenter.swift; sourceTree = "<group>"; };
+		0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneViewController.swift; sourceTree = "<group>"; };
+		0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneProtocol.swift; sourceTree = "<group>"; };
+		06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationImageButton.swift; sourceTree = "<group>"; };
 		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -99,6 +109,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		065557282B0D0767001AB86A /* AutorizationScene */ = {
+			isa = PBXGroup;
+			children = (
+				065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */,
+				0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */,
+				0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */,
+				0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */,
+				06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */,
+			);
+			path = AutorizationScene;
+			sourceTree = "<group>";
+		};
 			06C5C2A22B13BF8B009E418E /* RegistrationScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +200,7 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
+				065557282B0D0767001AB86A /* AutorizationScene */,
 				BCD408E12B0A627A00FC388C /* MainScene */,
 				7434181E2B06C5BD008390D7 /* Application */,
 				743418202B06C62F008390D7 /* TabBar */,
@@ -341,6 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */,
+				065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */,
+				0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */,
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
@@ -364,6 +390,8 @@
 				BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */,
 				BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
+				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
+				0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */,
 				BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */,
 				BCD408DE2B0A612300FC388C /* MainProtocols.swift in Sources */,
 				748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */,

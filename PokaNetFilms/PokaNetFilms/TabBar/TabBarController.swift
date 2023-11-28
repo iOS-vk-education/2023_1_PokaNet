@@ -33,7 +33,7 @@ private extension TabBarController {
     }
     
     func setupTabs() {
-        
+     
         let profileVC = ProfileAssembly.assembly()
         
         profileVC.tabBarItem.title = "Профиль"
