@@ -32,6 +32,12 @@
 		748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */; };
 		74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */; };
 		74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */; };
+		74BC82CC2B14747500B53E34 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C42B14747500B53E34 /* SearchAssembly.swift */; };
+		74BC82CD2B14747500B53E34 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C62B14747500B53E34 /* SearchPresenter.swift */; };
+		74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */; };
+		74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CA2B14747500B53E34 /* SearchViewController.swift */; };
+		74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CB2B14747500B53E34 /* SearchProtocols.swift */; };
+		74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */; };
 		74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +69,12 @@
 		748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmsModel.swift; sourceTree = "<group>"; };
 		74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMessageCell.swift; sourceTree = "<group>"; };
 		74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		74BC82C42B14747500B53E34 /* SearchAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
+		74BC82C62B14747500B53E34 /* SearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilmsModel.swift; sourceTree = "<group>"; };
+		74BC82CA2B14747500B53E34 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		74BC82CB2B14747500B53E34 /* SearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundedFilmCell.swift; sourceTree = "<group>"; };
 		74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,9 +121,9 @@
 			children = (
 				743418222B06C66E008390D7 /* ProfileAssembly.swift */,
 				743418282B06CC2D008390D7 /* ProfileProtocols.swift */,
-				748A3BF02B09BA10007F5154 /* Presenter */,
-				748A3BF12B09BA2D007F5154 /* View */,
 				7434182E2B06CF71008390D7 /* Models */,
+				748A3BF12B09BA2D007F5154 /* View */,
+				748A3BF02B09BA10007F5154 /* Presenter */,
 			);
 			path = ProfileScene;
 			sourceTree = "<group>";
@@ -148,6 +160,7 @@
 				BCD408E12B0A627A00FC388C /* MainScene */,
 				7434181E2B06C5BD008390D7 /* Application */,
 				743418202B06C62F008390D7 /* TabBar */,
+				74BC82C32B14747500B53E34 /* SearchScene */,
 				743418212B06C64A008390D7 /* ProfileScene */,
 				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
@@ -224,6 +237,44 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		74BC82C32B14747500B53E34 /* SearchScene */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82C42B14747500B53E34 /* SearchAssembly.swift */,
+				74BC82CB2B14747500B53E34 /* SearchProtocols.swift */,
+				74BC82C72B14747500B53E34 /* Model */,
+				74BC82C92B14747500B53E34 /* View */,
+				74BC82C52B14747500B53E34 /* Presenter */,
+			);
+			name = SearchScene;
+			path = PokaNetFilms/SearchScene;
+			sourceTree = SOURCE_ROOT;
+		};
+		74BC82C52B14747500B53E34 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82C62B14747500B53E34 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		74BC82C72B14747500B53E34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		74BC82C92B14747500B53E34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82CA2B14747500B53E34 /* SearchViewController.swift */,
+				74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,12 +348,17 @@
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
+				74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
+				74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */,
+				74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */,
 				74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */,
 				7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */,
+				74BC82CC2B14747500B53E34 /* SearchAssembly.swift in Sources */,
 				7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */,
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
 				74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */,
+				74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */,
 				74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
@@ -317,6 +373,7 @@
 				BCD408DE2B0A612300FC388C /* MainProtocols.swift in Sources */,
 				748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */,
 				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
+				74BC82CD2B14747500B53E34 /* SearchPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
 			);
