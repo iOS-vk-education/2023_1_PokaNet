@@ -35,10 +35,16 @@ private extension TabBarController {
     func setupTabs() {
         
         let profileVC = ProfileAssembly.assembly()
+        let mainVC = MainAssembly.assembly()
+        let filmVC = FilmAssembly.assembly()
         
+        mainVC.tabBarItem.title = "Главный экран"
+        mainVC.tabBarItem.image = UIImage(systemName: "gear")
         profileVC.tabBarItem.title = "Профиль"
         profileVC.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
+        filmVC.tabBarItem.title = "Детальный экран"
+        filmVC.tabBarItem.image = UIImage(systemName: "gear")
         
-        viewControllers = [profileVC]
+        viewControllers = [profileVC, mainVC, filmVC]
     }
 }
