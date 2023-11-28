@@ -1,8 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "PNImage.png",
-      "filename1" : "PN.jpg",
+      "filename" : "Image.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
