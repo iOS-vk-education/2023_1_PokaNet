@@ -51,7 +51,6 @@ final class RegistrationViewController: UIViewController {
         imagePK.image = UIImage(named: "PNImage")
         imagePK.layer.cornerRadius = 10
         imagePK.sizeToFit()
-//        imagePK.frame = CGRect(x: 165, y: 140, width: 60, height: 60)
         imagePK.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imagePK.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
@@ -66,7 +65,7 @@ final class RegistrationViewController: UIViewController {
         labelReg.text = "Регистрация"
         labelReg.font = UIFont.systemFont(ofSize: 30)
         labelReg.textAlignment = .center
-        labelReg.translatesAutoresizingMaskIntoConstraints = false // для активации верстки кодом
+        labelReg.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             labelReg.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 180),
             labelReg.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -79,8 +78,6 @@ final class RegistrationViewController: UIViewController {
         self.view.addSubview(nameTextField)
         nameTextField.text = "  Ваше имя"
         nameTextField.textColor = .gray
-//        nameTextField.layer.borderWidth = 1
-//        nameTextField.layer.borderColor = UIColor.gray.cgColor
         nameTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         nameTextField.font = UIFont.systemFont(ofSize: 20)
         nameTextField.layer.cornerRadius = 10
@@ -99,8 +96,6 @@ final class RegistrationViewController: UIViewController {
         self.view.addSubview(mailTextField)
         mailTextField.text = "  Email"
         mailTextField.textColor = .gray
-//        mailTextField.layer.borderWidth = 1
-//        mailTextField.layer.borderColor = UIColor.gray.cgColor
         mailTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         mailTextField.font = UIFont.systemFont(ofSize: 20)
         mailTextField.layer.cornerRadius = 10
@@ -119,8 +114,6 @@ final class RegistrationViewController: UIViewController {
         self.view.addSubview(passwordTextField)
         passwordTextField.text = "  Пароль"
         passwordTextField.textColor = .gray
-//        passwordTextField.layer.borderWidth = 1
-//        passwordTextField.layer.borderColor = UIColor.gray.cgColor
         passwordTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         passwordTextField.font = UIFont.systemFont(ofSize: 20)
         passwordTextField.layer.cornerRadius = 10
@@ -139,8 +132,6 @@ final class RegistrationViewController: UIViewController {
         self.view.addSubview(passConfirmTextField)
         passConfirmTextField.text = "  Подтвердите пароль"
         passConfirmTextField.textColor = .gray
-//        passConfirmTextField.layer.borderWidth = 1
-//        passConfirmTextField.layer.borderColor = UIColor.gray.cgColor
         passConfirmTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         passConfirmTextField.font = UIFont.systemFont(ofSize: 20)
         passConfirmTextField.layer.cornerRadius = 10
@@ -158,9 +149,6 @@ final class RegistrationViewController: UIViewController {
     func setupRegButton() {
           self.view.addSubview(regButton)
           regButton.setTitle("Зарегистироваться", for: .normal)
-//        regButton.tintColor = .blue
-//          regButton.layer.borderWidth = 1
-//          regButton.layer.borderColor = UIColor.blue.cgColor
           regButton.layer.cornerRadius = 10
           regButton.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
           regButton.translatesAutoresizingMaskIntoConstraints = false
