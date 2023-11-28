@@ -33,7 +33,6 @@ private extension TabBarController {
     }
     
     func setupTabs() {
-        
         let searchVC = SearchAssembly.assembly()
         let profileVC = ProfileAssembly.assembly()
         
