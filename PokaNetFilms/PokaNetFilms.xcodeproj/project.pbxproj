@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */; };
+		0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */; };
+		0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */; };
+		065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */; };
+		06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */; };
 		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
 		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
 		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
 		743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418282B06CC2D008390D7 /* ProfileProtocols.swift */; };
 		7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */; };
 		7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */; };
+		06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */; };
+		06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */; };
+		06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */; };
+		06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */; };
+		7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409BE3C2B09EE04008DEA7D /* TabBarController.swift */; };
 		747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC12AF31594003AC739 /* AppDelegate.swift */; };
 		747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFC32AF31594003AC739 /* SceneDelegate.swift */; };
 		BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D32B09F00800FC388C /* MainAssembly.swift */; };
@@ -32,6 +42,12 @@
 		748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */; };
 		74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */; };
 		74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */; };
+		74BC82CC2B14747500B53E34 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C42B14747500B53E34 /* SearchAssembly.swift */; };
+		74BC82CD2B14747500B53E34 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C62B14747500B53E34 /* SearchPresenter.swift */; };
+		74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */; };
+		74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CA2B14747500B53E34 /* SearchViewController.swift */; };
+		74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CB2B14747500B53E34 /* SearchProtocols.swift */; };
+		74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */; };
 		74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */; };
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
@@ -44,12 +60,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneAssembly.swift; sourceTree = "<group>"; };
+		0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScenePresenter.swift; sourceTree = "<group>"; };
+		0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneViewController.swift; sourceTree = "<group>"; };
+		0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneProtocol.swift; sourceTree = "<group>"; };
+		06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationImageButton.swift; sourceTree = "<group>"; };
 		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		743418282B06CC2D008390D7 /* ProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
 		7434182A2B06CF5F008390D7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		7434182C2B06CF6D008390D7 /* ProfileHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderModel.swift; sourceTree = "<group>"; };
+		06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAssembly.swift; sourceTree = "<group>"; };
+		06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
 		747BBFBE2AF31594003AC739 /* PokaNetFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokaNetFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747BBFC12AF31594003AC739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747BBFC32AF31594003AC739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +96,12 @@
 		748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmsModel.swift; sourceTree = "<group>"; };
 		74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMessageCell.swift; sourceTree = "<group>"; };
 		74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		74BC82C42B14747500B53E34 /* SearchAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
+		74BC82C62B14747500B53E34 /* SearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilmsModel.swift; sourceTree = "<group>"; };
+		74BC82CA2B14747500B53E34 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		74BC82CB2B14747500B53E34 /* SearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundedFilmCell.swift; sourceTree = "<group>"; };
 		74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 		B42767602B0E5FB9000FEB4D /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
 		B42767622B0E64F6000FEB4D /* FilmAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmAssembly.swift; sourceTree = "<group>"; };
@@ -90,7 +121,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7434181E2B06C5BD008390D7 /* Application */ = {
+		065557282B0D0767001AB86A /* AutorizationScene */ = {
+			isa = PBXGroup;
+			children = (
+				065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */,
+				0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */,
+				0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */,
+				0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */,
+				06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */,
+			);
+			path = AutorizationScene;
+			sourceTree = "<group>";
+		};
+			06C5C2A22B13BF8B009E418E /* RegistrationScene */ = {
+			isa = PBXGroup;
+			children = (
+				06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */,
+				06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */,
+				06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */,
+				06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */,
+			);
+			path = RegistrationScene;
+			sourceTree = "<group>";
+		};
+			7434181E2B06C5BD008390D7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				747BBFC12AF31594003AC739 /* AppDelegate.swift */,
@@ -122,9 +176,9 @@
 			children = (
 				743418222B06C66E008390D7 /* ProfileAssembly.swift */,
 				743418282B06CC2D008390D7 /* ProfileProtocols.swift */,
-				748A3BF02B09BA10007F5154 /* Presenter */,
-				748A3BF12B09BA2D007F5154 /* View */,
 				7434182E2B06CF71008390D7 /* Models */,
+				748A3BF12B09BA2D007F5154 /* View */,
+				748A3BF02B09BA10007F5154 /* Presenter */,
 			);
 			path = ProfileScene;
 			sourceTree = "<group>";
@@ -158,13 +212,16 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
+				065557282B0D0767001AB86A /* AutorizationScene */,
 				BCD408E12B0A627A00FC388C /* MainScene */,
 				7434181E2B06C5BD008390D7 /* Application */,
 				743418202B06C62F008390D7 /* TabBar */,
+				74BC82C32B14747500B53E34 /* SearchScene */,
 				743418212B06C64A008390D7 /* ProfileScene */,
 				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
 				B427675F2B0E5F83000FEB4D /* FilmScene */,
+				06C5C2A22B13BF8B009E418E /* RegistrationScene */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
@@ -237,6 +294,44 @@
 			);
 			path = Cells;
 			sourceTree = "<group>";
+		};
+		74BC82C32B14747500B53E34 /* SearchScene */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82C42B14747500B53E34 /* SearchAssembly.swift */,
+				74BC82CB2B14747500B53E34 /* SearchProtocols.swift */,
+				74BC82C72B14747500B53E34 /* Model */,
+				74BC82C92B14747500B53E34 /* View */,
+				74BC82C52B14747500B53E34 /* Presenter */,
+			);
+			name = SearchScene;
+			path = PokaNetFilms/SearchScene;
+			sourceTree = SOURCE_ROOT;
+		};
+		74BC82C52B14747500B53E34 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82C62B14747500B53E34 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		74BC82C72B14747500B53E34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		74BC82C92B14747500B53E34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74BC82CA2B14747500B53E34 /* SearchViewController.swift */,
+				74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */,
+			);
+			path = View;
+      sourceTree = "<group>";
 		};
 		B427675F2B0E5F83000FEB4D /* FilmScene */ = {
 			isa = PBXGroup;
@@ -320,16 +415,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */,
+				065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */,
+				0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */,
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
+				74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
+				74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */,
+				74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */,
 				74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */,
 				7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */,
+				74BC82CC2B14747500B53E34 /* SearchAssembly.swift in Sources */,
 				7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */,
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
 				74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */,
+				74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */,
 				74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */,
+				06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */,
+				06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */,
+				06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */,
+				747BBFC62AF31594003AC739 /* ViewController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
@@ -339,10 +446,13 @@
 				BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */,
 				BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* TabBarController.swift in Sources */,
+				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
+				0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */,
 				BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */,
 				BCD408DE2B0A612300FC388C /* MainProtocols.swift in Sources */,
 				748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */,
 				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
+				74BC82CD2B14747500B53E34 /* SearchPresenter.swift in Sources */,
 				B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */,
 				B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */,
 				B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */,
@@ -350,6 +460,7 @@
 				B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
+				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
