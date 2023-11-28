@@ -39,7 +39,7 @@ private extension AuthorizationImageButton {
         iconView.contentMode = .scaleAspectFill
         iconView.frame = CGRect(x: 16, y: 14, width: 30, height: 30)
         
-        iconView.translatesAutoresizingMaskIntoConstraints = false // для активации верстки кодом
+        iconView.translatesAutoresizingMaskIntoConstraints = false 
         NSLayoutConstraint.activate([
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             iconView.widthAnchor.constraint(equalToConstant: 25),
@@ -53,7 +53,7 @@ private extension AuthorizationImageButton {
         textLabel.font = UIFont.systemFont(ofSize: 20)
         textLabel.textAlignment = .center
         textLabel.textColor = .gray
-        textLabel.translatesAutoresizingMaskIntoConstraints = false // для активации верстки кодом
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),

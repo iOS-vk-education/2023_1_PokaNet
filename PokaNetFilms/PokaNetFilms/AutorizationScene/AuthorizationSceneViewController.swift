@@ -16,7 +16,6 @@ final class AuthorizationViewController: UIViewController {
     private let mailTextField = UITextField()
     private let enterButton = UIButton()
     private let labelOr = UILabel()
-//    private let firebaseButton = AuthorizationImageButton()
     private let vkButton = AuthorizationImageButton()
     private let regButton = UIButton()
     
@@ -32,7 +31,6 @@ final class AuthorizationViewController: UIViewController {
         setupMailTextField()
         setupEnterButton()
         setupLableOr()
-//        setupFirebaseButton()
         setupVkButton()
         setupRegButton()
         
@@ -53,7 +51,6 @@ final class AuthorizationViewController: UIViewController {
         imagePK.contentMode = .scaleAspectFill
         imagePK.image = UIImage(named: "PNImage")
         imagePK.sizeToFit()
-//        imagePK.frame = CGRect(x: 165, y: 140, width: 60, height: 60)
         imagePK.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imagePK.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
@@ -68,7 +65,7 @@ final class AuthorizationViewController: UIViewController {
         labelEnter.text = "Вход POKA NET"
         labelEnter.font = UIFont.systemFont(ofSize: 30)
         labelEnter.textAlignment = .center
-        labelEnter.translatesAutoresizingMaskIntoConstraints = false // для активации верстки кодом
+        labelEnter.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             labelEnter.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             labelEnter.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -79,8 +76,7 @@ final class AuthorizationViewController: UIViewController {
     
     func setupMailTextField() {
         self.view.addSubview(mailTextField)
-        mailTextField.text = "  Введите email"
-//        mailTextField.placeholder = " Введите mail"
+        mailTextField.placeholder = " Введите mail"
         mailTextField.textColor = .gray
         mailTextField.font = UIFont.systemFont(ofSize: 20)
         mailTextField.layer.cornerRadius = 10
@@ -125,23 +121,6 @@ final class AuthorizationViewController: UIViewController {
             labelOr.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -150)
         ])
     }
-    
-//    func setupFirebaseButton() {
-//        self.view.addSubview(firebaseButton)
-//        firebaseButton.configure(icon: "FirebaseImage", title: "Войти через Firebase")
-//        firebaseButton.layer.cornerRadius = 10
-//        firebaseButton.backgroundColor = .clear
-//        firebaseButton.layer.borderWidth = 1
-//        firebaseButton.layer.borderColor = UIColor.gray.cgColor
-//        firebaseButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            firebaseButton.topAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 20),
-//            firebaseButton.bottomAnchor.constraint(equalTo: labelOr.bottomAnchor, constant: 65),
-//            firebaseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
-//            firebaseButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
-//
-//        ])
-//    }
     
     func setupVkButton() {
         self.view.addSubview(vkButton)
