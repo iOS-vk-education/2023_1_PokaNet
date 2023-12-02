@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class FilmViewController: UIViewController {
+final class FilmViewController: UIViewController, UIScrollViewDelegate {
     
     let output: FilmViewOutput
     var model: FilmViewModel?
@@ -60,6 +60,8 @@ final class FilmViewController: UIViewController {
         setupFilmAuthorNameLabel()
         setupFilmCastLabel()
         setupFilmCastTextLabel()
+        
+        
     }
     
     
@@ -82,15 +84,14 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor)
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         ])
-        
     }
     
     
     func setupTicketsButton() {
-        view.addSubview(ticketsButton)
+        scrollView.addSubview(ticketsButton)
         ticketsButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         
         ticketsButton.setTitle("Расписание и билеты", for: .normal)
@@ -113,8 +114,9 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: view.safeAreaInsets.top + 8),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            containerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -40),
-            containerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 40)
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40),
+            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 400),
         ])
     }
     
@@ -126,8 +128,8 @@ extension FilmViewController{
         
         let filmHeight: CGFloat = UIScreen.main.bounds.height/3.5
         NSLayoutConstraint.activate([
-            filmImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            filmImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: filmHeight),
+            filmImage.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor, constant: 0),
+            filmImage.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor, constant: filmHeight),
             filmImage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
             filmImage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
         ])
