@@ -13,8 +13,10 @@ final class AuthorizationAssembly {
     ) -> UIViewController {
         let presenter = AuthorizationPresenter()
         let viewController = AuthorizationViewController(output: presenter)
+        let coordinator = AuthorizationCoordinator()
 
         presenter.view = viewController
+        presenter.coordinator = coordinator
         presenter.moduleOutput = moduleOutput
         
         return viewController

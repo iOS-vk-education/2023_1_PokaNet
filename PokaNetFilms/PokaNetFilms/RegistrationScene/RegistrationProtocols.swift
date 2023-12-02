@@ -17,4 +17,5 @@ protocol RegistrationViewInput: AnyObject {}
 
 protocol RegistrationViewOutput: AnyObject {
     func didLoadView()
+    func accountExistButtonTapped()
 }
