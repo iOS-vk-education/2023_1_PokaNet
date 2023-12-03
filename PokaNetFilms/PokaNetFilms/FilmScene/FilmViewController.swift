@@ -74,6 +74,16 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
     required init?(coder: NSCoder) {
         fatalError("[DEBUG]: FATAL ERROR")
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            if scrollView.contentOffset.y <= 0 {
+                // Запретить прокрутку вверх, если мы в самой верхней точке
+                scrollView.isScrollEnabled = false
+            } else {
+                // Разрешить прокрутку, если мы не в самой верхней точке
+                scrollView.isScrollEnabled = true
+            }
+    }
 }
 
 extension FilmViewController{
@@ -83,6 +93,9 @@ extension FilmViewController{
         // Отключение полоски прокрутки
         scrollView.showsVerticalScrollIndicator = false // Для вертикальной полоски прокрутки
         scrollView.showsHorizontalScrollIndicator = false // Для горизонтальной полоски прокрутки
+        scrollView.bounces = true
+        scrollView.alwaysBounceVertical = true
+        scrollView.bouncesZoom = true
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -117,8 +130,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: view.safeAreaInsets.top + 8),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
-            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40),
-            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
             containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 0),
         ])
     }
@@ -127,12 +140,12 @@ extension FilmViewController{
     func setupFilmImage() {
         containerView.addSubview(filmImage)
         filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmImage.contentMode = .scaleAspectFill
+//        filmImage.contentMode = .scaleAspectFill
         
         let filmHeight: CGFloat = UIScreen.main.bounds.height/3.5
         NSLayoutConstraint.activate([
             filmImage.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor, constant: 0),
-            filmImage.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor, constant: filmHeight),
+            filmImage.heightAnchor.constraint(equalToConstant: filmHeight),
             filmImage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
             filmImage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
         ])
@@ -223,14 +236,13 @@ extension FilmViewController{
     func setupFilmYearLabel() {
         containerView.addSubview(filmYearLabel)
         filmYearLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmYearLabel.font = UIFont.systemFont(ofSize: 20)
+        filmYearLabel.font = UIFont.systemFont(ofSize: 16)
+        filmYearLabel.textAlignment = .center
         
         NSLayoutConstraint.activate([
-            filmYearLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor, constant: 0),
-            filmYearLabel.heightAnchor.constraint(equalToConstant: 40),
-            filmYearLabel.leftAnchor.constraint(equalTo: filmCountryLabel.rightAnchor, constant: 20),
-            filmYearLabel.rightAnchor.constraint(equalTo: filmCountryLabel.rightAnchor, constant: 70)
-            
+            filmYearLabel.topAnchor.constraint(equalTo: filmCountryLabel.bottomAnchor, constant: 0),
+            filmYearLabel.trailingAnchor.constraint(equalTo: filmCountryLabel.trailingAnchor, constant: 0),
+            filmYearLabel.leadingAnchor.constraint(equalTo: kinopoiskScoreLabel.trailingAnchor, constant: 0)
         ])
     }
     
@@ -272,7 +284,7 @@ extension FilmViewController{
         
         NSLayoutConstraint.activate([
             filmDescriptionTextLabel.topAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor, constant: 0),
-            // Тут мог быть ваш якорь
+            filmDescriptionTextLabel.bottomAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor, constant: 100),
             filmDescriptionTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             filmDescriptionTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
@@ -356,11 +368,10 @@ extension FilmViewController{
         containerView.addSubview(filmCastTextLabel)
         filmCastTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmCastTextLabel.font = UIFont.systemFont(ofSize: 14)
-        filmCastTextLabel.contentMode = .left
+        filmCastTextLabel.textAlignment = .left
+//        filmCastTextLabel.numberOfLines = 0
 
 
-
-        
         NSLayoutConstraint.activate([
             filmCastTextLabel.topAnchor.constraint(equalTo: filmCastLabel.bottomAnchor, constant: 0),
             filmCastTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 36),
