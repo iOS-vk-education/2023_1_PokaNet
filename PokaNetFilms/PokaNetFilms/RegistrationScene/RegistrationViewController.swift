@@ -166,7 +166,7 @@ final class RegistrationViewController: UIViewController {
     
     func setupExistAccountButton() {
         self.view.addSubview(accountExist)
-        accountExist.setTitle("Уже есть аккаунт)", for: .normal)
+        accountExist.setTitle("Уже есть аккаунт!", for: .normal)
         accountExist.layer.cornerRadius = 10
         accountExist.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
         accountExist.translatesAutoresizingMaskIntoConstraints = false
@@ -176,7 +176,7 @@ final class RegistrationViewController: UIViewController {
             accountExist.topAnchor.constraint(equalTo: regButton.bottomAnchor, constant: 20),
             accountExist.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
             accountExist.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
-            accountExist.heightAnchor.constraint(equalToConstant: 60)
+            accountExist.heightAnchor.constraint(equalToConstant: 45)
             
             
         ])
@@ -184,7 +184,7 @@ final class RegistrationViewController: UIViewController {
 }
 
 //MARK: - Coordination
-extension RegistrationViewController {
+private extension RegistrationViewController {
     @objc func accountExistButtonTapped() {
         output.accountExistButtonTapped()
     }

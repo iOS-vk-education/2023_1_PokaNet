@@ -157,7 +157,7 @@ final class AuthorizationViewController: UIViewController {
 }
 
 //MARK: - Coordination
-extension AuthorizationViewController {
+private extension AuthorizationViewController {
     @objc func regButtonTapped() {
         output.didTapRegistrationButton()
     }

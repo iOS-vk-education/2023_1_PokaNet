@@ -14,10 +14,10 @@ final class RegistrationAssembly {
         moduleOutput: RegistrationModuleOutput? = nil) -> UIViewController {
         let presenter = RegistrationPresenter()
         let viewController = RegistrationViewController(output: presenter)
-        let coordinator = RegistrationCoordinator()
+        let router = RegistrationRouter(sourceView: viewController)
 
         presenter.view = viewController
-        presenter.coordinator = coordinator
+        presenter.router = router
         presenter.moduleOutput = moduleOutput
         
         return viewController

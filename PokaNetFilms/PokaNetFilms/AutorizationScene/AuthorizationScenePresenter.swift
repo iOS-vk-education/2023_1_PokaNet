@@ -11,7 +11,7 @@ import UIKit
 final class AuthorizationPresenter {
     weak var view: AuthorizationViewInput?
     weak var moduleOutput: AuthorizationModuleOutput?
-    var coordinator: AuthorizationCoordinator?
+    var router: AuthorizationRouter?
 }
 
 extension AuthorizationPresenter: AuthorizationModuleInput {
@@ -19,11 +19,10 @@ extension AuthorizationPresenter: AuthorizationModuleInput {
 
 extension AuthorizationPresenter: AuthorizationViewOutput {
     func didTapRegistrationButton() {
-        guard let sourceView = view as? UIViewController else {
-            print("sourceView is not a UIViewController")
-            return
-        }
-        coordinator?.presentRegistration(sourceView: sourceView)
+        let regVC = RegistrationAssembly.assembly()
+        router?.dismiss(completion: {
+            self.router?.presentFromSourceView(viewController: regVC)
+        })
     }
     
     func didLoadView() {
