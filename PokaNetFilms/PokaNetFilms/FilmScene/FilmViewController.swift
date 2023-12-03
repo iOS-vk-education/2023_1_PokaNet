@@ -80,6 +80,9 @@ extension FilmViewController{
     func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
+        // Отключение полоски прокрутки
+        scrollView.showsVerticalScrollIndicator = false // Для вертикальной полоски прокрутки
+        scrollView.showsHorizontalScrollIndicator = false // Для горизонтальной полоски прокрутки
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -91,7 +94,7 @@ extension FilmViewController{
     
     
     func setupTicketsButton() {
-        scrollView.addSubview(ticketsButton)
+        view.addSubview(ticketsButton)
         ticketsButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         
         ticketsButton.setTitle("Расписание и билеты", for: .normal)
@@ -113,10 +116,10 @@ extension FilmViewController{
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: view.safeAreaInsets.top + 8),
-            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40),
             containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40),
-            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 400),
+            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 0),
         ])
     }
     
@@ -354,12 +357,18 @@ extension FilmViewController{
         filmCastTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmCastTextLabel.font = UIFont.systemFont(ofSize: 14)
         filmCastTextLabel.numberOfLines = 0
+        filmCastTextLabel.sizeToFit()
+
+
+
         
         NSLayoutConstraint.activate([
             filmCastTextLabel.topAnchor.constraint(equalTo: filmCastLabel.bottomAnchor, constant: 0),
-            filmCastTextLabel.heightAnchor.constraint(equalToConstant: 40),
             filmCastTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            filmCastTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
+            filmCastTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            filmCastTextLabel.bottomAnchor.constraint(equalTo: ticketsButton.topAnchor, constant: 0)
+//           filmCastTextLabel.heightAnchor.constraint(equalToConstant: 40),
+//           filmCastTextLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -55)
         ])
     }
 }
