@@ -97,8 +97,9 @@ extension FilmViewController{
         
         ticketsButton.setTitle("Расписание и билеты", for: .normal)
         ticketsButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
-        ticketsButton.backgroundColor = UIColor(red: 1.00, green: 0.01, blue: 0.01, alpha: 0.55)
+        ticketsButton.backgroundColor = .systemPink
         ticketsButton.layer.cornerRadius = 10
+        
         NSLayoutConstraint.activate([
             ticketsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -55),
             ticketsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
