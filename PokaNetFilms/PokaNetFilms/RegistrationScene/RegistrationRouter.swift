@@ -9,4 +9,7 @@ import Foundation
 import UIKit
 
 final class RegistrationRouter: BaseRouter {
+    func openAuthorization() {
+        dismiss()
+    }
 }

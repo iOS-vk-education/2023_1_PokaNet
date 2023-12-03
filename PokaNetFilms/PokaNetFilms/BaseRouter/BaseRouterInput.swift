@@ -9,5 +9,5 @@ import UIKit
 
 protocol BaseRouterInput: AnyObject {
     func presentFromSourceView(viewController: UIViewController)
-    func dismiss(completion: @escaping () -> Void)
+    func dismiss()
 }

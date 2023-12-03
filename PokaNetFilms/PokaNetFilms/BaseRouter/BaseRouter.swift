@@ -20,7 +20,7 @@ class BaseRouter: BaseRouterInput {
         sourceView?.present(viewController, animated: true)
     }
     
-    func dismiss(completion: @escaping () -> Void) {
-        sourceView?.dismiss(animated: true, completion: completion)
+    func dismiss() {
+        sourceView?.dismiss(animated: true)
     }
 }

@@ -19,10 +19,7 @@ extension AuthorizationPresenter: AuthorizationModuleInput {
 
 extension AuthorizationPresenter: AuthorizationViewOutput {
     func didTapRegistrationButton() {
-        let regVC = RegistrationAssembly.assembly()
-        router?.dismiss(completion: {
-            self.router?.presentFromSourceView(viewController: regVC)
-        })
+        router?.openRegistration()
     }
     
     func didLoadView() {
