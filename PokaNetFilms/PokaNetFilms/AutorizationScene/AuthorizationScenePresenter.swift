@@ -11,23 +11,20 @@ import UIKit
 final class AuthorizationPresenter {
     weak var view: AuthorizationViewInput?
     weak var moduleOutput: AuthorizationModuleOutput?
+    var router: AuthorizationRouter?
 }
 
 extension AuthorizationPresenter: AuthorizationModuleInput {
 }
 
 extension AuthorizationPresenter: AuthorizationViewOutput {
-    func didLoadView() {
+    func didTapRegistrationButton() {
+        router?.openRegistration()
     }
-
-    func didTapActionButton() {
+    
+    func didLoadView() {
     }
 }
 
 private extension AuthorizationPresenter {
-    func fetchUnits() {
-    }
-
-    func mock() {
-    }
 }
