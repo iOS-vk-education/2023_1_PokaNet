@@ -37,6 +37,7 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.didLoadView()
+        scrollView.delegate = self
         view.backgroundColor = UIColor.white
         
         setupScrollView()
@@ -64,8 +65,6 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    
-    
     init(output: FilmViewOutput) {
         self.output = output
         
@@ -73,16 +72,6 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
     }
     required init?(coder: NSCoder) {
         fatalError("[DEBUG]: FATAL ERROR")
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            if scrollView.contentOffset.y <= 0 {
-                // Запретить прокрутку вверх, если мы в самой верхней точке
-                scrollView.isScrollEnabled = false
-            } else {
-                // Разрешить прокрутку, если мы не в самой верхней точке
-                scrollView.isScrollEnabled = true
-            }
     }
 }
 
@@ -92,16 +81,12 @@ extension FilmViewController{
         scrollView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         // Отключение полоски прокрутки
         scrollView.showsVerticalScrollIndicator = false // Для вертикальной полоски прокрутки
-        scrollView.showsHorizontalScrollIndicator = false // Для горизонтальной полоски прокрутки
-        scrollView.bounces = true
-        scrollView.alwaysBounceVertical = true
-        scrollView.bouncesZoom = true
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
     
@@ -128,11 +113,12 @@ extension FilmViewController{
         containerView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: view.safeAreaInsets.top + 8),
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
             containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
-            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 0),
+            containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 1)
         ])
     }
     
@@ -140,11 +126,11 @@ extension FilmViewController{
     func setupFilmImage() {
         containerView.addSubview(filmImage)
         filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-//        filmImage.contentMode = .scaleAspectFill
+        filmImage.contentMode = .scaleAspectFill
         
-        let filmHeight: CGFloat = UIScreen.main.bounds.height/3.5
+        let filmHeight: CGFloat = UIScreen.main.bounds.height / 3.5
         NSLayoutConstraint.activate([
-            filmImage.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor, constant: 0),
+            filmImage.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
             filmImage.heightAnchor.constraint(equalToConstant: filmHeight),
             filmImage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
             filmImage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
@@ -402,5 +388,13 @@ extension FilmViewController: FilmViewInput{
         kinopoiskScoreLabel.text = model.kinopoiskScoreLabel
         scoreLabel.text = model.scoreLabel
         scoreLabel.backgroundColor = model.scoreColor
+    }
+}
+
+extension FilmViewController {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            scrollView.contentOffset.y = 0
+        }
     }
 }
