@@ -32,7 +32,7 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
     let filmDescriptionTextLabel = UILabel()
     let filmShowDateLabel = UILabel()
     let filmAuthorNameLabel = UILabel()
-    let filmCastTextLabel = UILabel()
+    let filmCastTextLabel = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -356,15 +356,14 @@ extension FilmViewController{
         containerView.addSubview(filmCastTextLabel)
         filmCastTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmCastTextLabel.font = UIFont.systemFont(ofSize: 14)
-        filmCastTextLabel.numberOfLines = 0
-        filmCastTextLabel.sizeToFit()
+        filmCastTextLabel.contentMode = .left
 
 
 
         
         NSLayoutConstraint.activate([
             filmCastTextLabel.topAnchor.constraint(equalTo: filmCastLabel.bottomAnchor, constant: 0),
-            filmCastTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
+            filmCastTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 36),
             filmCastTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
             filmCastTextLabel.bottomAnchor.constraint(equalTo: ticketsButton.topAnchor, constant: 0)
 //           filmCastTextLabel.heightAnchor.constraint(equalToConstant: 40),
