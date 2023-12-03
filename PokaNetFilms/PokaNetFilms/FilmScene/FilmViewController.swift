@@ -113,13 +113,17 @@ extension FilmViewController{
         scrollView.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         
+        let filmDescriptionText = filmDescriptionTextLabel.text
+        let symbolCount:Int = filmDescriptionText?.count ?? 50
+        let scrollViewHeightConstant:Int = 18 * (symbolCount/45)
+        
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
             containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
             containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 400)
+            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: CGFloat(Double(scrollViewHeightConstant)))
         ])
     }
     
