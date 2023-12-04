@@ -20,5 +20,6 @@ protocol AuthorizationViewInput: AnyObject {
 protocol AuthorizationViewOutput: AnyObject {
     func didLoadView()
     func didTapRegistrationButton()
+    func didTapEnterButton()
 }
 

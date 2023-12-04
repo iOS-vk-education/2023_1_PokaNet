@@ -14,7 +14,9 @@ final class MainAssembly {
     ) -> UIViewController {
         let presenter = MainPresenter()
         let viewController = MainViewController(output: presenter)
+        let router = MainRouter(sourceView: viewController)
 
+        presenter.router = router
         presenter.view = viewController
         presenter.moduleOutput = moduleOutput
 

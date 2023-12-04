@@ -44,6 +44,7 @@
 		74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CB2B14747500B53E34 /* SearchProtocols.swift */; };
 		74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */; };
 		74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */; };
+		74FEEB102B1E469B00EAC544 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEEB0F2B1E469B00EAC544 /* MainRouter.swift */; };
 		B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767602B0E5FB9000FEB4D /* FilmViewController.swift */; };
 		B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767622B0E64F6000FEB4D /* FilmAssembly.swift */; };
 		B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767642B0E6636000FEB4D /* FilmProtocols.swift */; };
@@ -99,6 +100,7 @@
 		74BC82CB2B14747500B53E34 /* SearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundedFilmCell.swift; sourceTree = "<group>"; };
 		74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
+		74FEEB0F2B1E469B00EAC544 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		B42767602B0E5FB9000FEB4D /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
 		B42767622B0E64F6000FEB4D /* FilmAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmAssembly.swift; sourceTree = "<group>"; };
 		B42767642B0E6636000FEB4D /* FilmProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmProtocols.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				BCD408D72B09F61400FC388C /* MainPresenter.swift */,
 				BCD408DD2B0A612300FC388C /* MainProtocols.swift */,
 				BCD4090C2B0E91AF00FC388C /* MainHeaderView.swift */,
+				74FEEB0F2B1E469B00EAC544 /* MainRouter.swift */,
 				BCD408D52B09F5CC00FC388C /* MainViewController.swift */,
 				BCD408E82B0BDCFD00FC388C /* Cells */,
 			);
@@ -443,6 +446,7 @@
 				74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */,
 				74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */,
 				06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */,
+				74FEEB102B1E469B00EAC544 /* MainRouter.swift in Sources */,
 				06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */,
 				06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,

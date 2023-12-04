@@ -18,6 +18,10 @@ extension AuthorizationPresenter: AuthorizationModuleInput {
 }
 
 extension AuthorizationPresenter: AuthorizationViewOutput {
+    func didTapEnterButton() {
+        router?.openTabBar()
+    }
+    
     func didTapRegistrationButton() {
         router?.openRegistration()
     }

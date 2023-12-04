@@ -13,4 +13,8 @@ final class AuthorizationRouter: BaseRouter {
         let regVC = RegistrationAssembly.assembly()
         presentFromSourceView(viewController: regVC)
     }
+    
+    func openTabBar() {
+        presentFromSourceView(viewController: TabBarController())
+    }
 }
