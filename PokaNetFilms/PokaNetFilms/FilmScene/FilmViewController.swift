@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class FilmViewController: UIViewController, UIScrollViewDelegate {
+final class FilmViewController: UIViewController {
     
     let output: FilmViewOutput
     var model: FilmViewModel?
@@ -43,7 +43,6 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
         setupScrollView()
         setupTicketsButton()
         setupContainerView()
-        
         setupFilmImage()
         setupFilmLabel()
         setupScoreLabel()
@@ -51,7 +50,6 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
         setupKinopoiskScoreLabel()
         setupFilmCountryLabel()
         setupFilmYearLabel()
-        
         setupMovieDetailsLabel()
         setupFilmDescriptionLabel()
         setupFilmDescriptionTextLabel()
@@ -61,8 +59,6 @@ final class FilmViewController: UIViewController, UIScrollViewDelegate {
         setupFilmAuthorNameLabel()
         setupFilmCastLabel()
         setupFilmCastTextLabel()
-        
-        
     }
     
     init(output: FilmViewOutput) {
@@ -103,8 +99,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             ticketsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -55),
             ticketsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
-            ticketsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
-            ticketsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30)
+            ticketsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            ticketsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
         
     }
@@ -149,13 +145,17 @@ extension FilmViewController{
         filmTitle.textAlignment = .center //текст по центру
         filmTitle.textColor = UIColor(red: 0.77, green: 0.00, blue: 0.00, alpha: 1.00)
         filmTitle.font = UIFont.systemFont(ofSize: 40)
+        filmTitle.numberOfLines = 0
         
+        let filmTitleText = filmTitle.text
+        let symbolCount:Int = filmTitleText?.count ?? 50
+        let filmTitleHeight = 50 * (symbolCount/45) + 60
         
         NSLayoutConstraint.activate([
             filmTitle.topAnchor.constraint(equalTo: filmImage.bottomAnchor, constant: 10),
-            filmTitle.heightAnchor.constraint(equalToConstant: 60),
-            filmTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
-            filmTitle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmTitle.heightAnchor.constraint(equalToConstant: CGFloat(filmTitleHeight)),
+            filmTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            filmTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -171,8 +171,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             scoreLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor, constant: 10),
             scoreLabel.heightAnchor.constraint(equalToConstant: 50),
-            scoreLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            scoreLabel.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 100)
+            scoreLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            scoreLabel.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: 76)
         ])
         
     }
@@ -188,8 +188,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             kinopoiskLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor, constant: 0),
             kinopoiskLabel.heightAnchor.constraint(equalToConstant: 40),
-            kinopoiskLabel.leftAnchor.constraint(equalTo: scoreLabel.leftAnchor, constant: scoreLabel.intrinsicContentSize.width + 10),
-            kinopoiskLabel.rightAnchor.constraint(equalTo: scoreLabel.leftAnchor, constant: scoreLabel.intrinsicContentSize.width + 150)
+            kinopoiskLabel.leadingAnchor.constraint(equalTo: scoreLabel.leadingAnchor, constant: scoreLabel.intrinsicContentSize.width + 10),
+            kinopoiskLabel.trailingAnchor.constraint(equalTo: scoreLabel.leadingAnchor, constant: scoreLabel.intrinsicContentSize.width + 150)
         ])
     }
     
@@ -203,8 +203,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             kinopoiskScoreLabel.topAnchor.constraint(equalTo: kinopoiskLabel.bottomAnchor, constant: 0),
             kinopoiskScoreLabel.heightAnchor.constraint(equalToConstant: 18),
-            kinopoiskScoreLabel.leftAnchor.constraint(equalTo: scoreLabel.leftAnchor, constant: scoreLabel.intrinsicContentSize.width + 5),
-            kinopoiskScoreLabel.rightAnchor.constraint(equalTo: scoreLabel.leftAnchor, constant: scoreLabel.intrinsicContentSize.width + 150)
+            kinopoiskScoreLabel.leadingAnchor.constraint(equalTo: kinopoiskLabel.leadingAnchor, constant: 0),
+            kinopoiskScoreLabel.trailingAnchor.constraint(equalTo: kinopoiskLabel.trailingAnchor, constant: 0)
         ])
     }
     
@@ -218,8 +218,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmCountryLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor, constant: 0),
             filmCountryLabel.heightAnchor.constraint(equalToConstant: 40),
-            filmCountryLabel.leftAnchor.constraint(equalTo: kinopoiskLabel.rightAnchor, constant: 0),
-            filmCountryLabel.rightAnchor.constraint(equalTo: kinopoiskLabel.rightAnchor, constant: 100)
+            filmCountryLabel.leadingAnchor.constraint(equalTo: kinopoiskLabel.trailingAnchor, constant: 0),
+            filmCountryLabel.trailingAnchor.constraint(equalTo: kinopoiskLabel.trailingAnchor, constant: 100)
         ])
     }
     
@@ -246,8 +246,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             movieDetailsLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 10),
             movieDetailsLabel.heightAnchor.constraint(equalToConstant: 30),
-            movieDetailsLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            movieDetailsLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40)
+            movieDetailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            movieDetailsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
     
@@ -261,8 +261,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmDescriptionLabel.topAnchor.constraint(equalTo: movieDetailsLabel.bottomAnchor, constant: 10),
             filmDescriptionLabel.heightAnchor.constraint(equalToConstant: 20),
-            filmDescriptionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            filmDescriptionLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            filmDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -279,8 +279,8 @@ extension FilmViewController{
             
             NSLayoutConstraint.activate([
                 filmDescriptionTextLabel.topAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor, constant: 0),
-                filmDescriptionTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-                filmDescriptionTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+                filmDescriptionTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+                filmDescriptionTextLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                 filmDescriptionTextLabel.bottomAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor, constant: CGFloat(filmDescriptionTextLabelHeight))
             ])
         }
@@ -295,7 +295,7 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmShowLabel.topAnchor.constraint(equalTo: filmDescriptionTextLabel.bottomAnchor, constant: 10),
             filmShowLabel.heightAnchor.constraint(equalToConstant: 20),
-            filmShowLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            filmShowLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             filmShowLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
@@ -309,8 +309,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmShowDateLabel.topAnchor.constraint(equalTo: filmShowLabel.bottomAnchor, constant: 0),
             filmShowDateLabel.heightAnchor.constraint(equalToConstant: 20),
-            filmShowDateLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            filmShowDateLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmShowDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            filmShowDateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -324,8 +324,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmAuthorLabel.topAnchor.constraint(equalTo: filmShowDateLabel.bottomAnchor, constant: 5),
             filmAuthorLabel.heightAnchor.constraint(equalToConstant: 20),
-            filmAuthorLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            filmAuthorLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmAuthorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            filmAuthorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -338,8 +338,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmAuthorNameLabel.topAnchor.constraint(equalTo: filmAuthorLabel.bottomAnchor, constant: 0),
             filmAuthorNameLabel.heightAnchor.constraint(equalToConstant: 20),
-            filmAuthorNameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            filmAuthorNameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmAuthorNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            filmAuthorNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -353,8 +353,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmCastLabel.topAnchor.constraint(equalTo: filmAuthorNameLabel.bottomAnchor, constant: 5),
             filmCastLabel.heightAnchor.constraint(equalToConstant: 20),
-            filmCastLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            filmCastLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            filmCastLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            filmCastLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -369,8 +369,8 @@ extension FilmViewController{
 
         NSLayoutConstraint.activate([
             filmCastTextLabel.topAnchor.constraint(equalTo: filmCastLabel.bottomAnchor, constant: 0),
-            filmCastTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 36),
-            filmCastTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            filmCastTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            filmCastTextLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             filmCastTextLabel.bottomAnchor.constraint(equalTo: filmCastLabel.bottomAnchor, constant: 55),
         ])
     }
@@ -404,4 +404,8 @@ extension FilmViewController {
             scrollView.contentOffset.y = 0
         }
     }
+}
+
+extension FilmViewController: UIScrollViewDelegate {
+    
 }
