@@ -109,17 +109,13 @@ extension FilmViewController{
         scrollView.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         
-        let filmDescriptionText = filmDescriptionTextLabel.text
-        let symbolCount:Int = filmDescriptionText?.count ?? 50
-        let scrollViewHeightConstant:Int = 18 * (symbolCount/45)
-        
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
             containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
             containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: CGFloat(Double(scrollViewHeightConstant)))
+//            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 10)
         ])
     }
     
@@ -127,7 +123,7 @@ extension FilmViewController{
     func setupFilmImage() {
         containerView.addSubview(filmImage)
         filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-//        filmImage.contentMode = .scaleAspectFill
+        filmImage.contentMode = .scaleAspectFill
         
         let filmHeight: CGFloat = UIScreen.main.bounds.height / 3.5
         NSLayoutConstraint.activate([
@@ -149,7 +145,7 @@ extension FilmViewController{
         
         NSLayoutConstraint.activate([
             filmTitle.topAnchor.constraint(equalTo: filmImage.bottomAnchor, constant: 10),
-            filmTitle.heightAnchor.constraint(equalToConstant: CGFloat(300)),
+            filmTitle.heightAnchor.constraint(equalToConstant: CGFloat(60)),
             filmTitle.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             filmTitle.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
@@ -258,24 +254,25 @@ extension FilmViewController{
             filmDescriptionLabel.topAnchor.constraint(equalTo: movieDetailsLabel.bottomAnchor, constant: 10),
             filmDescriptionLabel.heightAnchor.constraint(equalToConstant: 20),
             filmDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            filmDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+            filmDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
         ])
     }
     
     
     func setupFilmDescriptionTextLabel() {
-            containerView.addSubview(filmDescriptionTextLabel)
-            filmDescriptionTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-            filmDescriptionTextLabel.font = UIFont.systemFont(ofSize: 14)
-            filmDescriptionTextLabel.numberOfLines = 0
+        containerView.addSubview(filmDescriptionTextLabel)
+        filmDescriptionTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
+        filmDescriptionTextLabel.font = UIFont.systemFont(ofSize: 14)
+        filmDescriptionTextLabel.numberOfLines = 0
+    
         
-            NSLayoutConstraint.activate([
-                filmDescriptionTextLabel.topAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor),
-                filmDescriptionTextLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-                filmDescriptionTextLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-                filmDescriptionTextLabel.bottomAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor)
-            ])
-        }
+        
+        NSLayoutConstraint.activate([
+            filmDescriptionTextLabel.topAnchor.constraint(equalTo: filmDescriptionLabel.bottomAnchor),
+            filmDescriptionTextLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            filmDescriptionTextLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
+        ])
+    }
     
     
     func setupFilmShowLabel() {
@@ -287,8 +284,9 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             filmShowLabel.topAnchor.constraint(equalTo: filmDescriptionTextLabel.bottomAnchor, constant: 10),
             filmShowLabel.heightAnchor.constraint(equalToConstant: 20),
+            filmShowLabel.topAnchor.constraint(equalTo: filmDescriptionTextLabel.bottomAnchor, constant: 10),
             filmShowLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            filmShowLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+            filmShowLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -302,7 +300,7 @@ extension FilmViewController{
             filmShowDateLabel.topAnchor.constraint(equalTo: filmShowLabel.bottomAnchor),
             filmShowDateLabel.heightAnchor.constraint(equalToConstant: 20),
             filmShowDateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            filmShowDateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+            filmShowDateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -326,10 +324,10 @@ extension FilmViewController{
         containerView.addSubview(filmAuthorNameLabel)
         filmAuthorNameLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmAuthorNameLabel.font = UIFont.systemFont(ofSize: 14)
+        filmAuthorNameLabel.numberOfLines = 0
         
         NSLayoutConstraint.activate([
             filmAuthorNameLabel.topAnchor.constraint(equalTo: filmAuthorLabel.bottomAnchor),
-            filmAuthorNameLabel.heightAnchor.constraint(equalToConstant: 20),
             filmAuthorNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             filmAuthorNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
         ])
