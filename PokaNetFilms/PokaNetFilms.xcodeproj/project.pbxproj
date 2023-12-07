@@ -29,6 +29,10 @@
 		747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */; };
 		747BBFCE2AF31595003AC739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCD2AF31595003AC739 /* Assets.xcassets */; };
 		747BBFD12AF31595003AC739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747BBFCF2AF31595003AC739 /* LaunchScreen.storyboard */; };
+		74876FD72B1BCF880054CBA4 /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FD62B1BCF880054CBA4 /* AuthorizationRouter.swift */; };
+		74876FD92B1BD8C10054CBA4 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FD82B1BD8C10054CBA4 /* RegistrationRouter.swift */; };
+		74876FDB2B1C83EF0054CBA4 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FDA2B1C83EF0054CBA4 /* BaseRouter.swift */; };
+		74876FDD2B1C83FD0054CBA4 /* BaseRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FDC2B1C83FD0054CBA4 /* BaseRouterInput.swift */; };
 		748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */; };
 		748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */; };
 		74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */; };
@@ -80,6 +84,10 @@
 		747BBFCD2AF31595003AC739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747BBFD02AF31595003AC739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		747BBFD22AF31595003AC739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74876FD62B1BCF880054CBA4 /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
+		74876FD82B1BD8C10054CBA4 /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		74876FDA2B1C83EF0054CBA4 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		74876FDC2B1C83FD0054CBA4 /* BaseRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterInput.swift; sourceTree = "<group>"; };
 		748A3BEE2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmCell.swift; sourceTree = "<group>"; };
 		748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmsModel.swift; sourceTree = "<group>"; };
 		74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMessageCell.swift; sourceTree = "<group>"; };
@@ -126,6 +134,7 @@
 				0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */,
 				0655572F2B0D07C1001AB86A /* AuthorizationSceneProtocol.swift */,
 				06C5C2982B13BA08009E418E /* AuthorizationImageButton.swift */,
+				74876FD62B1BCF880054CBA4 /* AuthorizationRouter.swift */,
 			);
 			path = AutorizationScene;
 			sourceTree = "<group>";
@@ -137,6 +146,7 @@
 				06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */,
 				06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */,
 				06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */,
+				74876FD82B1BD8C10054CBA4 /* RegistrationRouter.swift */,
 			);
 			path = RegistrationScene;
 			sourceTree = "<group>";
@@ -219,8 +229,18 @@
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
 				B427675F2B0E5F83000FEB4D /* FilmScene */,
 				06C5C2A22B13BF8B009E418E /* RegistrationScene */,
+				74876FDE2B1C84020054CBA4 /* BaseRouter */,
 			);
 			path = PokaNetFilms;
+			sourceTree = "<group>";
+		};
+		74876FDE2B1C84020054CBA4 /* BaseRouter */ = {
+			isa = PBXGroup;
+			children = (
+				74876FDA2B1C83EF0054CBA4 /* BaseRouter.swift */,
+				74876FDC2B1C83FD0054CBA4 /* BaseRouterInput.swift */,
+			);
+			path = BaseRouter;
 			sourceTree = "<group>";
 		};
 		748A3BF02B09BA10007F5154 /* Presenter */ = {
@@ -405,6 +425,7 @@
 			files = (
 				06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */,
 				065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */,
+				74876FDB2B1C83EF0054CBA4 /* BaseRouter.swift in Sources */,
 				0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */,
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
@@ -426,6 +447,8 @@
 				06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
+				74876FDD2B1C83FD0054CBA4 /* BaseRouterInput.swift in Sources */,
+				74876FD92B1BD8C10054CBA4 /* RegistrationRouter.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
 				BCD4090D2B0E91AF00FC388C /* MainHeaderView.swift in Sources */,
@@ -433,6 +456,7 @@
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */,
 				BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */,
+				74876FD72B1BCF880054CBA4 /* AuthorizationRouter.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* (null) in Sources */,
 				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
 				0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */,

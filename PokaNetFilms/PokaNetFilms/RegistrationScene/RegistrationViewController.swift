@@ -19,7 +19,8 @@ final class RegistrationViewController: UIViewController {
     private let passwordTextField = UITextField()
     private let passConfirmTextField = UITextField()
     private let regButton = UIButton()
-
+    private let accountExist = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +34,7 @@ final class RegistrationViewController: UIViewController {
         setupPasswordTextField()
         setupPassConfirmTextField()
         setupRegButton()
+        setupExistAccountButton()
     }
     
     init(output: RegistrationViewOutput) {
@@ -147,20 +149,45 @@ final class RegistrationViewController: UIViewController {
     }
     
     func setupRegButton() {
-          self.view.addSubview(regButton)
-          regButton.setTitle("Зарегистироваться", for: .normal)
-          regButton.layer.cornerRadius = 10
-          regButton.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
-          regButton.translatesAutoresizingMaskIntoConstraints = false
-          NSLayoutConstraint.activate([
+        self.view.addSubview(regButton)
+        regButton.setTitle("Зарегистироваться", for: .normal)
+        regButton.layer.cornerRadius = 10
+        regButton.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
+        regButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
             regButton.topAnchor.constraint(equalTo: passConfirmTextField.bottomAnchor, constant: 60),
-              regButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
-              regButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
-              regButton.bottomAnchor.constraint(equalTo: passConfirmTextField.bottomAnchor, constant: 105)
+            regButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            regButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            regButton.bottomAnchor.constraint(equalTo: passConfirmTextField.bottomAnchor, constant: 105)
             
+            
+        ])
+    }
+    
+    func setupExistAccountButton() {
+        self.view.addSubview(accountExist)
+        accountExist.setTitle("Уже есть аккаунт!", for: .normal)
+        accountExist.layer.cornerRadius = 10
+        accountExist.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
+        accountExist.translatesAutoresizingMaskIntoConstraints = false
+        accountExist.addTarget(self, action: #selector(accountExistButtonTapped), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            accountExist.topAnchor.constraint(equalTo: regButton.bottomAnchor, constant: 20),
+            accountExist.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            accountExist.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            accountExist.heightAnchor.constraint(equalToConstant: 45)
+            
+            
+        ])
+    }
+}
 
-          ])
-      }
+//MARK: - Coordination
+private extension RegistrationViewController {
+    @objc func accountExistButtonTapped() {
+        output.accountExistButtonTapped()
+    }
 }
 
 extension RegistrationViewController: RegistrationViewInput {
