@@ -221,17 +221,12 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
-				065557282B0D0767001AB86A /* AutorizationScene */,
-				BCD408E12B0A627A00FC388C /* MainScene */,
 				7434181E2B06C5BD008390D7 /* Application */,
+				74E6A2942B25B4530010AC96 /* Modules */,
 				743418202B06C62F008390D7 /* TabBar */,
-				74BC82C32B14747500B53E34 /* SearchScene */,
-				743418212B06C64A008390D7 /* ProfileScene */,
+				74876FDE2B1C84020054CBA4 /* BaseRouter */,
 				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
-				B427675F2B0E5F83000FEB4D /* FilmScene */,
-				06C5C2A22B13BF8B009E418E /* RegistrationScene */,
-				74876FDE2B1C84020054CBA4 /* BaseRouter */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
@@ -283,7 +278,7 @@
 				74BC82C52B14747500B53E34 /* Presenter */,
 			);
 			name = SearchScene;
-			path = PokaNetFilms/SearchScene;
+			path = PokaNetFilms/Modules/SearchScene;
 			sourceTree = SOURCE_ROOT;
 		};
 		74BC82C52B14747500B53E34 /* Presenter */ = {
@@ -309,6 +304,19 @@
 				74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		74E6A2942B25B4530010AC96 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				065557282B0D0767001AB86A /* AutorizationScene */,
+				74BC82C32B14747500B53E34 /* SearchScene */,
+				BCD408E12B0A627A00FC388C /* MainScene */,
+				743418212B06C64A008390D7 /* ProfileScene */,
+				06C5C2A22B13BF8B009E418E /* RegistrationScene */,
+				B427675F2B0E5F83000FEB4D /* FilmScene */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		B427675F2B0E5F83000FEB4D /* FilmScene */ = {
