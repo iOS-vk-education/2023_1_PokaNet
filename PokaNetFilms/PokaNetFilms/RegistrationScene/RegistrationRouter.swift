@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 final class RegistrationRouter: BaseRouter {
+}
+
+extension RegistrationRouter: RegistrationRouterInput {
     func openAuthorization() {
         dismiss()
     }

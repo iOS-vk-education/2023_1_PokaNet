@@ -12,12 +12,15 @@ final class MainPresenter {
     
     weak var view: MainViewInput?
     weak var moduleOutput: MainModuleOutput?
-    
+    var router: MainRouterInput?
 }
 
 extension MainPresenter: MainModuleInput {}
 
 extension MainPresenter: MainViewOutput {
+    func didTapMovieCell() {
+        router?.presentFilmView()
+    }
     
     func didLoadView() {
         mock()

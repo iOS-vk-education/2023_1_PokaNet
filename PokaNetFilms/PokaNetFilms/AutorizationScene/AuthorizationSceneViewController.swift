@@ -22,8 +22,6 @@ final class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        print(#function)
         view.backgroundColor = .white
         
         setupImagePK()
@@ -33,7 +31,6 @@ final class AuthorizationViewController: UIViewController {
         setupLableOr()
         setupVkButton()
         setupRegButton()
-        
     }
     
     init(output: AuthorizationViewOutput) {
@@ -97,6 +94,7 @@ final class AuthorizationViewController: UIViewController {
         enterButton.layer.cornerRadius = 10
         enterButton.backgroundColor = UIColor(red: 0.00, green: 0.46, blue: 0.95, alpha: 1.00)
         enterButton.translatesAutoresizingMaskIntoConstraints = false
+        enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
         NSLayoutConstraint.activate([
             enterButton.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 20),
             enterButton.bottomAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 65),
@@ -160,6 +158,10 @@ final class AuthorizationViewController: UIViewController {
 private extension AuthorizationViewController {
     @objc func regButtonTapped() {
         output.didTapRegistrationButton()
+    }
+    
+    @objc func enterButtonTapped() {
+        output.didTapEnterButton()
     }
 }
 

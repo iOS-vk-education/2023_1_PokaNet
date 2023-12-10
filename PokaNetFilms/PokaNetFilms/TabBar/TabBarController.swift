@@ -35,14 +35,17 @@ private extension TabBarController {
     func setupTabs() {
         let searchVC = SearchAssembly.assembly()
         let profileVC = ProfileAssembly.assembly()
-        let filmVC = FilmAssembly.assembly()
-        filmVC.tabBarItem.title = "Деталка"
+        let mainVC = MainAssembly.assembly()
+        
         searchVC.tabBarItem.title = "Поиск"
         searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         
         profileVC.tabBarItem.title = "Профиль"
         profileVC.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
         
-        viewControllers = [searchVC, profileVC, filmVC]
+        mainVC.tabBarItem.title = "Главная"
+        mainVC.tabBarItem.image = UIImage(systemName: "house")
+        
+        viewControllers = [searchVC, mainVC, profileVC]
     }
 }
