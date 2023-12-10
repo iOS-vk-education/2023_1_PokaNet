@@ -12,7 +12,7 @@ final class MainPresenter {
     
     weak var view: MainViewInput?
     weak var moduleOutput: MainModuleOutput?
-    var router: MainRouter?
+    var router: MainRouterInput?
 }
 
 extension MainPresenter: MainModuleInput {}

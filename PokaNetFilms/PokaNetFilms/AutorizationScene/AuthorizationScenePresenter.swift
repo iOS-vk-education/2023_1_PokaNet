@@ -11,7 +11,7 @@ import UIKit
 final class AuthorizationPresenter {
     weak var view: AuthorizationViewInput?
     weak var moduleOutput: AuthorizationModuleOutput?
-    var router: AuthorizationRouter?
+    var router: AuthorizationRouterInput?
 }
 
 extension AuthorizationPresenter: AuthorizationModuleInput {

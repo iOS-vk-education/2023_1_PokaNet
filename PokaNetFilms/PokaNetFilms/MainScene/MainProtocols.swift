@@ -23,3 +23,7 @@ protocol MainViewOutput: AnyObject {
     func didTapMovieCell()
 }
 
+protocol MainRouterInput: BaseRouterInput {
+    func presentFilmView()
+}
+

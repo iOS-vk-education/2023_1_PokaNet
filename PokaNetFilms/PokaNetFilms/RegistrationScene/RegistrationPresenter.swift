@@ -11,7 +11,7 @@ import UIKit
 final class RegistrationPresenter {
     weak var view: RegistrationViewInput?
     weak var moduleOutput: RegistrationModuleOutput?
-    var router: RegistrationRouter?
+    var router: RegistrationRouterInput?
 }
 
 extension RegistrationPresenter: RegistrationModuleInput {

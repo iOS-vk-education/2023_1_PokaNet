@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 final class MainRouter: BaseRouter {
+}
+
+extension MainRouter: MainRouterInput {
     func presentFilmView() {
         let filmVC = FilmAssembly.assembly()
         presentFromSourceView(viewController: filmVC)

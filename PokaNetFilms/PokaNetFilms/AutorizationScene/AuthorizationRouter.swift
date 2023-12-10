@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 final class AuthorizationRouter: BaseRouter {
+}
+
+extension AuthorizationRouter: AuthorizationRouterInput {
     func openRegistration() {
         let regVC = RegistrationAssembly.assembly()
         presentFromSourceView(viewController: regVC)

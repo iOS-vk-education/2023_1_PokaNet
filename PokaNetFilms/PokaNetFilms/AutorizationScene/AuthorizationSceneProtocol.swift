@@ -23,3 +23,8 @@ protocol AuthorizationViewOutput: AnyObject {
     func didTapEnterButton()
 }
 
+protocol AuthorizationRouterInput: BaseRouterInput {
+    func openTabBar()
+    func openRegistration()
+}
+

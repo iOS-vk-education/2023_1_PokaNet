@@ -22,8 +22,6 @@ final class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        print(#function)
         view.backgroundColor = .white
         
         setupImagePK()
@@ -33,7 +31,6 @@ final class AuthorizationViewController: UIViewController {
         setupLableOr()
         setupVkButton()
         setupRegButton()
-        
     }
     
     init(output: AuthorizationViewOutput) {
