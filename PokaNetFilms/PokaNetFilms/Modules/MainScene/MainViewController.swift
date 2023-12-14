@@ -109,6 +109,13 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = films[indexPath.row]
+        output.didTapMovieCell()
+    }
+}
+
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
@@ -137,6 +144,3 @@ extension MainViewController: MainViewInput { // настройка вью ко�
         collectionView.reloadData()
     }
 }
-
-
-

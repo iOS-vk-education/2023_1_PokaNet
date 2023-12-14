@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AuthorizationModuleInput {
     var moduleOutput: AuthorizationModuleOutput? { get }
@@ -13,10 +14,17 @@ protocol AuthorizationModuleInput {
 
 protocol AuthorizationModuleOutput: AnyObject {}
 
-protocol AuthorizationViewInput: AnyObject {}
+protocol AuthorizationViewInput: AnyObject {
+}
 
 protocol AuthorizationViewOutput: AnyObject {
     func didLoadView()
-    func didTapActionButton()
+    func didTapRegistrationButton()
+    func didTapEnterButton()
+}
+
+protocol AuthorizationRouterInput: BaseRouterInput {
+    func openTabBar()
+    func openRegistration()
 }
 

@@ -17,4 +17,9 @@ protocol RegistrationViewInput: AnyObject {}
 
 protocol RegistrationViewOutput: AnyObject {
     func didLoadView()
+    func accountExistButtonTapped()
+}
+
+protocol RegistrationRouterInput: BaseRouterInput {
+    func openAuthorization()
 }

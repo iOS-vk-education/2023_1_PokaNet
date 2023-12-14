@@ -22,8 +22,6 @@ final class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        print(#function)
         view.backgroundColor = .white
         
         setupImagePK()
@@ -33,7 +31,6 @@ final class AuthorizationViewController: UIViewController {
         setupLableOr()
         setupVkButton()
         setupRegButton()
-        
     }
     
     init(output: AuthorizationViewOutput) {
@@ -97,6 +94,7 @@ final class AuthorizationViewController: UIViewController {
         enterButton.layer.cornerRadius = 10
         enterButton.backgroundColor = UIColor(red: 0.00, green: 0.46, blue: 0.95, alpha: 1.00)
         enterButton.translatesAutoresizingMaskIntoConstraints = false
+        enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
         NSLayoutConstraint.activate([
             enterButton.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 20),
             enterButton.bottomAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 65),
@@ -144,6 +142,8 @@ final class AuthorizationViewController: UIViewController {
         regButton.layer.cornerRadius = 10
         regButton.backgroundColor = UIColor(red: 0.33, green: 0.78, blue: 0.30, alpha: 1.00)
         regButton.translatesAutoresizingMaskIntoConstraints = false
+        regButton.addTarget(self, action: #selector(regButtonTapped), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             regButton.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -145),
             regButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
@@ -151,6 +151,17 @@ final class AuthorizationViewController: UIViewController {
             regButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
 
         ])
+    }
+}
+
+//MARK: - Coordination
+private extension AuthorizationViewController {
+    @objc func regButtonTapped() {
+        output.didTapRegistrationButton()
+    }
+    
+    @objc func enterButtonTapped() {
+        output.didTapEnterButton()
     }
 }
 
