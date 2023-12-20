@@ -70,7 +70,7 @@ extension FoundedFilmCell {
     
     func setupTitle() {
         contentView.addSubview(titleLabel)
-        titleLabel.text = "Filmname192309123812"
+        titleLabel.text = "Очень длинное название фильма"
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.textColor = .black
@@ -80,7 +80,7 @@ extension FoundedFilmCell {
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             titleLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
             titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-            titleLabel.heightAnchor.constraint(equalToConstant: 60)
+//            titleLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -88,20 +88,22 @@ extension FoundedFilmCell {
         contentView.addSubview(infoLabel)
         infoLabel.text = "2018"
         infoLabel.textColor = .black
+        infoLabel.font = UIFont.systemFont(ofSize: 16)
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             infoLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
             infoLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-            infoLabel.heightAnchor.constraint(equalToConstant: 30)
+            infoLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
     func setupGenreslabel() {
         contentView.addSubview(genreslabel)
-        genreslabel.text = "kmdlm vlkdsmlvm klsm lkskldcm lm l"
-        genreslabel.textColor = .black
+        genreslabel.text = "genre genre genre genre genre"
+        genreslabel.textColor = .systemGray3
+        genreslabel.font = UIFont.systemFont(ofSize: 14)
         genreslabel.numberOfLines = 0
         genreslabel.translatesAutoresizingMaskIntoConstraints = false
         
