@@ -118,6 +118,7 @@ private extension SearchViewController {
         foundedFilmsCV.translatesAutoresizingMaskIntoConstraints = false
         foundedFilmsCV.register(FoundedFilmCell.self, forCellWithReuseIdentifier: "CellForFilm")
         foundedFilmsCV.isHidden = true
+        foundedFilmsCV.backgroundColor = .systemGray5
         view.addSubview(foundedFilmsCV)
         
         NSLayoutConstraint.activate([
@@ -176,7 +177,7 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        return UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 16)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

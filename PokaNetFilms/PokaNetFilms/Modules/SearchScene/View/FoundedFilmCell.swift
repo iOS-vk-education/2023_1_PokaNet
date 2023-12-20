@@ -27,6 +27,7 @@ final class FoundedFilmCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        contentView.layoutIfNeeded()
         applyMaskToImageView()
     }
     
@@ -44,7 +45,8 @@ final class FoundedFilmCell: UICollectionViewCell {
 //MARK: - setupUI
 extension FoundedFilmCell {
     func setupUI() {
-        layer.cornerRadius = 30
+        contentView.layer.cornerRadius = 30
+        contentView.backgroundColor = .white
         setupImageView()
         setupTitle()
         setupInfoLabel()
@@ -52,22 +54,22 @@ extension FoundedFilmCell {
     }
     
     func setupImageView() {
-        addSubview(imageView)
+        contentView.addSubview(imageView)
         imageView.image = UIImage(named: "defaultImage")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.leftAnchor.constraint(equalTo: leftAnchor),
-            imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.7/3),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1.7/3),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
     func setupTitle() {
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         titleLabel.text = "Filmname192309123812"
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
@@ -75,15 +77,15 @@ extension FoundedFilmCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             titleLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
-            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             titleLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     func setupInfoLabel() {
-        addSubview(infoLabel)
+        contentView.addSubview(infoLabel)
         infoLabel.text = "2018"
         infoLabel.textColor = .black
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -91,13 +93,13 @@ extension FoundedFilmCell {
         NSLayoutConstraint.activate([
             infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             infoLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
-            infoLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            infoLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             infoLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
     func setupGenreslabel() {
-        addSubview(genreslabel)
+        contentView.addSubview(genreslabel)
         genreslabel.text = "kmdlm vlkdsmlvm klsm lkskldcm lm l"
         genreslabel.textColor = .black
         genreslabel.numberOfLines = 0
@@ -106,8 +108,8 @@ extension FoundedFilmCell {
         NSLayoutConstraint.activate([
             genreslabel.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 8),
             genreslabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
-            genreslabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            genreslabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            genreslabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
+            genreslabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
     }
 }
