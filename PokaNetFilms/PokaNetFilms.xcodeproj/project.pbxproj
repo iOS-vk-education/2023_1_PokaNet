@@ -43,6 +43,10 @@
 		74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CA2B14747500B53E34 /* SearchViewController.swift */; };
 		74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CB2B14747500B53E34 /* SearchProtocols.swift */; };
 		74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */; };
+		74F022EF2B337A2C00AFCFA7 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F022EE2B337A2C00AFCFA7 /* SearchService.swift */; };
+		74F022F52B33A0E800AFCFA7 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F022F42B33A0E800AFCFA7 /* APIConstants.swift */; };
+		74F022F72B33A11500AFCFA7 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F022F62B33A11500AFCFA7 /* AlamofireNetworkService.swift */; };
+		74F022FA2B33A1DB00AFCFA7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 74F022F92B33A1DB00AFCFA7 /* Alamofire */; };
 		74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */; };
 		74FEEB102B1E469B00EAC544 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEEB0F2B1E469B00EAC544 /* MainRouter.swift */; };
 		B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767602B0E5FB9000FEB4D /* FilmViewController.swift */; };
@@ -99,6 +103,9 @@
 		74BC82CA2B14747500B53E34 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		74BC82CB2B14747500B53E34 /* SearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundedFilmCell.swift; sourceTree = "<group>"; };
+		74F022EE2B337A2C00AFCFA7 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		74F022F42B33A0E800AFCFA7 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		74F022F62B33A11500AFCFA7 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		74FC586E2B0956A8004EBC81 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 		74FEEB0F2B1E469B00EAC544 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		B42767602B0E5FB9000FEB4D /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74F022FA2B33A1DB00AFCFA7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +229,7 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
+				74F022F32B33A0CE00AFCFA7 /* Network */,
 				7434181E2B06C5BD008390D7 /* Application */,
 				74E6A2942B25B4530010AC96 /* Modules */,
 				743418202B06C62F008390D7 /* TabBar */,
@@ -276,6 +285,7 @@
 				74BC82C72B14747500B53E34 /* Model */,
 				74BC82C92B14747500B53E34 /* View */,
 				74BC82C52B14747500B53E34 /* Presenter */,
+				74F022ED2B337A1200AFCFA7 /* Services */,
 			);
 			name = SearchScene;
 			path = PokaNetFilms/Modules/SearchScene;
@@ -317,6 +327,23 @@
 				B427675F2B0E5F83000FEB4D /* FilmScene */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		74F022ED2B337A1200AFCFA7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				74F022EE2B337A2C00AFCFA7 /* SearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		74F022F32B33A0CE00AFCFA7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				74F022F42B33A0E800AFCFA7 /* APIConstants.swift */,
+				74F022F62B33A11500AFCFA7 /* AlamofireNetworkService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B427675F2B0E5F83000FEB4D /* FilmScene */ = {
@@ -380,6 +407,9 @@
 			dependencies = (
 			);
 			name = PokaNetFilms;
+			packageProductDependencies = (
+				74F022F92B33A1DB00AFCFA7 /* Alamofire */,
+			);
 			productName = PokaNetFilms;
 			productReference = 747BBFBE2AF31594003AC739 /* PokaNetFilms.app */;
 			productType = "com.apple.product-type.application";
@@ -408,6 +438,9 @@
 				Base,
 			);
 			mainGroup = 747BBFB52AF31594003AC739;
+			packageReferences = (
+				74F022F82B33A1DB00AFCFA7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 747BBFBF2AF31594003AC739 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -440,6 +473,7 @@
 				0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */,
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
+				74F022F52B33A0E800AFCFA7 /* APIConstants.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
 				74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
@@ -473,6 +507,7 @@
 				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
 				0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */,
 				BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */,
+				74F022F72B33A11500AFCFA7 /* AlamofireNetworkService.swift in Sources */,
 				BCD408DE2B0A612300FC388C /* MainProtocols.swift in Sources */,
 				748A3BEF2B09B9F6007F5154 /* ProfileFavouriteFilmCell.swift in Sources */,
 				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
@@ -484,6 +519,7 @@
 				B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
+				74F022EF2B337A2C00AFCFA7 /* SearchService.swift in Sources */,
 				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -707,6 +743,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		74F022F82B33A1DB00AFCFA7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		74F022F92B33A1DB00AFCFA7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74F022F82B33A1DB00AFCFA7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */ = {
