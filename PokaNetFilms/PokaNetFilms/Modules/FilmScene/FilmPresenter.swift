@@ -20,6 +20,7 @@ extension FilmPresenter: FilmModuleOutput{}
 extension FilmPresenter: FilmViewOutput{
     func didLoadView() {
         mock()
+        FilmManager.shared.fetch()
     }
 }
 
