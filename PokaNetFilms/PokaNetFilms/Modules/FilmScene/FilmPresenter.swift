@@ -20,16 +20,32 @@ extension FilmPresenter: FilmModuleOutput{}
 extension FilmPresenter: FilmViewOutput{
     func didLoadView() {
         mock()
-        FilmManager.shared.fetch()
+        FilmManager.shared.fetch(id: 555)
     }
 }
 
 private extension FilmPresenter {
     func mock() {
-        let filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
+//        let networkManager = FilmManager.shared
+//        networkManager.fetch(id: 555) { result in
+//            switch result {
+//                case .success(let film):
+//                    let decoder = JSONDecoder()
+//                    do {
+//                        let response = try decoder.decode(DetailFilm.self, from: film)
+//                    } catch {
+//                        break //error
+//                    }
+//                    print(film)
+//                case .failure(let error):
+//                    // Обрабатываем ошибку здесь
+//                    print(error)
+//            }
+//        }
         
+        let filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
         let film: FilmViewModel = .init(
-            filmTitle: "Дурные деньги",
+            filmTitle: "detailFilm.name",
             scoreLabel: "7.8",
             scoreColor: UIColor(red: 0.46, green: 0.82, blue: 0.00, alpha: 1.00),
             kinopoiskScoreLabel: "1337",
