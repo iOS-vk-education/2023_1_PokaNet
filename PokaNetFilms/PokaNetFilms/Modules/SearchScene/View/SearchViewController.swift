@@ -116,8 +116,9 @@ private extension SearchViewController {
         foundedFilmsCV.delegate = self
         foundedFilmsCV.dataSource = self
         foundedFilmsCV.translatesAutoresizingMaskIntoConstraints = false
-        foundedFilmsCV.register(FoundedFilmCell.self, forCellWithReuseIdentifier: "CellForFilm")
+        foundedFilmsCV.register(ReusableCell.self, forCellWithReuseIdentifier: "CellForFilm")
         foundedFilmsCV.isHidden = true
+        foundedFilmsCV.backgroundColor = .systemGray5
         view.addSubview(foundedFilmsCV)
         
         NSLayoutConstraint.activate([
@@ -166,7 +167,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellForFilm", for: indexPath) as? FoundedFilmCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellForFilm", for: indexPath) as? ReusableCell else {
             assertionFailure("The dequeued cell is not an instance of ProfileMessageCell.")
             return UICollectionViewCell()
         }
@@ -175,8 +176,14 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 16)
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 160)
+        let paddingSpace = 16 * 2
+        let availableWidth = collectionView.frame.width - CGFloat(paddingSpace)
+        return CGSize(width: availableWidth, height: 160)
     }
 }
 
