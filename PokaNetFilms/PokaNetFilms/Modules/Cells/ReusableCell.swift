@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class FoundedFilmCell: UICollectionViewCell {
+final class ReusableCell: UICollectionViewCell {
     
     private var imageView = UIImageView()
     private var titleLabel = UILabel()
@@ -43,7 +43,7 @@ final class FoundedFilmCell: UICollectionViewCell {
 }
 
 //MARK: - setupUI
-extension FoundedFilmCell {
+extension ReusableCell {
     func setupUI() {
         contentView.layer.cornerRadius = 30
         contentView.backgroundColor = .white

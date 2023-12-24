@@ -116,7 +116,7 @@ private extension SearchViewController {
         foundedFilmsCV.delegate = self
         foundedFilmsCV.dataSource = self
         foundedFilmsCV.translatesAutoresizingMaskIntoConstraints = false
-        foundedFilmsCV.register(FoundedFilmCell.self, forCellWithReuseIdentifier: "CellForFilm")
+        foundedFilmsCV.register(ReusableCell.self, forCellWithReuseIdentifier: "CellForFilm")
         foundedFilmsCV.isHidden = true
         foundedFilmsCV.backgroundColor = .systemGray5
         view.addSubview(foundedFilmsCV)
@@ -167,7 +167,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellForFilm", for: indexPath) as? FoundedFilmCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellForFilm", for: indexPath) as? ReusableCell else {
             assertionFailure("The dequeued cell is not an instance of ProfileMessageCell.")
             return UICollectionViewCell()
         }
