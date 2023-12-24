@@ -17,6 +17,7 @@
 		06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */; };
 		06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */; };
 		7409BE3D2B09EE04008DEA7D /* (null) in Sources */ = {isa = PBXBuildFile; };
+		74237B802B38A6A2007A61B8 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237B7F2B38A6A2007A61B8 /* ReusableCell.swift */; };
 		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
 		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
 		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
@@ -41,7 +42,6 @@
 		74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */; };
 		74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CA2B14747500B53E34 /* SearchViewController.swift */; };
 		74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82CB2B14747500B53E34 /* SearchProtocols.swift */; };
-		74BC82D22B14791600B53E34 /* FoundedFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */; };
 		74F022EF2B337A2C00AFCFA7 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F022EE2B337A2C00AFCFA7 /* SearchService.swift */; };
 		74F022F52B33A0E800AFCFA7 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F022F42B33A0E800AFCFA7 /* APIConstants.swift */; };
 		74F022F72B33A11500AFCFA7 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F022F62B33A11500AFCFA7 /* AlamofireNetworkService.swift */; };
@@ -74,6 +74,7 @@
 		06C5C29C2B13BF57009E418E /* RegistrationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAssembly.swift; sourceTree = "<group>"; };
 		06C5C29E2B13BF65009E418E /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
 		06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
+		74237B7F2B38A6A2007A61B8 /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilmsModel.swift; sourceTree = "<group>"; };
 		74BC82CA2B14747500B53E34 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		74BC82CB2B14747500B53E34 /* SearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
-		74BC82D12B14791600B53E34 /* FoundedFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundedFilmCell.swift; sourceTree = "<group>"; };
 		74F022EE2B337A2C00AFCFA7 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		74F022F42B33A0E800AFCFA7 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		74F022F62B33A11500AFCFA7 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
@@ -159,6 +159,22 @@
 			path = RegistrationScene;
 			sourceTree = "<group>";
 		};
+		74237B7D2B38A5C5007A61B8 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		74237B7E2B38A6A2007A61B8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				74237B7F2B38A6A2007A61B8 /* ReusableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
 		7434181E2B06C5BD008390D7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +229,7 @@
 			children = (
 				747BBFC02AF31594003AC739 /* PokaNetFilms */,
 				747BBFBF2AF31594003AC739 /* Products */,
+				74237B7D2B38A5C5007A61B8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -315,7 +332,7 @@
 		74E6A2942B25B4530010AC96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				74F022EC2B33746700AFCFA7 /* Cells */,
+				74237B7E2B38A6A2007A61B8 /* Cells */,
 				065557282B0D0767001AB86A /* AutorizationScene */,
 				74BC82C32B14747500B53E34 /* SearchScene */,
 				BCD408E12B0A627A00FC388C /* MainScene */,
@@ -471,8 +488,8 @@
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				74F022F52B33A0E800AFCFA7 /* APIConstants.swift in Sources */,
+				74237B802B38A6A2007A61B8 /* ReusableCell.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
-				74BC82D22B14791600B53E34 /* ReusableCell.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
 				74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */,
 				74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */,
