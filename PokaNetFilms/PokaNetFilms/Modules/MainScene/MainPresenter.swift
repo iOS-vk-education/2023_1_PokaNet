@@ -19,7 +19,7 @@ extension MainPresenter: MainModuleInput {}
 
 extension MainPresenter: MainViewOutput {
     func didTapMovieCell() {
-        router?.presentFilmView()
+        router?.presentFilmView(movieID: 555)
     }
     
     func didLoadView() {

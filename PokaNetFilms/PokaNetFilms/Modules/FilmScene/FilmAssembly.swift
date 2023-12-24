@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 final class FilmAssembly {
-    static func assembly(moduleOutput: FilmModuleOutput? = nil) -> UIViewController {
-        let presenter = FilmPresenter()
+    static func assembly(movieID:Int, moduleOutput: FilmModuleOutput? = nil) -> UIViewController {
+        let presenter = FilmPresenter(movieID: movieID)
         let viewController = FilmViewController(output: presenter)
 
         presenter.view = viewController

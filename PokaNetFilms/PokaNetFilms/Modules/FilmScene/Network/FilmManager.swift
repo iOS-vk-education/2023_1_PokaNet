@@ -7,7 +7,6 @@
 import Alamofire
 import Foundation
 
-
 final class FilmManager {
     static let shared = FilmManager()
     private init(){}
@@ -15,19 +14,19 @@ final class FilmManager {
     let networkService = AlamofireNetworkService()
     let baseURL = APIConstants.baseUrl
     
-    func fetch(id:Int) {
+    func fetchData(id: Int, completion: @escaping (Result<DetailFilm, Error>) -> Void) {
         networkService.request(baseURL + "/v1.4/movie/\(id)") { response in
             switch response.result {
             case .success(let data):
                 let decoder = JSONDecoder()
                 do {
-                    let response = try decoder.decode(DetailFilm.self, from: data)
-                    print(response)
+                    let film = try decoder.decode(DetailFilm.self, from: data)
+                    completion(.success(film))
                 } catch {
-                    break //error
+                    completion(.failure(error))
                 }
             case let .failure(error):
-                break // error
+                completion(.failure(error))
             }
         }
     }
