@@ -46,7 +46,22 @@ private extension FilmPresenter {
         }
         
         func updateUI(with film: DetailFilm) {
-            let filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
+            var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
+            let imageUrlString = film.poster.url
+            if let imageUrl = URL(string: imageUrlString) {
+                if let imageData = try? Data(contentsOf: imageUrl) {
+                    if let image = UIImage(data: imageData) {
+                        filmImage = image
+                    } else {
+                        print("Не удалось сконвертировать данные в изображение")
+                    }
+                } else {
+                    print("Не удалось загрузить данные по URL")
+                }
+            } else {
+                print("Некорректный URL")
+            }
+            
             var casts: String = ""
             var authors: String = ""
             for person in film.persons {
@@ -77,9 +92,11 @@ private extension FilmPresenter {
                 movieTime = "\(hours)ч \(minutes)мин"
             }
             else {
-                movieTime = "\(film.seasonsInfo[0]!.episodesCount)" + " серия"
+                movieTime = "Количество серий " + "\(film.seasonsInfo[0]!.episodesCount)"
             }
             
+            let showDate = film.premiere.russia ?? film.premiere.digital ?? film.premiere.russia ?? String("Не указана дата премьеры")
+            let filmDate = setupFilmDate(date: showDate)
             
             let film: FilmViewModel = .init(
                 filmTitle: film.name,
@@ -92,11 +109,20 @@ private extension FilmPresenter {
                 movieDetailsLabelGenre: genres,
                 movieDetailsLabelAge: String(film.ageRating) + "+",
                 filmDescriptionTextLabel: film.description,
-                filmShowDateLabel: "20 ноября",
+                filmShowDateLabel: filmDate,
                 filmAuthorNameLabel: authors,
                 filmCastTextLabel: casts,
                 filmImage: filmImage)
             
             view?.configure(with: film)
         }
+        
+    func setupFilmDate(date:String) -> String{
+        var filmDate = date
+        if filmDate.count >= 14 {
+            let endIndex = filmDate.index(filmDate.endIndex, offsetBy: -14)
+            filmDate = String(filmDate[..<endIndex])
+        }
+        return filmDate
+    }
 }
