@@ -19,17 +19,23 @@ struct DetailFilm: Decodable {
     let poster: Poster
     let rating: Rating
     let votes: Votes
-    let movieLength: Int
+    let seasonsInfo: [SeasonsInfo?]
+    let movieLength: Int?
     let ageRating: Int
 }
 
+struct SeasonsInfo: Decodable {
+    let number: Int
+    let episodesCount: Int
+}
 struct Genres: Decodable {
     let name: String
 }
 
 struct Premiere: Decodable {
-    let world: String
-    let russia: String
+    let world: String?
+    let russia: String?
+    let digital: String?
 }
 
 struct Countries: Decodable {

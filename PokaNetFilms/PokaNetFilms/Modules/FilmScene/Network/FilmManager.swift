@@ -18,6 +18,7 @@ final class FilmManager {
         networkService.request(baseURL + "/v1.4/movie/\(id)") { response in
             switch response.result {
             case .success(let data):
+                print(data)
                 let decoder = JSONDecoder()
                 do {
                     let film = try decoder.decode(DetailFilm.self, from: data)

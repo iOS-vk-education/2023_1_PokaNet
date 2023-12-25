@@ -308,7 +308,7 @@ extension FilmViewController{
     func setupFilmAuthorLabel() {
         containerView.addSubview(filmAuthorLabel)
         filmAuthorLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmAuthorLabel.text = "Режиссер"
+        filmAuthorLabel.text = "Режиссеры"
         filmAuthorLabel.font = UIFont.systemFont(ofSize: 12)
         
         NSLayoutConstraint.activate([

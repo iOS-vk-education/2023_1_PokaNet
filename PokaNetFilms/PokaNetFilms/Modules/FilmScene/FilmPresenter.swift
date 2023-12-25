@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 final class FilmPresenter {
     weak var view : FilmViewInput?
     weak var moduleOutput: FilmModuleOutput?
@@ -23,14 +22,14 @@ extension FilmPresenter: FilmModuleOutput{}
 
 extension FilmPresenter: FilmViewOutput{
     func didLoadView() {
-        mock()
+        loadData()
     }
 }
 
 
 
 private extension FilmPresenter {
-        func mock() {
+        func loadData() {
                 let filmManager = FilmManager.shared
 
                 filmManager.fetchData(id: movieID) { [weak self] result in
@@ -38,8 +37,6 @@ private extension FilmPresenter {
                     case .success(let film):
                         // Обработка успешного ответа
                         print(film)
-                        // Вместо явного вызова метода handleFetchedFilm, обработайте данные film здесь
-                        // Например:
                         self?.updateUI(with: film)
                     case .failure(let error):
                         // Обработка ошибки
@@ -50,20 +47,54 @@ private extension FilmPresenter {
         
         func updateUI(with film: DetailFilm) {
             let filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
+            var casts: String = ""
+            var authors: String = ""
+            for person in film.persons {
+                if person.enProfession == "director"{
+                    authors = authors + " " + String(person.name) + ", "
+                }
+                if person.enProfession == "actor"{
+                    casts = casts + " " + String(person.name) + ", "
+                }
+            }
+            casts.removeFirst()
+            casts.removeLast()
+            casts.removeLast()
+            authors.removeFirst()
+            authors.removeLast()
+            authors.removeLast()
+            
+            var genres: String = ""
+            for genre in film.genres {
+                genres = genres + genre.name + " "
+            }
+            
+            let movieLength = film.movieLength ?? Int(100)
+            var movieTime: String
+            if movieLength != 100 {
+                let hours: Int = movieLength / 60
+                let minutes: Int = movieLength % 60
+                movieTime = "\(hours)ч \(minutes)мин"
+            }
+            else {
+                movieTime = "\(film.seasonsInfo[0]!.episodesCount)" + " серия"
+            }
+            
+            
             let film: FilmViewModel = .init(
                 filmTitle: film.name,
                 scoreLabel: String(film.rating.kp),
                 scoreColor: UIColor(red: 0.46, green: 0.82, blue: 0.00, alpha: 1.00),
                 kinopoiskScoreLabel: String(film.votes.kp),
-                filmCountryLabel: "США",
-                filmYearLabel: "2023",
-                movieDetailsLabelTime: "1ч 45мин",
-                movieDetailsLabelGenre: "биография комедия",
-                movieDetailsLabelAge: "18+",
-                filmDescriptionTextLabel: "Говорят, что миром правят деньги. А деньгами распоряжается Уолл-Стрит. И если на самом верху решили, что небольшая сеть магазинов видеоигр должна обанкротиться, то под это можно брать кредит в банке. Но однажды обычные люди сказали...Говорят, что миром правят деньги. А деньгами распоряжается Уолл-Стрит. И если на самом верху решили, что небольшая сеть магазинов видеоигр должна обанкротиться, то под это можно брать кредит в банке. Но однажды обычные люди сказали...",
+                filmCountryLabel: film.countries[0].name,
+                filmYearLabel: String(film.year),
+                movieDetailsLabelTime: movieTime,
+                movieDetailsLabelGenre: genres,
+                movieDetailsLabelAge: String(film.ageRating) + "+",
+                filmDescriptionTextLabel: film.description,
                 filmShowDateLabel: "20 ноября",
-                filmAuthorNameLabel: "Федор Бондарчук",
-                filmCastTextLabel: "Джейсон Флеминг, Декстер Флетчер, Ник Моран, Джейсон Стэйтем",
+                filmAuthorNameLabel: authors,
+                filmCastTextLabel: casts,
                 filmImage: filmImage)
             
             view?.configure(with: film)
