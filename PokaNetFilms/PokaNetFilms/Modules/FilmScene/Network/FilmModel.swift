@@ -22,8 +22,16 @@ struct DetailFilm: Decodable {
     let seasonsInfo: [SeasonsInfo?]
     let movieLength: Int?
     let ageRating: Int
+    let videos: Videos
 }
 
+struct Videos: Decodable {
+    let trailers: [Trailers]
+}
+
+struct Trailers: Decodable {
+    let url: String
+}
 struct SeasonsInfo: Decodable {
     let number: Int
     let episodesCount: Int

@@ -12,7 +12,6 @@ final class FilmViewController: UIViewController {
     
     let output: FilmViewOutput
     var model: FilmViewModel?
-    
     let scrollView = UIScrollView()
     let ticketsButton = UIButton()
     let containerView = UIView()
@@ -59,6 +58,8 @@ final class FilmViewController: UIViewController {
         setupFilmAuthorNameLabel()
         setupFilmCastLabel()
         setupFilmCastTextLabel()
+        
+
     }
     
     init(output: FilmViewOutput) {
@@ -86,12 +87,12 @@ extension FilmViewController{
         ])
     }
     
-    
     func setupTicketsButton() {
         view.addSubview(ticketsButton)
         ticketsButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        
+//        ticketsButton.isHidden = true
         ticketsButton.setTitle("Расписание и билеты", for: .normal)
+        ticketsButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
         ticketsButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         ticketsButton.backgroundColor = .systemPink
         ticketsButton.layer.cornerRadius = 10
@@ -105,6 +106,13 @@ extension FilmViewController{
         
     }
     
+    @objc func playVideo(_ sender: UIButton) {
+        print("я нажался")
+        let secondViewController = TrailerViewController()
+        secondViewController.modalPresentationStyle = .popover
+        present(secondViewController, animated: true, completion: nil)
+    }
+
     func setupContainerView() {
         scrollView.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
