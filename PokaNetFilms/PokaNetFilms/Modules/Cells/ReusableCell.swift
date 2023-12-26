@@ -70,7 +70,6 @@ extension ReusableCell {
     
     func setupTitle() {
         contentView.addSubview(titleLabel)
-        titleLabel.text = "Очень длинное название фильма"
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.textColor = .black
@@ -80,13 +79,11 @@ extension ReusableCell {
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             titleLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
             titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     func setupInfoLabel() {
         contentView.addSubview(infoLabel)
-        infoLabel.text = "2018"
         infoLabel.textColor = .black
         infoLabel.font = UIFont.systemFont(ofSize: 16)
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +98,6 @@ extension ReusableCell {
     
     func setupGenreslabel() {
         contentView.addSubview(genreslabel)
-        genreslabel.text = "genre genre genre genre genre"
         genreslabel.textColor = .systemGray3
         genreslabel.font = UIFont.systemFont(ofSize: 14)
         genreslabel.numberOfLines = 0
@@ -113,6 +109,14 @@ extension ReusableCell {
             genreslabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             genreslabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
+    }
+}
+
+extension ReusableCell {
+    func configureCell(_ model: SearchFilmsModel) {
+        genreslabel.text = model.genres
+        titleLabel.text = model.title
+        infoLabel.text = String(model.year)
     }
 }
 

@@ -46,6 +46,8 @@
 		74237BB52B38AD1F007A61B8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 74237BB42B38AD1F007A61B8 /* FirebaseStorage */; };
 		74237BB72B38AD1F007A61B8 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 74237BB62B38AD1F007A61B8 /* FirebaseStorageCombine-Community */; };
 		74237BB92B38B1A7007A61B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74237BB82B38B1A7007A61B8 /* GoogleService-Info.plist */; };
+		74237BBB2B38C726007A61B8 /* RecievedFilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237BBA2B38C726007A61B8 /* RecievedFilmModel.swift */; };
+		74237BC02B3A23FE007A61B8 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237BBF2B3A23FE007A61B8 /* Debouncer.swift */; };
 		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
 		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
 		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
@@ -104,6 +106,8 @@
 		06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
 		74237B7F2B38A6A2007A61B8 /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		74237BB82B38B1A7007A61B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74237BBA2B38C726007A61B8 /* RecievedFilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedFilmModel.swift; sourceTree = "<group>"; };
+		74237BBF2B3A23FE007A61B8 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -374,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */,
+				74237BBA2B38C726007A61B8 /* RecievedFilmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				74F022EE2B337A2C00AFCFA7 /* SearchService.swift */,
+				74237BBF2B3A23FE007A61B8 /* Debouncer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				74876FDD2B1C83FD0054CBA4 /* BaseRouterInput.swift in Sources */,
 				74876FD92B1BD8C10054CBA4 /* RegistrationRouter.swift in Sources */,
+				74237BBB2B38C726007A61B8 /* RecievedFilmModel.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
 				BCD4090D2B0E91AF00FC388C /* MainHeaderView.swift in Sources */,
@@ -619,6 +626,7 @@
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
 				74F022EF2B337A2C00AFCFA7 /* SearchService.swift in Sources */,
+				74237BC02B3A23FE007A61B8 /* Debouncer.swift in Sources */,
 				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

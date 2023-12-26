@@ -9,17 +9,17 @@ import Foundation
 
 struct SearchFilmsModel {
     let title: String
-    let genres: [Genre]
+    let genres: String
     let year: Int
     
-    init(title: String, genres: [Genre], year: Int) {
+    init(title: String, genres: String, year: Int) {
         self.title = title
         self.genres = genres
         self.year = year
     }
 }
 
-enum Genre: String, CaseIterable {
+enum GenreToSearch: String, CaseIterable {
     case comedy = "Комедии"
     case animation = "Мультфильмы"
     case horror = "Ужасы"

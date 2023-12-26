@@ -12,14 +12,17 @@ final class SearchViewController: UIViewController {
     
     let output: SearchViewOutput
     
-    var titleLable: UILabel!
-    var searchBar: UISearchBar!
-    var genreTable: UITableView!
-    var messageLabel: UILabel!
-    var foundedFilmsCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var titleLable: UILabel!
+    private var searchBar: UISearchBar!
+    private var genreTable: UITableView!
+    private var messageLabel: UILabel!
+    private var foundedFilmsCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    private var model: [SearchFilmsModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        output.didLoadView()
         setupUI()
     }
     
@@ -146,12 +149,12 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Genre.allCases.count
+        GenreToSearch.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = Genre.allCases[indexPath.row].rawValue
+        cell.textLabel?.text = GenreToSearch.allCases[indexPath.row].rawValue
         return cell
     }
 }
@@ -163,7 +166,7 @@ extension SearchViewController: UICollectionViewDelegate {
 
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        model.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -171,6 +174,8 @@ extension SearchViewController: UICollectionViewDataSource {
             assertionFailure("The dequeued cell is not an instance of ProfileMessageCell.")
             return UICollectionViewCell()
         }
+        
+        cell.configureCell(model[indexPath.row])
         return cell
     }
 }
@@ -179,7 +184,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 16)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddingSpace = 16 * 2
         let availableWidth = collectionView.frame.width - CGFloat(paddingSpace)
@@ -206,6 +211,10 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: SearchViewInput {
     func configureSearch(with model: [SearchFilmsModel]) {
-        print(model)
+        self.model = model
+        DispatchQueue.main.async {
+            self.foundedFilmsCV.reloadData()
+            self.updateUI()
+        }
     }
 }
