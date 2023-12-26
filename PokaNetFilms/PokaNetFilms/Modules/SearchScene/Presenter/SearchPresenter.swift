@@ -27,7 +27,7 @@ extension SearchPresenter {
             
             let genresString = film.genres.map { $0.name }.joined(separator: " ")
             
-            return SearchFilmsModel(title: film.name, genres: genresString, year: film.year)
+            return SearchFilmsModel(title: film.name, genres: genresString, year: film.year, image: film.poster.url?.absoluteString ?? "")
         }
     }
     
@@ -41,6 +41,21 @@ extension SearchPresenter {
                 print(error)
             }
         }
+    }
+    
+    func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(nil)
+                return
+            }
+            completion(UIImage(data: data))
+        }
+        task.resume()
     }
 }
 

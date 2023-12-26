@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 final class RegistrationViewController: UIViewController {
     
@@ -24,7 +25,6 @@ final class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(#function)
         view.backgroundColor = .white
         
         setupImagePK()

@@ -10,10 +10,12 @@ import UIKit
 
 final class ReusableCell: UICollectionViewCell {
     
-    private var imageView = UIImageView()
+    var imageView = UIImageView()
     private var titleLabel = UILabel()
     private var infoLabel = UILabel()
     private var genreslabel = UILabel()
+    
+    private var imageLoadingTask: URLSessionDataTask?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,7 +57,6 @@ extension ReusableCell {
     
     func setupImageView() {
         contentView.addSubview(imageView)
-        imageView.image = UIImage(named: "defaultImage")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +75,7 @@ extension ReusableCell {
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             titleLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
@@ -113,10 +114,20 @@ extension ReusableCell {
 }
 
 extension ReusableCell {
-    func configureCell(_ model: SearchFilmsModel) {
-        genreslabel.text = model.genres
-        titleLabel.text = model.title
-        infoLabel.text = String(model.year)
+    
+    func configureCell(_ model: SearchFilmsModel, output: SearchViewOutput) {
+        if let imageURL = URL(string: model.image) {
+        } else {
+            print("Error: model.image does not contain a valid URL string.")
+        }
+        
+        imageView.image = nil
+        
+        output.loadImage(from: model.image) { [weak self] image in
+            DispatchQueue.main.async {
+                    self?.imageView.image = image ?? UIImage(systemName: "defaultImage")
+            }
+        }
     }
 }
 

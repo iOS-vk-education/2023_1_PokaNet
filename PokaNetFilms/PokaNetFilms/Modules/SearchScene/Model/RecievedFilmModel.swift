@@ -17,8 +17,14 @@ struct Film: Decodable {
     let name: String
     let genres: [Genres]
     let year: Int
+    let poster: Poster
 }
 
 struct Genres: Decodable {
     let name: String
+}
+
+struct Poster: Decodable {
+    let url: URL?
+    let previewUrl: URL?
 }

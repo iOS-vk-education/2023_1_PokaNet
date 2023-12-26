@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol SearchModuleInput {
     var moduleOutput: SearchModuleOutput? { get }
@@ -20,5 +21,6 @@ protocol SearchViewInput: AnyObject {
 
 protocol SearchViewOutput: AnyObject {
     func didLoadView()
+    func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
     func didChangeSearchText(_ searchText: String)
 }

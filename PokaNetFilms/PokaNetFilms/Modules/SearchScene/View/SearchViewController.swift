@@ -175,7 +175,8 @@ extension SearchViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.configureCell(model[indexPath.row])
+        cell.configureCell(model[indexPath.row], output: output)
+        
         return cell
     }
 }
