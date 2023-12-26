@@ -72,7 +72,7 @@ extension ReusableCell {
     func setupTitle() {
         contentView.addSubview(titleLabel)
         titleLabel.numberOfLines = 0
-        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.lineBreakMode = .byTruncatingTail
         titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -116,16 +116,13 @@ extension ReusableCell {
 extension ReusableCell {
     
     func configureCell(_ model: SearchFilmsModel, output: SearchViewOutput) {
-        if let imageURL = URL(string: model.image) {
-        } else {
-            print("Error: model.image does not contain a valid URL string.")
-        }
-        
-        imageView.image = nil
+        titleLabel.text = model.title
+        genreslabel.text = model.genres
+        infoLabel.text = String(model.year)
         
         output.loadImage(from: model.image) { [weak self] image in
             DispatchQueue.main.async {
-                    self?.imageView.image = image ?? UIImage(systemName: "defaultImage")
+                    self?.imageView.image = image ?? UIImage(named: "defaultImage")
             }
         }
     }
