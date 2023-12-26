@@ -11,17 +11,14 @@ import WebKit
 
 final class TrailerViewController: UIViewController {
     
-    var model: FilmViewModel?
+    var videoUrl: String?
     let webView = WKWebView()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
         setupWebView()
-        
-        if let url = URL(string: "https://www.youtube.com/embed/lEBAnyWQsOo") {
+        let errorUrl = "https://www.youtube.com/watch?v=22z31vdqnWI&ab_channel=P€pperMCGamer%24"
+        if let url = URL(string: videoUrl ?? errorUrl) {
             let request = URLRequest(url: url)
             webView.load(request)
         }
@@ -47,4 +44,5 @@ extension TrailerViewController{
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
+    
 }

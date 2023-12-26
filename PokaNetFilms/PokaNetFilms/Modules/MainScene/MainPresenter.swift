@@ -19,7 +19,7 @@ extension MainPresenter: MainModuleInput {}
 
 extension MainPresenter: MainViewOutput {
     func didTapMovieCell() {
-        router?.presentFilmView(movieID: 5304403)
+        router?.presentFilmView(movieID: 666)
     }
     // 5304403 - Слово пацана, 666 - Форсаж, 555 - Лебовски , 4917532 - Дурные деньги
     func didLoadView() {

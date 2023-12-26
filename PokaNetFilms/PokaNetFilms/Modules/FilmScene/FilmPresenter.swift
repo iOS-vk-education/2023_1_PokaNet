@@ -97,11 +97,24 @@ private extension FilmPresenter {
             
             let showDate = film.premiere.russia ?? film.premiere.digital ?? film.premiere.russia ?? String("Не указана дата премьеры")
             let filmDate = setupFilmDate(date: showDate)
-            
+            let url = film.videos.trailers[0].url
+            let score = (film.rating.kp * 10).rounded() / 10
+            let color: UIColor
+            if score > 8 {
+                color = UIColor(red: 0.46, green: 0.82, blue: 0.00, alpha: 1.00) // зеленый
+            } else if score >= 6 {
+                color = UIColor(red: 0.09, green: 0.42, blue: 0.09, alpha: 1.00) // темно зеленый
+            } else if score >= 4 {
+                color = UIColor(red: 0.99, green: 0.62, blue: 0.00, alpha: 1.00) // желтый
+            } else if score >= 2 {
+                color = UIColor(red: 1.00, green: 0.24, blue: 0.06, alpha: 1.00) // оранжевый
+            } else {
+                color = UIColor(red: 0.62, green: 0.08, blue: 0.04, alpha: 1.00) // красный
+            }
             let film: FilmViewModel = .init(
                 filmTitle: film.name,
-                scoreLabel: String((film.rating.kp * 10).rounded() / 10),
-                scoreColor: UIColor(red: 0.46, green: 0.82, blue: 0.00, alpha: 1.00),
+                scoreLabel: String(score),
+                scoreColor: color,
                 kinopoiskScoreLabel: String(film.votes.kp),
                 filmCountryLabel: film.countries[0].name,
                 filmYearLabel: String(film.year),
@@ -112,7 +125,7 @@ private extension FilmPresenter {
                 filmShowDateLabel: filmDate,
                 filmAuthorNameLabel: authors,
                 filmCastTextLabel: casts,
-                filmImage: filmImage)
+                filmImage: filmImage, videoUrl: url)
             
             view?.configure(with: film)
         }

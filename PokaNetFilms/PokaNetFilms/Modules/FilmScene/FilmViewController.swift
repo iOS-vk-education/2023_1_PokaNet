@@ -20,7 +20,7 @@ final class FilmViewController: UIViewController {
     let filmDescriptionLabel = UILabel()
     let filmAuthorLabel = UILabel()
     let filmCastLabel = UILabel()
-    
+    let videoUrl = UILabel()
     let filmImage = UIImageView()
     let filmTitle = UILabel()
     let scoreLabel = UILabel()
@@ -91,7 +91,7 @@ extension FilmViewController{
         view.addSubview(ticketsButton)
         ticketsButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
 //        ticketsButton.isHidden = true
-        ticketsButton.setTitle("Расписание и билеты", for: .normal)
+        ticketsButton.setTitle("Посмотреть трейлер", for: .normal)
         ticketsButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
         ticketsButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         ticketsButton.backgroundColor = .systemPink
@@ -108,8 +108,10 @@ extension FilmViewController{
     
     @objc func playVideo(_ sender: UIButton) {
         print("я нажался")
+        
         let secondViewController = TrailerViewController()
         secondViewController.modalPresentationStyle = .popover
+        secondViewController.videoUrl = videoUrl.text
         present(secondViewController, animated: true, completion: nil)
     }
 
@@ -319,7 +321,6 @@ extension FilmViewController{
         filmAuthorLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         filmAuthorLabel.text = "Режиссеры"
         filmAuthorLabel.font = UIFont.systemFont(ofSize: 12)
-        
         NSLayoutConstraint.activate([
             filmAuthorLabel.topAnchor.constraint(equalTo: filmShowDateLabel.bottomAnchor, constant: 5),
             filmAuthorLabel.heightAnchor.constraint(equalToConstant: 20),
@@ -383,12 +384,11 @@ extension FilmViewController: FilmViewInput{
         filmAuthorNameLabel.text = model.filmAuthorNameLabel
         filmShowDateLabel.text = model.filmShowDateLabel
         filmDescriptionTextLabel.text = model.filmDescriptionTextLabel
-        
+        videoUrl.text = model.videoUrl
         let movieDetailsLabelTime = model.movieDetailsLabelTime
         let movieDetailsLabelGenre = model.movieDetailsLabelGenre
         let movieDetailsLabelAge = model.movieDetailsLabelAge
         movieDetailsLabel.text = movieDetailsLabelTime + " • " + movieDetailsLabelGenre + " • " + movieDetailsLabelAge
-        
         filmYearLabel.text = model.filmYearLabel
         filmCountryLabel.text = model.filmCountryLabel
         kinopoiskScoreLabel.text = model.kinopoiskScoreLabel
