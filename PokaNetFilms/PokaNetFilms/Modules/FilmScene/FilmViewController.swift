@@ -126,7 +126,7 @@ extension FilmViewController{
         filmImage.contentMode = .scaleAspectFit
         filmImage.clipsToBounds = false
         
-        let filmHeight: CGFloat = UIScreen.main.bounds.height / 3.5
+        let filmHeight: CGFloat = UIScreen.main.bounds.height / 2.5
         NSLayoutConstraint.activate([
             filmImage.topAnchor.constraint(equalTo: containerView.topAnchor),
             filmImage.heightAnchor.constraint(equalToConstant: filmHeight),
@@ -181,8 +181,8 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             kinopoiskLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor),
             kinopoiskLabel.heightAnchor.constraint(equalToConstant: 40),
-            kinopoiskLabel.leadingAnchor.constraint(equalTo: scoreLabel.leadingAnchor, constant: scoreLabel.intrinsicContentSize.width + 10),
-            kinopoiskLabel.trailingAnchor.constraint(equalTo: scoreLabel.leadingAnchor, constant: scoreLabel.intrinsicContentSize.width + 150)
+            kinopoiskLabel.leadingAnchor.constraint(equalTo: scoreLabel.trailingAnchor, constant: 10),
+//            kinopoiskLabel.trailingAnchor.constraint(equalTo: scoreLabel.leadingAnchor, constant: 150)
         ])
     }
     
@@ -356,7 +356,6 @@ extension FilmViewController{
         filmCastTextLabel.font = UIFont.systemFont(ofSize: 14)
         filmCastTextLabel.textAlignment = .left
         filmCastTextLabel.numberOfLines = 0
-
 
         NSLayoutConstraint.activate([
             filmCastTextLabel.topAnchor.constraint(equalTo: filmCastLabel.bottomAnchor),
