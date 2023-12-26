@@ -123,7 +123,8 @@ extension FilmViewController{
     func setupFilmImage() {
         containerView.addSubview(filmImage)
         filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmImage.contentMode = .scaleAspectFill
+        filmImage.contentMode = .scaleAspectFit
+        filmImage.clipsToBounds = false
         
         let filmHeight: CGFloat = UIScreen.main.bounds.height / 3.5
         NSLayoutConstraint.activate([
@@ -145,7 +146,7 @@ extension FilmViewController{
         
         NSLayoutConstraint.activate([
             filmTitle.topAnchor.constraint(equalTo: filmImage.bottomAnchor, constant: 10),
-            filmTitle.heightAnchor.constraint(equalToConstant: CGFloat(60)),
+//            filmTitle.heightAnchor.constraint(equalToConstant: CGFloat(60)),
             filmTitle.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             filmTitle.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
@@ -164,7 +165,7 @@ extension FilmViewController{
             scoreLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor, constant: 10),
             scoreLabel.heightAnchor.constraint(equalToConstant: 50),
             scoreLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            scoreLabel.trailingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 76)
+//            scoreLabel.trailingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 76)
         ])
         
     }
@@ -385,7 +386,7 @@ extension FilmViewController: FilmViewInput{
         filmCountryLabel.text = model.filmCountryLabel
         kinopoiskScoreLabel.text = model.kinopoiskScoreLabel
         scoreLabel.text = model.scoreLabel
-        scoreLabel.backgroundColor = model.scoreColor
+        scoreLabel.backgroundColor = model.scoreColor // цвет отзыва
     }
 }
 

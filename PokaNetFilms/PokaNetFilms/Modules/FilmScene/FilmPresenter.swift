@@ -49,7 +49,7 @@ private extension FilmPresenter {
             var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
             let imageUrlString = film.poster.url
             if let imageUrl = URL(string: imageUrlString) {
-                if let imageData = try? Data(contentsOf: imageUrl) {
+                if let imageData = try? Data(contentsOf: imageUrl) { //Kingfisher
                     if let image = UIImage(data: imageData) {
                         filmImage = image
                     } else {
@@ -92,7 +92,7 @@ private extension FilmPresenter {
                 movieTime = "\(hours)ч \(minutes)мин"
             }
             else {
-                movieTime = "Количество серий " + "\(film.seasonsInfo[0]!.episodesCount)"
+                movieTime = "Количество серий: " + "\(film.seasonsInfo[0]!.episodesCount)"
             }
             
             let showDate = film.premiere.russia ?? film.premiere.digital ?? film.premiere.russia ?? String("Не указана дата премьеры")
@@ -100,7 +100,7 @@ private extension FilmPresenter {
             
             let film: FilmViewModel = .init(
                 filmTitle: film.name,
-                scoreLabel: String(film.rating.kp),
+                scoreLabel: String((film.rating.kp * 10).rounded() / 10),
                 scoreColor: UIColor(red: 0.46, green: 0.82, blue: 0.00, alpha: 1.00),
                 kinopoiskScoreLabel: String(film.votes.kp),
                 filmCountryLabel: film.countries[0].name,
