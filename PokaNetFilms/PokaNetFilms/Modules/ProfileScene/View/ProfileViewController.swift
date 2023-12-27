@@ -62,7 +62,7 @@ private extension ProfileViewController {
         profileCollectionView.dataSource = self
         
         profileCollectionView.register(ProfileHeaderCell.self, forCellWithReuseIdentifier: "ProfileHeaderCell")
-        profileCollectionView.register(ProfileFavouriteFilmCell.self, forCellWithReuseIdentifier: "ProfileFavouriteFilmCell")
+        profileCollectionView.register(ReusableCell.self, forCellWithReuseIdentifier: "ProfileFavouriteFilmCell")
         profileCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView")
         profileCollectionView.register(ProfileMessageCell.self, forCellWithReuseIdentifier: "ProfileMessageCell")
         
@@ -117,11 +117,11 @@ extension ProfileViewController: UICollectionViewDataSource {
                 cell.configure(with: "У пользователя пока что нет избранных фильмов")
                 return cell
             } else {
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavouriteFilmCell", for: indexPath) as? ProfileFavouriteFilmCell else {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavouriteFilmCell", for: indexPath) as? ReusableCell else {
                     assertionFailure("The dequeued cell is not an instance of ProfileFavouriteFilmCell.")
                     return UICollectionViewCell()
                 }
-                cell.configure(favouriteFilms[indexPath.row])
+//                cell.configure(favouriteFilms[indexPath.row])
                 return cell
             }
         }
@@ -144,9 +144,11 @@ extension ProfileViewController: UICollectionViewDataSource {
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 3)
+            return CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 3)
         } else {
-            CGSize(width: (collectionView.bounds.width) / 3 - 24, height: 160)
+            let paddingSpace = 16 * 2
+            let availableWidth = collectionView.frame.width - CGFloat(paddingSpace)
+            return CGSize(width: availableWidth, height: 160)
         }
     }
     

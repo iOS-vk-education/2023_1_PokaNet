@@ -177,8 +177,6 @@ final class RegistrationViewController: UIViewController {
             accountExist.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
             accountExist.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
             accountExist.heightAnchor.constraint(equalToConstant: 45)
-            
-            
         ])
     }
 }

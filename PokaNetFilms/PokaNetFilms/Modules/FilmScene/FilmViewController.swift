@@ -38,6 +38,7 @@ final class FilmViewController: UIViewController {
         output.didLoadView()
         scrollView.delegate = self
         view.backgroundColor = UIColor.white
+        setupNavigationBar()
         
         setupScrollView()
         setupTicketsButton()
@@ -66,8 +67,19 @@ final class FilmViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
     }
+    
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("[DEBUG]: FATAL ERROR")
+    }
+    
+    private func setupNavigationBar() {
+        let backButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(backButtonTapped))
+        self.navigationItem.leftBarButtonItem = backButton
+    }
+    
+    @objc private func backButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

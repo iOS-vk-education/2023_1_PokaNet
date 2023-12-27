@@ -14,6 +14,7 @@ final class MainRouter: BaseRouter {
 extension MainRouter: MainRouterInput {
     func presentFilmView(movieID:Int) {
         let filmVC = FilmAssembly.assembly(movieID: movieID)
-        presentFromSourceView(viewController: filmVC)
+        let navigationController = UINavigationController(rootViewController: filmVC)
+        presentFromSourceView(viewController: navigationController)
     }
 }
