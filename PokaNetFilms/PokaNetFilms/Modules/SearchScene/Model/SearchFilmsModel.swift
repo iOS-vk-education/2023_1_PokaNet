@@ -11,9 +11,9 @@ struct SearchFilmsModel {
     let title: String
     let genres: String
     let year: Int
-    let image: String
+    let image: URL
     
-    init(title: String, genres: String, year: Int, image: String) {
+    init(title: String, genres: String, year: Int, image: URL) {
         self.title = title
         self.genres = genres
         self.year = year

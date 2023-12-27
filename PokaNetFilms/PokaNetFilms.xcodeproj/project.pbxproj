@@ -65,6 +65,7 @@
 		74876FDB2B1C83EF0054CBA4 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FDA2B1C83EF0054CBA4 /* BaseRouter.swift */; };
 		74876FDD2B1C83FD0054CBA4 /* BaseRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FDC2B1C83FD0054CBA4 /* BaseRouterInput.swift */; };
 		748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */; };
+		74B2A9172B3CAF8B00BA7F7D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 74B2A9162B3CAF8B00BA7F7D /* Kingfisher */; };
 		74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */; };
 		74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */; };
 		74BC82CC2B14747500B53E34 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C42B14747500B53E34 /* SearchAssembly.swift */; };
@@ -168,6 +169,7 @@
 				74237B912B38AD1F007A61B8 /* FirebaseAuthCombine-Community in Frameworks */,
 				74237B9D2B38AD1F007A61B8 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				74237B872B38AD1F007A61B8 /* FirebaseAnalyticsSwift in Frameworks */,
+				74B2A9172B3CAF8B00BA7F7D /* Kingfisher in Frameworks */,
 				74237BAB2B38AD1F007A61B8 /* FirebaseMLModelDownloader in Frameworks */,
 				74237B892B38AD1F007A61B8 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				74237B832B38AD1F007A61B8 /* FirebaseAnalytics in Frameworks */,
@@ -513,6 +515,7 @@
 				74237BB22B38AD1F007A61B8 /* FirebaseRemoteConfigSwift */,
 				74237BB42B38AD1F007A61B8 /* FirebaseStorage */,
 				74237BB62B38AD1F007A61B8 /* FirebaseStorageCombine-Community */,
+				74B2A9162B3CAF8B00BA7F7D /* Kingfisher */,
 			);
 			productName = PokaNetFilms;
 			productReference = 747BBFBE2AF31594003AC739 /* PokaNetFilms.app */;
@@ -545,6 +548,7 @@
 			packageReferences = (
 				74F022F82B33A1DB00AFCFA7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				74237B812B38AD1F007A61B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				74B2A9152B3CAF8B00BA7F7D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 747BBFBF2AF31594003AC739 /* Products */;
 			projectDirPath = "";
@@ -860,6 +864,14 @@
 				minimumVersion = 10.19.1;
 			};
 		};
+		74B2A9152B3CAF8B00BA7F7D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.1;
+			};
+		};
 		74F022F82B33A1DB00AFCFA7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1005,6 +1017,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 74237B812B38AD1F007A61B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		74B2A9162B3CAF8B00BA7F7D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74B2A9152B3CAF8B00BA7F7D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		74F022F92B33A1DB00AFCFA7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
