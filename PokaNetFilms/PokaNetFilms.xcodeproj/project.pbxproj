@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062643F22B3C7ED700A74E1D /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062643F12B3C7ED700A74E1D /* RegisterUserRequest.swift */; };
+		062643F42B3C7F1D00A74E1D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062643F32B3C7F1D00A74E1D /* AuthService.swift */; };
+		062643F82B3C933F00A74E1D /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062643F72B3C933F00A74E1D /* Validator.swift */; };
+		062643FA2B3C9AAB00A74E1D /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062643F92B3C9AAB00A74E1D /* LoginUserRequest.swift */; };
+		062643FC2B3C9AD800A74E1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062643FB2B3C9AD800A74E1D /* User.swift */; };
+		062643FE2B3CA5A800A74E1D /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062643FD2B3CA5A800A74E1D /* AlertManager.swift */; };
 		0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */; };
 		0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */; };
 		0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */; };
@@ -90,10 +96,15 @@
 		BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408E92B0BDD2000FC388C /* UnitCells.swift */; };
 		BCD4090D2B0E91AF00FC388C /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD4090C2B0E91AF00FC388C /* MainHeaderView.swift */; };
 		BCD4090F2B0E91CC00FC388C /* MainHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD4090E2B0E91CC00FC388C /* MainHeaderModel.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		062643F12B3C7ED700A74E1D /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
+		062643F32B3C7F1D00A74E1D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		062643F72B3C933F00A74E1D /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		062643F92B3C9AAB00A74E1D /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
+		062643FB2B3C9AD800A74E1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		062643FD2B3CA5A800A74E1D /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		065557292B0D0789001AB86A /* AuthorizationSceneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneAssembly.swift; sourceTree = "<group>"; };
 		0655572B2B0D07A0001AB86A /* AuthorizationScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScenePresenter.swift; sourceTree = "<group>"; };
 		0655572D2B0D07B1001AB86A /* AuthorizationSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationSceneViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +202,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-
+		062643F02B3C7EC300A74E1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				062643F12B3C7ED700A74E1D /* RegisterUserRequest.swift */,
+				062643F92B3C9AAB00A74E1D /* LoginUserRequest.swift */,
+				062643FB2B3C9AD800A74E1D /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		065557282B0D0767001AB86A /* AutorizationScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +226,6 @@
 			sourceTree = "<group>";
 		};
 		06C5C2A22B13BF8B009E418E /* RegistrationScene */ = {
-
 			isa = PBXGroup;
 			children = (
 				06C5C29A2B13BF3B009E418E /* RegistrationViewController.swift */,
@@ -304,6 +323,7 @@
 		747BBFC02AF31594003AC739 /* PokaNetFilms */ = {
 			isa = PBXGroup;
 			children = (
+				062643F02B3C7EC300A74E1D /* Models */,
 				74F022F32B33A0CE00AFCFA7 /* Network */,
 				7434181E2B06C5BD008390D7 /* Application */,
 				74E6A2942B25B4530010AC96 /* Modules */,
@@ -311,6 +331,9 @@
 				74876FDE2B1C84020054CBA4 /* BaseRouter */,
 				7434181F2B06C5D1008390D7 /* SupportingFiles */,
 				747BBFCA2AF31594003AC739 /* PokaNetFilms.xcdatamodeld */,
+				062643F32B3C7F1D00A74E1D /* AuthService.swift */,
+				062643F72B3C933F00A74E1D /* Validator.swift */,
+				062643FD2B3CA5A800A74E1D /* AlertManager.swift */,
 			);
 			path = PokaNetFilms;
 			sourceTree = "<group>";
@@ -578,6 +601,7 @@
 				743418252B06C685008390D7 /* ProfileViewController.swift in Sources */,
 				74F022F52B33A0E800AFCFA7 /* APIConstants.swift in Sources */,
 				74237B802B38A6A2007A61B8 /* ReusableCell.swift in Sources */,
+				062643FE2B3CA5A800A74E1D /* AlertManager.swift in Sources */,
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
 				74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */,
@@ -588,14 +612,17 @@
 				7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */,
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
 				74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */,
+				062643FA2B3C9AAB00A74E1D /* LoginUserRequest.swift in Sources */,
 				74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */,
 				74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */,
 				06C5C2A12B13BF79009E418E /* RegistrationProtocols.swift in Sources */,
+				062643F42B3C7F1D00A74E1D /* AuthService.swift in Sources */,
 				74FEEB102B1E469B00EAC544 /* MainRouter.swift in Sources */,
 				06C5C29B2B13BF3B009E418E /* RegistrationViewController.swift in Sources */,
 				06C5C29F2B13BF65009E418E /* RegistrationPresenter.swift in Sources */,
 				747BBFC22AF31594003AC739 /* AppDelegate.swift in Sources */,
 				74876FDD2B1C83FD0054CBA4 /* BaseRouterInput.swift in Sources */,
+				062643F82B3C933F00A74E1D /* Validator.swift in Sources */,
 				74876FD92B1BD8C10054CBA4 /* RegistrationRouter.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
@@ -604,6 +631,7 @@
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
 				BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */,
 				BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */,
+				062643F22B3C7ED700A74E1D /* RegisterUserRequest.swift in Sources */,
 				74876FD72B1BCF880054CBA4 /* AuthorizationRouter.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* (null) in Sources */,
 				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
@@ -622,6 +650,7 @@
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
 				74F022EF2B337A2C00AFCFA7 /* SearchService.swift in Sources */,
 				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
+				062643FC2B3C9AD800A74E1D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import Firebase
+
 
 final class RegistrationViewController: UIViewController {
     
@@ -20,13 +23,15 @@ final class RegistrationViewController: UIViewController {
     private let passConfirmTextField = UITextField()
     private let regButton = UIButton()
     private let accountExist = UIButton()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseApp.configure()
         
+//        registration()
         print(#function)
         view.backgroundColor = .white
-        
         setupImagePK()
         setupLabelReg()
         setupNameTextField()
@@ -35,6 +40,7 @@ final class RegistrationViewController: UIViewController {
         setupPassConfirmTextField()
         setupRegButton()
         setupExistAccountButton()
+        
     }
     
     init(output: RegistrationViewOutput) {
@@ -45,6 +51,17 @@ final class RegistrationViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func registration() {
+        Auth.auth().createUser(withEmail: "mahakoz@icloud.com", password: "password") { AuthDataResult, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print(AuthDataResult?.user.uid ?? "")
+            }
+        }
+    }
+    
     
     func setupImagePK() {
         self.view.addSubview(imagePK)

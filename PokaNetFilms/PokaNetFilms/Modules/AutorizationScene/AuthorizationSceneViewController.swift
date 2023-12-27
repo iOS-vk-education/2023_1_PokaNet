@@ -14,6 +14,7 @@ final class AuthorizationViewController: UIViewController {
     private let labelEnter = UILabel()
     private let imagePK = UIImageView()
     private let mailTextField = UITextField()
+    private let passwordTextField = UITextField()
     private let enterButton = UIButton()
     private let labelOr = UILabel()
     private let vkButton = AuthorizationImageButton()
@@ -27,6 +28,7 @@ final class AuthorizationViewController: UIViewController {
         setupImagePK()
         setupLabelEnter()
         setupMailTextField()
+        setupPasswordTextField()
         setupEnterButton()
         setupLableOr()
         setupVkButton()
@@ -88,6 +90,23 @@ final class AuthorizationViewController: UIViewController {
         ])
     }
     
+    func setupPasswordTextField() {
+        self.view.addSubview(passwordTextField)
+        passwordTextField.placeholder = " Введите пароль"
+        passwordTextField.textColor = .gray
+        passwordTextField.font = UIFont.systemFont(ofSize: 20)
+        passwordTextField.layer.cornerRadius = 10
+        passwordTextField.backgroundColor = .placeholderText
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passwordTextField.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 20),
+            passwordTextField.bottomAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 65),
+            passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
+            
+        ])
+    }
+    
     func setupEnterButton() {
         self.view.addSubview(enterButton)
         enterButton.setTitle("Войти", for: .normal)
@@ -96,8 +115,8 @@ final class AuthorizationViewController: UIViewController {
         enterButton.translatesAutoresizingMaskIntoConstraints = false
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            enterButton.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 20),
-            enterButton.bottomAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 65),
+            enterButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            enterButton.bottomAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 65),
             enterButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
             enterButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
 
@@ -107,6 +126,7 @@ final class AuthorizationViewController: UIViewController {
     
     func setupLableOr() {
         self.view.addSubview(labelOr)
+        labelOr.isHidden = true
         labelOr.text = "или"
         labelOr.textColor = .gray
         labelOr.font = UIFont.systemFont(ofSize: 20)
@@ -122,6 +142,7 @@ final class AuthorizationViewController: UIViewController {
     
     func setupVkButton() {
         self.view.addSubview(vkButton)
+        vkButton.isHidden = true
         vkButton.configure(icon: "VKImage", title: "Войти через VK")
         vkButton.layer.cornerRadius = 10
         vkButton.backgroundColor = .clear
@@ -156,6 +177,7 @@ final class AuthorizationViewController: UIViewController {
 
 //MARK: - Coordination
 private extension AuthorizationViewController {
+
     @objc func regButtonTapped() {
         output.didTapRegistrationButton()
     }
@@ -164,6 +186,36 @@ private extension AuthorizationViewController {
         output.didTapEnterButton()
     }
 }
+
+//@objc private func didTapSignIn() {
+//    let loginRequest = LoginUserRequest(
+//        email: self.mailTextField.text ?? "",
+//        password: self.passwordField.text ?? ""
+//    )
+//    
+//    // Email check
+//    if !Validator.isValidEmail(for: loginRequest.email) {
+//        AlertManager.showInvalidEmailAlert(on: self)
+//        return
+//    }
+//    
+//    // Password check
+//    if !Validator.isPasswordValid(for: loginRequest.password) {
+//        AlertManager.showInvalidPasswordAlert(on: self)
+//        return
+//    }
+//    
+//    AuthService.shared.signIn(with: loginRequest) { error in
+//        if let error = error {
+//            AlertManager.showSignInErrorAlert(on: self, with: error)
+//            return
+//        }
+//        
+//        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+//            sceneDelegate.checkAuthentication()
+//        }
+//    }
+
 
 extension AuthorizationViewController: AuthorizationViewInput {
     
