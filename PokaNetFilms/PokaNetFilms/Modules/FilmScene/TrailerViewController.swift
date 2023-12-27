@@ -17,8 +17,7 @@ final class TrailerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         setupWebView()
-        let errorUrl = "https://www.youtube.com/watch?v=22z31vdqnWI&ab_channel=P€pperMCGamer%24"
-        if let url = URL(string: videoUrl ?? errorUrl) {
+        if let url = URL(string: videoUrl!) {
             let request = URLRequest(url: url)
             webView.load(request)
         }
