@@ -197,3 +197,17 @@ private extension MainMovieCell {
     }
 }
 
+
+//extension MainMovieCell {
+//    
+//    func configureCell(_ model: SearchFilmsModel, output: SearchViewOutput) {
+//        filmNameLabel.text = model.title
+//        genreLabel.text = model.genre
+//        
+//        output.loadImage(from: model.image) { [weak self] image in
+//            DispatchQueue.main.async {
+//                self?.imageView.image = image ?? UIImage(named: "defaultImage")
+//            }
+//        }
+//    }
+//}
