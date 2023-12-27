@@ -13,6 +13,13 @@ final class SearchPresenter {
     weak var view: SearchViewInput?
     weak var moduleOutput: SearchModuleOutput?
     
+    private var currentQuery: String?
+    private var page = 0
+    private let limit = 20
+    private var canRequestNext = true
+    private var isLoading = false
+    private var totalResults = 0
+    
     lazy var searchDebouncer: Debouncer = {
         return Debouncer(delay: 0.7) { [weak self] query in
             guard let query = query else { return }
@@ -32,11 +39,23 @@ extension SearchPresenter {
     }
     
     func performSearch(query: String) {
-        SearchService.shared.searchFilms(query: query) { response in
+        SearchService.shared.searchFilms(query: query, page: 1, limit: 10) { response in
             switch response {
             case .success(let films):
                 let searchModels = self.convertToSearchFilmsModel(response: films)
                 self.view?.configureSearch(with: searchModels)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func perforGenreSearch(genreName: String) {
+        SearchService.shared.searchFilmsByGenre(genreName: genreName, page: 1, limit: 10) { response in
+            switch response {
+            case .success(let films):
+                let searchModels = self.convertToSearchFilmsModel(response: films)
+                self.view?.configureSearchByGenre(with: searchModels)
             case .failure(let error):
                 print(error)
             }
@@ -67,6 +86,10 @@ extension SearchPresenter: SearchViewOutput {
     
     func didChangeSearchText(_ searchText: String) {
         searchDebouncer.call(searchText)
+    }
+    
+    func didChooseGenre(genreName: String) {
+        perforGenreSearch(genreName: genreName)
     }
 }
 

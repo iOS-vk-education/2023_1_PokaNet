@@ -12,10 +12,10 @@ final class SearchService {
     static let shared = SearchService()
     private init() {}
      
+    private let searchUrl = "\(APIConstants.baseUrl)/v1.4/movie/search"
     private let networkService = AlamofireNetworkService()
      
-    func searchFilms(query: String, page: Int = 1, limit: Int = 10, completion: @escaping (Result<FilmResponse, Error>) -> Void) {
-        let searchUrl = "\(APIConstants.baseUrl)/v1.4/movie/search"
+    func searchFilms(query: String, page: Int, limit: Int, completion: @escaping (Result<FilmResponse, Error>) -> Void) {
          
         var urlComponents = URLComponents(string: searchUrl)
         let queryItems = [
@@ -42,6 +42,40 @@ final class SearchService {
                 }
             case .failure(let error):
                 if let urlError = error.underlyingError as? URLError, urlError.code == .cancelled {
+                } else {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func searchFilmsByGenre(genreName: String, page: Int, limit: Int, completion: @escaping (Result<FilmResponse, Error>) -> Void) {
+        var urlComponents = URLComponents(string: searchUrl)
+        let queryItems = [
+            URLQueryItem(name: "page", value: String(page)),
+            URLQueryItem(name: "limit", value: String(limit)),
+            URLQueryItem(name: "genre.name", value: genreName)
+        ]
+        
+        urlComponents?.queryItems = queryItems
+        
+        guard let fullUrl = urlComponents?.url else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        
+        networkService.request(fullUrl.absoluteString) { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let movie = try JSONDecoder().decode(FilmResponse.self, from: data)
+                    completion(.success(movie))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                if let urlError = error.underlyingError as? URLError, urlError.code == .cancelled {
+                    
                 } else {
                     completion(.failure(error))
                 }

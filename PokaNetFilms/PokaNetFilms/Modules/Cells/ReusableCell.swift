@@ -75,6 +75,7 @@ extension ReusableCell {
         titleLabel.lineBreakMode = .byTruncatingTail
         titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),

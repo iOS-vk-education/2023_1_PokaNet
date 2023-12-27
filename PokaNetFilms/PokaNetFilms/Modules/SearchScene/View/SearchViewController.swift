@@ -12,10 +12,10 @@ final class SearchViewController: UIViewController {
     
     let output: SearchViewOutput
     
-    private var titleLable: UILabel!
-    private var searchBar: UISearchBar!
-    private var genreTable: UITableView!
-    private var messageLabel: UILabel!
+    private var titleLable = UILabel()
+    private var searchBar = UISearchBar()
+    private var genreTable = UITableView()
+    private var messageLabel = UILabel()
     private var foundedFilmsCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private var model: [SearchFilmsModel] = []
@@ -133,7 +133,7 @@ private extension SearchViewController {
     }
     
     func updateUI() {
-        let showMessageLabel = genreTable.isHidden && searchBar.text?.count == 0
+        let showMessageLabel = foundedFilmsCV.isHidden && genreTable.isHidden && searchBar.text?.count == 0
         messageLabel.isHidden = !showMessageLabel
         
         let showFoundedCollectionView = searchBar.text?.count == 0
@@ -144,7 +144,13 @@ private extension SearchViewController {
 
 //MARK: - TableView
 extension SearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedGenre = GenreToSearch.allCases[indexPath.row]
+        output.didChooseGenre(genreName: selectedGenre.rawValue)
+        genreTable.isHidden = true
+        messageLabel.isHidden = true
+        foundedFilmsCV.isHidden = !foundedFilmsCV.isHidden
+    }
 }
 
 extension SearchViewController: UITableViewDataSource {
@@ -161,7 +167,6 @@ extension SearchViewController: UITableViewDataSource {
 
 //MARK: - CollectionView
 extension SearchViewController: UICollectionViewDelegate {
-    
 }
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -189,7 +194,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddingSpace = 16 * 2
         let availableWidth = collectionView.frame.width - CGFloat(paddingSpace)
-        return CGSize(width: availableWidth, height: 160)
+        return CGSize(width: availableWidth, height: 180)
     }
 }
 
@@ -211,6 +216,26 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 extension SearchViewController: SearchViewInput {
+    func resetSearchResults() {
+    }
+    
+    func showError(_ error: Error) {
+    }
+    
+    func appendSearchResults(with newResults: [SearchFilmsModel]) {
+        self.model.append(contentsOf: newResults)
+        DispatchQueue.main.async {
+            self.foundedFilmsCV.reloadData()
+        }
+    }
+    
+    func configureSearchByGenre(with model: [SearchFilmsModel]) {
+        self.model = model
+        DispatchQueue.main.async {
+            self.foundedFilmsCV.reloadData()
+        }
+    }
+    
     func configureSearch(with model: [SearchFilmsModel]) {
         self.model = model
         DispatchQueue.main.async {
