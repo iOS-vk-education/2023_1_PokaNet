@@ -24,6 +24,6 @@ protocol MainViewOutput: AnyObject {
 }
 
 protocol MainRouterInput: BaseRouterInput {
-    func presentFilmView()
+    func presentFilmView(movieID: Int)
 }
 

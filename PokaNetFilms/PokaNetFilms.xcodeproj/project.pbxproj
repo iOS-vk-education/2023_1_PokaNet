@@ -87,6 +87,9 @@
 		B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767642B0E6636000FEB4D /* FilmProtocols.swift */; };
 		B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767662B0E66FB000FEB4D /* FilmPresenter.swift */; };
 		B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42767682B14FE17000FEB4D /* FilmViewModel.swift */; };
+		B44AE5402B3B78B9004EAB3E /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44AE53F2B3B78B9004EAB3E /* TrailerViewController.swift */; };
+		B4561E812B34AA0900EED4B9 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4561E802B34AA0900EED4B9 /* FilmManager.swift */; };
+		B4561E882B34B97900EED4B9 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4561E872B34B97900EED4B9 /* FilmModel.swift */; };
 		BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D32B09F00800FC388C /* MainAssembly.swift */; };
 		BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D52B09F5CC00FC388C /* MainViewController.swift */; };
 		BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D72B09F61400FC388C /* MainPresenter.swift */; };
@@ -152,6 +155,9 @@
 		B42767642B0E6636000FEB4D /* FilmProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmProtocols.swift; sourceTree = "<group>"; };
 		B42767662B0E66FB000FEB4D /* FilmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmPresenter.swift; sourceTree = "<group>"; };
 		B42767682B14FE17000FEB4D /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
+		B44AE53F2B3B78B9004EAB3E /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
+		B4561E802B34AA0900EED4B9 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
+		B4561E872B34B97900EED4B9 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		BCD408D32B09F00800FC388C /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		BCD408D52B09F5CC00FC388C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BCD408D72B09F61400FC388C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
@@ -446,13 +452,24 @@
 		B427675F2B0E5F83000FEB4D /* FilmScene */ = {
 			isa = PBXGroup;
 			children = (
+				B4561E892B34B9FD00EED4B9 /* Network */,
 				B42767602B0E5FB9000FEB4D /* FilmViewController.swift */,
+				B44AE53F2B3B78B9004EAB3E /* TrailerViewController.swift */,
 				B42767622B0E64F6000FEB4D /* FilmAssembly.swift */,
 				B42767642B0E6636000FEB4D /* FilmProtocols.swift */,
 				B42767662B0E66FB000FEB4D /* FilmPresenter.swift */,
 				B42767682B14FE17000FEB4D /* FilmViewModel.swift */,
 			);
 			path = FilmScene;
+			sourceTree = "<group>";
+		};
+		B4561E892B34B9FD00EED4B9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B4561E802B34AA0900EED4B9 /* FilmManager.swift */,
+				B4561E872B34B97900EED4B9 /* FilmModel.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		BCD408DB2B0A57DB00FC388C /* MainModels */ = {
@@ -625,6 +642,7 @@
 				062643F82B3C933F00A74E1D /* Validator.swift in Sources */,
 				74876FD92B1BD8C10054CBA4 /* RegistrationRouter.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
+				B44AE5402B3B78B9004EAB3E /* TrailerViewController.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
 				BCD4090D2B0E91AF00FC388C /* MainHeaderView.swift in Sources */,
 				BCD4090F2B0E91CC00FC388C /* MainHeaderModel.swift in Sources */,
@@ -633,6 +651,7 @@
 				BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */,
 				062643F22B3C7ED700A74E1D /* RegisterUserRequest.swift in Sources */,
 				74876FD72B1BCF880054CBA4 /* AuthorizationRouter.swift in Sources */,
+				B4561E812B34AA0900EED4B9 /* FilmManager.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* (null) in Sources */,
 				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
 				0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */,
@@ -642,6 +661,7 @@
 				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
 				74BC82CD2B14747500B53E34 /* SearchPresenter.swift in Sources */,
 				B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */,
+				B4561E882B34B97900EED4B9 /* FilmModel.swift in Sources */,
 				B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */,
 				B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */,
 				B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */,
