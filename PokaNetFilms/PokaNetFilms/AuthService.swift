@@ -16,8 +16,10 @@ class AuthService {
     
 
     public func registerUser(with userRequest: RegiserUserRequest, completion: @escaping (Bool, Error?)->Void) {
+        let name = userRequest.name
         let email = userRequest.email
         let password = userRequest.password
+        let passconf = userRequest.passconf
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
@@ -34,6 +36,7 @@ class AuthService {
             db.collection("users")
                 .document(resultUser.uid)
                 .setData([
+                    "username": email,
                     "email": email
                 ]) { error in
                     if let error = error {

@@ -20,6 +20,8 @@ final class AuthorizationViewController: UIViewController {
     private let vkButton = AuthorizationImageButton()
     private let regButton = UIButton()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,8 @@ final class AuthorizationViewController: UIViewController {
         setupLableOr()
         setupVkButton()
         setupRegButton()
+        
+
     }
     
     init(output: AuthorizationViewOutput) {
@@ -75,7 +79,10 @@ final class AuthorizationViewController: UIViewController {
     
     func setupMailTextField() {
         self.view.addSubview(mailTextField)
-        mailTextField.placeholder = " Введите mail"
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        mailTextField.leftViewMode = UITextField.ViewMode.always
+        mailTextField.leftView = spacerView
+        mailTextField.placeholder = "Введите mail"
         mailTextField.textColor = .gray
         mailTextField.font = UIFont.systemFont(ofSize: 20)
         mailTextField.layer.cornerRadius = 10
@@ -92,7 +99,11 @@ final class AuthorizationViewController: UIViewController {
     
     func setupPasswordTextField() {
         self.view.addSubview(passwordTextField)
-        passwordTextField.placeholder = " Введите пароль"
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        passwordTextField.leftViewMode = UITextField.ViewMode.always
+        passwordTextField.leftView = spacerView
+        passwordTextField.placeholder = "Введите пароль"
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.textColor = .gray
         passwordTextField.font = UIFont.systemFont(ofSize: 20)
         passwordTextField.layer.cornerRadius = 10
@@ -183,41 +194,22 @@ private extension AuthorizationViewController {
     }
     
     @objc func enterButtonTapped() {
-        output.didTapEnterButton()
+        guard let email = mailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty
+        else {
+            AlertManager.showBasicAlert(on: self, title: "Поля не должны быть пустыми", message: "Заполните поля")
+            return
+        }
+        output.didTapEnterButton(email: email, password: password)
+    
     }
+    
+    
 }
 
-//@objc private func didTapSignIn() {
-//    let loginRequest = LoginUserRequest(
-//        email: self.mailTextField.text ?? "",
-//        password: self.passwordField.text ?? ""
-//    )
-//    
-//    // Email check
-//    if !Validator.isValidEmail(for: loginRequest.email) {
-//        AlertManager.showInvalidEmailAlert(on: self)
-//        return
-//    }
-//    
-//    // Password check
-//    if !Validator.isPasswordValid(for: loginRequest.password) {
-//        AlertManager.showInvalidPasswordAlert(on: self)
-//        return
-//    }
-//    
-//    AuthService.shared.signIn(with: loginRequest) { error in
-//        if let error = error {
-//            AlertManager.showSignInErrorAlert(on: self, with: error)
-//            return
-//        }
-//        
-//        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-//            sceneDelegate.checkAuthentication()
-//        }
-//    }
-
-
 extension AuthorizationViewController: AuthorizationViewInput {
+    func showError() {
+        AlertManager.showBasicAlert(on: self, title: "Произошла ошибка", message: "Попробуйте заново")
+    }
     
 }
 
