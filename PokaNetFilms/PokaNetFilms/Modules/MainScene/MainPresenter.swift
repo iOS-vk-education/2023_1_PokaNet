@@ -47,20 +47,36 @@ private extension MainPresenter {
     }
     func updateUI(with film: MainFilmResponse) {
         
-        let filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
-        
+    
         let filmModels = film.docs.map { film in
-            let color = UIColor.systemGray3
+            let color = UIColor(red: 0.07, green: 0.47, blue: 0.91, alpha: 1.00)
             let name = film.name
-            var actors: String = "актеры, бла бла"
-            let premiere = film.premiere?.russia ?? film.premiere?.digital ?? film.premiere?.world ?? "какая-то дата"
-            if let persons = film.persons {
-                for person in persons {
-                    if person.enProfession == "actor" {
-                        actors = actors + " " + String(person.name) + ", "
+            let premiere = film.premiere?.russia ?? film.premiere?.digital ?? film.premiere?.world ?? ""
+            var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
+            let imageUrlString = film.poster!.url
+            if let imageUrl = URL(string: imageUrlString) {
+                if let imageData = try? Data(contentsOf: imageUrl) { //Kingfisher
+                    if let image = UIImage(data: imageData) {
+                        filmImage = image
+                    } else {
+                        print("Не удалось сконвертировать данные в изображение")
                     }
+                } else {
+                    print("Не удалось загрузить данные по URL")
+                }
+            } else {
+                print("Некорректный URL")
+            }
+            var actors: String = "актеры, бла бла"
+            for person in film.persons {
+                if person.enProfession == "actor"{
+                    actors = actors + " " + String(person.name) + ", "
                 }
             }
+            actors.removeFirst()
+            actors.removeLast()
+            actors.removeLast()
+            
             return MainMovieCellModel(filmNameLabel: name,
                                       actorsLabel: actors,
                                       ageLabel: String(film.ageRating) + "+",

@@ -22,11 +22,13 @@ final class MainManager {
         let queryItems = [
             URLQueryItem(name: "page", value: String(page)),
             URLQueryItem(name: "limit", value: String(limit)),
-            URLQueryItem(name: "notNullFields", value: "name"),
+            URLQueryItem(name: "notNullFields", value: "name&ageRating&poster"),
             URLQueryItem(name: "notNullFields", value: "ageRating"),
             URLQueryItem(name: "notNullFields", value: "poster.url"),
             URLQueryItem(name: "notNullFields", value: "persons.name"),
-            URLQueryItem(name: "notNullFields", value: "genres.name")]
+            URLQueryItem(name: "notNullFields", value: "genres.name"),
+            URLQueryItem(name: "notNullFields", value: "persons.name"),
+            URLQueryItem(name: "notNullFields", value: "persons.enName")]
         
         urlComponents?.queryItems = queryItems
         
