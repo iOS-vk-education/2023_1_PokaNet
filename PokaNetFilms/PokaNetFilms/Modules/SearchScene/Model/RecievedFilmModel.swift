@@ -15,16 +15,16 @@ struct FilmResponse: Decodable {
 struct Film: Decodable {
     let id: Int
     let name: String
-    let genres: [Genres]
+    let genres: [GenresSearch]
     let year: Int
-    let poster: Poster
+    let poster: PosterSearch
 }
 
-//struct Genres: Decodable {
-//    let name: String
-//}
+struct GenresSearch: Decodable {
+    let name: String
+}
 
-//struct Poster: Decodable {
-//    let url: URL?
-//    let previewUrl: URL?
-//}
+struct PosterSearch: Decodable {
+    let url: URL?
+    let previewUrl: URL?
+}
