@@ -21,6 +21,7 @@ struct MainFilm: Decodable {
     let persons: [Persons]?
     let poster: Poster?
     let ageRating: Int
+    let id: Int
 }
 
 

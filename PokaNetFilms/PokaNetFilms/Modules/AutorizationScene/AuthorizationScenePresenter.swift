@@ -30,20 +30,8 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
                 return
             }
             self?.router?.openTabBar()
-            //        if let error = error {
-            //            AlertManager.showSignInErrorAlert(on: self, with: error)
-            //            return
-            //        }
-            //
-            //        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-            //            sceneDelegate.checkAuthentication()
         }
     }
-    
-    
-    //    func didTapEnterButton() {
-    //        router?.openTabBar()
-    //    }
     
     func didTapRegistrationButton() {
         router?.openRegistration()

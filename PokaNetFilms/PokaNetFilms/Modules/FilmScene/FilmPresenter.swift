@@ -91,8 +91,11 @@ private extension FilmPresenter {
                 let minutes: Int = movieLength % 60
                 movieTime = "\(hours)ч \(minutes)мин"
             }
+            else if film.seasonsInfo.count != 0 {
+                    movieTime = "Количество серий: " + "\(film.seasonsInfo[0]!.episodesCount)"
+            }
             else {
-                movieTime = "Количество серий: " + "\(film.seasonsInfo[0]!.episodesCount)"
+                movieTime = "1ч 45мин"
             }
             
             let showDate = film.premiere.russia ?? film.premiere.digital ?? film.premiere.russia ?? String("Не указана дата премьеры")

@@ -20,7 +20,7 @@ protocol MainViewInput: AnyObject {
 
 protocol MainViewOutput: AnyObject {
     func didLoadView()
-    func didTapMovieCell()
+    func didTapMovieCell(_ id: Int)
 }
 
 protocol MainRouterInput: BaseRouterInput {

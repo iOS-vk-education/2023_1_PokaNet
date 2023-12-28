@@ -9,6 +9,7 @@ import UIKit
 
 struct MainMovieCellModel {
     
+    let id: Int
     let filmNameLabel: String
     let actorsLabel: String
     let ageLabel: String
@@ -19,7 +20,7 @@ struct MainMovieCellModel {
     
     var filmImage = UIImage()
     
-    init(filmNameLabel: String, actorsLabel: String, ageLabel: String, dateLabel: String, genreLabel: String,
+    init(id: Int, filmNameLabel: String, actorsLabel: String, ageLabel: String, dateLabel: String, genreLabel: String,
          priceLabel: String, backgroundColor: UIColor,filmImage: UIImage) {
         self.filmNameLabel = filmNameLabel
         self.actorsLabel = actorsLabel
@@ -28,6 +29,7 @@ struct MainMovieCellModel {
         self.genreLabel = genreLabel
         self.priceLabel = priceLabel
         self.backgroundColor = backgroundColor
+        self.id = id
         
         self.filmImage = filmImage
     }
