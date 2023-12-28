@@ -12,7 +12,9 @@ final class SearchAssembly {
     static func assembly(moduleOutput: SearchModuleOutput? = nil) -> UIViewController{
         let presenter = SearchPresenter()
         let viewController = SearchViewController(output: presenter)
+        let router = SearchRouter(sourceView: viewController)
         
+        presenter.router = router
         presenter.view = viewController
         presenter.moduleOutput = moduleOutput
         

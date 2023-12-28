@@ -28,4 +28,9 @@ protocol SearchViewOutput: AnyObject {
     func didChooseGenre(genreName: String)
     func willDisplayLastCell(_ query: String)
     func resetPagination()
+    func doToFilmScene(_ id: Int)
+}
+
+protocol SearchSceneRouterInput: BaseRouterInput {
+    func presentFilmView(movieID: Int)
 }

@@ -12,6 +12,7 @@ final class SearchPresenter {
     
     weak var view: SearchViewInput?
     weak var moduleOutput: SearchModuleOutput?
+    var router: SearchSceneRouterInput?
     
     private var currentQuery: String?
     private var page = 1
@@ -34,7 +35,7 @@ extension SearchPresenter {
             
             let genresString = film.genres.map { $0.name }.joined(separator: " ")
             
-            return SearchFilmsModel(title: film.name, genres: genresString, year: film.year, image: film.poster.url?.absoluteString ?? "")
+            return SearchFilmsModel(id: film.id, title: film.name, genres: genresString, year: film.year, image: film.poster.url?.absoluteString ?? "")
         }
     }
     
@@ -85,6 +86,11 @@ extension SearchPresenter {
 extension SearchPresenter: SearchModuleInput {}
 
 extension SearchPresenter: SearchViewOutput {
+    
+    func doToFilmScene(_ id: Int) {
+        router?.presentFilmView(movieID: id)
+    }
+    
     func didLoadView() {
     }
     

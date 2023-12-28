@@ -8,12 +8,14 @@
 import Foundation
 
 struct SearchFilmsModel {
+    let id: Int
     let title: String
     let genres: String
     let year: Int
     let image: String
     
-    init(title: String, genres: String, year: Int, image: String) {
+    init(id: Int, title: String, genres: String, year: Int, image: String) {
+        self.id = id
         self.title = title
         self.genres = genres
         self.year = year

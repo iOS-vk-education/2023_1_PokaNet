@@ -178,6 +178,10 @@ extension SearchViewController: UICollectionViewDelegate {
         
         output.willDisplayLastCell(textToSearch)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        output.doToFilmScene(model[indexPath.row].id)
+    }
 }
 
 extension SearchViewController: UICollectionViewDataSource {

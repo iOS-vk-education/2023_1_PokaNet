@@ -22,7 +22,7 @@ final class SearchService {
         let queryItems = [
             URLQueryItem(name: "page", value: String(page)),
             URLQueryItem(name: "limit", value: String(limit)),
-            URLQueryItem(name: "notNullFields", value: "name&genre.name&poster.url"),
+            URLQueryItem(name: "notNullFields", value: "id&name&genre.name&poster.url"),
             URLQueryItem(name: "query", value: query)
         ]
          
