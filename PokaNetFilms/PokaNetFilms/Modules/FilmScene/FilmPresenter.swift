@@ -71,7 +71,7 @@ private extension FilmPresenter {
                 if person.enProfession == "actor"{
                     casts = casts + " " + String(person.name) + ", "
                 }
-            }
+            } 
             casts.removeFirst()
             casts.removeLast()
             casts.removeLast()
