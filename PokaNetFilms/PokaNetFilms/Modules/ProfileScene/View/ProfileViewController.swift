@@ -86,7 +86,7 @@ extension ProfileViewController: UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return favouriteFilms.isEmpty ? 1 : favouriteFilms.count
+            return 0
         }
     }
     
