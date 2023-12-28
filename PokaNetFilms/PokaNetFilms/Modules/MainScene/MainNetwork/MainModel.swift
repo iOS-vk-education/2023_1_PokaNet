@@ -16,10 +16,10 @@ struct MainFilmResponse: Decodable {
 
 struct MainFilm: Decodable {
     let name: String
-    let genres: [Genres]
-    let premiere: Premiere
-    let persons: [Persons]
-    let poster: Poster
+    let genres: [Genres]?
+    let premiere: Premiere?
+    let persons: [Persons]?
+    let poster: Poster?
     let ageRating: Int
 }
 
@@ -36,11 +36,11 @@ struct Premiere: Decodable {
 
 struct Persons: Decodable {
     let name: String
-    let enProfession: String
+    let enProfession: String?
 }
 
 struct Poster: Decodable {
     let url: String
-    let previewUrl: String
+    let previewUrl: String?
 }
 

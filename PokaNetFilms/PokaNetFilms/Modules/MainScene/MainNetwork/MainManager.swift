@@ -21,8 +21,12 @@ final class MainManager {
         var urlComponents = URLComponents(string: searchUrl)
         let queryItems = [
             URLQueryItem(name: "page", value: String(page)),
-            URLQueryItem(name: "limit", value: String(limit))
-        ]
+            URLQueryItem(name: "limit", value: String(limit)),
+            URLQueryItem(name: "notNullFields", value: "name"),
+            URLQueryItem(name: "notNullFields", value: "ageRating"),
+            URLQueryItem(name: "notNullFields", value: "poster.url"),
+            URLQueryItem(name: "notNullFields", value: "persons.name"),
+            URLQueryItem(name: "notNullFields", value: "genres.name")]
         
         urlComponents?.queryItems = queryItems
         
@@ -30,7 +34,7 @@ final class MainManager {
             completion(.failure(URLError(.badURL)))
             return
         }
-        
+   
         networkService.request(fullURL.absoluteString) { response in
             switch response.result {
             case .success(let data):

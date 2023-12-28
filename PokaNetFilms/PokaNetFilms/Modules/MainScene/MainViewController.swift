@@ -105,7 +105,7 @@ extension MainViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 4
+        return films.count
     }
 }
 
