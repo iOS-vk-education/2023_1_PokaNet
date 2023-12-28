@@ -13,13 +13,18 @@ protocol RegistrationModuleInput {
 
 protocol RegistrationModuleOutput: AnyObject {}
 
-protocol RegistrationViewInput: AnyObject {}
+protocol RegistrationViewInput: AnyObject {
+    func showError()
+}
 
 protocol RegistrationViewOutput: AnyObject {
+    func registButtonTapped(name: String, email: String, password: String, passconf: String)
     func didLoadView()
     func accountExistButtonTapped()
 }
 
 protocol RegistrationRouterInput: BaseRouterInput {
+    func openTabBar()
     func openAuthorization()
 }
+

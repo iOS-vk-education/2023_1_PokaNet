@@ -12,7 +12,6 @@ final class FilmViewController: UIViewController {
     
     let output: FilmViewOutput
     var model: FilmViewModel?
-    
     let scrollView = UIScrollView()
     let ticketsButton = UIButton()
     let containerView = UIView()
@@ -21,7 +20,7 @@ final class FilmViewController: UIViewController {
     let filmDescriptionLabel = UILabel()
     let filmAuthorLabel = UILabel()
     let filmCastLabel = UILabel()
-    
+    let videoUrl = UILabel()
     let filmImage = UIImageView()
     let filmTitle = UILabel()
     let scoreLabel = UILabel()
@@ -60,6 +59,7 @@ final class FilmViewController: UIViewController {
         setupFilmAuthorNameLabel()
         setupFilmCastLabel()
         setupFilmCastTextLabel()
+        
     }
     
     init(output: FilmViewOutput) {
@@ -87,7 +87,6 @@ extension FilmViewController{
     func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        // Отключение полоски прокрутки
         scrollView.showsVerticalScrollIndicator = false // Для вертикальной полоски прокрутки
         
         NSLayoutConstraint.activate([
@@ -98,16 +97,14 @@ extension FilmViewController{
         ])
     }
     
-    
     func setupTicketsButton() {
         view.addSubview(ticketsButton)
         ticketsButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        
-        ticketsButton.setTitle("Расписание и билеты", for: .normal)
+        ticketsButton.setTitle("Посмотреть трейлер", for: .normal)
+        ticketsButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
         ticketsButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         ticketsButton.backgroundColor = .systemPink
         ticketsButton.layer.cornerRadius = 10
-        
         NSLayoutConstraint.activate([
             ticketsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -55),
             ticketsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
@@ -117,6 +114,13 @@ extension FilmViewController{
         
     }
     
+    @objc func playVideo(_ sender: UIButton) {
+        let secondViewController = TrailerViewController()
+        secondViewController.modalPresentationStyle = .popover
+        secondViewController.videoUrl = videoUrl.text
+        present(secondViewController, animated: true, completion: nil)
+    }
+
     func setupContainerView() {
         scrollView.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
@@ -127,7 +131,6 @@ extension FilmViewController{
             containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
             containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
             containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-//            containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: 10)
         ])
     }
     
@@ -135,9 +138,10 @@ extension FilmViewController{
     func setupFilmImage() {
         containerView.addSubview(filmImage)
         filmImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmImage.contentMode = .scaleAspectFill
+        filmImage.contentMode = .scaleAspectFit
+        filmImage.clipsToBounds = false
         
-        let filmHeight: CGFloat = UIScreen.main.bounds.height / 3.5
+        let filmHeight: CGFloat = UIScreen.main.bounds.height / 2.5
         NSLayoutConstraint.activate([
             filmImage.topAnchor.constraint(equalTo: containerView.topAnchor),
             filmImage.heightAnchor.constraint(equalToConstant: filmHeight),
@@ -157,7 +161,6 @@ extension FilmViewController{
         
         NSLayoutConstraint.activate([
             filmTitle.topAnchor.constraint(equalTo: filmImage.bottomAnchor, constant: 10),
-            filmTitle.heightAnchor.constraint(equalToConstant: CGFloat(60)),
             filmTitle.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             filmTitle.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
@@ -176,7 +179,6 @@ extension FilmViewController{
             scoreLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor, constant: 10),
             scoreLabel.heightAnchor.constraint(equalToConstant: 50),
             scoreLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            scoreLabel.trailingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 76)
         ])
         
     }
@@ -192,8 +194,7 @@ extension FilmViewController{
         NSLayoutConstraint.activate([
             kinopoiskLabel.topAnchor.constraint(equalTo: filmTitle.bottomAnchor),
             kinopoiskLabel.heightAnchor.constraint(equalToConstant: 40),
-            kinopoiskLabel.leadingAnchor.constraint(equalTo: scoreLabel.leadingAnchor, constant: scoreLabel.intrinsicContentSize.width + 10),
-            kinopoiskLabel.trailingAnchor.constraint(equalTo: scoreLabel.leadingAnchor, constant: scoreLabel.intrinsicContentSize.width + 150)
+            kinopoiskLabel.leadingAnchor.constraint(equalTo: scoreLabel.trailingAnchor, constant: 10),
         ])
     }
     
@@ -273,7 +274,7 @@ extension FilmViewController{
     
     func setupFilmDescriptionTextLabel() {
         containerView.addSubview(filmDescriptionTextLabel)
-        filmDescriptionTextLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
+        filmDescriptionTextLabel.translatesAutoresizingMaskIntoConstraints = false
         filmDescriptionTextLabel.font = UIFont.systemFont(ofSize: 14)
         filmDescriptionTextLabel.numberOfLines = 0
     
@@ -320,9 +321,8 @@ extension FilmViewController{
     func setupFilmAuthorLabel() {
         containerView.addSubview(filmAuthorLabel)
         filmAuthorLabel.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        filmAuthorLabel.text = "Режиссер"
+        filmAuthorLabel.text = "Режиссеры"
         filmAuthorLabel.font = UIFont.systemFont(ofSize: 12)
-        
         NSLayoutConstraint.activate([
             filmAuthorLabel.topAnchor.constraint(equalTo: filmShowDateLabel.bottomAnchor, constant: 5),
             filmAuthorLabel.heightAnchor.constraint(equalToConstant: 20),
@@ -368,7 +368,6 @@ extension FilmViewController{
         filmCastTextLabel.textAlignment = .left
         filmCastTextLabel.numberOfLines = 0
 
-
         NSLayoutConstraint.activate([
             filmCastTextLabel.topAnchor.constraint(equalTo: filmCastLabel.bottomAnchor),
             filmCastTextLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
@@ -381,18 +380,20 @@ extension FilmViewController{
 
 extension FilmViewController: FilmViewInput{
     func configure(with model: FilmViewModel) {
+        videoUrl.text = model.videoUrl
+        if videoUrl.text == nil {
+            ticketsButton.isHidden = true
+        }
         filmImage.image = model.filmImage
         filmCastTextLabel.text = model.filmCastTextLabel
         filmTitle.text = model.filmTitle
         filmAuthorNameLabel.text = model.filmAuthorNameLabel
         filmShowDateLabel.text = model.filmShowDateLabel
         filmDescriptionTextLabel.text = model.filmDescriptionTextLabel
-        
         let movieDetailsLabelTime = model.movieDetailsLabelTime
         let movieDetailsLabelGenre = model.movieDetailsLabelGenre
         let movieDetailsLabelAge = model.movieDetailsLabelAge
         movieDetailsLabel.text = movieDetailsLabelTime + " • " + movieDetailsLabelGenre + " • " + movieDetailsLabelAge
-        
         filmYearLabel.text = model.filmYearLabel
         filmCountryLabel.text = model.filmCountryLabel
         kinopoiskScoreLabel.text = model.kinopoiskScoreLabel

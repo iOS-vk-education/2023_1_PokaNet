@@ -15,12 +15,13 @@ protocol AuthorizationModuleInput {
 protocol AuthorizationModuleOutput: AnyObject {}
 
 protocol AuthorizationViewInput: AnyObject {
+    func showError()
 }
 
 protocol AuthorizationViewOutput: AnyObject {
     func didLoadView()
     func didTapRegistrationButton()
-    func didTapEnterButton()
+    func didTapEnterButton(email: String, password: String)
 }
 
 protocol AuthorizationRouterInput: BaseRouterInput {

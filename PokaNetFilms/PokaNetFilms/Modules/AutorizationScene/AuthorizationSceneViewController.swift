@@ -14,10 +14,13 @@ final class AuthorizationViewController: UIViewController {
     private let labelEnter = UILabel()
     private let imagePK = UIImageView()
     private let mailTextField = UITextField()
+    private let passwordTextField = UITextField()
     private let enterButton = UIButton()
     private let labelOr = UILabel()
     private let vkButton = AuthorizationImageButton()
     private let regButton = UIButton()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +30,13 @@ final class AuthorizationViewController: UIViewController {
         setupImagePK()
         setupLabelEnter()
         setupMailTextField()
+        setupPasswordTextField()
         setupEnterButton()
         setupLableOr()
         setupVkButton()
         setupRegButton()
+        
+
     }
     
     init(output: AuthorizationViewOutput) {
@@ -73,7 +79,10 @@ final class AuthorizationViewController: UIViewController {
     
     func setupMailTextField() {
         self.view.addSubview(mailTextField)
-        mailTextField.placeholder = " Введите mail"
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        mailTextField.leftViewMode = UITextField.ViewMode.always
+        mailTextField.leftView = spacerView
+        mailTextField.placeholder = "Введите mail"
         mailTextField.textColor = .gray
         mailTextField.font = UIFont.systemFont(ofSize: 20)
         mailTextField.layer.cornerRadius = 10
@@ -88,6 +97,27 @@ final class AuthorizationViewController: UIViewController {
         ])
     }
     
+    func setupPasswordTextField() {
+        self.view.addSubview(passwordTextField)
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        passwordTextField.leftViewMode = UITextField.ViewMode.always
+        passwordTextField.leftView = spacerView
+        passwordTextField.placeholder = "Введите пароль"
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.textColor = .gray
+        passwordTextField.font = UIFont.systemFont(ofSize: 20)
+        passwordTextField.layer.cornerRadius = 10
+        passwordTextField.backgroundColor = .placeholderText
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passwordTextField.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 20),
+            passwordTextField.bottomAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 65),
+            passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
+            
+        ])
+    }
+    
     func setupEnterButton() {
         self.view.addSubview(enterButton)
         enterButton.setTitle("Войти", for: .normal)
@@ -96,8 +126,8 @@ final class AuthorizationViewController: UIViewController {
         enterButton.translatesAutoresizingMaskIntoConstraints = false
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            enterButton.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 20),
-            enterButton.bottomAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 65),
+            enterButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            enterButton.bottomAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 65),
             enterButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
             enterButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
 
@@ -107,6 +137,7 @@ final class AuthorizationViewController: UIViewController {
     
     func setupLableOr() {
         self.view.addSubview(labelOr)
+        labelOr.isHidden = true
         labelOr.text = "или"
         labelOr.textColor = .gray
         labelOr.font = UIFont.systemFont(ofSize: 20)
@@ -122,6 +153,7 @@ final class AuthorizationViewController: UIViewController {
     
     func setupVkButton() {
         self.view.addSubview(vkButton)
+        vkButton.isHidden = true
         vkButton.configure(icon: "VKImage", title: "Войти через VK")
         vkButton.layer.cornerRadius = 10
         vkButton.backgroundColor = .clear
@@ -156,16 +188,28 @@ final class AuthorizationViewController: UIViewController {
 
 //MARK: - Coordination
 private extension AuthorizationViewController {
+
     @objc func regButtonTapped() {
         output.didTapRegistrationButton()
     }
     
     @objc func enterButtonTapped() {
-        output.didTapEnterButton()
+        guard let email = mailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty
+        else {
+            AlertManager.showBasicAlert(on: self, title: "Поля не должны быть пустыми", message: "Заполните поля")
+            return
+        }
+        output.didTapEnterButton(email: email, password: password)
+    
     }
+    
+    
 }
 
 extension AuthorizationViewController: AuthorizationViewInput {
+    func showError() {
+        AlertManager.showBasicAlert(on: self, title: "Произошла ошибка", message: "Попробуйте заново")
+    }
     
 }
 
