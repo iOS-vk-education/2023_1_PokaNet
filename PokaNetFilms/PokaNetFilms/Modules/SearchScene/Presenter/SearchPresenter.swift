@@ -34,7 +34,7 @@ extension SearchPresenter {
             
             let genresString = film.genres.map { $0.name }.joined(separator: " ")
             
-            return SearchFilmsModel(title: film.name, genres: genresString, year: film.year, image: film.poster.url?.absoluteString ?? "")
+            return SearchFilmsModel(title: film.name, genres: genresString, year: film.year, image: film.poster.url )
         }
     }
     

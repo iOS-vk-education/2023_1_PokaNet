@@ -28,7 +28,6 @@ final class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        registration()
         print(#function)
         view.backgroundColor = .white
         setupImagePK()
@@ -224,13 +223,14 @@ private extension RegistrationViewController {
             AlertManager.showBasicAlert(on: self, title: "Поля не должны быть пустыми", message: "Заполните поля")
             return
         }
+        
         guard password == passconf
         else {
             AlertManager.showBasicAlert(on: self, title: "Введенные пароли не совпадают", message: "Введите одинаковые пароли")
             return
         }
         output.registButtonTapped(name: name, email: email, password: password, passconf: passconf)
-    
+        output.accountExistButtonTapped()
     }
 }
 
