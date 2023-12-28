@@ -18,6 +18,26 @@ extension RegistrationPresenter: RegistrationModuleInput {
 }
 
 extension RegistrationPresenter: RegistrationViewOutput {
+    
+    func registButtonTapped(name: String, email: String, password: String, passconf: String) {
+        let registRequest = RegiserUserRequest(
+            name: name,
+            email: email,
+            password: password,
+            passconf: passconf
+        )
+        
+        AuthService.shared.registerUser(with: registRequest) { [weak self] wasregistered, error in
+            if (error != nil) {
+                self?.view?.showError()
+                return
+            }
+            
+            if wasregistered {
+                self?.router?.openTabBar()
+            }
+        }
+    }
     func accountExistButtonTapped() {
         router?.openAuthorization()
     }
@@ -29,3 +49,8 @@ extension RegistrationPresenter: RegistrationViewOutput {
 
 private extension RegistrationPresenter {
 }
+
+//extension AuthorizationPresenter: AuthorizationModuleInput {
+//}
+
+

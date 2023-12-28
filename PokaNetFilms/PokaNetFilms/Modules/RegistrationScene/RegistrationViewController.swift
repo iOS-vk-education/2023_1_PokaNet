@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import Firebase
+
 
 final class RegistrationViewController: UIViewController {
     
@@ -20,13 +23,14 @@ final class RegistrationViewController: UIViewController {
     private let passConfirmTextField = UITextField()
     private let regButton = UIButton()
     private let accountExist = UIButton()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        registration()
         print(#function)
         view.backgroundColor = .white
-        
         setupImagePK()
         setupLabelReg()
         setupNameTextField()
@@ -35,6 +39,7 @@ final class RegistrationViewController: UIViewController {
         setupPassConfirmTextField()
         setupRegButton()
         setupExistAccountButton()
+        
     }
     
     init(output: RegistrationViewOutput) {
@@ -45,6 +50,17 @@ final class RegistrationViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func registration() {
+        Auth.auth().createUser(withEmail: "mahakoz@icloud.com", password: "password") { AuthDataResult, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print(AuthDataResult?.user.uid ?? "")
+            }
+        }
+    }
+    
     
     func setupImagePK() {
         self.view.addSubview(imagePK)
@@ -78,7 +94,10 @@ final class RegistrationViewController: UIViewController {
     
     func setupNameTextField() {
         self.view.addSubview(nameTextField)
-        nameTextField.text = "  Ваше имя"
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        nameTextField.leftViewMode = UITextField.ViewMode.always
+        nameTextField.leftView = spacerView
+        nameTextField.placeholder = "Ваше имя"
         nameTextField.textColor = .gray
         nameTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         nameTextField.font = UIFont.systemFont(ofSize: 20)
@@ -96,7 +115,10 @@ final class RegistrationViewController: UIViewController {
     
     func setupMailTextField() {
         self.view.addSubview(mailTextField)
-        mailTextField.text = "  Email"
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        mailTextField.leftViewMode = UITextField.ViewMode.always
+        mailTextField.leftView = spacerView
+        mailTextField.placeholder = "Email"
         mailTextField.textColor = .gray
         mailTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         mailTextField.font = UIFont.systemFont(ofSize: 20)
@@ -114,7 +136,11 @@ final class RegistrationViewController: UIViewController {
     
     func setupPasswordTextField() {
         self.view.addSubview(passwordTextField)
-        passwordTextField.text = "  Пароль"
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        passwordTextField.leftViewMode = UITextField.ViewMode.always
+        passwordTextField.leftView = spacerView
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.placeholder = "Пароль"
         passwordTextField.textColor = .gray
         passwordTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         passwordTextField.font = UIFont.systemFont(ofSize: 20)
@@ -132,7 +158,11 @@ final class RegistrationViewController: UIViewController {
     
     func setupPassConfirmTextField() {
         self.view.addSubview(passConfirmTextField)
-        passConfirmTextField.text = "  Подтвердите пароль"
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        passConfirmTextField.leftViewMode = UITextField.ViewMode.always
+        passConfirmTextField.leftView = spacerView
+        passConfirmTextField.isSecureTextEntry = true
+        passConfirmTextField.placeholder = "Подтвердите пароль"
         passConfirmTextField.textColor = .gray
         passConfirmTextField.backgroundColor = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 0.30)
         passConfirmTextField.font = UIFont.systemFont(ofSize: 20)
@@ -154,6 +184,7 @@ final class RegistrationViewController: UIViewController {
         regButton.layer.cornerRadius = 10
         regButton.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
         regButton.translatesAutoresizingMaskIntoConstraints = false
+        regButton.addTarget(self, action: #selector(registButtonTapped), for: .touchUpInside)
         NSLayoutConstraint.activate([
             regButton.topAnchor.constraint(equalTo: passConfirmTextField.bottomAnchor, constant: 60),
             regButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
@@ -166,7 +197,7 @@ final class RegistrationViewController: UIViewController {
     
     func setupExistAccountButton() {
         self.view.addSubview(accountExist)
-        accountExist.setTitle("Уже есть аккаунт!", for: .normal)
+        accountExist.setTitle("Уже есть аккаунт", for: .normal)
         accountExist.layer.cornerRadius = 10
         accountExist.backgroundColor = UIColor(red: 0.00, green: 0.47, blue: 1.00, alpha: 0.80)
         accountExist.translatesAutoresizingMaskIntoConstraints = false
@@ -186,9 +217,28 @@ private extension RegistrationViewController {
     @objc func accountExistButtonTapped() {
         output.accountExistButtonTapped()
     }
+    
+    @objc func registButtonTapped() {
+        guard let name = nameTextField.text, !name.isEmpty, let email = mailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty, let passconf = passConfirmTextField.text, !passconf.isEmpty
+        else {
+            AlertManager.showBasicAlert(on: self, title: "Поля не должны быть пустыми", message: "Заполните поля")
+            return
+        }
+        guard password == passconf
+        else {
+            AlertManager.showBasicAlert(on: self, title: "Введенные пароли не совпадают", message: "Введите одинаковые пароли")
+            return
+        }
+        output.registButtonTapped(name: name, email: email, password: password, passconf: passconf)
+    
+    }
 }
 
 extension RegistrationViewController: RegistrationViewInput {
+    func showError() {
+        AlertManager.showBasicAlert(on: self, title: "Произошла ошибка", message: "Попробуйте заново")
+    }
     
 }
+
 

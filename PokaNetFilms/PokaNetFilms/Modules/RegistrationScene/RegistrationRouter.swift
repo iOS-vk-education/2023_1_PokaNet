@@ -12,6 +12,10 @@ final class RegistrationRouter: BaseRouter {
 }
 
 extension RegistrationRouter: RegistrationRouterInput {
+    func openTabBar() {
+        presentFromSourceView(viewController: TabBarController())
+    }
+    
     func openAuthorization() {
         dismiss()
     }

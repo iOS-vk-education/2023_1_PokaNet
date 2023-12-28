@@ -18,9 +18,32 @@ extension AuthorizationPresenter: AuthorizationModuleInput {
 }
 
 extension AuthorizationPresenter: AuthorizationViewOutput {
-    func didTapEnterButton() {
-        router?.openTabBar()
+    func didTapEnterButton(email: String, password: String) {
+        let loginRequest = LoginUserRequest(
+            email: email,
+            password: password
+        )
+        
+        AuthService.shared.signIn(with: loginRequest) { [weak self] error in
+            if (error != nil) {
+                self?.view?.showError()
+                return
+            }
+            self?.router?.openTabBar()
+            //        if let error = error {
+            //            AlertManager.showSignInErrorAlert(on: self, with: error)
+            //            return
+            //        }
+            //
+            //        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            //            sceneDelegate.checkAuthentication()
+        }
     }
+    
+    
+    //    func didTapEnterButton() {
+    //        router?.openTabBar()
+    //    }
     
     func didTapRegistrationButton() {
         router?.openRegistration()
