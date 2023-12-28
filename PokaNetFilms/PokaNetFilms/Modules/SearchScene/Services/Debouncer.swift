@@ -8,6 +8,7 @@
 import Foundation
 
 public class Debouncer: NSObject {
+    
     public var callback: ((String?) -> Void)
     public var delay: Double
     public weak var timer: Timer?

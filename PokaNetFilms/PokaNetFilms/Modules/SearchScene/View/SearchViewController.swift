@@ -167,6 +167,17 @@ extension SearchViewController: UITableViewDataSource {
 
 //MARK: - CollectionView
 extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastCell = indexPath.row == output.totalResults - 1
+        print(indexPath.row)
+        guard lastCell else {
+            return
+        }
+        
+        let textToSearch = self.searchBar.text ?? ""
+        
+        output.willDisplayLastCell(textToSearch)
+    }
 }
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -201,6 +212,11 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - SearchBar
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            resetSearchResults()
+            return
+        }
+        
         output.didChangeSearchText(searchText)
         updateUI()
     }
@@ -217,6 +233,10 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: SearchViewInput {
     func resetSearchResults() {
+        self.model.removeAll()
+        output.resetPagination()
+        foundedFilmsCV.reloadData()
+        updateUI()
     }
     
     func showError(_ error: Error) {
@@ -237,7 +257,7 @@ extension SearchViewController: SearchViewInput {
     }
     
     func configureSearch(with model: [SearchFilmsModel]) {
-        self.model = model
+        self.model.append(contentsOf: model)
         DispatchQueue.main.async {
             self.foundedFilmsCV.reloadData()
             self.updateUI()

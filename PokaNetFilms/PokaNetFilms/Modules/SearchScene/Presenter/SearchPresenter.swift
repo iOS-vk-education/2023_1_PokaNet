@@ -14,11 +14,11 @@ final class SearchPresenter {
     weak var moduleOutput: SearchModuleOutput?
     
     private var currentQuery: String?
-    private var page = 0
-    private let limit = 20
+    private var page = 1
+    private let limit = 10
     private var canRequestNext = true
     private var isLoading = false
-    private var totalResults = 0
+    var totalResults = 0
     
     lazy var searchDebouncer: Debouncer = {
         return Debouncer(delay: 0.7) { [weak self] query in
@@ -34,16 +34,18 @@ extension SearchPresenter {
             
             let genresString = film.genres.map { $0.name }.joined(separator: " ")
             
-            return SearchFilmsModel(title: film.name, genres: genresString, year: film.year, image: film.poster.url ?? "")
+            return SearchFilmsModel(title: film.name, genres: genresString, year: film.year, image: film.poster.url?.absoluteString ?? "")
         }
     }
     
     func performSearch(query: String) {
-        SearchService.shared.searchFilms(query: query, page: 1, limit: 10) { response in
+        SearchService.shared.searchFilms(query: query, page: page, limit: limit) { response in
             switch response {
             case .success(let films):
                 let searchModels = self.convertToSearchFilmsModel(response: films)
                 self.view?.configureSearch(with: searchModels)
+                self.page += 1
+                self.totalResults += self.limit
             case .failure(let error):
                 print(error)
             }
@@ -51,11 +53,13 @@ extension SearchPresenter {
     }
     
     func perforGenreSearch(genreName: String) {
-        SearchService.shared.searchFilmsByGenre(genreName: genreName, page: 1, limit: 10) { response in
+        SearchService.shared.searchFilmsByGenre(genreName: genreName, page: page, limit: limit) { response in
             switch response {
             case .success(let films):
                 let searchModels = self.convertToSearchFilmsModel(response: films)
                 self.view?.configureSearchByGenre(with: searchModels)
+                self.page += 1
+                self.totalResults += self.limit
             case .failure(let error):
                 print(error)
             }
@@ -84,12 +88,21 @@ extension SearchPresenter: SearchViewOutput {
     func didLoadView() {
     }
     
+    func resetPagination() {
+        totalResults = 0
+        page = 1
+    }
+    
     func didChangeSearchText(_ searchText: String) {
         searchDebouncer.call(searchText)
     }
     
     func didChooseGenre(genreName: String) {
         perforGenreSearch(genreName: genreName)
+    }
+    
+    func willDisplayLastCell(_ query: String) {
+        performSearch(query: query)
     }
 }
 

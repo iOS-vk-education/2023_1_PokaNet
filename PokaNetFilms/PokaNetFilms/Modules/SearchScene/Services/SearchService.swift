@@ -13,6 +13,7 @@ final class SearchService {
     private init() {}
      
     private let searchUrl = "\(APIConstants.baseUrl)/v1.4/movie/search"
+    private let genreSearchUrl = APIConstants.baseUrl + APIConstants.genreSearchUrl
     private let networkService = AlamofireNetworkService()
      
     func searchFilms(query: String, page: Int, limit: Int, completion: @escaping (Result<FilmResponse, Error>) -> Void) {
@@ -21,6 +22,9 @@ final class SearchService {
         let queryItems = [
             URLQueryItem(name: "page", value: String(page)),
             URLQueryItem(name: "limit", value: String(limit)),
+            URLQueryItem(name: "notNullFields", value: "name"),
+            URLQueryItem(name: "notNullFields", value: "genre.name"),
+            URLQueryItem(name: "notNullFields", value: "poster.url"),
             URLQueryItem(name: "query", value: query)
         ]
          
@@ -50,11 +54,12 @@ final class SearchService {
     }
     
     func searchFilmsByGenre(genreName: String, page: Int, limit: Int, completion: @escaping (Result<FilmResponse, Error>) -> Void) {
-        var urlComponents = URLComponents(string: searchUrl)
+        var urlComponents = URLComponents(string: genreSearchUrl)
+
         let queryItems = [
             URLQueryItem(name: "page", value: String(page)),
             URLQueryItem(name: "limit", value: String(limit)),
-            URLQueryItem(name: "genre.name", value: genreName)
+            URLQueryItem(name: "genres.name", value: genreName)
         ]
         
         urlComponents?.queryItems = queryItems
@@ -63,6 +68,8 @@ final class SearchService {
             completion(.failure(URLError(.badURL)))
             return
         }
+        
+        print(fullUrl)
         
         networkService.request(fullUrl.absoluteString) { response in
             switch response.result {

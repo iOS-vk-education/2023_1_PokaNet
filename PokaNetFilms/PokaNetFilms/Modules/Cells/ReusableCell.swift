@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 final class ReusableCell: UICollectionViewCell {
     
@@ -31,6 +32,17 @@ final class ReusableCell: UICollectionViewCell {
         super.layoutSubviews()
         contentView.layoutIfNeeded()
         applyMaskToImageView()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        imageView.kf.cancelDownloadTask()
+        
+        titleLabel.text = nil
+        infoLabel.text = nil
+        genreslabel.text = nil
     }
     
     func applyMaskToImageView() {
@@ -121,10 +133,10 @@ extension ReusableCell {
         genreslabel.text = model.genres
         infoLabel.text = String(model.year)
         
-        output.loadImage(from: model.image) { [weak self] image in
-            DispatchQueue.main.async {
-                    self?.imageView.image = image ?? UIImage(named: "defaultImage")
-            }
+        if let url = URL(string: model.image) {
+            imageView.kf.setImage(with: url)
+        } else {
+            print("Неверный URL изображения")
         }
     }
 }

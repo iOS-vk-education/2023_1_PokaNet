@@ -11,9 +11,9 @@ struct SearchFilmsModel {
     let title: String
     let genres: String
     let year: Int
-    let image: URL
+    let image: String
     
-    init(title: String, genres: String, year: Int, image: URL) {
+    init(title: String, genres: String, year: Int, image: String) {
         self.title = title
         self.genres = genres
         self.year = year
@@ -22,32 +22,36 @@ struct SearchFilmsModel {
 }
 
 enum GenreToSearch: String, CaseIterable {
-    case comedy = "Комедии"
-    case animation = "Мультфильмы"
-    case horror = "Ужасы"
-    case scienceFiction = "Фантастика"
-    case thriller = "Триллеры"
-    case action = "Боевики"
-    case romance = "Мелодрамы"
-    case crime = "Детективы"
-    case adventure = "Приключения"
-    case fantasy = "Фэнтези"
-    case war = "Военные"
-    case family = "Семейные"
-    case anime = "Аниме"
-    case historical = "Исторические"
-    case drama = "Драмы"
-    case documentary = "Документальные"
-    case children = "Детские"
-    case criminal = "Криминал"
-    case biography = "Биографии"
-    case western = "Вестерны"
-    case filmNoir = "Фильмы-нуар"
-    case sports = "Спортивные"
-    case realityTV = "Реальное ТВ"
-    case shortFilm = "Короткометражки"
-    case music = "Музыкальные"
-    case musical = "Мюзиклы"
-    case talkShow = "Ток-шоу"
-    case game = "Игры"
+    case anime = "аниме"
+    case biography = "биография"
+    case action = "боевик"
+    case western = "вестерн"
+    case military = "военный"
+    case detective = "детектив"
+    case children = "детский"
+    case adult = "для взрослых"
+    case documentary = "документальный"
+    case drama = "драма"
+    case game = "игра"
+    case history = "история"
+    case comedy = "комедия"
+    case concert = "концерт"
+    case short = "короткометражка"
+    case crime = "криминал"
+    case melodrama = "мелодрама"
+    case music = "музыка"
+    case cartoon = "мультфильм"
+    case musical = "мюзикл"
+    case news = "новости"
+    case adventure = "приключения"
+    case realityTV = "реальное ТВ"
+    case family = "семейный"
+    case sport = "спорт"
+    case talkShow = "ток-шоу"
+    case thriller = "триллер"
+    case horror = "ужасы"
+    case fantasy = "фантастика"
+    case filmNoir = "фильм-нуар"
+    case fantasyGenre = "фэнтези"
+    case ceremony = "церемония"
 }
