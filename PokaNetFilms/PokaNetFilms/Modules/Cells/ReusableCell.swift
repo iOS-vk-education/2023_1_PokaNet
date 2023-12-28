@@ -7,13 +7,16 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 final class ReusableCell: UICollectionViewCell {
     
-    private var imageView = UIImageView()
+    var imageView = UIImageView()
     private var titleLabel = UILabel()
     private var infoLabel = UILabel()
     private var genreslabel = UILabel()
+    
+    private var imageLoadingTask: URLSessionDataTask?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,6 +32,17 @@ final class ReusableCell: UICollectionViewCell {
         super.layoutSubviews()
         contentView.layoutIfNeeded()
         applyMaskToImageView()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        imageView.kf.cancelDownloadTask()
+        
+        titleLabel.text = nil
+        infoLabel.text = nil
+        genreslabel.text = nil
     }
     
     func applyMaskToImageView() {
@@ -55,7 +69,6 @@ extension ReusableCell {
     
     func setupImageView() {
         contentView.addSubview(imageView)
-        imageView.image = UIImage(named: "defaultImage")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,23 +83,21 @@ extension ReusableCell {
     
     func setupTitle() {
         contentView.addSubview(titleLabel)
-        titleLabel.text = "Очень длинное название фильма"
         titleLabel.numberOfLines = 0
-        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.lineBreakMode = .byTruncatingTail
         titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             titleLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8),
             titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     func setupInfoLabel() {
         contentView.addSubview(infoLabel)
-        infoLabel.text = "2018"
         infoLabel.textColor = .black
         infoLabel.font = UIFont.systemFont(ofSize: 16)
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +112,6 @@ extension ReusableCell {
     
     func setupGenreslabel() {
         contentView.addSubview(genreslabel)
-        genreslabel.text = "genre genre genre genre genre"
         genreslabel.textColor = .systemGray3
         genreslabel.font = UIFont.systemFont(ofSize: 14)
         genreslabel.numberOfLines = 0
@@ -113,6 +123,21 @@ extension ReusableCell {
             genreslabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             genreslabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
+    }
+}
+
+extension ReusableCell {
+    
+    func configureCell(_ model: SearchFilmsModel, output: SearchViewOutput) {
+        titleLabel.text = model.title
+        genreslabel.text = model.genres
+        infoLabel.text = String(model.year)
+        
+        if let url = URL(string: model.image) {
+            imageView.kf.setImage(with: url)
+        } else {
+            print("Неверный URL изображения")
+        }
     }
 }
 
