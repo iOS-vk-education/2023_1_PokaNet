@@ -93,6 +93,9 @@
 		B44AE5402B3B78B9004EAB3E /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44AE53F2B3B78B9004EAB3E /* TrailerViewController.swift */; };
 		B4561E812B34AA0900EED4B9 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4561E802B34AA0900EED4B9 /* FilmManager.swift */; };
 		B4561E882B34B97900EED4B9 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4561E872B34B97900EED4B9 /* FilmModel.swift */; };
+		BC5230302B3B5F3700154440 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52302F2B3B5F3700154440 /* MainManager.swift */; };
+		BC5230322B3B5FA900154440 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5230312B3B5FA900154440 /* MainModel.swift */; };
+		BC99411E2B3C815400388C79 /* request and response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99411D2B3C815400388C79 /* request and response.swift */; };
 		BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D32B09F00800FC388C /* MainAssembly.swift */; };
 		BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D52B09F5CC00FC388C /* MainViewController.swift */; };
 		BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD408D72B09F61400FC388C /* MainPresenter.swift */; };
@@ -163,6 +166,9 @@
 		B44AE53F2B3B78B9004EAB3E /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		B4561E802B34AA0900EED4B9 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
 		B4561E872B34B97900EED4B9 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
+		BC52302F2B3B5F3700154440 /* MainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
+		BC5230312B3B5FA900154440 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		BC99411D2B3C815400388C79 /* request and response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "request and response.swift"; sourceTree = "<group>"; };
 		BCD408D32B09F00800FC388C /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		BCD408D52B09F5CC00FC388C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BCD408D72B09F61400FC388C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
@@ -480,6 +486,17 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		BC5230352B3B616C00154440 /* MainNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				BC52302F2B3B5F3700154440 /* MainManager.swift */,
+				BC99411D2B3C815400388C79 /* request and response.swift */,
+				BC5230312B3B5FA900154440 /* MainModel.swift */,
+			);
+			path = MainNetwork;
+			sourceTree = "<group>";
+		};
+		
 		BCD408DB2B0A57DB00FC388C /* MainModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +510,7 @@
 		BCD408E12B0A627A00FC388C /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
+				BC5230352B3B616C00154440 /* MainNetwork */,
 				BCD408DB2B0A57DB00FC388C /* MainModels */,
 				BCD408D32B09F00800FC388C /* MainAssembly.swift */,
 				BCD408D72B09F61400FC388C /* MainPresenter.swift */,
@@ -637,6 +655,7 @@
 				7434182D2B06CF6D008390D7 /* ProfileHeaderModel.swift in Sources */,
 				74BC82CC2B14747500B53E34 /* SearchAssembly.swift in Sources */,
 				7434182B2B06CF5F008390D7 /* ProfileViewModel.swift in Sources */,
+				BC99411E2B3C815400388C79 /* request and response.swift in Sources */,
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
 				74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */,
 				062643FA2B3C9AAB00A74E1D /* LoginUserRequest.swift in Sources */,
@@ -652,6 +671,7 @@
 				062643F82B3C933F00A74E1D /* Validator.swift in Sources */,
 				74876FD92B1BD8C10054CBA4 /* RegistrationRouter.swift in Sources */,
 				74237BBB2B38C726007A61B8 /* RecievedFilmModel.swift in Sources */,
+				BC5230322B3B5FA900154440 /* MainModel.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				B44AE5402B3B78B9004EAB3E /* TrailerViewController.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
@@ -676,6 +696,7 @@
 				B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */,
 				B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */,
 				B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */,
+				BC5230302B3B5F3700154440 /* MainManager.swift in Sources */,
 				B42767672B0E66FB000FEB4D /* FilmPresenter.swift in Sources */,
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,

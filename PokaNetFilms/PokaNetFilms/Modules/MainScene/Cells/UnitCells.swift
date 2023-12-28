@@ -196,4 +196,3 @@ private extension MainMovieCell {
         ])
     }
 }
-
