@@ -25,10 +25,9 @@ extension ProfilePresenter: ProfileViewOutput {
 
 private extension ProfilePresenter {
     func mock() {
-        let avatarImage = UIImage(named: "avatar") ?? UIImage(named: "defaultImage")!
-        
-        let profileModel: ProfileHeaderModel = .init(userName: "Дон Григорий", email: "dongrigory29@gmail.com", avatar: avatarImage)
-        
+//        
+//
+//        
         let filmImage = UIImage(named: "nilName") ?? UIImage(named: "defaultImage")!
         
         let filmsModel: [ProfileFavouriteFilmsModel] = [
@@ -46,6 +45,13 @@ private extension ProfilePresenter {
             .init(title: "5", image: filmImage),
             .init(title: "5", image: filmImage)
         ]
+        
+        let name = UserDefaults.standard.object(forKey: "nameKey") as? String ?? "Дон Григорий"
+        let email = UserDefaults.standard.object(forKey: "emailKey") as? String ?? "dongrigory29@gmail.com"
+        
+        let avatarImage = UIImage(named: "avatar") ?? UIImage(named: "defaultImage")!
+        
+        let profileModel: ProfileHeaderModel = .init(userName: name, email: email, avatar: avatarImage)
         
         view?.configureProfile(with: .init(profile: profileModel, favouriteFilms: filmsModel))
     }

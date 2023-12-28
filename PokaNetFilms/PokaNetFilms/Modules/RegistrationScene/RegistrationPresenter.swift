@@ -27,6 +27,9 @@ extension RegistrationPresenter: RegistrationViewOutput {
             passconf: passconf
         )
         
+        UserDefaults.standard.set(name, forKey: "nameKey")
+        UserDefaults.standard.set(email, forKey: "emailKey")
+        
         AuthService.shared.registerUser(with: registRequest) { [weak self] wasregistered, error in
             if (error != nil) {
                 self?.view?.showError()
@@ -49,8 +52,3 @@ extension RegistrationPresenter: RegistrationViewOutput {
 
 private extension RegistrationPresenter {
 }
-
-//extension AuthorizationPresenter: AuthorizationModuleInput {
-//}
-
-
