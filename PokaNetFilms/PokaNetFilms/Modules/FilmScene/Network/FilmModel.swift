@@ -36,29 +36,29 @@ struct SeasonsInfo: Decodable {
     let number: Int
     let episodesCount: Int
 }
-struct Genres: Decodable {
-    let name: String
-}
+//struct Genres: Decodable {
+//    let name: String
+//}
 
-struct Premiere: Decodable {
-    let world: String?
-    let russia: String?
-    let digital: String?
-}
+//struct Premiere: Decodable {
+//    let world: String?
+//    let russia: String?
+//    let digital: String?
+//}
 
 struct Countries: Decodable {
     let name: String
 }
 
-struct Persons: Decodable {
-    let name: String
-    let enProfession: String
-}
+//struct Persons: Decodable {
+//    let name: String
+//    let enProfession: String
+//}
 
-struct Poster: Decodable {
-    let url: String
-    let previewUrl: String
-}
+//struct Poster: Decodable {
+//    let url: String
+//    let previewUrl: String
+//}
 
 struct Rating: Decodable {
     let kp: Double
