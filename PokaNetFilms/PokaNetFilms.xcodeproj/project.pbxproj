@@ -52,6 +52,8 @@
 		74237BB52B38AD1F007A61B8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 74237BB42B38AD1F007A61B8 /* FirebaseStorage */; };
 		74237BB72B38AD1F007A61B8 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 74237BB62B38AD1F007A61B8 /* FirebaseStorageCombine-Community */; };
 		74237BB92B38B1A7007A61B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74237BB82B38B1A7007A61B8 /* GoogleService-Info.plist */; };
+		74237BBB2B38C726007A61B8 /* RecievedFilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237BBA2B38C726007A61B8 /* RecievedFilmModel.swift */; };
+		74237BC02B3A23FE007A61B8 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237BBF2B3A23FE007A61B8 /* Debouncer.swift */; };
 		743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418222B06C66E008390D7 /* ProfileAssembly.swift */; };
 		743418252B06C685008390D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418242B06C685008390D7 /* ProfileViewController.swift */; };
 		743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743418262B06CC23008390D7 /* ProfilePresenter.swift */; };
@@ -69,6 +71,7 @@
 		74876FDB2B1C83EF0054CBA4 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FDA2B1C83EF0054CBA4 /* BaseRouter.swift */; };
 		74876FDD2B1C83FD0054CBA4 /* BaseRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74876FDC2B1C83FD0054CBA4 /* BaseRouterInput.swift */; };
 		748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A3BF22B09C607007F5154 /* ProfileFavouriteFilmsModel.swift */; };
+		74B2A9172B3CAF8B00BA7F7D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 74B2A9162B3CAF8B00BA7F7D /* Kingfisher */; };
 		74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82AE2B1113CE00B53E34 /* ProfileMessageCell.swift */; };
 		74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82B02B11143600B53E34 /* ProfileHeaderView.swift */; };
 		74BC82CC2B14747500B53E34 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC82C42B14747500B53E34 /* SearchAssembly.swift */; };
@@ -119,6 +122,8 @@
 		06C5C2A02B13BF79009E418E /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
 		74237B7F2B38A6A2007A61B8 /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		74237BB82B38B1A7007A61B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74237BBA2B38C726007A61B8 /* RecievedFilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedFilmModel.swift; sourceTree = "<group>"; };
+		74237BBF2B3A23FE007A61B8 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		743418222B06C66E008390D7 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		743418242B06C685008390D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		743418262B06CC23008390D7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -182,6 +187,7 @@
 				74237B912B38AD1F007A61B8 /* FirebaseAuthCombine-Community in Frameworks */,
 				74237B9D2B38AD1F007A61B8 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				74237B872B38AD1F007A61B8 /* FirebaseAnalyticsSwift in Frameworks */,
+				74B2A9172B3CAF8B00BA7F7D /* Kingfisher in Frameworks */,
 				74237BAB2B38AD1F007A61B8 /* FirebaseMLModelDownloader in Frameworks */,
 				74237B892B38AD1F007A61B8 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				74237B832B38AD1F007A61B8 /* FirebaseAnalytics in Frameworks */,
@@ -406,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				74BC82C82B14747500B53E34 /* SearchFilmsModel.swift */,
+				74237BBA2B38C726007A61B8 /* RecievedFilmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				74F022EE2B337A2C00AFCFA7 /* SearchService.swift */,
+				74237BBF2B3A23FE007A61B8 /* Debouncer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -550,6 +558,7 @@
 				74237BB22B38AD1F007A61B8 /* FirebaseRemoteConfigSwift */,
 				74237BB42B38AD1F007A61B8 /* FirebaseStorage */,
 				74237BB62B38AD1F007A61B8 /* FirebaseStorageCombine-Community */,
+				74B2A9162B3CAF8B00BA7F7D /* Kingfisher */,
 			);
 			productName = PokaNetFilms;
 			productReference = 747BBFBE2AF31594003AC739 /* PokaNetFilms.app */;
@@ -582,6 +591,7 @@
 			packageReferences = (
 				74F022F82B33A1DB00AFCFA7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				74237B812B38AD1F007A61B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				74B2A9152B3CAF8B00BA7F7D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 747BBFBF2AF31594003AC739 /* Products */;
 			projectDirPath = "";
@@ -641,6 +651,7 @@
 				74876FDD2B1C83FD0054CBA4 /* BaseRouterInput.swift in Sources */,
 				062643F82B3C933F00A74E1D /* Validator.swift in Sources */,
 				74876FD92B1BD8C10054CBA4 /* RegistrationRouter.swift in Sources */,
+				74237BBB2B38C726007A61B8 /* RecievedFilmModel.swift in Sources */,
 				BCD408E02B0A61F200FC388C /* MainMovieCellModel.swift in Sources */,
 				B44AE5402B3B78B9004EAB3E /* TrailerViewController.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
@@ -669,6 +680,7 @@
 				747BBFC42AF31594003AC739 /* SceneDelegate.swift in Sources */,
 				743418292B06CC2D008390D7 /* ProfileProtocols.swift in Sources */,
 				74F022EF2B337A2C00AFCFA7 /* SearchService.swift in Sources */,
+				74237BC02B3A23FE007A61B8 /* Debouncer.swift in Sources */,
 				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
 				062643FC2B3C9AD800A74E1D /* User.swift in Sources */,
 			);
@@ -903,6 +915,14 @@
 				minimumVersion = 10.19.1;
 			};
 		};
+		74B2A9152B3CAF8B00BA7F7D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.1;
+			};
+		};
 		74F022F82B33A1DB00AFCFA7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1048,6 +1068,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 74237B812B38AD1F007A61B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		74B2A9162B3CAF8B00BA7F7D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74B2A9152B3CAF8B00BA7F7D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		74F022F92B33A1DB00AFCFA7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
