@@ -34,7 +34,7 @@ private extension MainPresenter {
     func loadData() {
         let mainManager = MainManager.shared
         
-        mainManager.searchFilms(page: 1, limit: 10) { result in
+        mainManager.searchFilms(page: 1, limit: 100) { result in
             switch result {
             case .success(let film):
                 // Обработка успешного ответа

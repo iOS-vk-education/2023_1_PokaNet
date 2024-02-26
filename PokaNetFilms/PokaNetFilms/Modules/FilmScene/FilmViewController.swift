@@ -76,9 +76,19 @@ final class FilmViewController: UIViewController {
     private func setupNavigationBar() {
         let backButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(backButtonTapped))
         self.navigationItem.leftBarButtonItem = backButton
+        
+        let likeButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(likeButtonTapped))
+        likeButton.tintColor = .red
+        self.navigationItem.rightBarButtonItem = likeButton
+        
+        self.navigationItem.rightBarButtonItems = [likeButton]
     }
     
     @objc private func backButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func likeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
 }

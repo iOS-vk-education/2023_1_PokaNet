@@ -23,7 +23,9 @@ final class MainManager {
             URLQueryItem(name: "page", value: String(page)),
             URLQueryItem(name: "limit", value: String(limit)),
             URLQueryItem(name: "notNullFields", value: "name&ageRating&poster.url&persons.name&genres.name&persons.enName"),
-            URLQueryItem(name: "query", value: "top250")
+            URLQueryItem(name: "query", value: "top250"),
+            URLQueryItem(name: "ticketsOnSale", value: "true"),
+            URLQueryItem(name: "similarMovies.year", value: "2024")
         ]
         
         urlComponents?.queryItems = queryItems
@@ -33,7 +35,7 @@ final class MainManager {
             return
         }
    
-        networkService.request("https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&lists=top250") { response in
+        networkService.request("https://api.kinopoisk.dev/v1.4/movie?page=1&limit=100&lists=top250&ticketsOnSale=true") { response in
             switch response.result {
             case .success(let data):
                 do {
