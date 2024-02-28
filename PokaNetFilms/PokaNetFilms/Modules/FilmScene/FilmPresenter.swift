@@ -83,7 +83,7 @@ private extension FilmPresenter {
             for genre in film.genres {
                 genres = genres + genre.name + " "
             }
-            
+            var itSerial = false
             let movieLength = film.movieLength ?? Int(100)
             var movieTime: String
             if movieLength != 100 {
@@ -93,6 +93,7 @@ private extension FilmPresenter {
             }
             else if film.seasonsInfo.count != 0 {
                     movieTime = "Количество серий: " + "\(film.seasonsInfo[0]!.episodesCount)"
+                    itSerial = true
             }
             else {
                 movieTime = "1ч 45мин"
@@ -131,7 +132,9 @@ private extension FilmPresenter {
                 filmCastTextLabel: casts,
                 filmImage: filmImage, 
                 videoUrl: url ?? "noFilm",
-                id: film.id)
+                id: film.id,
+                itSerial: itSerial
+            )
             
 //            film.filmTitle ?? "PokaNet"
 //            film.scoreLabel ?? "PokaNet"

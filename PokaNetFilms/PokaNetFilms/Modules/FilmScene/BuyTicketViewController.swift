@@ -13,12 +13,20 @@ import WebKit
 final class TicketViewController: UIViewController {
     
     var id: String?
+    var itSerial: String?
     let webView = WKWebView()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         setupWebView()
-        let url = "https://www.kinopoisk.ru/series/\(id ?? "")"
+        
+        var url = ""
+        if itSerial == "true"{
+            url = "https://www.kinopoisk.ru/series/\(id ?? "")"
+        }
+        else if itSerial == "false"{
+            url = "https://www.kinopoisk.ru/film/\(id ?? "")"
+        }
         if let url = URL(string: url) {
             let request = URLRequest(url: url)
             webView.load(request)

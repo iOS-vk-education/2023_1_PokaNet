@@ -35,6 +35,7 @@ final class FilmViewController: UIViewController {
     
     let playButton = UIButton()
     let idLabel = UILabel()
+    let itSerialLabel = UILabel()
     let pnImage = UIImageView()
     
     override func viewDidLoad() {
@@ -153,6 +154,7 @@ extension FilmViewController{
         let secondViewController = TicketViewController()
         secondViewController.modalPresentationStyle = .popover
         secondViewController.id = idLabel.text
+        secondViewController.itSerial = itSerialLabel.text
         present(secondViewController, animated: true, completion: nil)
     }
     
@@ -449,6 +451,7 @@ extension FilmViewController: FilmViewInput{
         if idLabel.text == nil {
             ticketsButton.isHidden = true
         }
+        itSerialLabel.text = String(model.itSerial)
         filmImage.image = model.filmImage
         filmCastTextLabel.text = model.filmCastTextLabel
         filmTitle.text = model.filmTitle
