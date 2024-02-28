@@ -106,24 +106,25 @@ private extension ProfileHeaderCell {
         
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
-        
-        let swapPhotoAction = UIAlertAction(title: "Поменять фото", style: .default) { [self] action in
+        let saveAction = UIAlertAction(title: "Сохранить", style: .default) { [self] action in
             if let name = alertController.textFields?[0].text, let email = alertController.textFields?[1].text {
+                UserDefaults.standard.set(name, forKey: "nameKey")
+                UserDefaults.standard.set(email, forKey: "emailKey")
                 profileName.text = name
                 profileEmail.text = email
-                
-                //сохранить в UserData
-                
-                delegate?.presentImagePicker(vc)
             }
         }
         
-        let saveAction = UIAlertAction(title: "Сохранить", style: .default) { [self] action in
+        
+        let swapPhotoAction = UIAlertAction(title: "Поменять фото", style: .default) { [self] action in
             if let name = alertController.textFields?[0].text, let email = alertController.textFields?[1].text {
+                UserDefaults.standard.set(name, forKey: "nameKey")
+                UserDefaults.standard.set(email, forKey: "emailKey")
                 profileName.text = name
                 profileEmail.text = email
                 
-                //сохранить в UserData
+                delegate?.presentImagePicker(vc)
+                
             }
         }
         
@@ -133,6 +134,7 @@ private extension ProfileHeaderCell {
         
         delegate?.presentAlert(alertController)
     }
+    
     
     
     func setupProfileEmail() {
@@ -178,7 +180,17 @@ private extension ProfileHeaderCell {
     
     func setupProfileImage() {
         addSubview(profileImage)
-        
+        let fileManager = FileManager.default // добавляем эту строчку
+        var savedImage: UIImage?
+        if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = documentsDirectory.appendingPathComponent("savedImage.png")
+            if fileManager.fileExists(atPath: fileURL.path) {
+                if let imageData = try? Data(contentsOf: fileURL) {
+                    savedImage = UIImage(data: imageData)
+                }
+            }
+        }
+        profileImage.image = savedImage ?? UIImage(systemName: "person.crop.circle")// устанавливаем изображение
         profileImage.contentMode = .scaleAspectFill
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
@@ -201,7 +213,7 @@ private extension ProfileHeaderCell {
 
 extension ProfileHeaderCell {
     func configure(_ header: ProfileHeaderModel) {
-        profileImage.image = header.avatar
+//        profileImage.image = header.avatar
         profileName.text = header.userName
         profileEmail.text = header.email
     }
@@ -212,6 +224,21 @@ extension ProfileHeaderCell {
         
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             profileImage.image = image
+            
+            guard let image = profileImage.image,
+                  let data = image.pngData() else {
+                return
+            }
+
+            let fileManager = FileManager.default
+            if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileURL = documentsDirectory.appendingPathComponent("savedImage.png")
+                do {
+                    try data.write(to: fileURL)
+                } catch {
+                    print("Error saving image: \(error)")
+                }
+            }
         }
         
         picker.dismiss(animated: true, completion: nil)

@@ -11,12 +11,10 @@ struct ProfileHeaderModel {
     
     let userName: String
     let email: String
-    let avatar: UIImage
     
-    init(userName: String, email: String, avatar: UIImage) {
+    init(userName: String, email: String) {
         self.userName = userName
         self.email = email
-        self.avatar = avatar
     }
 }
 

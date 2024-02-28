@@ -48,10 +48,9 @@ private extension ProfilePresenter {
         
         let name = UserDefaults.standard.object(forKey: "nameKey") as? String ?? "Дон Григорий"
         let email = UserDefaults.standard.object(forKey: "emailKey") as? String ?? "dongrigory29@gmail.com"
+//        let avatarImage = UIImage(systemName: "person.crop.circle") ?? UIImage(named: "avatar")!
         
-        let avatarImage = UIImage(systemName: "person.crop.circle") ?? UIImage(named: "avatar")!
-        
-        let profileModel: ProfileHeaderModel = .init(userName: name, email: email, avatar: avatarImage)
+        let profileModel: ProfileHeaderModel = .init(userName: name, email: email)
         
         view?.configureProfile(with: .init(profile: profileModel, favouriteFilms: filmsModel))
     }

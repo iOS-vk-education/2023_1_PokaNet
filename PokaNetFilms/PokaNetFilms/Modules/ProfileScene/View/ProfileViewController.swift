@@ -17,7 +17,7 @@ final class ProfileViewController: UIViewController, UIImagePickerControllerDele
     
     // MARK: - Properties
     private let output: ProfileViewOutput
-    private var profileModel = ProfileHeaderModel(userName: "", email: "", avatar: UIImage())
+    private var profileModel = ProfileHeaderModel(userName: "", email: "")
     private var favouriteFilms: [ProfileFavouriteFilmsModel] = []
     
     private let profileCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
