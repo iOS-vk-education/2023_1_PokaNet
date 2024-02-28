@@ -13,7 +13,7 @@ enum Section: Int {
     case favouriteFilms = 1
 }
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     // MARK: - Properties
     private let output: ProfileViewOutput
@@ -53,7 +53,9 @@ private extension ProfileViewController {
     func setupUI() {
         view.backgroundColor = .white
         setupProfileCollectionView()
+
     }
+    
     
     func setupProfileCollectionView() {
         view.addSubview(profileCollectionView)
@@ -106,6 +108,7 @@ extension ProfileViewController: UICollectionViewDataSource {
                 assertionFailure("The dequeued cell is not an instance of ProfileHeaderCell.")
                 return UICollectionViewCell()
             }
+            cell.delegate = self
             cell.configure(profileModel)
             return cell
         case .favouriteFilms:

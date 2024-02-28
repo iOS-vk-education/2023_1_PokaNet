@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-final class ProfileHeaderCell: UICollectionViewCell {
+final class ProfileHeaderCell: UICollectionViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     
     // MARK: - Properties
-    private let profileImage = UIImageView()
-    private let profileEmail = UILabel()
-    private let profileName = UILabel()
+    private var profileImage = UIImageView()
+    private var profileEmail = UILabel()
+    private var profileName = UILabel()
     private let settingsButton = UIButton()
+    weak var delegate: ProfileHeaderCellDelegate?
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -69,8 +70,8 @@ private extension ProfileHeaderCell {
         
         settingsButton.setTitle(" Редактировать", for: .normal)
         settingsButton.setTitleColor(.systemBlue, for: .normal)
-        settingsButton.backgroundColor = .clear
-        
+        settingsButton.backgroundColor = .white
+        settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
         makeConstraintsSettingsButton()
     }
     
@@ -84,6 +85,55 @@ private extension ProfileHeaderCell {
             settingsButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
+    @objc func openSettings(_ sender: UIButton) {
+        print("Я открыл настройки)))")
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        
+        let alertController = UIAlertController(title: "Редактировать профиль", message: "Пожалуйста, отредактируйте свое имя, почтовый адрес и фото", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Введите ваше имя"
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Введите ваш почтовый адрес"
+            textField.keyboardType = .emailAddress
+        }
+        
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
+        
+        let swapPhotoAction = UIAlertAction(title: "Поменять фото", style: .default) { [self] action in
+            if let name = alertController.textFields?[0].text, let email = alertController.textFields?[1].text {
+                profileName.text = name
+                profileEmail.text = email
+                
+                //сохранить в UserData
+                
+                delegate?.presentImagePicker(vc)
+            }
+        }
+        
+        let saveAction = UIAlertAction(title: "Сохранить", style: .default) { [self] action in
+            if let name = alertController.textFields?[0].text, let email = alertController.textFields?[1].text {
+                profileName.text = name
+                profileEmail.text = email
+                
+                //сохранить в UserData
+            }
+        }
+        
+        alertController.addAction(swapPhotoAction)
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        delegate?.presentAlert(alertController)
+    }
+    
     
     func setupProfileEmail() {
         addSubview(profileEmail)
@@ -154,5 +204,38 @@ extension ProfileHeaderCell {
         profileImage.image = header.avatar
         profileName.text = header.userName
         profileEmail.text = header.email
+    }
+}
+
+extension ProfileHeaderCell {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            profileImage.image = image
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+protocol ProfileHeaderCellDelegate: AnyObject {
+    func presentImagePicker(_ picker: UIImagePickerController)
+    
+    func presentAlert(_ alert: UIAlertController)
+}
+
+
+extension ProfileViewController: ProfileHeaderCellDelegate {
+    func presentAlert(_ alertController: UIAlertController) {
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func presentImagePicker(_ picker: UIImagePickerController) {
+        present(picker, animated: true, completion: nil)
     }
 }
