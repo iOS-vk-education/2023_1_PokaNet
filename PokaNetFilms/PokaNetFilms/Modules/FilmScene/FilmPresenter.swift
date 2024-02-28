@@ -65,11 +65,11 @@ private extension FilmPresenter {
             var casts: String = ""
             var authors: String = ""
             for person in film.persons {
-                if person.enProfession == "director"{
-                    authors = authors + " " + String(person.name) + ", "
+                if person?.enProfession == "director"{
+                    authors = authors + " " + String(person?.name ?? "PokaNet") + ", "
                 }
-                if person.enProfession == "actor"{
-                    casts = casts + " " + String(person.name) + ", "
+                if person?.enProfession == "actor"{
+                    casts = casts + " " + String(person?.name ?? "PokaNet") + ", "
                 }
             } 
             casts.removeFirst()
@@ -100,7 +100,7 @@ private extension FilmPresenter {
             
             let showDate = film.premiere.russia ?? film.premiere.digital ?? film.premiere.russia ?? String("Не указана дата премьеры")
             let filmDate = setupFilmDate(date: showDate)
-            let url = film.videos.trailers[0].url
+            let url = film.videos?.trailers[0].url
             let score = (film.rating.kp * 10).rounded() / 10
             let color: UIColor
             if score > 8 {
@@ -114,6 +114,7 @@ private extension FilmPresenter {
             } else {
                 color = UIColor(red: 0.62, green: 0.08, blue: 0.04, alpha: 1.00) // красный
             }
+            
             let film: FilmViewModel = .init(
                 filmTitle: film.name,
                 scoreLabel: String(score),
@@ -128,8 +129,22 @@ private extension FilmPresenter {
                 filmShowDateLabel: filmDate,
                 filmAuthorNameLabel: authors,
                 filmCastTextLabel: casts,
-                filmImage: filmImage, videoUrl: url)
+                filmImage: filmImage, 
+                videoUrl: url ?? "noFilm",
+                id: film.id)
             
+//            film.filmTitle ?? "PokaNet"
+//            film.scoreLabel ?? "PokaNet"
+//            film.scoreColor ?? UIColor(.green)
+//            film.kinopoiskScoreLabel ?? "PokaNet"
+//            film.filmCountryLabel ?? "PokaNet"
+//            film.filmYearLabel ?? "PokaNet"
+//            film.movieDetailsLabelTime ?? "PokaNet"
+//            film.movieDetailsLabelGenre ?? "PokaNet"
+//            film.movieDetailsLabelAge ?? "PokaNet"
+//            film.filmDescriptionTextLabel ?? "PokaNet"
+//            film.filmShowDateLabel ?? "PokaNet"
+//            film.filmAuthorNameLabel ?? "PokaNet"
             view?.configure(with: film)
         }
         

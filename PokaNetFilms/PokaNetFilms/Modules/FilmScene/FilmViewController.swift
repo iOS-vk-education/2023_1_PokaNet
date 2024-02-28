@@ -33,33 +33,45 @@ final class FilmViewController: UIViewController {
     let filmAuthorNameLabel = UILabel()
     let filmCastTextLabel = UILabel()
     
+    let playButton = UIButton()
+    let idLabel = UILabel()
+    let pnImage = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         output.didLoadView()
         scrollView.delegate = self
         view.backgroundColor = UIColor.white
-        setupNavigationBar()
         
-        setupScrollView()
-        setupTicketsButton()
-        setupContainerView()
-        setupFilmImage()
-        setupFilmLabel()
-        setupScoreLabel()
-        setupKinopoiskLabel()
-        setupKinopoiskScoreLabel()
-        setupFilmCountryLabel()
-        setupFilmYearLabel()
-        setupMovieDetailsLabel()
-        setupFilmDescriptionLabel()
-        setupFilmDescriptionTextLabel()
-        setupFilmShowLabel()
-        setupFilmShowDateLabel()
-        setupFilmAuthorLabel()
-        setupFilmAuthorNameLabel()
-        setupFilmCastLabel()
-        setupFilmCastTextLabel()
+        setupPnImage()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.pnImage.removeFromSuperview()
+        }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.setupNavigationBar()
+            self.setupScrollView()
+            self.setupTicketsButton()
+            self.setupPlayButton()
+            self.setupContainerView()
+            self.setupFilmImage()
+            self.setupFilmLabel()
+            self.setupScoreLabel()
+            self.setupKinopoiskLabel()
+            self.setupKinopoiskScoreLabel()
+            self.setupFilmCountryLabel()
+            self.setupFilmYearLabel()
+            self.setupMovieDetailsLabel()
+            self.setupFilmDescriptionLabel()
+            self.setupFilmDescriptionTextLabel()
+            self.setupFilmShowLabel()
+            self.setupFilmShowDateLabel()
+            self.setupFilmAuthorLabel()
+            self.setupFilmAuthorNameLabel()
+            self.setupFilmCastLabel()
+            self.setupFilmCastTextLabel()
+        }
     }
     
     init(output: FilmViewOutput) {
@@ -94,6 +106,19 @@ final class FilmViewController: UIViewController {
 }
 
 extension FilmViewController{
+    func setupPnImage() {
+        view.addSubview(pnImage)
+        pnImage.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
+        pnImage.contentMode = .scaleAspectFit
+        pnImage.clipsToBounds = false
+        pnImage.image = UIImage(named: "AppIcon")
+        NSLayoutConstraint.activate([
+            pnImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pnImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            pnImage.widthAnchor.constraint(equalToConstant: 200),
+            pnImage.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
     func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
@@ -110,19 +135,45 @@ extension FilmViewController{
     func setupTicketsButton() {
         view.addSubview(ticketsButton)
         ticketsButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
-        ticketsButton.setTitle("Посмотреть трейлер", for: .normal)
-        ticketsButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
+        ticketsButton.setTitle("Купить билет", for: .normal)
+        ticketsButton.addTarget(self, action: #selector(buyTicket), for: .touchUpInside)
         ticketsButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         ticketsButton.backgroundColor = .systemPink
         ticketsButton.layer.cornerRadius = 10
         NSLayoutConstraint.activate([
             ticketsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -55),
             ticketsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
-            ticketsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            ticketsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            ticketsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            ticketsButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -8)
         ])
         
     }
+    
+    @objc func buyTicket(_ sender: UIButton) {
+        let secondViewController = TicketViewController()
+        secondViewController.modalPresentationStyle = .popover
+        secondViewController.id = idLabel.text
+        present(secondViewController, animated: true, completion: nil)
+    }
+    
+    
+    func setupPlayButton() {
+        view.addSubview(playButton)
+        playButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
+        playButton.setTitle("Посмотреть трейлер", for: .normal)
+        playButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
+        playButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
+        playButton.backgroundColor = .systemPink
+        playButton.layer.cornerRadius = 10
+        NSLayoutConstraint.activate([
+            playButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -55),
+            playButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            playButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
+            playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+        ])
+        
+    }
+    
     
     @objc func playVideo(_ sender: UIButton) {
         let secondViewController = TrailerViewController()
@@ -391,7 +442,11 @@ extension FilmViewController{
 extension FilmViewController: FilmViewInput{
     func configure(with model: FilmViewModel) {
         videoUrl.text = model.videoUrl
-        if videoUrl.text == nil {
+        if videoUrl.text == "noFilm" {
+            playButton.isHidden = true
+        }
+        idLabel.text = String(model.id)
+        if idLabel.text == nil {
             ticketsButton.isHidden = true
         }
         filmImage.image = model.filmImage

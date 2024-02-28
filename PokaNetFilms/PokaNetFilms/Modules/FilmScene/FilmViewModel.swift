@@ -23,9 +23,10 @@ struct FilmViewModel {
     let filmAuthorNameLabel: String
     let filmCastTextLabel: String
     let videoUrl: String
+    let id: Int
     var filmImage = UIImage()
     
-    init(filmTitle: String, scoreLabel: String, scoreColor: UIColor, kinopoiskScoreLabel: String, filmCountryLabel: String, filmYearLabel: String, movieDetailsLabelTime: String, movieDetailsLabelGenre: String, movieDetailsLabelAge: String, filmDescriptionTextLabel:String, filmShowDateLabel: String, filmAuthorNameLabel: String, filmCastTextLabel: String, filmImage: UIImage, videoUrl: String) {
+    init(filmTitle: String, scoreLabel: String, scoreColor: UIColor, kinopoiskScoreLabel: String, filmCountryLabel: String, filmYearLabel: String, movieDetailsLabelTime: String, movieDetailsLabelGenre: String, movieDetailsLabelAge: String, filmDescriptionTextLabel:String, filmShowDateLabel: String, filmAuthorNameLabel: String, filmCastTextLabel: String, filmImage: UIImage, videoUrl: String, id: Int) {
         self.filmTitle = filmTitle
         self.scoreLabel = scoreLabel
         self.scoreColor = scoreColor
@@ -41,6 +42,7 @@ struct FilmViewModel {
         self.filmCastTextLabel = filmCastTextLabel
         self.filmImage = filmImage
         self.videoUrl = videoUrl
+        self.id = id
     }
     
 }
