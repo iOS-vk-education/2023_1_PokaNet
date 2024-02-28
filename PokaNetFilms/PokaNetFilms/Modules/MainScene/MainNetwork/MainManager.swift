@@ -34,8 +34,9 @@ final class MainManager {
             completion(.failure(URLError(.badURL)))
             return
         }
-   
-        networkService.request("https://api.kinopoisk.dev/v1.4/movie?page=1&limit=100&lists=top250&ticketsOnSale=true") { response in
+// https://api.kinopoisk.dev/v1.4/movie?page=1&limit=100&lists=top250&ticketsOnSale=true
+//https://api.kinopoisk.dev/v1.4/movie?page=1&limit=100&lists=top250&year=2024
+        networkService.request("https://api.kinopoisk.dev/v1.4/movie?year=2024") { response in
             switch response.result {
             case .success(let data):
                 do {

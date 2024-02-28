@@ -20,7 +20,7 @@ struct MainFilm: Decodable {
     let premiere: Premiere?
     let persons: [Persons]?
     let poster: Poster?
-    let ageRating: Int
+    let ageRating: Int?
     let id: Int
 }
 
