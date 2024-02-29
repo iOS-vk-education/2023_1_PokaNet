@@ -37,6 +37,7 @@ private extension TabBarController {
         let searchVC = SearchAssembly.assembly()
         let profileVC = ProfileAssembly.assembly()
         let mainVC = MainAssembly.assembly()
+        let favVC = FavAssembly.assembly()
         
         searchVC.tabBarItem.title = "Поиск"
         searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
@@ -47,6 +48,9 @@ private extension TabBarController {
         mainVC.tabBarItem.title = "Главная"
         mainVC.tabBarItem.image = UIImage(systemName: "house")
         
-        viewControllers = [searchVC, mainVC, profileVC]
+        favVC.tabBarItem.title = "Избранное"
+        favVC.tabBarItem.image = UIImage(systemName: "heart.fill")
+        
+        viewControllers = [searchVC, mainVC, profileVC, favVC]
     }
 }

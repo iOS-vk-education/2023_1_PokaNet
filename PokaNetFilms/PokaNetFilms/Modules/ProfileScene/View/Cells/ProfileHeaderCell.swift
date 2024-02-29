@@ -180,7 +180,7 @@ private extension ProfileHeaderCell {
     
     func setupProfileImage() {
         addSubview(profileImage)
-        let fileManager = FileManager.default // добавляем эту строчку
+        let fileManager = FileManager.default
         var savedImage: UIImage?
         if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = documentsDirectory.appendingPathComponent("savedImage.png")

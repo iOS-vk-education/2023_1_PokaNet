@@ -53,7 +53,6 @@ private extension ProfileViewController {
     func setupUI() {
         view.backgroundColor = .white
         setupProfileCollectionView()
-
     }
     
     
@@ -133,7 +132,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader && indexPath.section == 1 {
             if let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as? ProfileHeaderView {
-                headerView.configure(with: "Избранные фильмы")
+                headerView.configure(with: "")
                 return headerView
             } else {
                 return UICollectionReusableView()
@@ -199,3 +198,4 @@ extension ProfileViewController: ProfileViewInput {
         self.favouriteFilms = model.favouriteFilms
     }
 }
+

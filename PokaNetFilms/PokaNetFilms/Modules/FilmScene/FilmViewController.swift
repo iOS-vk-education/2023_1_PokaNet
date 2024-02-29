@@ -102,6 +102,7 @@ final class FilmViewController: UIViewController {
     }
     
     @objc private func likeButtonTapped() {
+        // добавляем в избранное
         self.dismiss(animated: true, completion: nil)
     }
 }

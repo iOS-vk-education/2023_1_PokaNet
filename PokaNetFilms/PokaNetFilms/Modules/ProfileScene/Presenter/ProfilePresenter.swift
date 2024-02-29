@@ -28,27 +28,20 @@ private extension ProfilePresenter {
 //        
 //
 //        
-        let filmImage = UIImage(named: "nilName") ?? UIImage(named: "defaultImage")!
-        
+        let filmImage = UIImage(named: "avatar") ?? UIImage(named: "defaultImage")!
         let filmsModel: [ProfileFavouriteFilmsModel] = [
-            .init(title: "1", image: filmImage),
-            .init(title: "2", image: filmImage),
-            .init(title: "3", image: filmImage),
-            .init(title: "4", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage),
-            .init(title: "5", image: filmImage)
+            .init(id: 1, title: "1", image: filmImage),
+            .init(id: 1, title: "1", image: filmImage),
+            .init(id: 1, title: "1", image: filmImage),
+            .init(id: 1, title: "1", image: filmImage),
+            .init(id: 1, title: "1", image: filmImage),
+            .init(id: 1, title: "1", image: filmImage),
+            .init(id: 1, title: "1", image: filmImage),
+            .init(id: 1, title: "1", image: filmImage)
         ]
         
         let name = UserDefaults.standard.object(forKey: "nameKey") as? String ?? "Дон Григорий"
         let email = UserDefaults.standard.object(forKey: "emailKey") as? String ?? "dongrigory29@gmail.com"
-//        let avatarImage = UIImage(systemName: "person.crop.circle") ?? UIImage(named: "avatar")!
         
         let profileModel: ProfileHeaderModel = .init(userName: name, email: email)
         
