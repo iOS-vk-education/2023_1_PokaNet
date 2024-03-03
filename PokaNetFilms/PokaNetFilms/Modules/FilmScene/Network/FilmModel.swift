@@ -10,19 +10,19 @@ import Foundation
 
 struct DetailFilm: Decodable {
     let id: Int
-    let name: String
+    let name: String?
     let description: String
     let year: Int
     let genres: [Genres]
     let premiere: Premiere
     let countries: [Countries]
-    let persons: [Persons?]
+    let persons: [Persons?]?
     let poster: Poster
     let rating: Rating
     let votes: Votes
     let seasonsInfo: [SeasonsInfo?]
     let movieLength: Int?
-    let ageRating: Int
+    let ageRating: Int?
     let videos: Videos?
 }
 

@@ -64,20 +64,26 @@ private extension FilmPresenter {
             
             var casts: String = ""
             var authors: String = ""
-            for person in film.persons {
-                if person?.enProfession == "director"{
-                    authors = authors + " " + String(person?.name ?? "PokaNet") + ", "
+            if let filmPersons = film.persons {
+                for person in filmPersons {
+                    if person?.enProfession == "director"{
+                        authors = authors + " " + String(person?.name ?? "PokaNet") + ", "
+                    }
+                    if person?.enProfession == "actor"{
+                        casts = casts + " " + String(person?.name ?? "PokaNet") + ", "
+                    }
                 }
-                if person?.enProfession == "actor"{
-                    casts = casts + " " + String(person?.name ?? "PokaNet") + ", "
-                }
-            } 
-            casts.removeFirst()
-            casts.removeLast()
-            casts.removeLast()
-            authors.removeFirst()
-            authors.removeLast()
-            authors.removeLast()
+                casts.removeFirst()
+                casts.removeLast()
+                casts.removeLast()
+                authors.removeFirst()
+                authors.removeLast()
+                authors.removeLast()
+            } else {
+                casts = "PokaNet casts"
+                authors = "PokaNet authors"
+            }
+            
             
             var genres: String = ""
             for genre in film.genres {
@@ -115,9 +121,10 @@ private extension FilmPresenter {
             } else {
                 color = UIColor(red: 0.62, green: 0.08, blue: 0.04, alpha: 1.00) // красный
             }
+            let name = film.name ?? "PokaNet"
             
             let film: FilmViewModel = .init(
-                filmTitle: film.name,
+                filmTitle: name,
                 scoreLabel: String(score),
                 scoreColor: color,
                 kinopoiskScoreLabel: String(film.votes.kp),
@@ -125,7 +132,7 @@ private extension FilmPresenter {
                 filmYearLabel: String(film.year),
                 movieDetailsLabelTime: movieTime,
                 movieDetailsLabelGenre: genres,
-                movieDetailsLabelAge: String(film.ageRating) + "+",
+                movieDetailsLabelAge: String(film.ageRating ?? 18) + "+",
                 filmDescriptionTextLabel: film.description,
                 filmShowDateLabel: filmDate,
                 filmAuthorNameLabel: authors,
@@ -136,18 +143,7 @@ private extension FilmPresenter {
                 itSerial: itSerial
             )
             
-//            film.filmTitle ?? "PokaNet"
-//            film.scoreLabel ?? "PokaNet"
-//            film.scoreColor ?? UIColor(.green)
-//            film.kinopoiskScoreLabel ?? "PokaNet"
-//            film.filmCountryLabel ?? "PokaNet"
-//            film.filmYearLabel ?? "PokaNet"
-//            film.movieDetailsLabelTime ?? "PokaNet"
-//            film.movieDetailsLabelGenre ?? "PokaNet"
-//            film.movieDetailsLabelAge ?? "PokaNet"
-//            film.filmDescriptionTextLabel ?? "PokaNet"
-//            film.filmShowDateLabel ?? "PokaNet"
-//            film.filmAuthorNameLabel ?? "PokaNet"
+
             view?.configure(with: film)
         }
         

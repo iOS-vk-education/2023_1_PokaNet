@@ -53,7 +53,7 @@ private extension FavPresenter {
         let filmModels = film.docs.map { film in
             let color = UIColor(red: 0.07, green: 0.47, blue: 0.91, alpha: 1.00)
             let name = film.name
-            let premiere = film.premiere?.russia ?? film.premiere?.digital ?? film.premiere?.world ?? " "
+        
             var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
             let imageUrlString = film.poster!.url
             if let imageUrl = URL(string: imageUrlString) {
@@ -69,15 +69,7 @@ private extension FavPresenter {
             } else {
                 print("Некорректный URL")
             }
-            var actors: String = "актеры, бла бла"
-//            for person in film.persons {
-//                if person.enProfession == "actor"{
-//                    actors = actors + " " + String(person.name) + ", "
-//                }
-//            }
-//            actors.removeFirst()
-//            actors.removeLast()
-//            actors.removeLast()
+            var actors: String = " "
             
             return FavMovieCellModel(
                 id: film.id,
@@ -86,7 +78,7 @@ private extension FavPresenter {
                 ageLabel: String(
                     film.ageRating ?? 18
                 ) + "+",
-                dateLabel: "В кино с" + " " + premiere,
+                dateLabel: " ",
                 genreLabel: " ",
                 priceLabel: "от 250₽",
                 backgroundColor: color,

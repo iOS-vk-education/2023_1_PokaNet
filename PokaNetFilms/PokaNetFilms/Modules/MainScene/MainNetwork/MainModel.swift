@@ -16,9 +16,6 @@ struct MainFilmResponse: Decodable {
 
 struct MainFilm: Decodable {
     let name: String
-    let genres: [Genres]?
-    let premiere: Premiere?
-    let persons: [Persons]?
     let poster: Poster?
     let ageRating: Int?
     let id: Int
@@ -36,7 +33,7 @@ struct Premiere: Decodable {
 }
 
 struct Persons: Decodable {
-    let name: String
+    let name: String?
     let enProfession: String?
 }
 
