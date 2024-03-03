@@ -102,8 +102,33 @@ final class FilmViewController: UIViewController {
     }
     
     @objc private func likeButtonTapped() {
-        // добавляем в избранное
-        self.dismiss(animated: true, completion: nil)
+        let alertVC = UIAlertController(title: "PokaNet Films 🎬", message: "Вы добавили \(filmTitle.text ?? "фильм") в избранное!", preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "Хорошо", style: .default){_ in
+            // добавляем в избранное
+            var likedFilms:[Int] = []
+            if let likedArray = UserDefaults.standard.array(forKey: "likedFilms") as? [Int] {
+                likedFilms = likedArray
+            }
+            likedFilms.append(Int(self.idLabel.text ?? "1") ?? 1)
+            
+            print("DEFUG")
+            print("UserDefaults")
+            let setLikedFilms = Set(likedFilms)
+            likedFilms = Array(setLikedFilms)
+            UserDefaults.standard.set(likedFilms, forKey: "likedFilms")
+            print(UserDefaults.standard.set(likedFilms, forKey: "likedFilms"))
+            print("Array")
+            print(likedFilms)
+            
+            self.dismiss(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default){_ in
+            // ничего не делаем
+        }
+        
+        alertVC.addAction(okAction)
+        alertVC.addAction(cancelAction)
+        present(alertVC, animated: true)
     }
 }
 
