@@ -14,6 +14,7 @@ final class FavPresenter {
     weak var view: FavViewInput?
     weak var moduleOutput: FavModuleOutput?
     var router: FavRouterInput?
+    
 }
 
 extension FavPresenter: FavModuleInput {}
@@ -27,35 +28,35 @@ extension FavPresenter: FavViewOutput {
     func didLoadView() {
         loadData()
     }
+    
 }
 
 
 private extension FavPresenter {
-    
     func loadData() {
-        let mainManager = MainManager.shared
-        
-        mainManager.searchFilms(page: 1, limit: 10) { result in
-            switch result {
-            case .success(let film):
-                // Обработка успешного ответа
-                print(film)
-                self.updateUI(with: film)
-            case .failure(let error):
-                // Обработка ошибки
-                print(error)
+        let favManager = FavManager.shared
+        let likedArray: [Int] = UserDefaults.standard.array(forKey: "likedFilms") as? [Int] ?? [1]
+        print(likedArray)
+        var films: [DetailFilm] = []
+        for id in likedArray {
+            favManager.fetchData(id: id) { [weak self] result in
+                switch result {
+                case .success(let film):
+                    films.append(film)
+                    self?.updateUI(with: films)
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
+        self.updateUI(with: films)
     }
-    func updateUI(with film: MainFilmResponse) {
-        
     
-        let filmModels = film.docs.map { film in
-            let color = UIColor(red: 0.07, green: 0.47, blue: 0.91, alpha: 1.00)
-            let name = film.name
-        
+    func updateUI(with films: [DetailFilm]) {
+        var filmCells:[FavMovieCellModel] = []
+        for film in films {
             var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
-            let imageUrlString = film.poster!.url
+            let imageUrlString = film.poster.url
             if let imageUrl = URL(string: imageUrlString) {
                 if let imageData = try? Data(contentsOf: imageUrl) { //Kingfisher
                     if let image = UIImage(data: imageData) {
@@ -69,23 +70,28 @@ private extension FavPresenter {
             } else {
                 print("Некорректный URL")
             }
-            var actors: String = " "
+            let filmName = film.name ?? "PokaNet"
+            let ageRating = film.ageRating ?? 18
+            var genres: String = ""
+            for genre in film.genres {
+                genres = genres + genre.name + " "
+            }
+            let color = UIColor(red: 0.07, green: 0.47, blue: 0.91, alpha: 1.00)
             
-            return FavMovieCellModel(
-                id: film.id,
-                filmNameLabel: name,
-                actorsLabel: actors,
-                ageLabel: String(
-                    film.ageRating ?? 18
-                ) + "+",
-                dateLabel: " ",
-                genreLabel: " ",
+            let film: FavMovieCellModel =
+                .init(id: film.id,
+                      filmNameLabel: filmName,
+                actorsLabel: "123",
+                ageLabel: String(ageRating) + "+",
+                dateLabel: "123",
+                genreLabel: genres,
                 priceLabel: "от 250₽",
                 backgroundColor: color,
-                filmImage: filmImage
-            )
-            
+                filmImage: filmImage)
+            filmCells.append(film)
         }
-        view?.configure(with: .init(films: filmModels))
+        
+        let answer: FavViewModel = .init(films: filmCells)
+        view?.configure(with: answer)
     }
 }

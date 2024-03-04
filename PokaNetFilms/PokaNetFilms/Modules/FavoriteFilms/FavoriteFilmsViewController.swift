@@ -15,7 +15,7 @@ final class FavoriteFilmsViewController: UIViewController {
     private var model: FavViewModel?
     private var films: [FavMovieCellModel] = []
     private let header = FavHeaderView()
-    
+    private let filmsCount = UILabel()
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -33,10 +33,17 @@ final class FavoriteFilmsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
         output.didLoadView()
     }
+    
+    //Без кингфишера это работает уебищно
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        setup()
+//        output.didLoadView()
+//        
+//    }
 }
 
 
@@ -54,7 +61,6 @@ private extension FavoriteFilmsViewController {
     
     func setupLayout() {
         view.addSubview(collectionView)
-        
         setupCollectionView()
     }
     
@@ -109,9 +115,18 @@ extension FavoriteFilmsViewController: UICollectionViewDataSource {
 }
 
 extension FavoriteFilmsViewController: UICollectionViewDelegate {
+    // В данной реалзизации я могу нажать кнопку той ячейки, которую я уже открывал
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! FavMovieCell
+        cell.unlikeButton.addTarget(self, action: #selector(unlikeFilm), for: .touchUpInside)
+        
         let movieID = films[indexPath.row].id
         output.didTapMovieCell(movieID)
+    }
+    
+    @objc func unlikeFilm(_ sender: UIButton) {
+        //реализация удаления из Избранного
+        print("Я нажал на кнопку")
     }
 }
 
@@ -140,6 +155,7 @@ extension FavoriteFilmsViewController: FavViewInput { // настройка вь
     func configure(with model: FavViewModel) {
         self.model = model
         self.films = model.films
+        
         collectionView.reloadData()
     }
 }

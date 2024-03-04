@@ -46,7 +46,7 @@ private extension FavMovieCell {
         addSubview(unlikeButton)
         unlikeButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         unlikeButton.setTitle("Убрать из избранного", for: .normal)
-        unlikeButton.addTarget(self, action: #selector(unlikeFilm), for: .touchUpInside)
+//        unlikeButton.addTarget(self, action: #selector(unlikeFilm), for: .touchUpInside)
         unlikeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10)
         unlikeButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         unlikeButton.backgroundColor = .systemPink
@@ -59,10 +59,6 @@ private extension FavMovieCell {
         ])
     }
     
-    
-    @objc func unlikeFilm(_ sender: UIButton) {
-        //реализация удаления из Избранного
-    }
     func setupFilmNameLabel() {
         addSubview(filmNameLabel)
         filmNameLabel.numberOfLines = 0
