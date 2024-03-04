@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 final class FavPresenter {
     
@@ -55,21 +56,23 @@ private extension FavPresenter {
     func updateUI(with films: [DetailFilm]) {
         var filmCells:[FavMovieCellModel] = []
         for film in films {
-            var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
-            let imageUrlString = film.poster.url
-            if let imageUrl = URL(string: imageUrlString) {
-                if let imageData = try? Data(contentsOf: imageUrl) { //Kingfisher
-                    if let image = UIImage(data: imageData) {
-                        filmImage = image
-                    } else {
-                        print("Не удалось сконвертировать данные в изображение")
-                    }
-                } else {
-                    print("Не удалось загрузить данные по URL")
-                }
-            } else {
-                print("Некорректный URL")
-            }
+//            var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
+//            let imageUrlString = film.poster.url
+//            if let imageUrl = URL(string: imageUrlString) {
+//                if let imageData = try? Data(contentsOf: imageUrl) { //Kingfisher
+//                    if let image = UIImage(data: imageData) {
+//                        filmImage = image
+//                    } else {
+//                        print("Не удалось сконвертировать данные в изображение")
+//                    }
+//                } else {
+//                    print("Не удалось загрузить данные по URL")
+//                }
+//            } else {
+//                print("Некорректный URL")
+//            }
+            let filmImage = film.poster.url
+            
             let filmName = film.name ?? "PokaNet"
             let ageRating = film.ageRating ?? 18
             var genres: String = ""

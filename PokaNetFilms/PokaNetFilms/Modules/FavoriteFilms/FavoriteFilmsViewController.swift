@@ -37,13 +37,13 @@ final class FavoriteFilmsViewController: UIViewController {
         output.didLoadView()
     }
     
-    //Без кингфишера это работает уебищно
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        setup()
-//        output.didLoadView()
-//        
-//    }
+//    Без кингфишера это работает уебищно
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setup()
+        output.didLoadView()
+        
+    }
 }
 
 
@@ -91,10 +91,15 @@ extension FavoriteFilmsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavMovieCell", for: indexPath) as! FavMovieCell
+        cell.needsReloadCollectionView = { [weak self] in
+            if let indexPath = self?.collectionView.indexPath(for: cell) {
+                self?.films.remove(at: indexPath.row) // удаление из источника данных
+                self?.collectionView.deleteItems(at: [indexPath]) // удаление ячейки из коллекции
+            }
+        }
         cell.configure(with: films[indexPath.row])
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: FavHeaderView.identifier, for: indexPath) as! FavHeaderView
@@ -115,18 +120,10 @@ extension FavoriteFilmsViewController: UICollectionViewDataSource {
 }
 
 extension FavoriteFilmsViewController: UICollectionViewDelegate {
-    // В данной реалзизации я могу нажать кнопку той ячейки, которую я уже открывал
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! FavMovieCell
-        cell.unlikeButton.addTarget(self, action: #selector(unlikeFilm), for: .touchUpInside)
-        
         let movieID = films[indexPath.row].id
         output.didTapMovieCell(movieID)
-    }
-    
-    @objc func unlikeFilm(_ sender: UIButton) {
-        //реализация удаления из Избранного
-        print("Я нажал на кнопку")
+        
     }
 }
 

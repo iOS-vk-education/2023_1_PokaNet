@@ -1,8 +1,9 @@
 
 
 import UIKit
+import Kingfisher
 
-final class FavMovieCell: UICollectionViewCell {
+final class FavMovieCell: UICollectionViewCell{
     
     let filmNameLabel = UILabel()
     let actorsLabel = UILabel()
@@ -12,7 +13,9 @@ final class FavMovieCell: UICollectionViewCell {
     let priceLabel = UILabel()
     let filmImage = UIImageView()
     let unlikeButton = UIButton()
-
+    var movieId: Int?
+    var needsReloadCollectionView: (() -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -26,9 +29,14 @@ final class FavMovieCell: UICollectionViewCell {
     func configure(with model: FavMovieCellModel) {
         filmNameLabel.text = model.filmNameLabel
         priceLabel.text  = model.priceLabel
-        filmImage.image = model.filmImage
         backgroundColor = model.backgroundColor
+        movieId = model.id
         
+        if let url = URL(string: model.filmImage) {
+            filmImage.kf.setImage(with: url)
+        } else {
+            print("Неверный URL изображения")
+        }
     }
 }
 
@@ -46,7 +54,7 @@ private extension FavMovieCell {
         addSubview(unlikeButton)
         unlikeButton.translatesAutoresizingMaskIntoConstraints = false //включаем верстку кодом
         unlikeButton.setTitle("Убрать из избранного", for: .normal)
-//        unlikeButton.addTarget(self, action: #selector(unlikeFilm), for: .touchUpInside)
+        unlikeButton.addTarget(self, action: #selector(unlikeFilm), for: .touchUpInside)
         unlikeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10)
         unlikeButton.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         unlikeButton.backgroundColor = .systemPink
@@ -58,6 +66,24 @@ private extension FavMovieCell {
             unlikeButton.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 133),
         ])
     }
+    
+    
+    @objc func unlikeFilm(_ sender: UIButton) {
+        //реализация удаления из Избранного
+        //movieID
+        
+        var likedFilms:[Int] = []
+        if let likedArray = UserDefaults.standard.array(forKey: "likedFilms") as? [Int] {
+            likedFilms = likedArray
+        }
+        if let index = likedFilms.firstIndex(of: movieId!) {
+            likedFilms.remove(at: index)
+        }
+        UserDefaults.standard.set(likedFilms, forKey: "likedFilms")
+        
+        needsReloadCollectionView?()
+    }
+    
     
     func setupFilmNameLabel() {
         addSubview(filmNameLabel)

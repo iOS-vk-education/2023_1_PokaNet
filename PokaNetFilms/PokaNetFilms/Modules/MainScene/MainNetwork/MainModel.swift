@@ -15,7 +15,7 @@ struct MainFilmResponse: Decodable {
 
 
 struct MainFilm: Decodable {
-    let name: String
+    let name: String?
     let poster: Poster?
     let ageRating: Int?
     let id: Int

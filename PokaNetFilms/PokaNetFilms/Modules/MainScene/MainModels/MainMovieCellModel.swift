@@ -18,10 +18,10 @@ struct MainMovieCellModel {
     let priceLabel: String
     let backgroundColor: UIColor
     
-    var filmImage = UIImage()
+    var filmImage: String
     
     init(id: Int, filmNameLabel: String, actorsLabel: String, ageLabel: String, dateLabel: String, genreLabel: String,
-         priceLabel: String, backgroundColor: UIColor,filmImage: UIImage) {
+         priceLabel: String, backgroundColor: UIColor,filmImage: String) {
         self.filmNameLabel = filmNameLabel
         self.actorsLabel = actorsLabel
         self.ageLabel = ageLabel
@@ -30,7 +30,6 @@ struct MainMovieCellModel {
         self.priceLabel = priceLabel
         self.backgroundColor = backgroundColor
         self.id = id
-        
         self.filmImage = filmImage
     }
     

@@ -36,7 +36,7 @@ final class MainManager {
         }
 // https://api.kinopoisk.dev/v1.4/movie?page=1&limit=100&lists=top250&ticketsOnSale=true
 //https://api.kinopoisk.dev/v1.4/movie?page=1&limit=100&lists=top250&year=2024
-        networkService.request("https://api.kinopoisk.dev/v1.4/movie?year=2024") { response in
+        networkService.request("https://api.kinopoisk.dev/v1.4/movie?year=2024&limit=50") { response in
             switch response.result {
             case .success(let data):
                 do {

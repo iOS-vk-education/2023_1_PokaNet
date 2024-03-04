@@ -34,7 +34,7 @@ private extension MainPresenter {
     func loadData() {
         let mainManager = MainManager.shared
         
-        mainManager.searchFilms(page: 1, limit: 10) { result in
+        mainManager.searchFilms(page: 1, limit: 100) { result in
             switch result {
             case .success(let film):
                 // Обработка успешного ответа
@@ -53,34 +53,11 @@ private extension MainPresenter {
             let color = UIColor(red: 0.07, green: 0.47, blue: 0.91, alpha: 1.00)
             let name = film.name
             
-            var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
-            let imageUrlString = film.poster!.url
-            if let imageUrl = URL(string: imageUrlString) {
-                if let imageData = try? Data(contentsOf: imageUrl) { //Kingfisher
-                    if let image = UIImage(data: imageData) {
-                        filmImage = image
-                    } else {
-                        print("Не удалось сконвертировать данные в изображение")
-                    }
-                } else {
-                    print("Не удалось загрузить данные по URL")
-                }
-            } else {
-                print("Некорректный URL")
-            }
-            var actors: String = "актеры, бла бла"
-//            for person in film.persons {
-//                if person.enProfession == "actor"{
-//                    actors = actors + " " + String(person.name) + ", "
-//                }
-//            }
-//            actors.removeFirst()
-//            actors.removeLast()
-//            actors.removeLast()
-            
+            let filmImage = film.poster!.url
+            var actors: String = "актеры, бла бла"            
             return MainMovieCellModel(
                 id: film.id,
-                filmNameLabel: name,
+                filmNameLabel: name ?? "PokaNet",
                 actorsLabel: actors,
                 ageLabel: String(
                     film.ageRating ?? 18
@@ -91,7 +68,6 @@ private extension MainPresenter {
                 backgroundColor: color,
                 filmImage: filmImage
             )
-            
         }
         view?.configure(with: .init(films: filmModels))
     }

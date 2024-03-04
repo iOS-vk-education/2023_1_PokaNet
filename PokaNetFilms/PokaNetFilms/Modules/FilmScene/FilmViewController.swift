@@ -110,16 +110,9 @@ final class FilmViewController: UIViewController {
                 likedFilms = likedArray
             }
             likedFilms.append(Int(self.idLabel.text ?? "1") ?? 1)
-            
-            print("DEFUG")
-            print("Saved value \(self.idLabel.text ?? "1")")
-            print("UserDefaults")
             let setLikedFilms = Set(likedFilms)
             likedFilms = Array(setLikedFilms)
             UserDefaults.standard.set(likedFilms, forKey: "likedFilms")
-            print(UserDefaults.standard.set(likedFilms, forKey: "likedFilms"))
-            print("Array")
-            print(likedFilms)
             
             self.dismiss(animated: true)
         }

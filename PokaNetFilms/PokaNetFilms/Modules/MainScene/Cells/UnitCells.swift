@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 final class MainMovieCell: UICollectionViewCell {
     
     let filmNameLabel = UILabel()
@@ -34,9 +34,13 @@ final class MainMovieCell: UICollectionViewCell {
         dateLabel.text = model.dateLabel
         genreLabel.text = model.genreLabel
         priceLabel.text  = model.priceLabel
-        filmImage.image = model.filmImage
         backgroundColor = model.backgroundColor
         
+        if let url = URL(string: model.filmImage) {
+            filmImage.kf.setImage(with: url)
+        } else {
+            print("Неверный URL изображения")
+        }
     }
 }
 
