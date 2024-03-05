@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 final class FilmViewController: UIViewController {
     
@@ -46,11 +47,11 @@ final class FilmViewController: UIViewController {
         
         setupPnImage()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.pnImage.removeFromSuperview()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.setupNavigationBar()
             self.setupScrollView()
             self.setupTicketsButton()
@@ -472,7 +473,14 @@ extension FilmViewController: FilmViewInput{
             ticketsButton.isHidden = true
         }
         itSerialLabel.text = String(model.itSerial)
-        filmImage.image = model.filmImage
+        
+//        kf
+        if let url = URL(string: model.filmImage) {
+            filmImage.kf.setImage(with: url)
+        } else {
+            print("Неверный URL изображения")
+        }
+        
         filmCastTextLabel.text = model.filmCastTextLabel
         filmTitle.text = model.filmTitle
         filmAuthorNameLabel.text = model.filmAuthorNameLabel

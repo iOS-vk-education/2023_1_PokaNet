@@ -27,7 +27,7 @@ struct DetailFilm: Decodable {
 }
 
 struct Videos: Decodable {
-    let trailers: [Trailers]
+    let trailers: [Trailers?]
 }
 
 struct Trailers: Decodable {

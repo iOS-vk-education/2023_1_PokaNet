@@ -46,21 +46,7 @@ private extension FilmPresenter {
         }
         
         func updateUI(with film: DetailFilm) {
-            var filmImage = UIImage(named: "filmImage") ?? UIImage(named: "defaultImage")!
-            let imageUrlString = film.poster.url
-            if let imageUrl = URL(string: imageUrlString) {
-                if let imageData = try? Data(contentsOf: imageUrl) { //Kingfisher
-                    if let image = UIImage(data: imageData) {
-                        filmImage = image
-                    } else {
-                        print("Не удалось сконвертировать данные в изображение")
-                    }
-                } else {
-                    print("Не удалось загрузить данные по URL")
-                }
-            } else {
-                print("Некорректный URL")
-            }
+            let filmImage = film.poster.url
             
             var casts: String = ""
             var authors: String = ""
@@ -107,7 +93,14 @@ private extension FilmPresenter {
             
             let showDate = film.premiere.russia ?? film.premiere.digital ?? film.premiere.russia ?? String("Не указана дата премьеры")
             let filmDate = setupFilmDate(date: showDate)
-            let url = film.videos?.trailers[0].url
+            
+            var url: String
+            if ((film.videos?.trailers.isEmpty) != nil) {
+                url = "noFilm"
+            }
+            else{
+                url = film.videos?.trailers[0]?.url ?? ""
+            }
             let score = (film.rating.kp * 10).rounded() / 10
             let color: UIColor
             if score > 8 {

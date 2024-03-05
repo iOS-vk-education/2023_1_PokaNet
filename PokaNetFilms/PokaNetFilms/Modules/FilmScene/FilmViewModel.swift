@@ -25,9 +25,9 @@ struct FilmViewModel {
     let videoUrl: String
     let id: Int
     let itSerial: Bool
-    var filmImage = UIImage()
+    var filmImage: String
     
-    init(filmTitle: String, scoreLabel: String, scoreColor: UIColor, kinopoiskScoreLabel: String, filmCountryLabel: String, filmYearLabel: String, movieDetailsLabelTime: String, movieDetailsLabelGenre: String, movieDetailsLabelAge: String, filmDescriptionTextLabel:String, filmShowDateLabel: String, filmAuthorNameLabel: String, filmCastTextLabel: String, filmImage: UIImage, videoUrl: String, id: Int, itSerial: Bool) {
+    init(filmTitle: String, scoreLabel: String, scoreColor: UIColor, kinopoiskScoreLabel: String, filmCountryLabel: String, filmYearLabel: String, movieDetailsLabelTime: String, movieDetailsLabelGenre: String, movieDetailsLabelAge: String, filmDescriptionTextLabel:String, filmShowDateLabel: String, filmAuthorNameLabel: String, filmCastTextLabel: String, filmImage: String, videoUrl: String, id: Int, itSerial: Bool) {
         self.filmTitle = filmTitle
         self.scoreLabel = scoreLabel
         self.scoreColor = scoreColor
