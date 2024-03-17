@@ -146,7 +146,7 @@ extension ProfileViewController: UICollectionViewDataSource {
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 3)
+            return CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 1.5)
         } else {
             let paddingSpace = 16 * 2
             let availableWidth = collectionView.frame.width - CGFloat(paddingSpace)

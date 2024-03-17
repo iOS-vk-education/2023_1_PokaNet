@@ -11,6 +11,8 @@ import UIKit
 final class ProfileHeaderCell: UICollectionViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     
     // MARK: - Properties
+    private let statisticsButton = UIButton()
+    private let recommendationButton = UIButton()
     private var profileImage = UIImageView()
     private var profileEmail = UILabel()
     private var profileName = UILabel()
@@ -46,12 +48,60 @@ private extension ProfileHeaderCell {
                                       byRoundingCorners: [.bottomLeft, .bottomRight],
                                       cornerRadii: CGSize(width: 50, height: 50)).cgPath
         layer.mask = maskLayer
-        
         setupSettingsButton()
+        setupRecommendationButton()
+        setupStatisticsButton()
         setupProfileEmail()
         setupProfileName()
         setupProfileImage()
+        
     }
+    
+    
+    //кнопка статистики
+    func setupStatisticsButton(){
+        addSubview(statisticsButton)
+        statisticsButton.translatesAutoresizingMaskIntoConstraints = false
+        statisticsButton.setTitle(" Моя статистика", for: .normal)
+        statisticsButton.setImage(UIImage(systemName: "book.pages.fill"), for: .normal)
+        statisticsButton.setTitleColor(.systemBlue, for: .normal)
+        statisticsButton.tintColor = UIColor.systemBlue
+        statisticsButton.addTarget(self, action: #selector(openStatistics), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            statisticsButton.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 1),
+            statisticsButton.leftAnchor.constraint(equalTo: leftAnchor),
+            statisticsButton.rightAnchor.constraint(equalTo: rightAnchor),
+            statisticsButton.heightAnchor.constraint(equalToConstant: 55)
+        ])
+    }
+    
+    @objc func openStatistics() {
+        print(#function)
+    }
+    
+    //кнопка рекомендаций
+    func setupRecommendationButton(){
+        addSubview(recommendationButton)
+        recommendationButton.translatesAutoresizingMaskIntoConstraints = false
+        recommendationButton.setTitle(" Мои рекомендации", for: .normal)
+        recommendationButton.setImage(UIImage(systemName: "heart.circle"), for: .normal)
+        recommendationButton.setTitleColor(.systemBlue, for: .normal)
+        recommendationButton.tintColor = UIColor.systemBlue
+        recommendationButton.addTarget(self, action: #selector(openRecommendation), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            recommendationButton.leftAnchor.constraint(equalTo: leftAnchor),
+            recommendationButton.rightAnchor.constraint(equalTo: rightAnchor),
+            recommendationButton.topAnchor.constraint(equalTo: bottomAnchor, constant: -165),
+            recommendationButton.heightAnchor.constraint(equalToConstant: 55)
+        ])
+    }
+    
+    @objc func openRecommendation() {
+        print(#function)
+    }
+    
     
     func setupSettingsButton(){
         addSubview(settingsButton)
@@ -68,7 +118,7 @@ private extension ProfileHeaderCell {
             settingsButton.tintColor = buttonColor
         }
         
-        settingsButton.setTitle(" Редактировать", for: .normal)
+        settingsButton.setTitle(" Редактировать профиль", for: .normal)
         settingsButton.setTitleColor(.systemBlue, for: .normal)
         settingsButton.backgroundColor = .white
         settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
@@ -79,10 +129,11 @@ private extension ProfileHeaderCell {
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            settingsButton.topAnchor.constraint(equalTo: bottomAnchor, constant: -55),
             settingsButton.leftAnchor.constraint(equalTo: leftAnchor),
             settingsButton.rightAnchor.constraint(equalTo: rightAnchor),
-            settingsButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+            settingsButton.topAnchor.constraint(equalTo: bottomAnchor, constant: -110),
+            settingsButton.heightAnchor.constraint(equalToConstant: 55)
+            
         ])
     }
     
@@ -150,7 +201,7 @@ private extension ProfileHeaderCell {
         profileEmail.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            profileEmail.bottomAnchor.constraint(equalTo: settingsButton.topAnchor),
+            profileEmail.bottomAnchor.constraint(equalTo: recommendationButton.topAnchor),
             profileEmail.leftAnchor.constraint(equalTo: leftAnchor),
             profileEmail.rightAnchor.constraint(equalTo: rightAnchor),
             profileEmail.heightAnchor.constraint(equalToConstant: 30)
