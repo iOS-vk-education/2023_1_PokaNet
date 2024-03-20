@@ -8,36 +8,36 @@
 import Foundation
 
 
-struct MainFilmResponse: Decodable {
-    let docs: [MainFilm]
+struct RecomendationFilmResponse: Decodable {
+    let docs: [RecomendationFilm]
     let limit: Int
 }
 
 
-struct MainFilm: Decodable {
+struct RecomendationFilm: Decodable {
     let name: String?
-    let poster: MainPoster?
+    let poster: Poster?
     let ageRating: Int?
     let id: Int
 }
 
 
-struct MainGenres: Decodable {
+struct Genres: Decodable {
     let name: String
 }
 
-struct MainPremiere: Decodable {
+struct Premiere: Decodable {
     let world: String?
     let russia: String?
     let digital: String?
 }
 
-struct MainPersons: Decodable {
+struct Persons: Decodable {
     let name: String?
     let enProfession: String?
 }
 
-struct MainPoster: Decodable {
+struct Poster: Decodable {
     let url: String
     let previewUrl: String?
 }

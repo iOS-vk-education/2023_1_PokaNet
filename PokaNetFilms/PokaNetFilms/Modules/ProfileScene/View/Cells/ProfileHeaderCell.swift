@@ -79,7 +79,7 @@ private extension ProfileHeaderCell {
     @objc func openStatistics() {
         print(#function)
         let view = UIHostingController(rootView: RecomendationView())
-        delegate?.presentRecomendationView(view)
+        delegate?.presentView(view)
     }
     
     //кнопка рекомендаций
@@ -102,6 +102,8 @@ private extension ProfileHeaderCell {
     
     @objc func openRecommendation() {
         print(#function)
+        let viewController = RecomendationAssembly.assembly()
+        delegate?.presentView(viewController)
     }
     
     
@@ -304,13 +306,18 @@ extension ProfileHeaderCell {
 
 protocol ProfileHeaderCellDelegate: AnyObject {
     func presentImagePicker(_ picker: UIImagePickerController)
-    func presentRecomendationView(_ view: UIViewController)
+//    func presentStatisticsView(_ view: UIViewController)
     func presentAlert(_ alert: UIAlertController)
+    func presentView(_ view: UIViewController)
 }
 
 
 extension ProfileViewController: ProfileHeaderCellDelegate {
-    func presentRecomendationView(_ view: UIViewController) {
+//    func presentStatisticsView(_ view: UIViewController) {
+//        present(view, animated: true, completion: nil)
+//    }
+    
+    func presentView(_ view: UIViewController) {
         present(view, animated: true, completion: nil)
     }
     

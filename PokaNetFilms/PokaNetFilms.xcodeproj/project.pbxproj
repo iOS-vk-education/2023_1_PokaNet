@@ -95,6 +95,18 @@
 		B4561E812B34AA0900EED4B9 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4561E802B34AA0900EED4B9 /* FilmManager.swift */; };
 		B4561E882B34B97900EED4B9 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4561E872B34B97900EED4B9 /* FilmModel.swift */; };
 		B46CA64C2BA9E1AD00B1221D /* RecomendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA64B2BA9E1AD00B1221D /* RecomendationView.swift */; };
+		B46CA6572BAAD39600B1221D /* RecHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA64E2BAAD39600B1221D /* RecHeaderView.swift */; };
+		B46CA6582BAAD39600B1221D /* RecRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA64F2BAAD39600B1221D /* RecRouter.swift */; };
+		B46CA6592BAAD39600B1221D /* RecAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA6502BAAD39600B1221D /* RecAssembly.swift */; };
+		B46CA65B2BAAD39600B1221D /* RecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA6522BAAD39600B1221D /* RecViewController.swift */; };
+		B46CA65C2BAAD39600B1221D /* RecPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA6532BAAD39600B1221D /* RecPresenter.swift */; };
+		B46CA65E2BAAD39600B1221D /* RecProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA6552BAAD39600B1221D /* RecProtocols.swift */; };
+		B46CA6632BAAD7BB00B1221D /* RecViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA6622BAAD7BB00B1221D /* RecViewModel.swift */; };
+		B46CA6672BAAD7F300B1221D /* RecHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA6662BAAD7F300B1221D /* RecHeaderModel.swift */; };
+		B46CA66A2BAAD84300B1221D /* RecCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA6692BAAD84300B1221D /* RecCellModel.swift */; };
+		B46CA66C2BAAD8DF00B1221D /* RecUnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA66B2BAAD8DF00B1221D /* RecUnitCell.swift */; };
+		B46CA66E2BAAD93000B1221D /* RecModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA66D2BAAD93000B1221D /* RecModel.swift */; };
+		B46CA6702BAAD93600B1221D /* RecManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA66F2BAAD93600B1221D /* RecManager.swift */; };
 		B484CBDB2B8F3EA3003FD5F1 /* BuyTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484CBDA2B8F3EA3003FD5F1 /* BuyTicketViewController.swift */; };
 		B4C37F532B90EEF9009C79D7 /* LikedFilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C37F522B90EEF9009C79D7 /* LikedFilmModel.swift */; };
 		B4C37F552B90F386009C79D7 /* ProfileFavouriteFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C37F542B90F386009C79D7 /* ProfileFavouriteFilmCell.swift */; };
@@ -183,6 +195,18 @@
 		B4561E802B34AA0900EED4B9 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
 		B4561E872B34B97900EED4B9 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		B46CA64B2BA9E1AD00B1221D /* RecomendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationView.swift; sourceTree = "<group>"; };
+		B46CA64E2BAAD39600B1221D /* RecHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecHeaderView.swift; path = "../../../../../../Новая папка/RecHeaderView.swift"; sourceTree = "<group>"; };
+		B46CA64F2BAAD39600B1221D /* RecRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecRouter.swift; path = "../../../../../../Новая папка/RecRouter.swift"; sourceTree = "<group>"; };
+		B46CA6502BAAD39600B1221D /* RecAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecAssembly.swift; path = "../../../../../../Новая папка/RecAssembly.swift"; sourceTree = "<group>"; };
+		B46CA6522BAAD39600B1221D /* RecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecViewController.swift; path = "../../../../../../Новая папка/RecViewController.swift"; sourceTree = "<group>"; };
+		B46CA6532BAAD39600B1221D /* RecPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecPresenter.swift; path = "../../../../../../Новая папка/RecPresenter.swift"; sourceTree = "<group>"; };
+		B46CA6552BAAD39600B1221D /* RecProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecProtocols.swift; path = "../../../../../../Новая папка/RecProtocols.swift"; sourceTree = "<group>"; };
+		B46CA6622BAAD7BB00B1221D /* RecViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecViewModel.swift; sourceTree = "<group>"; };
+		B46CA6662BAAD7F300B1221D /* RecHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecHeaderModel.swift; sourceTree = "<group>"; };
+		B46CA6692BAAD84300B1221D /* RecCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCellModel.swift; sourceTree = "<group>"; };
+		B46CA66B2BAAD8DF00B1221D /* RecUnitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecUnitCell.swift; sourceTree = "<group>"; };
+		B46CA66D2BAAD93000B1221D /* RecModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecModel.swift; sourceTree = "<group>"; };
+		B46CA66F2BAAD93600B1221D /* RecManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecManager.swift; sourceTree = "<group>"; };
 		B484CBDA2B8F3EA3003FD5F1 /* BuyTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketViewController.swift; sourceTree = "<group>"; };
 		B4C37F522B90EEF9009C79D7 /* LikedFilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedFilmModel.swift; sourceTree = "<group>"; };
 		B4C37F542B90F386009C79D7 /* ProfileFavouriteFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavouriteFilmCell.swift; sourceTree = "<group>"; };
@@ -467,11 +491,12 @@
 		74E6A2942B25B4530010AC96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B4C37F562B910639009C79D7 /* FavoriteFilms */,
 				74237B7E2B38A6A2007A61B8 /* Cells */,
+				B46CA64D2BAAD27900B1221D /* RecScene */,
+				BCD408E12B0A627A00FC388C /* MainScene */,
+				B4C37F562B910639009C79D7 /* FavoriteFilms */,
 				065557282B0D0767001AB86A /* AutorizationScene */,
 				74BC82C32B14747500B53E34 /* SearchScene */,
-				BCD408E12B0A627A00FC388C /* MainScene */,
 				743418212B06C64A008390D7 /* ProfileScene */,
 				06C5C2A22B13BF8B009E418E /* RegistrationScene */,
 				B427675F2B0E5F83000FEB4D /* FilmScene */,
@@ -520,6 +545,25 @@
 				B4561E872B34B97900EED4B9 /* FilmModel.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		B46CA64D2BAAD27900B1221D /* RecScene */ = {
+			isa = PBXGroup;
+			children = (
+				B46CA6662BAAD7F300B1221D /* RecHeaderModel.swift */,
+				B46CA6622BAAD7BB00B1221D /* RecViewModel.swift */,
+				B46CA6532BAAD39600B1221D /* RecPresenter.swift */,
+				B46CA6552BAAD39600B1221D /* RecProtocols.swift */,
+				B46CA64F2BAAD39600B1221D /* RecRouter.swift */,
+				B46CA6522BAAD39600B1221D /* RecViewController.swift */,
+				B46CA6692BAAD84300B1221D /* RecCellModel.swift */,
+				B46CA66B2BAAD8DF00B1221D /* RecUnitCell.swift */,
+				B46CA6502BAAD39600B1221D /* RecAssembly.swift */,
+				B46CA64E2BAAD39600B1221D /* RecHeaderView.swift */,
+				B46CA66D2BAAD93000B1221D /* RecModel.swift */,
+				B46CA66F2BAAD93600B1221D /* RecManager.swift */,
+			);
+			path = RecScene;
 			sourceTree = "<group>";
 		};
 		B4C37F562B910639009C79D7 /* FavoriteFilms */ = {
@@ -716,8 +760,10 @@
 			files = (
 				B4C37F622B9108C9009C79D7 /* FavFilmsPresenter.swift in Sources */,
 				06C5C2992B13BA08009E418E /* AuthorizationImageButton.swift in Sources */,
+				B46CA65E2BAAD39600B1221D /* RecProtocols.swift in Sources */,
 				B4C37F5B2B910884009C79D7 /* FavoriteFilmsManager.swift in Sources */,
 				065557302B0D07C1001AB86A /* AuthorizationSceneProtocol.swift in Sources */,
+				B46CA6672BAAD7F300B1221D /* RecHeaderModel.swift in Sources */,
 				74876FDB2B1C83EF0054CBA4 /* BaseRouter.swift in Sources */,
 				0655572C2B0D07A0001AB86A /* AuthorizationScenePresenter.swift in Sources */,
 				BCD408D62B09F5CC00FC388C /* MainViewController.swift in Sources */,
@@ -728,6 +774,7 @@
 				743418232B06C66E008390D7 /* ProfileAssembly.swift in Sources */,
 				747BBFC62AF31594003AC739 /* TabBarController.swift in Sources */,
 				74BC82CE2B14747500B53E34 /* SearchFilmsModel.swift in Sources */,
+				B46CA6632BAAD7BB00B1221D /* RecViewModel.swift in Sources */,
 				74B2A9392B3DB11E00BA7F7D /* SearchRouter.swift in Sources */,
 				74BC82CF2B14747500B53E34 /* SearchViewController.swift in Sources */,
 				74BC82AF2B1113CE00B53E34 /* ProfileMessageCell.swift in Sources */,
@@ -738,6 +785,7 @@
 				743418272B06CC23008390D7 /* ProfilePresenter.swift in Sources */,
 				74BC82B12B11143600B53E34 /* ProfileHeaderView.swift in Sources */,
 				062643FA2B3C9AAB00A74E1D /* LoginUserRequest.swift in Sources */,
+				B46CA65B2BAAD39600B1221D /* RecViewController.swift in Sources */,
 				74BC82D02B14747500B53E34 /* SearchProtocols.swift in Sources */,
 				B484CBDB2B8F3EA3003FD5F1 /* BuyTicketViewController.swift in Sources */,
 				74FC586F2B0956A8004EBC81 /* ProfileHeaderCell.swift in Sources */,
@@ -758,19 +806,24 @@
 				B44AE5402B3B78B9004EAB3E /* TrailerViewController.swift in Sources */,
 				BCD408D82B09F61400FC388C /* MainPresenter.swift in Sources */,
 				BCD4090D2B0E91AF00FC388C /* MainHeaderView.swift in Sources */,
+				B46CA65C2BAAD39600B1221D /* RecPresenter.swift in Sources */,
 				BCD4090F2B0E91CC00FC388C /* MainHeaderModel.swift in Sources */,
 				747BBFCC2AF31594003AC739 /* PokaNetFilms.xcdatamodeld in Sources */,
+				B46CA6702BAAD93600B1221D /* RecManager.swift in Sources */,
+				B46CA66A2BAAD84300B1221D /* RecCellModel.swift in Sources */,
 				B4C37F662B9108F2009C79D7 /* FavoriteFilmsViewController.swift in Sources */,
 				BCD408EA2B0BDD2100FC388C /* UnitCells.swift in Sources */,
 				BCD408DA2B09F65600FC388C /* MainViewModel.swift in Sources */,
 				062643F22B3C7ED700A74E1D /* RegisterUserRequest.swift in Sources */,
 				74876FD72B1BCF880054CBA4 /* AuthorizationRouter.swift in Sources */,
 				B4C37F532B90EEF9009C79D7 /* LikedFilmModel.swift in Sources */,
+				B46CA6572BAAD39600B1221D /* RecHeaderView.swift in Sources */,
 				B4561E812B34AA0900EED4B9 /* FilmManager.swift in Sources */,
 				B4C37F782B910A7D009C79D7 /* FavUnitCells.swift in Sources */,
 				7409BE3D2B09EE04008DEA7D /* (null) in Sources */,
 				0655572A2B0D0789001AB86A /* AuthorizationSceneAssembly.swift in Sources */,
 				0655572E2B0D07B1001AB86A /* AuthorizationSceneViewController.swift in Sources */,
+				B46CA6592BAAD39600B1221D /* RecAssembly.swift in Sources */,
 				BCD408D42B09F00800FC388C /* MainAssembly.swift in Sources */,
 				74F022F72B33A11500AFCFA7 /* AlamofireNetworkService.swift in Sources */,
 				B46CA64C2BA9E1AD00B1221D /* RecomendationView.swift in Sources */,
@@ -778,10 +831,12 @@
 				BCD408DE2B0A612300FC388C /* MainProtocols.swift in Sources */,
 				748A3BF32B09C607007F5154 /* ProfileFavouriteFilmsModel.swift in Sources */,
 				74BC82CD2B14747500B53E34 /* SearchPresenter.swift in Sources */,
+				B46CA66E2BAAD93000B1221D /* RecModel.swift in Sources */,
 				B42767652B0E6636000FEB4D /* FilmProtocols.swift in Sources */,
 				B4561E882B34B97900EED4B9 /* FilmModel.swift in Sources */,
 				B4C37F642B9108D5009C79D7 /* FavFilmsProtocols.swift in Sources */,
 				B42767692B14FE17000FEB4D /* FilmViewModel.swift in Sources */,
+				B46CA66C2BAAD8DF00B1221D /* RecUnitCell.swift in Sources */,
 				B4C37F722B910A2B009C79D7 /* FavHeaderView.swift in Sources */,
 				B42767632B0E64F6000FEB4D /* FilmAssembly.swift in Sources */,
 				B42767612B0E5FB9000FEB4D /* FilmViewController.swift in Sources */,
@@ -793,6 +848,7 @@
 				74F022EF2B337A2C00AFCFA7 /* SearchService.swift in Sources */,
 				74237BC02B3A23FE007A61B8 /* Debouncer.swift in Sources */,
 				06C5C29D2B13BF57009E418E /* RegistrationAssembly.swift in Sources */,
+				B46CA6582BAAD39600B1221D /* RecRouter.swift in Sources */,
 				062643FC2B3C9AD800A74E1D /* User.swift in Sources */,
 				B4C37F692B9109B9009C79D7 /* FavCellModel.swift in Sources */,
 			);
