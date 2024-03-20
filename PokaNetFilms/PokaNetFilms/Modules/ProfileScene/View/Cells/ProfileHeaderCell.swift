@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 final class ProfileHeaderCell: UICollectionViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     
@@ -54,7 +55,6 @@ private extension ProfileHeaderCell {
         setupProfileEmail()
         setupProfileName()
         setupProfileImage()
-        
     }
     
     
@@ -78,6 +78,8 @@ private extension ProfileHeaderCell {
     
     @objc func openStatistics() {
         print(#function)
+        let view = UIHostingController(rootView: RecomendationView())
+        delegate?.presentRecomendationView(view)
     }
     
     //кнопка рекомендаций
@@ -138,7 +140,6 @@ private extension ProfileHeaderCell {
     }
     
     @objc func openSettings(_ sender: UIButton) {
-        print("Я открыл настройки)))")
         let vc = UIImagePickerController()
         vc.sourceType = .photoLibrary
         vc.delegate = self
@@ -303,12 +304,16 @@ extension ProfileHeaderCell {
 
 protocol ProfileHeaderCellDelegate: AnyObject {
     func presentImagePicker(_ picker: UIImagePickerController)
-    
+    func presentRecomendationView(_ view: UIViewController)
     func presentAlert(_ alert: UIAlertController)
 }
 
 
 extension ProfileViewController: ProfileHeaderCellDelegate {
+    func presentRecomendationView(_ view: UIViewController) {
+        present(view, animated: true, completion: nil)
+    }
+    
     func presentAlert(_ alertController: UIAlertController) {
         present(alertController, animated: true, completion: nil)
     }
