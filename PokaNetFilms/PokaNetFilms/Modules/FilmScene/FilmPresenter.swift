@@ -116,6 +116,10 @@ private extension FilmPresenter {
             }
             let name = film.name ?? "PokaNet"
             
+            var filmGenres: [String] = []
+            for item in film.genres {
+                filmGenres.append(item.name)
+            }
             let film: FilmViewModel = .init(
                 filmTitle: name,
                 scoreLabel: String(score),
@@ -131,9 +135,10 @@ private extension FilmPresenter {
                 filmAuthorNameLabel: authors,
                 filmCastTextLabel: casts,
                 filmImage: filmImage, 
-                videoUrl: url ?? "noFilm",
+                videoUrl: url ,
                 id: film.id,
-                itSerial: itSerial
+                itSerial: itSerial,
+                filmGenres: filmGenres
             )
             
 

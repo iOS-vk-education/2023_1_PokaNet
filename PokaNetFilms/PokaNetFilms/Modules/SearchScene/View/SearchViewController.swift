@@ -226,6 +226,14 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        if genreTable.isHidden == true {
+            print("[DEBUG] searchBarBookmarkButtonClicked")
+            var tapsOnSearchBarButton = UserDefaults.standard.integer(forKey: "tapsOnSearchBarButton")
+            tapsOnSearchBarButton += 1
+            print("[DEBUG] searchBarBookmarkButtonClicked \(tapsOnSearchBarButton)")
+            UserDefaults.standard.set(tapsOnSearchBarButton, forKey: "tapsOnSearchBarButton")
+        }
+        
         let isUsingDefaultIcon = searchBar.image(for: .bookmark, state: .normal) == UIImage(systemName: "wand.and.rays.inverse")
         let newIcon = isUsingDefaultIcon ? UIImage(systemName: "xmark.circle") : UIImage(systemName: "wand.and.rays.inverse")
         searchBar.setImage(newIcon, for: .bookmark, state: .normal)

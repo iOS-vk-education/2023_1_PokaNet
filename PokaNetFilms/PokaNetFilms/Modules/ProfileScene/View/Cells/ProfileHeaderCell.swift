@@ -78,7 +78,7 @@ private extension ProfileHeaderCell {
     
     @objc func openStatistics() {
         print(#function)
-        let view = UIHostingController(rootView: RecomendationView())
+        let view = UIHostingController(rootView: StatisticsView())
         delegate?.presentView(view)
     }
     
@@ -101,7 +101,12 @@ private extension ProfileHeaderCell {
     }
     
     @objc func openRecommendation() {
-        print(#function)
+        print("[DEBUG] openRecommendation")
+        var tapsOnOpenRecommendation = UserDefaults.standard.integer(forKey: "tapsOnOpenRecommendation")
+        tapsOnOpenRecommendation += 1
+        print("[DEBUG] openRecommendation \(tapsOnOpenRecommendation)")
+        UserDefaults.standard.set(tapsOnOpenRecommendation, forKey: "tapsOnOpenRecommendation")
+        
         let viewController = RecomendationAssembly.assembly()
         delegate?.presentView(viewController)
     }
@@ -142,6 +147,12 @@ private extension ProfileHeaderCell {
     }
     
     @objc func openSettings(_ sender: UIButton) {
+        print("[DEBUG] openSettings")
+        var tapsOnOpenSettings = UserDefaults.standard.integer(forKey: "tapsOnOpenSettings") 
+        tapsOnOpenSettings += 1
+        print("[DEBUG] openSettings \(tapsOnOpenSettings)")
+        UserDefaults.standard.set(tapsOnOpenSettings, forKey: "tapsOnOpenSettings")
+        
         let vc = UIImagePickerController()
         vc.sourceType = .photoLibrary
         vc.delegate = self
@@ -306,16 +317,12 @@ extension ProfileHeaderCell {
 
 protocol ProfileHeaderCellDelegate: AnyObject {
     func presentImagePicker(_ picker: UIImagePickerController)
-//    func presentStatisticsView(_ view: UIViewController)
     func presentAlert(_ alert: UIAlertController)
     func presentView(_ view: UIViewController)
 }
 
 
 extension ProfileViewController: ProfileHeaderCellDelegate {
-//    func presentStatisticsView(_ view: UIViewController) {
-//        present(view, animated: true, completion: nil)
-//    }
     
     func presentView(_ view: UIViewController) {
         present(view, animated: true, completion: nil)

@@ -38,6 +38,7 @@ final class FilmViewController: UIViewController {
     let idLabel = UILabel()
     let itSerialLabel = UILabel()
     let pnImage = UIImageView()
+    var filmGenres: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +105,7 @@ final class FilmViewController: UIViewController {
     
     @objc private func likeButtonTapped() {
         let alertVC = UIAlertController(title: "PokaNet Films 🎬", message: "Вы добавили \(filmTitle.text ?? "фильм") в избранное!", preferredStyle: .actionSheet)
-        let okAction = UIAlertAction(title: "Хорошо", style: .default){_ in
+        let okAction = UIAlertAction(title: "Хорошо", style: .default){ [self]_ in
             // добавляем в избранное
             var likedFilms:[Int] = []
             if let likedArray = UserDefaults.standard.array(forKey: "likedFilms") as? [Int] {
@@ -113,8 +114,25 @@ final class FilmViewController: UIViewController {
             likedFilms.append(Int(self.idLabel.text ?? "1") ?? 1)
             let setLikedFilms = Set(likedFilms)
             likedFilms = Array(setLikedFilms)
+            
+            UserDefaults.standard.set(setLikedFilms.count, forKey: "likedFilmsCount")
             UserDefaults.standard.set(likedFilms, forKey: "likedFilms")
             
+            // добавляем жанры в статистику
+            print(self.filmGenres!)
+            var likedGenres:[String] = []
+            if let likedGenresArray:[String] = UserDefaults.standard.array(forKey: "likedGenres") as? [String] {
+                likedGenres = likedGenresArray
+            }
+            
+            for item in filmGenres! {
+                likedGenres.append(item)
+            }
+            let setlikedGenres = Set(likedGenres)
+            likedGenres = Array(setlikedGenres)
+            UserDefaults.standard.set(likedGenres, forKey: "likedGenres")
+            
+            // выключаем экран
             self.dismiss(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .default){_ in
@@ -172,6 +190,12 @@ extension FilmViewController{
     }
     
     @objc func buyTicket(_ sender: UIButton) {
+        print("[DEBUG] buyTicket")
+        var tapsOnBuyTicket = UserDefaults.standard.integer(forKey: "tapsOnBuyTicket")
+        tapsOnBuyTicket += 1
+        print("[DEBUG] buyTicket \(tapsOnBuyTicket)")
+        UserDefaults.standard.set(tapsOnBuyTicket, forKey: "tapsOnBuyTicket")
+        
         let secondViewController = TicketViewController()
         secondViewController.modalPresentationStyle = .popover
         secondViewController.id = idLabel.text
@@ -199,6 +223,12 @@ extension FilmViewController{
     
     
     @objc func playVideo(_ sender: UIButton) {
+        print("[DEBUG] playVideo")
+        var tapsOnPlayVideo = UserDefaults.standard.integer(forKey: "tapsOnPlayVideo")
+        tapsOnPlayVideo += 1
+        print("[DEBUG] playVideo \(tapsOnPlayVideo)")
+        UserDefaults.standard.set(tapsOnPlayVideo, forKey: "tapsOnPlayVideo")
+        
         let secondViewController = TrailerViewController()
         secondViewController.modalPresentationStyle = .popover
         secondViewController.videoUrl = videoUrl.text
@@ -495,6 +525,7 @@ extension FilmViewController: FilmViewInput{
         kinopoiskScoreLabel.text = model.kinopoiskScoreLabel
         scoreLabel.text = model.scoreLabel
         scoreLabel.backgroundColor = model.scoreColor
+        filmGenres = model.filmGenres
     }
 }
 

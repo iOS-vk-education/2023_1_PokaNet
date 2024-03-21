@@ -24,6 +24,12 @@ extension FavPresenter: FavViewOutput {
     
     func didTapMovieCell(_ id: Int) {
         router?.presentFilmView(movieID: id)
+        
+        print("[DEBUG] didTapMovieCell")
+        var tapsOnMovieCell = UserDefaults.standard.integer(forKey: "tapsOnMovieCell")
+        tapsOnMovieCell += 1
+        print("[DEBUG] didTapMovieCell \(tapsOnMovieCell)")
+        UserDefaults.standard.set(tapsOnMovieCell, forKey: "tapsOnMovieCell")
     }
     
     func didLoadView() {

@@ -21,6 +21,12 @@ extension MainPresenter: MainViewOutput {
     
     func didTapMovieCell(_ id: Int) {
         router?.presentFilmView(movieID: id)
+        
+        print("[DEBUG] didTapMovieCell")
+        var tapsOnMovieCell = UserDefaults.standard.integer(forKey: "tapsOnMovieCell")
+        tapsOnMovieCell += 1
+        print("[DEBUG] didTapMovieCell \(tapsOnMovieCell)")
+        UserDefaults.standard.set(tapsOnMovieCell, forKey: "tapsOnMovieCell")
     }
     
     func didLoadView() {
@@ -54,7 +60,7 @@ private extension MainPresenter {
             let name = film.name
             
             let filmImage = film.poster!.url
-            var actors: String = "актеры, бла бла"            
+            let actors: String = "актеры, бла бла"            
             return MainMovieCellModel(
                 id: film.id,
                 filmNameLabel: name ?? "PokaNet",

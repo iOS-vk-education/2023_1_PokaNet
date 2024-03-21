@@ -19,7 +19,7 @@ final class TabBarController: UITabBarController {
     }
 }
 
-private extension TabBarController {
+extension TabBarController {
     
     func generateVC(viewController: UIViewController, title: String) -> UIViewController {
         viewController.tabBarItem.title = title
@@ -52,5 +52,15 @@ private extension TabBarController {
         favVC.tabBarItem.image = UIImage(systemName: "heart.fill")
         
         viewControllers = [searchVC, mainVC, profileVC, favVC]
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.image == UIImage(systemName: "magnifyingglass") {
+            print("[DEBUG] searchScene")
+            var tapsOnSearchScene = UserDefaults.standard.integer(forKey: "tapsOnSearchScene")
+            tapsOnSearchScene += 1
+            print("[DEBUG] searchScene \(tapsOnSearchScene)")
+            UserDefaults.standard.set(tapsOnSearchScene, forKey: "tapsOnSearchScene")
+        }
     }
 }
